@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -7,9 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <h3 className="font-archivo text-3xl md:text-4xl text-offwhite mb-4">
-              GOLDENHOUR
-            </h3>
+            <Image src="/brand/goldenhour-monochrome.jpg" alt="GoldenHour" width={230} height={105} className="w-52 h-auto object-cover mb-5" />
             <p className="font-space text-xs text-offwhite/50 max-w-sm leading-relaxed mb-4">
               A student-built experience. For students. By students.
             </p>
