@@ -8,9 +8,18 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   const links = [
     { label: "ABOUT", href: "#about" },
@@ -29,7 +38,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="font-archivo text-xl md:text-2xl text-offwhite tracking-tighter hover:text-sunset transition-colors">
+          <a href="#hero" className="font-archivo text-xl md:text-2xl text-offwhite tracking-tighter hover:text-sunset transition-colors">
             GOLDENHOUR
           </a>
 
@@ -60,7 +69,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-black/98 flex flex-col items-center justify-center gap-8 p-8 md:hidden">
+        <div className="fixed inset-0 z-[60] bg-black flex flex-col items-center justify-center gap-8 p-8 md:hidden">
           <button
             className="absolute top-5 right-5 text-offwhite hover:text-sunset"
             onClick={() => setMenuOpen(false)}

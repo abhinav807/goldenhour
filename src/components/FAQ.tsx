@@ -28,10 +28,10 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-offwhite py-28 md:py-40 px-5 md:px-12 relative overflow-hidden dot-pattern">
+    <section id="faq" className="bg-offwhite py-24 md:py-36 px-5 md:px-12 relative overflow-hidden dot-pattern">
       <div className="max-w-[800px] mx-auto relative z-10">
-        <div className="text-center mb-16 reveal active">
-          <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-3 uppercase shadow-[2px_2px_0_#050505]">
+        <div className="text-center mb-14 reveal">
+          <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-4 uppercase shadow-[2px_2px_0_#050505]">
             CLARITY
           </div>
           <h2 className="font-archivo text-4xl sm:text-6xl md:text-7xl text-black">
@@ -41,30 +41,36 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`brutal-card bg-offwhite reveal ${i < 3 ? "delay-1" : "delay-2"} active`}
+              className={`brutal-card bg-offwhite reveal ${i < 3 ? "delay-1" : "delay-2"}`}
             >
               <button
-                className="w-full p-6 flex justify-between items-center text-left"
+                className="w-full p-5 md:p-6 flex justify-between items-center text-left gap-4"
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
                 <span className="font-archivo text-sm md:text-base text-black">
                   {faq.q}
                 </span>
-                <span className="faq-icon font-space text-2xl text-sunset transition-transform duration-200 shrink-0 ml-4">
+                <span className="font-space text-xl md:text-2xl text-sunset transition-transform duration-200 shrink-0 w-8 h-8 flex items-center justify-center border border-black/10">
                   {openIdx === i ? "×" : "+"}
                 </span>
               </button>
-              {openIdx === i && (
-                <div className="px-6 pb-6 pt-4 border-t border-black/10">
+              <div
+                className="overflow-hidden transition-all duration-300"
+                style={{
+                  maxHeight: openIdx === i ? "200px" : "0",
+                  opacity: openIdx === i ? 1 : 0,
+                }}
+              >
+                <div className="px-5 md:px-6 pb-5 md:pb-6 pt-3 border-t border-black/10">
                   <p className="font-dm text-sm text-black/70 leading-relaxed">
                     {faq.a}
                   </p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

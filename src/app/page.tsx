@@ -25,7 +25,7 @@ export default function Home() {
         <Events />
         <Countdown />
         <Rules />
-        <Marquee reverse speed={45} bg="bg-black" />
+        <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
         <Sponsors />
         <FAQ />
         <FinalCTA />
