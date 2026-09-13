@@ -45,9 +45,9 @@ export default function Sponsors() {
 
         {/* Bottom note */}
         <div className="mt-10 text-center reveal">
-          <p className="font-space text-[10px] text-offwhite/30 uppercase tracking-widest">
+          <a href="mailto:hello@goldenhour.dev?subject=GoldenHour%20partnership" className="font-space text-[10px] text-offwhite/30 hover:text-sunset uppercase tracking-widest transition-colors">
             INTERESTED IN PARTNERING? REACH OUT AT HELLO@GOLDENHOUR.DEV
-          </p>
+          </a>
         </div>
       </div>
     </section>

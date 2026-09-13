@@ -1,119 +1,39 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (el) el.classList.add("active");
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center bg-black text-offwhite overflow-hidden px-5 md:px-12 reveal active"
-    >
-      {/* Brutalist Sun Graphic */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
-        {/* Outermost ring */}
-        <div className="w-[340px] h-[340px] md:w-[560px] md:h-[560px] lg:w-[680px] lg:h-[680px] rounded-full border-[2px] border-offwhite/15 relative">
-          {/* Sun rays */}
-          {[...Array(24)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute top-1/2 left-1/2"
-              style={{
-                width: "2px",
-                height: i % 3 === 0 ? "50%" : i % 2 === 0 ? "42%" : "35%",
-                background: i % 3 === 0 ? "rgba(255,90,0,0.25)" : "rgba(247,247,242,0.08)",
-                transformOrigin: "0 0",
-                transform: `rotate(${i * 15}deg)`,
-              }}
-            />
-          ))}
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-12 hero-grid">
+      <div className="absolute inset-0 pointer-events-none opacity-70" aria-hidden="true">
+        <div className="hero-sun absolute top-[42%] left-[52%] -translate-x-1/2 -translate-y-1/2 w-[min(82vw,760px)] aspect-square rounded-full border border-sunset/40" />
+        <div className="absolute top-[42%] left-[52%] -translate-x-1/2 -translate-y-1/2 w-[min(50vw,420px)] aspect-square rounded-full border-2 border-dashed border-offwhite/20 rotate-12" />
+        <div className="absolute top-[42%] left-[52%] -translate-x-1/2 -translate-y-1/2 w-[min(25vw,210px)] aspect-square rounded-full border-[10px] border-sunset/50" />
+        <div className="absolute top-[18%] left-[16%] w-28 h-28 border-2 border-sunset/40 rotate-45" />
+        <div className="absolute bottom-[18%] right-[14%] w-16 h-16 border border-offwhite/25 rounded-full" />
+        <span className="absolute top-[35%] right-[13%] text-sunset font-space text-4xl">✳</span>
+      </div>
+      <div className="absolute top-28 left-5 md:left-12 font-space text-[10px] text-offwhite/55 uppercase tracking-[.18em] -rotate-3">01 / DELHI</div>
+      <div className="absolute top-40 right-5 md:right-12 font-space text-[10px] text-sunset uppercase tracking-[.18em] rotate-3">OPEN TO STUDENTS</div>
+      <div className="absolute bottom-28 left-5 md:left-16 font-space text-[10px] text-offwhite/55 uppercase tracking-[.18em] -rotate-2">BUILD. BREAK. REPEAT.</div>
+      <div className="absolute bottom-36 right-5 md:right-16 font-space text-[10px] text-yellow uppercase tracking-[.18em] rotate-3">EST. 2026</div>
 
-          {/* Middle ring */}
-          <div className="absolute inset-[50px] md:inset-[80px] lg:inset-[100px] rounded-full border-[2px] border-dashed border-sunset/30" />
-
-          {/* Inner filled */}
-          <div className="absolute inset-[100px] md:inset-[160px] lg:inset-[200px] rounded-full bg-sunset/15 border border-sunset/25" />
-
-          {/* Core */}
-          <div className="absolute inset-[150px] md:inset-[220px] lg:inset-[270px] rounded-full bg-sunset/30" />
-
-          {/* Offset geometry accents */}
-          <div className="absolute top-[8%] left-[5%] w-16 h-16 md:w-28 md:h-28 rounded-full border border-sunset/20" />
-          <div className="absolute bottom-[12%] right-[3%] w-12 h-12 md:w-20 md:h-20 border border-offwhite/10 rotate-45" />
-          <div className="absolute top-[60%] left-[2%] w-3 h-3 md:w-4 md:h-4 bg-yellow/40 rounded-full" />
-          <div className="absolute top-[15%] right-[10%] w-2 h-2 bg-sunset rounded-full" />
-          <div className="absolute bottom-[20%] left-[12%] w-2 h-2 bg-offwhite/30 rounded-full" />
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto pt-28 pb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="h-2.5 w-2.5 bg-sunset animate-[pulse-dot_1.5s_ease-in-out_infinite]" />
+          <span className="font-space text-[10px] md:text-xs font-bold uppercase tracking-[.16em] text-offwhite">THE CLOCK IS RUNNING // 2026</span>
         </div>
-      </div>
-
-      {/* Floating labels */}
-      <div className="absolute top-28 left-5 md:left-12 font-space text-[10px] text-offwhite/50 uppercase tracking-widest z-10" style={{ transform: "rotate(-3deg)" }}>
-        01 / DELHI
-      </div>
-      <div className="absolute top-40 right-5 md:right-12 font-space text-[10px] text-sunset uppercase tracking-widest z-10" style={{ transform: "rotate(4deg)" }}>
-        OPEN TO STUDENTS
-      </div>
-      <div className="absolute bottom-32 left-5 md:left-16 font-space text-[10px] text-offwhite/50 uppercase tracking-widest z-10" style={{ transform: "rotate(-2deg)" }}>
-        BUILD. BREAK. REPEAT.
-      </div>
-      <div className="absolute bottom-44 right-5 md:right-16 font-space text-[10px] text-yellow uppercase tracking-widest z-10" style={{ transform: "rotate(3deg)" }}>
-        EST. 2026
-      </div>
-
-      {/* Rotating stamp */}
-      <div className="absolute top-28 right-8 md:right-20 z-10 circle-badge hidden md:flex">
-        <svg className="circle-badge-text" viewBox="0 0 100 100">
-          <defs>
-            <path id="cp" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
-          </defs>
-          <text>
-            <textPath href="#cp">★ STUDENT-LED ★ BUILT FOR STUDENTS ★ BY STUDENTS ★ </textPath>
-          </text>
-        </svg>
-        <span className="font-archivo text-sunset text-lg">GH</span>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto pt-20 pb-16">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-offwhite border-2 border-offwhite/20 mb-8">
-          <span className="w-2 h-2 bg-sunset rounded-full animate-pulse" />
-          <span className="font-space text-[10px] font-bold uppercase tracking-widest text-black">
-            THE CLOCK IS RUNNING // 2026
-          </span>
-        </div>
-
-        {/* Headline */}
-        <h1 className="font-archivo text-[22vw] md:text-[14vw] lg:text-[12vw] leading-[0.85] tracking-tighter mb-8">
-          GOLDEN
-          <br />
-          HOUR
+        <h1 className="font-archivo text-[19vw] md:text-[15vw] lg:text-[12.5rem] leading-[.78] tracking-[-.085em] max-w-[1100px]">
+          GOLDEN<span className="text-sunset">.</span><br />HOUR
         </h1>
-
-        {/* Subheading */}
-        <p className="font-dm text-lg md:text-2xl text-offwhite/60 mb-12 max-w-xl mx-auto leading-relaxed">
-          A student-built technology experience.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#register" className="brutal-btn-orange px-10 py-4 text-xs md:text-sm">
-            ENTER GOLDENHOUR <ArrowRight size={16} />
-          </a>
-          <a href="#events" className="brutal-btn-outline px-10 py-4 text-xs md:text-sm border-offwhite/30 text-offwhite hover:bg-offwhite hover:text-black hover:border-offwhite">
-            VIEW EVENTS
-          </a>
+        <div className="mt-10 grid md:grid-cols-[1fr_auto] items-end gap-8 max-w-[950px]">
+          <p className="font-dm text-lg md:text-2xl text-offwhite/70 max-w-md leading-snug">A student-built technology experience for people who refuse to wait for the right moment.</p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a href="#register" className="brutal-btn-orange px-7 py-4">ENTER GOLDENHOUR <ArrowRight size={16} /></a>
+            <a href="#events" className="brutal-btn-outline border-offwhite/40 text-offwhite px-7 py-4 hover:border-black">VIEW EVENTS</a>
+          </div>
         </div>
       </div>
-
-      {/* Bottom edge accent */}
+      <a href="#about" className="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 font-space text-[10px] uppercase tracking-[.18em] text-offwhite/50 hover:text-sunset" aria-label="Scroll to learn more">SCROLL TO START <ArrowDown size={14} /></a>
       <div className="absolute bottom-0 left-0 w-full h-1 bg-sunset" />
     </section>
   );
