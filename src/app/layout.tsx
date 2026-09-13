@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/Analytics";
+import { baseDescription, siteUrl } from "./metadata";
 
 export const metadata: Metadata = {
-  title: "GOLDENHOUR — A Student-Built Technology Experience",
-  description: "GOLDENHOUR is a student-led space for people who build, experiment, compete and make things that probably shouldn't exist yet. Delhi / India / 2026.",
-  keywords: "GOLDENHOUR, student hackathon, technology event, Delhi, India, 2026, builder community",
+  metadataBase: new URL(siteUrl),
+  title: { default: "GOLDENHOUR — Build Before Sunrise", template: "%s | GOLDENHOUR" },
+  description: baseDescription,
+  keywords: ["GOLDENHOUR", "student technology event", "Delhi builders", "student hackathon", "India 2026"],
+  applicationName: "GOLDENHOUR",
+  authors: [{ name: "GOLDENHOUR student collective" }],
+  creator: "GOLDENHOUR student collective",
+  alternates: { canonical: siteUrl },
+  openGraph: { type: "website", locale: "en_IN", url: siteUrl, siteName: "GOLDENHOUR", title: "GOLDENHOUR — Build Before Sunrise", description: baseDescription, images: [{ url: "/og-image.jpg", width: 1024, height: 559, alt: "GOLDENHOUR brand identity board" }] },
+  twitter: { card: "summary_large_image", title: "GOLDENHOUR — Build Before Sunrise", description: baseDescription, images: ["/og-image.jpg"] },
+  icons: { icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "192x192" }], apple: "/apple-icon.png" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className="antialiased">
-      <body className="min-h-screen">{children}</body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en" className="antialiased"><body className="min-h-screen">{children}<CookieBanner /><Analytics /></body></html>;
 }

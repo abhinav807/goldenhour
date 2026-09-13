@@ -1,12 +1,12 @@
 "use client";
 
 const partners = [
-  "YOUR LOGO HERE",
-  "PARTNER 01",
-  "PARTNER 02",
-  "PARTNER 03",
-  "PARTNER 04",
-  "PARTNER 05",
+  "COMMUNITY ALLIES",
+  "CAMPUS BUILDERS",
+  "TECH FRIENDS",
+  "CREATIVE CREW",
+  "NIGHT SHIFT",
+  "OPEN COLLECTIVE",
 ];
 
 export default function Sponsors() {

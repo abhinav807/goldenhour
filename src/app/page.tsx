@@ -11,6 +11,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import CursorFollower from "@/components/CursorFollower";
+import MobileCTA from "@/components/MobileCTA";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+      <MobileCTA />
     </>
   );
 }

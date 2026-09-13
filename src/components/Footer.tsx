@@ -15,6 +15,10 @@ export default function Footer() {
             <p className="font-space text-[10px] text-sunset font-bold uppercase">
               DELHI / INDIA / 2026
             </p>
+            <address className="not-italic font-space text-[10px] text-offwhite/40 mt-3 leading-relaxed">
+              GOLDENHOUR STUDENT COLLECTIVE<br />
+              DELHI, INDIA · <a href="mailto:hello@goldenhour.dev" className="text-offwhite/70 hover:text-sunset">hello@goldenhour.dev</a>
+            </address>
           </div>
 
           {/* Links */}
@@ -62,6 +66,10 @@ export default function Footer() {
           <a href="#hero" className="font-space text-[10px] text-offwhite/30 hover:text-offwhite transition-colors">
             BACK TO TOP ↑
           </a>
+        </div>
+        <div className="mt-5 flex gap-5 font-space text-[10px] text-offwhite/30">
+          <a href="/privacy" className="hover:text-sunset">PRIVACY</a>
+          <a href="/terms" className="hover:text-sunset">TERMS</a>
         </div>
       </div>
     </footer>
