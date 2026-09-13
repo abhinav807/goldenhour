@@ -1,55 +1,6 @@
 "use client";
+import { ArrowUpRight } from "lucide-react";
 
-const partners = [
-  "COMMUNITY ALLIES",
-  "CAMPUS BUILDERS",
-  "TECH FRIENDS",
-  "CREATIVE CREW",
-  "NIGHT SHIFT",
-  "OPEN COLLECTIVE",
-];
+const partners = ["COMMUNITY ALLIES", "CAMPUS BUILDERS", "TOOL MAKERS", "CREATIVE CREW", "NIGHT SHIFT"];
 
-export default function Sponsors() {
-  return (
-    <section className="bg-black py-24 md:py-36 px-5 md:px-12 relative overflow-hidden">
-      <div className="max-w-[1200px] mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-14 border-b-2 border-offwhite/10 pb-8 reveal">
-          <div>
-            <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-4 uppercase shadow-[2px_2px_0_#FFD400]">
-              03 / PARTNERS
-            </div>
-            <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">
-              BACKED BY PEOPLE
-              <br />
-              WHO BUILD<span className="text-sunset">.</span>
-            </h2>
-          </div>
-          <a href="#register" className="brutal-btn-orange px-6 py-3 text-[11px]">
-            BECOME A PARTNER →
-          </a>
-        </div>
-
-        {/* Raw sponsor grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {partners.map((p, i) => (
-            <div
-              key={i}
-              className={`border-2 ${i === 0 ? "border-sunset bg-sunset/10" : "border-offwhite/15 bg-offwhite/5"} p-6 md:p-10 flex items-center justify-center min-h-[120px] md:min-h-[160px] transition-all duration-200 hover:border-sunset/50 hover:bg-sunset/5`}
-            >
-              <span className={`font-space text-[10px] md:text-xs ${i === 0 ? "text-sunset" : "text-offwhite/40"} uppercase font-bold tracking-wider text-center`}>
-                {p}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom note */}
-        <div className="mt-10 text-center reveal">
-          <a href="mailto:hello@goldenhour.dev?subject=GoldenHour%20partnership" className="font-space text-[10px] text-offwhite/30 hover:text-sunset uppercase tracking-widest transition-colors">
-            INTERESTED IN PARTNERING? REACH OUT AT HELLO@GOLDENHOUR.DEV
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+export default function Sponsors() { return <section className="bg-black py-28 md:py-40 px-5 md:px-12 relative overflow-hidden"><div className="max-w-[1200px] mx-auto relative z-10"><div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 border-b-2 border-offwhite/15 pb-10 reveal"><div><div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">03 / COLLABORATORS</div><h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">BACKED BY<br />PEOPLE WHO<br /><span className="text-sunset">BUILD.</span></h2></div><p className="font-space text-xs text-offwhite/45 max-w-xs leading-relaxed md:text-right">No polished partner theatre.<br />Just good people, useful tools,<br />and room to make things happen.</p></div><div className="grid md:grid-cols-12 gap-5 md:gap-7"><div className="md:col-span-5 brutal-card-orange p-7 md:p-9 min-h-[280px] flex flex-col justify-between rotate-[-1deg] reveal"><div><p className="font-space text-[10px] uppercase tracking-[.16em] mb-5">OPEN INVITATION / 2026</p><h3 className="font-archivo text-4xl md:text-5xl leading-[.82]">YOUR LOGO<br />COULD LIVE<br />HERE<span className="text-offwhite">.</span></h3></div><a href="mailto:hello@goldenhour.dev?subject=GoldenHour%20partnership" className="font-space text-xs font-bold uppercase flex items-center gap-2 hover:text-offwhite">BECOME A PARTNER <ArrowUpRight size={15} /></a></div><div className="md:col-span-7 grid grid-cols-2 gap-4 reveal delay-1">{partners.map((partner, i) => <div key={partner} className={`min-h-[130px] border-2 flex items-center justify-center p-5 text-center transition-colors hover:border-sunset ${i === 4 ? "col-span-2 border-sunset/70 bg-sunset/10" : "border-offwhite/20 bg-offwhite/5"}`}><span className={`font-space text-[10px] md:text-xs uppercase tracking-[.12em] ${i === 4 ? "text-sunset" : "text-offwhite/45"}`}>{partner}</span></div>)}</div></div><p className="font-space text-[10px] text-offwhite/30 uppercase tracking-[.16em] mt-10 reveal">INTERESTED IN PARTNERING? <a href="mailto:hello@goldenhour.dev?subject=GoldenHour%20partnership" className="text-offwhite/65 hover:text-sunset">HELLO@GOLDENHOUR.DEV</a></p></div></section>; }

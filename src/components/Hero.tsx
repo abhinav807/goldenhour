@@ -32,6 +32,9 @@ export default function Hero() {
             <a href="#events" className="brutal-btn-outline border-offwhite/40 text-offwhite px-7 py-4 hover:border-black">VIEW EVENTS</a>
           </div>
         </div>
+        <div className="mt-12 pt-5 border-t border-offwhite/20 max-w-[950px] grid grid-cols-2 sm:grid-cols-4 gap-5">
+          {[['WHEN', 'NOV 2026'], ['WHERE', 'DELHI / INDIA'], ['DURATION', '48 HOURS'], ['ENTRY', 'FREE']].map(([label, value]) => <div key={label}><p className="font-space text-[9px] text-offwhite/40 uppercase tracking-[.16em] mb-2">{label}</p><p className="font-space text-xs text-offwhite font-bold">{value}</p></div>)}
+        </div>
       </div>
       <a href="#about" className="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 font-space text-[10px] uppercase tracking-[.18em] text-offwhite/50 hover:text-sunset" aria-label="Scroll to learn more">SCROLL TO START <ArrowDown size={14} /></a>
       <div className="absolute bottom-0 left-0 w-full h-1 bg-sunset" />

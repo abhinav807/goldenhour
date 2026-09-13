@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import CursorFollower from "@/components/CursorFollower";
 import MobileCTA from "@/components/MobileCTA";
+import Dispatch from "@/components/Dispatch";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <About />
         <Events />
         <Countdown />
+        <Dispatch />
         <Rules />
         <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
         <Sponsors />
