@@ -1,77 +1,23 @@
 "use client";
 import Image from "next/image";
 
+const explore = [["ABOUT", "#about"], ["EVENTS", "#events"], ["RULES", "#rules"], ["FAQ", "#faq"]];
+
 export default function Footer() {
-  return (
-    <footer className="bg-black text-offwhite px-5 md:px-12 py-12 md:py-16 border-t-2 border-sunset">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <Image src="/brand/goldenhour-monochrome.jpg" alt="GoldenHour" width={230} height={105} className="w-52 h-auto object-cover mb-5" />
-            <p className="font-space text-xs text-offwhite/50 max-w-sm leading-relaxed mb-4">
-              A student-built experience. For students. By students.
-            </p>
-            <p className="font-space text-[10px] text-sunset font-bold uppercase">
-              DELHI / INDIA / 2026
-            </p>
-            <address className="not-italic font-space text-[10px] text-offwhite/40 mt-3 leading-relaxed">
-              GOLDENHOUR STUDENT COLLECTIVE<br />
-              DELHI, INDIA · <a href="mailto:hello@goldenhour.dev" className="text-offwhite/70 hover:text-sunset">hello@goldenhour.dev</a>
-            </address>
-          </div>
-
-          {/* Links */}
-          <div className="md:col-span-3">
-            <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
-              EXPLORE
-            </p>
-            <ul className="font-space text-xs space-y-2.5 text-offwhite/50">
-              <li><a href="#about" className="hover:text-offwhite transition-colors">About</a></li>
-              <li><a href="#events" className="hover:text-offwhite transition-colors">Events</a></li>
-              <li><a href="#rules" className="hover:text-offwhite transition-colors">Rules</a></li>
-              <li><a href="#faq" className="hover:text-offwhite transition-colors">FAQ</a></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
-              CONNECT
-            </p>
-            <ul className="font-space text-xs space-y-2.5 text-offwhite/50">
-              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-sunset transition-colors">Instagram</a></li>
-              <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-sunset transition-colors">Discord</a></li>
-              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-sunset transition-colors">LinkedIn</a></li>
-              <li><a href="mailto:hello@goldenhour.dev" className="hover:text-sunset transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
-              EVENT
-            </p>
-            <ul className="font-space text-xs space-y-2.5 text-offwhite/50">
-              <li><a href="#register" className="hover:text-offwhite transition-colors">Register</a></li>
-              <li><span className="text-offwhite/30">Nov 2026</span></li>
-              <li><span className="text-offwhite/30">Delhi, India</span></li>
-            </ul>
-          </div>
+  return <footer className="bg-black text-offwhite px-5 md:px-12 py-20 md:py-28 border-t-2 border-sunset">
+    <div className="max-w-[1280px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr] gap-14 lg:gap-16 pb-16 md:pb-20 border-b border-offwhite/15">
+        <div className="max-w-[390px]">
+          <div className="inline-block bg-offwhite p-3 mb-7"><Image src="/brand/goldenhour-wordmark.jpg" alt="GoldenHour primary wordmark" width={285} height={76} className="block w-[min(285px,72vw)] h-auto object-cover" /></div>
+          <p className="font-dm text-base md:text-lg text-offwhite/65 max-w-sm leading-relaxed mb-7">A student-built experience for people who make things before they feel ready.</p>
+          <div className="flex items-center gap-3"><span className="w-8 h-1 bg-sunset" /><p className="font-space text-[10px] text-sunset font-bold uppercase tracking-[.15em]">DELHI / INDIA / 2026</p></div>
+          <address className="not-italic font-space text-[10px] text-offwhite/45 mt-6 leading-relaxed">GOLDENHOUR STUDENT COLLECTIVE<br />DELHI, INDIA<br /><a href="mailto:hello@goldenhour.dev" className="text-offwhite/75 hover:text-sunset transition-colors">hello@goldenhour.dev</a></address>
         </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-offwhite/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="font-space text-[10px] text-offwhite/30">
-            MADE BY STUDENTS. FOR STUDENTS.
-          </p>
-          <a href="#hero" className="font-space text-[10px] text-offwhite/30 hover:text-offwhite transition-colors">
-            BACK TO TOP ↑
-          </a>
-        </div>
-        <div className="mt-5 flex gap-5 font-space text-[10px] text-offwhite/30">
-          <a href="/privacy" className="hover:text-sunset">PRIVACY</a>
-          <a href="/terms" className="hover:text-sunset">TERMS</a>
-        </div>
+        <div><p className="font-space text-[10px] font-bold text-sunset uppercase tracking-[.16em] mb-6">EXPLORE</p><ul className="font-space text-xs space-y-4 text-offwhite/55">{explore.map(([label, href]) => <li key={href}><a href={href} className="hover:text-offwhite transition-colors">{label}</a></li>)}</ul></div>
+        <div><p className="font-space text-[10px] font-bold text-sunset uppercase tracking-[.16em] mb-6">CONNECT</p><ul className="font-space text-xs space-y-4 text-offwhite/55"><li><a href="mailto:hello@goldenhour.dev" className="hover:text-sunset transition-colors">EMAIL THE TEAM</a></li><li><a href="/empty-state" className="hover:text-sunset transition-colors">COMMUNITY</a></li><li><a href="/privacy" className="hover:text-sunset transition-colors">PRIVACY</a></li><li><a href="/terms" className="hover:text-sunset transition-colors">TERMS</a></li></ul></div>
+        <div className="sm:col-span-2 lg:col-span-1"><p className="font-space text-[10px] font-bold text-sunset uppercase tracking-[.16em] mb-6">THE EVENT</p><p className="font-archivo text-2xl md:text-3xl leading-[.9] mb-5">BUILD<br />BEFORE<br /><span className="text-sunset">SUNRISE.</span></p><a href="#register" className="font-space text-xs text-offwhite hover:text-sunset transition-colors">REGISTER INTEREST →</a></div>
       </div>
-    </footer>
-  );
+      <div className="pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5"><p className="font-space text-[10px] text-offwhite/35 tracking-[.08em]">MADE BY STUDENTS. FOR STUDENTS.</p><a href="#hero" className="font-space text-[10px] text-offwhite/35 hover:text-offwhite transition-colors">BACK TO TOP ↑</a></div>
+    </div>
+  </footer>;
 }

@@ -5,9 +5,9 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-12 hero-grid">
       <div className="absolute inset-0 pointer-events-none opacity-70" aria-hidden="true">
-        <div className="hero-sun absolute top-[42%] left-[52%] -translate-x-1/2 -translate-y-1/2 w-[min(82vw,760px)] aspect-square rounded-full border border-sunset/40" />
-        <div className="absolute top-[42%] left-[52%] -translate-x-1/2 -translate-y-1/2 w-[min(50vw,420px)] aspect-square rounded-full border-2 border-dashed border-offwhite/20 rotate-12" />
-        <div className="absolute top-[42%] left-[52%] -translate-x-1/2 -translate-y-1/2 w-[min(25vw,210px)] aspect-square rounded-full border-[10px] border-sunset/50" />
+        <div className="hero-sun absolute top-[46%] left-[58%] md:left-[56%] -translate-x-1/2 -translate-y-1/2 w-[min(82vw,760px)] aspect-square rounded-full border border-sunset/40" />
+        <div className="absolute top-[46%] left-[58%] md:left-[56%] -translate-x-1/2 -translate-y-1/2 w-[min(50vw,420px)] aspect-square rounded-full border-2 border-dashed border-offwhite/20 rotate-12" />
+        <div className="absolute top-[46%] left-[58%] md:left-[56%] -translate-x-1/2 -translate-y-1/2 w-[min(25vw,210px)] aspect-square rounded-full border-[10px] border-sunset/50" />
         <div className="absolute top-[18%] left-[16%] w-28 h-28 border-2 border-sunset/40 rotate-45" />
         <div className="absolute bottom-[18%] right-[14%] w-16 h-16 border border-offwhite/25 rounded-full" />
         <span className="absolute top-[35%] right-[13%] text-sunset font-space text-4xl">✳</span>
@@ -22,7 +22,7 @@ export default function Hero() {
           <span className="h-2.5 w-2.5 bg-sunset animate-[pulse-dot_1.5s_ease-in-out_infinite]" />
           <span className="font-space text-[10px] md:text-xs font-bold uppercase tracking-[.16em] text-offwhite">THE CLOCK IS RUNNING // 2026</span>
         </div>
-        <h1 className="font-archivo text-[19vw] md:text-[15vw] lg:text-[12.5rem] leading-[.78] tracking-[-.085em] max-w-[1100px]">
+        <h1 className="font-archivo text-[clamp(4.75rem,12vw,10.75rem)] leading-[.8] tracking-[-.08em] max-w-[980px]">
           GOLDEN<span className="text-sunset">.</span><br />HOUR
         </h1>
         <div className="mt-10 grid md:grid-cols-[1fr_auto] items-end gap-8 max-w-[950px]">
