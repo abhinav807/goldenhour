@@ -1,9 +1,13 @@
 "use client";
 import { ArrowDown, ArrowRight } from "lucide-react";
+import CursorRingField from "@/components/CursorRingField";
 
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-12 hero-grid">
+      <div className="absolute inset-0 z-0 opacity-30 mix-blend-screen pointer-events-none" aria-hidden="true">
+        <CursorRingField background="transparent" density={180} dotSize={95} speed={12} cameraDistance={180} ring={{ push: 50, width: 9, radius: 10, turbulence: 100 }} style={{ minWidth: 0, minHeight: 0 }} />
+      </div>
       <div className="absolute inset-0 pointer-events-none opacity-70" aria-hidden="true">
         <div className="hero-sun absolute top-[46%] left-[58%] md:left-[56%] -translate-x-1/2 -translate-y-1/2 w-[min(82vw,760px)] aspect-square rounded-full border border-sunset/40" />
         <div className="absolute top-[46%] left-[58%] md:left-[56%] -translate-x-1/2 -translate-y-1/2 w-[min(50vw,420px)] aspect-square rounded-full border-2 border-dashed border-offwhite/20 rotate-12" />
