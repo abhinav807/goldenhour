@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GOLDENHOUR
 
-## Getting Started
+Premium brutalist landing page for GOLDENHOUR, a student-led 10-hour technology event in Delhi.
 
-First, run the development server:
+## Local development
+
+Install dependencies and start the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vercel deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The production domain is `https://www.goldenhourdelhi.co.in`. Add that domain to the Vercel project under **Settings → Domains**, then configure the DNS records at the domain registrar as shown by Vercel. Keep both the apex domain and `www` version configured if Vercel recommends both; the site uses the `www` URL as its canonical origin.
 
-## Learn More
+Add these project environment variables in **Vercel → Settings → Environment Variables** for **Production** (and Preview if you want preview builds to emit production-style canonical URLs):
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Value | Required |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.goldenhourdelhi.co.in` | Recommended; the code also uses this as its default fallback |
+| `NEXT_PUBLIC_GA_ID` | Your Google Analytics 4 measurement ID, such as `G-XXXXXXXXXX` | Optional; leave unset to keep analytics disabled |
+| `ENABLE_HTTPS_REDIRECT` | `false` on Vercel | Optional; Vercel already handles HTTPS redirects |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+After changing environment variables, redeploy so Next.js regenerates canonical metadata, Open Graph URLs, `robots.txt`, and `sitemap.xml`. Do not add private API keys: this site currently has no server-side secrets or backend credentials.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Validation
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
