@@ -4,7 +4,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "WHO CAN PARTICIPATE?",
-    a: "Any student currently enrolled in a college or university in India, strictly under 19 years of age. We welcome freshmen through final-year students. You don't need to be a CS major — designers, PMs, and anyone who wants to build is in.",
+    a: "Students from school, college, or any educational background can participate, as long as they are strictly under 19 years of age. You don't need to be a CS major — designers, PMs, and anyone who wants to build is in.",
   },
   {
     q: "DO I NEED TO BE A CODER?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "HOW DO TEAMS WORK?",
-    a: "Teams of 2–4. You can form one before the event or find teammates at our pre-event mixer. Solo builders are welcome too — you'll find your crew.",
+    a: "Teams can have 1–3 participants. You can form one before the event or find teammates through the GOLDENHOUR community. Solo builders are welcome too.",
   },
 ];
 
