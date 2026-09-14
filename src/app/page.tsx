@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Events from "@/components/Events";
 import Countdown from "@/components/Countdown";
 import Rules from "@/components/Rules";
+import Organizers from "@/components/Organizers";
 import Sponsors from "@/components/Sponsors";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
@@ -25,6 +26,7 @@ export default function Home() {
         <Events />
         <Countdown />
         <Rules />
+        <Organizers />
         <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
         <Sponsors />
         <FAQ />

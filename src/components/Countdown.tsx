@@ -29,6 +29,7 @@ export default function Countdown() {
     { value: pad(timeLeft.days), label: "DAYS" },
     { value: pad(timeLeft.hours), label: "HOURS" },
     { value: pad(timeLeft.minutes), label: "MINUTES" },
+    { value: pad(timeLeft.seconds), label: "SECONDS" },
   ];
 
   return (
@@ -38,27 +39,26 @@ export default function Countdown() {
       <div className="absolute top-12 right-12 w-4 h-4 bg-sunset/20 rounded-full" />
       <div className="absolute bottom-10 left-16 w-3 h-3 bg-yellow/30" />
       <div className="absolute bottom-8 right-20 w-8 h-8 border border-sunset/20 rounded-full" />
-      <div className="absolute top-1/2 left-[5%] w-2 h-2 bg-sunset/15" />
-      <div className="absolute top-[30%] right-[8%] w-3 h-3 border border-sunset/15 rotate-12" />
 
       <div className="max-w-[900px] mx-auto text-center relative z-10 reveal">
         <p className="font-space text-xs text-sunset uppercase tracking-widest mb-8 font-bold">
           UNTIL THE HOUR
         </p>
 
-        <div className="flex items-start justify-center gap-2 md:gap-6">
+        {/* 4 units — centered, no overlap */}
+        <div className="flex items-start justify-center gap-1 sm:gap-3 md:gap-6">
           {units.map((item, i) => (
-            <div key={item.label} className="flex items-start gap-2 md:gap-6">
-              <div className="text-center">
-                <span className="font-archivo text-[16vw] md:text-[10vw] lg:text-[8vw] text-offwhite leading-none block">
+            <div key={item.label} className="flex items-start gap-1 sm:gap-3 md:gap-6">
+              <div className="text-center min-w-[60px] sm:min-w-[80px] md:min-w-[120px]">
+                <span className="font-archivo text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-offwhite leading-none block">
                   {item.value}
                 </span>
-                <span className="font-space text-[9px] md:text-[10px] text-offwhite/40 uppercase tracking-widest font-bold block mt-1">
+                <span className="font-space text-[8px] sm:text-[9px] md:text-[10px] text-offwhite/40 uppercase tracking-widest font-bold block mt-1">
                   {item.label}
                 </span>
               </div>
-              {i < 2 && (
-                <span className="font-archivo text-3xl md:text-5xl text-sunset/40 mt-4 md:mt-6">
+              {i < 3 && (
+                <span className="font-archivo text-2xl sm:text-3xl md:text-5xl text-sunset/40 mt-4 md:mt-6">
                   :
                 </span>
               )}

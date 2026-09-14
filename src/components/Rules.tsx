@@ -12,7 +12,8 @@ const rules = [
 export default function Rules() {
   return (
     <section id="rules" className="bg-offwhite py-24 md:py-36 px-5 md:px-12 relative overflow-hidden">
-      <div className="max-w-[1000px] mx-auto relative z-10">
+      <div className="max-w-[900px] mx-auto relative z-10">
+        {/* Header — centered */}
         <div className="text-center mb-14 reveal">
           <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-4 uppercase shadow-[2px_2px_0_#050505]">
             THE CODE

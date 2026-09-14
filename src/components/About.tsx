@@ -3,22 +3,17 @@
 export default function About() {
   return (
     <section id="about" className="bg-offwhite py-24 md:py-36 px-5 md:px-12 relative overflow-hidden dot-pattern">
-      <div className="max-w-[1200px] mx-auto relative z-10">
-        {/* Header row */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-14 border-b-2 border-black pb-8 reveal">
-          <div>
-            <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-4 uppercase shadow-[2px_2px_0_#050505]">
-              01 / ABOUT
-            </div>
-            <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-black">
-              THIS IS YOUR
-              <br />
-              GOLDEN HOUR<span className="text-sunset">.</span>
-            </h2>
+      <div className="max-w-[1100px] mx-auto relative z-10">
+        {/* Header — centered */}
+        <div className="text-center mb-14 border-b-2 border-black pb-8 reveal">
+          <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-4 uppercase shadow-[2px_2px_0_#050505]">
+            01 / ABOUT
           </div>
-          <p className="font-space text-xs md:text-sm max-w-sm font-bold text-black/60 md:text-right">
-            A student-led space for people who build, experiment, compete and make things that probably shouldn&apos;t exist yet.
-          </p>
+          <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-black">
+            THIS IS YOUR
+            <br />
+            GOLDEN HOUR<span className="text-sunset">.</span>
+          </h2>
         </div>
 
         {/* Two-column layout */}
@@ -41,33 +36,33 @@ export default function About() {
               </span>
             </div>
 
-            {/* Stats */}
+            {/* Stats — 3 boxes */}
             <div className="grid grid-cols-3 gap-4 pt-4">
               <div className="brutal-card p-5 text-center">
-                <p className="font-archivo text-3xl md:text-4xl text-sunset">500+</p>
-                <p className="font-space text-[10px] font-bold uppercase mt-1">students</p>
-              </div>
-              <div className="brutal-card p-5 text-center">
-                <p className="font-archivo text-3xl md:text-4xl text-black">48h</p>
+                <p className="font-archivo text-2xl md:text-3xl text-sunset">8h</p>
                 <p className="font-space text-[10px] font-bold uppercase mt-1">build sprint</p>
               </div>
-              <div className="brutal-card-orange p-5 text-center">
-                <p className="font-archivo text-3xl md:text-4xl text-black">100%</p>
+              <div className="brutal-card p-5 text-center">
+                <p className="font-archivo text-2xl md:text-3xl text-black">100%</p>
                 <p className="font-space text-[10px] font-bold uppercase mt-1">student-run</p>
+              </div>
+              <div className="brutal-card-orange p-5 text-center">
+                <p className="font-archivo text-lg md:text-xl text-black leading-tight">BY TEENS<br/>FOR TEENS</p>
               </div>
             </div>
           </div>
 
-          {/* Right: Info card */}
-          <div className="lg:col-span-5 reveal-right delay-2">
+          {/* Right: Info card + age limit box */}
+          <div className="lg:col-span-5 space-y-5 reveal-right delay-2">
+            {/* Info card */}
             <div className="brutal-card p-8 md:p-10 bg-offwhite relative">
               {/* Stamp */}
-              <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full border-2 border-black bg-sunset flex flex-col items-center justify-center shadow-[4px_4px_0_#050505] rotate-12">
+              <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full border-2 border-black bg-sunset flex flex-col items-center justify-center shadow-[4px_4px_0_#050505] rotate-12 z-10">
                 <span className="font-space text-[9px] font-bold text-black uppercase">STUDENT</span>
                 <span className="font-archivo text-xs text-black">POWERED</span>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div>
                   <p className="font-space text-[10px] text-black/40 uppercase font-bold mb-1">WHO</p>
                   <p className="font-space text-xs font-bold text-black uppercase">STUDENTS / BUILDERS / DESIGNERS / MAKERS</p>
@@ -87,8 +82,22 @@ export default function About() {
               </div>
             </div>
 
-            {/* Accent box */}
-            <div className="brutal-card-black p-6 mt-6">
+            {/* Age limit box — separate, no shadow overlap */}
+            <div className="border-2 border-black bg-yellow p-6 shadow-[4px_4px_0_#050505]">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="font-archivo text-2xl text-black">19</span>
+                <div>
+                  <p className="font-space text-[10px] font-bold text-black uppercase">AGE LIMIT</p>
+                  <p className="font-space text-xs font-bold text-black">STRICTLY UNDER 19</p>
+                </div>
+              </div>
+              <p className="font-space text-[10px] text-black/60 leading-relaxed">
+                This is a teen-only hackathon. You must be under 19 years of age at the time of registration.
+              </p>
+            </div>
+
+            {/* CTA box */}
+            <div className="brutal-card-black p-6">
               <h4 className="font-archivo text-lg text-offwhite mb-2">NEVER MISS A BUILD.</h4>
               <p className="font-space text-xs text-offwhite/60 leading-relaxed mb-4">
                 Get plugged into every event, sprint, and opportunity.

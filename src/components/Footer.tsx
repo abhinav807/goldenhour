@@ -2,24 +2,24 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-offwhite px-5 md:px-12 py-12 md:py-16 border-t-2 border-sunset">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <h3 className="font-archivo text-3xl md:text-4xl text-offwhite mb-4">
-              GOLDENHOUR
-            </h3>
-            <p className="font-space text-xs text-offwhite/50 max-w-sm leading-relaxed mb-4">
-              A student-built experience. For students. By students.
-            </p>
-            <p className="font-space text-[10px] text-sunset font-bold uppercase">
-              DELHI / INDIA / 2026
-            </p>
-          </div>
+    <footer className="bg-black text-offwhite px-5 md:px-12 py-16 md:py-20 border-t-2 border-sunset w-full">
+      <div className="max-w-[1100px] mx-auto">
+        {/* Top section — brand + tagline */}
+        <div className="text-center mb-14">
+          <h3 className="font-archivo text-4xl md:text-5xl lg:text-6xl text-offwhite mb-4">
+            GOLDENHOUR
+          </h3>
+          <p className="font-space text-xs text-offwhite/40 max-w-md mx-auto leading-relaxed">
+            A student-built experience. For students. By students.
+          </p>
+          <p className="font-space text-[10px] text-sunset font-bold uppercase mt-3">
+            DELHI / INDIA / 2026
+          </p>
+        </div>
 
-          {/* Links */}
-          <div className="md:col-span-3">
+        {/* Links grid — centered, spaced */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-[800px] mx-auto mb-14">
+          <div className="text-center">
             <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
               EXPLORE
             </p>
@@ -31,7 +31,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="text-center">
             <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
               CONNECT
             </p>
@@ -39,11 +39,10 @@ export default function Footer() {
               <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-sunset transition-colors">Instagram</a></li>
               <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-sunset transition-colors">Discord</a></li>
               <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-sunset transition-colors">LinkedIn</a></li>
-              <li><a href="mailto:hello@goldenhour.dev" className="hover:text-sunset transition-colors">Contact</a></li>
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="text-center">
             <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
               EVENT
             </p>
@@ -51,6 +50,16 @@ export default function Footer() {
               <li><a href="#register" className="hover:text-offwhite transition-colors">Register</a></li>
               <li><span className="text-offwhite/30">Nov 2026</span></li>
               <li><span className="text-offwhite/30">Delhi, India</span></li>
+            </ul>
+          </div>
+
+          <div className="text-center">
+            <p className="font-space text-[10px] font-bold text-sunset uppercase mb-4">
+              CONTACT
+            </p>
+            <ul className="font-space text-xs space-y-2.5 text-offwhite/50">
+              <li><a href="mailto:hello@goldenhour.dev" className="hover:text-sunset transition-colors">Email Us</a></li>
+              <li><a href="#register" className="hover:text-offwhite transition-colors">Register</a></li>
             </ul>
           </div>
         </div>

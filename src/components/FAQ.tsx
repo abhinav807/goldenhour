@@ -4,7 +4,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "WHO CAN PARTICIPATE?",
-    a: "Any student currently enrolled in a college or university in India. We welcome freshmen through final-year students. You don't need to be a CS major — designers, PMs, and anyone who wants to build is in.",
+    a: "Any student currently enrolled in a college or university in India, strictly under 19 years of age. We welcome freshmen through final-year students. You don't need to be a CS major — designers, PMs, and anyone who wants to build is in.",
   },
   {
     q: "DO I NEED TO BE A CODER?",
@@ -29,7 +29,8 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="bg-offwhite py-24 md:py-36 px-5 md:px-12 relative overflow-hidden dot-pattern">
-      <div className="max-w-[800px] mx-auto relative z-10">
+      <div className="max-w-[750px] mx-auto relative z-10">
+        {/* Header — centered */}
         <div className="text-center mb-14 reveal">
           <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-4 uppercase shadow-[2px_2px_0_#050505]">
             CLARITY

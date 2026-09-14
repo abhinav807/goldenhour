@@ -37,7 +37,7 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
           <a href="#hero" className="font-archivo text-xl md:text-2xl text-offwhite tracking-tighter hover:text-sunset transition-colors">
             GOLDENHOUR
           </a>
