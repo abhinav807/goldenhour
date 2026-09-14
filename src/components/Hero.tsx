@@ -1,17 +1,40 @@
 "use client";
 import { ArrowDown, ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 import CursorRingField from "@/components/CursorRingField";
 
 const details = [["WHEN", "NOV 2026"], ["WHERE", "DELHI / INDIA"], ["DURATION", "8 HOURS"], ["ENTRY", "FREE"]];
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+    const onPointerMove = (event: PointerEvent) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+      hero.style.setProperty("--ripple-x", x.toFixed(3));
+      hero.style.setProperty("--ripple-y", y.toFixed(3));
+      hero.style.setProperty("--ripple-strength", "1");
+    };
+    const onPointerLeave = () => hero.style.setProperty("--ripple-strength", "0");
+    hero.addEventListener("pointermove", onPointerMove, { passive: true });
+    hero.addEventListener("pointerleave", onPointerLeave);
+    return () => {
+      hero.removeEventListener("pointermove", onPointerMove);
+      hero.removeEventListener("pointerleave", onPointerLeave);
+    };
+  }, []);
+
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-10 hero-grid">
+    <section ref={heroRef} id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-10 hero-grid" style={{ "--ripple-x": "0", "--ripple-y": "0", "--ripple-strength": "0" } as React.CSSProperties}>
       <div className="absolute inset-0 z-0 opacity-25 mix-blend-screen pointer-events-none" aria-hidden="true"><CursorRingField background="transparent" density={150} dotSize={90} speed={12} cameraDistance={180} ring={{ push: 50, width: 9, radius: 10, turbulence: 100 }} style={{ minWidth: 0, minHeight: 0 }} /></div>
       <div className="absolute inset-0 pointer-events-none opacity-70" aria-hidden="true">
-        <div className="hero-sun absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(90vw,760px)] aspect-square rounded-full border border-sunset/40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(58vw,450px)] aspect-square rounded-full border-2 border-dashed border-offwhite/20 rotate-12" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(28vw,220px)] aspect-square rounded-full border-[10px] border-sunset/50" />
+        <div className="hero-ripple hero-ripple-outer absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(90vw,760px)] aspect-square rounded-full border border-sunset/40" />
+        <div className="hero-ripple hero-ripple-middle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(58vw,450px)] aspect-square rounded-full border-2 border-dashed border-offwhite/20 rotate-12" />
+        <div className="hero-ripple hero-ripple-core absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(28vw,220px)] aspect-square rounded-full border-[10px] border-sunset/50" />
         <div className="absolute top-[18%] left-[12%] w-20 h-20 md:w-28 md:h-28 border-2 border-sunset/40 rotate-45" />
         <div className="absolute bottom-[18%] right-[12%] w-14 h-14 md:w-16 md:h-16 border border-offwhite/25 rounded-full" />
         <span className="absolute top-[40%] right-[12%] text-sunset text-3xl md:text-4xl">✳</span>

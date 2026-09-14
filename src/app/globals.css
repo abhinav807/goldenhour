@@ -63,8 +63,12 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
 .crosshair-cursor { pointer-events: none; position: fixed; width: 28px; height: 28px; z-index: 9999; mix-blend-mode: difference; transition: left .05s linear, top .05s linear; }
 .hero-grid { background-image: linear-gradient(rgba(247,247,242,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(247,247,242,.07) 1px, transparent 1px); background-size: 56px 56px; }
 .hero-sun { background: repeating-radial-gradient(circle at center, transparent 0 19px, rgba(255,90,0,.3) 20px 21px), radial-gradient(circle, rgba(255,90,0,.6) 0 18%, rgba(255,90,0,.12) 18% 32%, transparent 32%); }
+.hero-ripple { transform: translate(calc(-50% + var(--ripple-x, 0) * 16px * var(--ripple-strength, 0)), calc(-50% + var(--ripple-y, 0) * 16px * var(--ripple-strength, 0))); transition: transform 180ms cubic-bezier(.2,.8,.2,1), width 220ms ease-out, height 220ms ease-out; }
+.hero-ripple-outer { opacity: calc(.36 + var(--ripple-strength, 0) * .18); }
+.hero-ripple-middle { transform: translate(calc(-50% + var(--ripple-x, 0) * -24px * var(--ripple-strength, 0)), calc(-50% + var(--ripple-y, 0) * -24px * var(--ripple-strength, 0))) rotate(12deg); opacity: calc(.2 + var(--ripple-strength, 0) * .2); }
+.hero-ripple-core { transform: translate(calc(-50% + var(--ripple-x, 0) * 32px * var(--ripple-strength, 0)), calc(-50% + var(--ripple-y, 0) * 32px * var(--ripple-strength, 0))); opacity: calc(.5 + var(--ripple-strength, 0) * .2); }
 
 @media (min-width: 769px) { *, *::before, *::after { cursor: none !important; } }
 @media (max-width: 768px) { .crosshair-cursor { display: none !important; } .brutal-card:hover, .brutal-card-orange:hover, .brutal-card-black:hover { transform: none; box-shadow: 7px 7px 0 #050505; } }
 @media (max-width: 768px) { main, footer { padding-bottom: 4.75rem; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; } .hero-ripple, .hero-ripple-middle, .hero-ripple-core { transform: translate(-50%, -50%) !important; } }
