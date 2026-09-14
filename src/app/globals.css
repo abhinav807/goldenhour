@@ -39,6 +39,8 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
 @keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.72); } }
 
 .brutal-card { border: 2px solid #050505; background: #f7f7f2; box-shadow: 7px 7px 0 #050505; transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s cubic-bezier(.2,.8,.2,1); }
+.brutal-card.bg-black { background: #050505; color: #f7f7f2; }
+.brutal-card.bg-sunset { background: #ff5a00; color: #050505; }
 .brutal-card:hover { transform: translate(-4px,-4px); box-shadow: 11px 11px 0 #050505; }
 .brutal-card-orange { border: 2px solid #050505; background: #ff5a00; box-shadow: 7px 7px 0 #050505; transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s cubic-bezier(.2,.8,.2,1); }
 .brutal-card-orange:hover { transform: translate(-4px,-4px); box-shadow: 11px 11px 0 #050505; }
