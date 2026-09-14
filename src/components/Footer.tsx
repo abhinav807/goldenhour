@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const explore = [["ABOUT", "#about"], ["TRACKS", "#events"], ["RULES", "#rules"], ["ORGANIZERS", "#organizers"], ["FAQ", "#faq"]];
+const explore = [["ABOUT", "#about"], ["TRACKS", "#events"], ["TIMELINE", "#timeline"], ["PRIZES", "#prizes"], ["RULES", "#rules"], ["ORGANIZERS", "#organizers"], ["FAQ", "#faq"]];
 
 export default function Footer() {
   return <footer className="bg-black text-offwhite px-5 md:px-10 py-24 md:py-32 border-t-4 border-sunset">

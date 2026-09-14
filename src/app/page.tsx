@@ -14,6 +14,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CursorFollower from "@/components/CursorFollower";
 import MobileCTA from "@/components/MobileCTA";
 import Dispatch from "@/components/Dispatch";
+import Timeline from "@/components/Timeline";
+import Prizes from "@/components/Prizes";
 
 export default function Home() {
   return (
@@ -26,10 +28,12 @@ export default function Home() {
         <Marquee />
         <About />
         <Events />
+        <Timeline />
         <Countdown />
         <Dispatch />
         <Rules />
         <Organizers />
+        <Prizes />
         <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
         <Sponsors />
         <FinalCTA />

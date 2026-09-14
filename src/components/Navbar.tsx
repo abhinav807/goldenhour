@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
-const links = [{ label: "ABOUT", href: "#about" }, { label: "TRACKS", href: "#events" }, { label: "ORGANIZERS", href: "#organizers" }, { label: "FAQ", href: "#faq" }];
+const links = [{ label: "ABOUT", href: "#about" }, { label: "TRACKS", href: "#events" }, { label: "TIMELINE", href: "#timeline" }, { label: "PRIZES", href: "#prizes" }, { label: "FAQ", href: "#faq" }];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false); const [menuOpen, setMenuOpen] = useState(false); const [active, setActive] = useState("");
