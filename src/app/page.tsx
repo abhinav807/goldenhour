@@ -14,7 +14,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CursorFollower from "@/components/CursorFollower";
 import MobileCTA from "@/components/MobileCTA";
 import Dispatch from "@/components/Dispatch";
-import Organizers from "@/components/Organizers";
 
 export default function Home() {
   return (
@@ -33,7 +32,6 @@ export default function Home() {
         <Organizers />
         <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
         <Sponsors />
-        <Organizers />
         <FinalCTA />
         <FAQ />
       </main>
