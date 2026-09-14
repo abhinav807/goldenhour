@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   alternates: { canonical: siteUrl },
   openGraph: { type: "website", locale: "en_IN", url: siteUrl, siteName: "GOLDENHOUR", title: "GOLDENHOUR — Build Before Sunrise", description: baseDescription, images: [{ url: "/og-image.jpg", width: 1024, height: 559, alt: "GOLDENHOUR brand identity board" }] },
   twitter: { card: "summary_large_image", title: "GOLDENHOUR — Build Before Sunrise", description: baseDescription, images: ["/og-image.jpg"] },
-  icons: { icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "192x192" }], apple: "/apple-icon.png" },
+  icons: { icon: [{ url: "/favicon.ico" }, { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" }, { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" }, { url: "/icon.png", type: "image/png", sizes: "192x192" }], apple: "/apple-touch-icon.png" },
+  manifest: "/site.webmanifest",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
 };
 

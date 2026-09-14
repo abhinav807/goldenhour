@@ -36,7 +36,7 @@ export default function Hero() {
             <a href="#events" className="brutal-btn-outline border-offwhite/40 text-offwhite px-7 py-4 hover:border-black">VIEW EVENTS</a>
           </div>
         </div>
-        <div className="mt-12 pt-5 border-t border-offwhite/20 max-w-[900px] mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 text-left">
+        <div className="mt-12 pt-5 border-t border-offwhite/20 max-w-[900px] mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 text-left max-[400px]:hidden">
           {[['WHEN', 'NOV 2026'], ['WHERE', 'DELHI / INDIA'], ['DURATION', '48 HOURS'], ['ENTRY', 'FREE']].map(([label, value]) => <div key={label}><p className="font-space text-[9px] text-offwhite/40 uppercase tracking-[.16em] mb-2">{label}</p><p className="font-space text-xs text-offwhite font-bold">{value}</p></div>)}
         </div>
       </div>
