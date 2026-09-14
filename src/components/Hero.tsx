@@ -3,7 +3,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import CursorRingField from "@/components/CursorRingField";
 
-const details = [["WHEN", "NOV 2026"], ["WHERE", "DELHI / INDIA"], ["DURATION", "8 HOURS"], ["ENTRY", "FREE"]];
+const details = [["WHEN", "NOV 2026"], ["WHERE", "DELHI / INDIA"], ["DURATION", "10 HOURS"], ["ENTRY", "FREE"]];
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
