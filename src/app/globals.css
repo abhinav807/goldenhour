@@ -118,3 +118,6 @@ main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-
 main section article, main section .brutal-card, main section .brutal-card-orange, main section .brutal-card-black, footer, footer address, footer ul { text-align: center; }
 footer ul { list-style: none; padding-left: 0; }
 main section p, main section h1, main section h2, main section h3, main section h4, main section blockquote, footer p, footer h1, footer h2, footer h3, footer h4 { text-align: center; }
+
+.luma-embed { display: block; width: min(600px, 100%); height: 450px; margin: 2.5rem auto 0; border: 1px solid rgba(191, 203, 218, .53); border-radius: 4px; background: #fff; }
+@media (max-width: 640px) { .luma-embed { height: 450px; } }
