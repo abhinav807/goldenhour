@@ -107,3 +107,6 @@ main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-
 .intro-loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: #050505; color: #f7f7f2; opacity: 1; visibility: visible; transition: opacity .55s ease, visibility .55s ease; }
 .intro-loader-mark { animation: loading-mark-in .8s cubic-bezier(.2,.8,.2,1) both; }
 .intro-loader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.hero-cta { justify-content: center; align-items: center; }
+.hero-cta > a { margin-inline: 0 !important; text-align: center; }
