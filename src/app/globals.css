@@ -91,3 +91,19 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
   #hero > div.relative { gap: .25rem; }
   #hero .brutal-btn-outline, #hero .brutal-btn-orange { width: 100%; justify-content: center; }
 }
+
+/* Centered presentation system: all section copy and controls share one visual axis. */
+main section, footer { text-align: center; }
+main section .text-left, main section .text-right, footer .text-left, footer .text-right { text-align: center !important; }
+main section button, footer button { text-align: center !important; }
+main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-btn-outline, footer .brutal-btn, footer .brutal-btn-orange, footer .brutal-btn-outline { margin-inline: auto; }
+.hero-background { opacity: .38; }
+.loading-screen { animation: loading-fade-in .55s ease-out both; }
+.loading-mark { animation: loading-mark-in .8s cubic-bezier(.2,.8,.2,1) .12s both; }
+@keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes loading-mark-in { from { opacity: 0; transform: translateY(18px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .loading-screen, .loading-mark { animation: none; } }
+
+.intro-loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: #050505; color: #f7f7f2; opacity: 1; visibility: visible; transition: opacity .55s ease, visibility .55s ease; }
+.intro-loader-mark { animation: loading-mark-in .8s cubic-bezier(.2,.8,.2,1) both; }
+.intro-loader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }

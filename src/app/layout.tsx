@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 import Analytics from "@/components/Analytics";
+import IntroLoader from "@/components/IntroLoader";
 import { baseDescription, siteUrl } from "./metadata";
 
 export const metadata: Metadata = {
@@ -21,5 +22,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className="antialiased"><body className="min-h-screen">{children}<CookieBanner /><Analytics /></body></html>;
+  return <html lang="en" className="antialiased"><body className="min-h-screen"><IntroLoader />{children}<CookieBanner /><Analytics /></body></html>;
 }

@@ -104,7 +104,7 @@ const SEED = 0.5;
 function OriginkitBaseInteractiveBackground({
   strokeColor = "#FFFFFF",
   backgroundColor = "#000000",
-  count = 72,
+  count = 96,
   movement = 24,
   hover = true,
   force = 4,
