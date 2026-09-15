@@ -9,7 +9,7 @@ export function pageMetadata(title: string, description = baseDescription, path 
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, siteName: "GOLDENHOUR", type: "website", images: [{ url: "/og-image.jpg", width: 1024, height: 559, alt: "GOLDENHOUR brand identity board" }] },
-    twitter: { card: "summary_large_image", title, description, images: ["/og-image.jpg"] },
+    openGraph: { title, description, url, siteName: "GOLDENHOUR", type: "website", images: [{ url: "/og-image.png", width: 286, height: 131, alt: "GOLDENHOUR wordmark logo" }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
   };
 }
