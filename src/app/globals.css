@@ -121,3 +121,14 @@ main section p, main section h1, main section h2, main section h3, main section 
 
 .luma-embed { display: block; width: min(600px, 100%); height: 450px; margin: 2.5rem auto 0; border: 1px solid rgba(191, 203, 218, .53); border-radius: 4px; background: #fff; }
 @media (max-width: 640px) { .luma-embed { height: 450px; } }
+.luma-embed-shell { width: min(600px, 100%); margin: 2.5rem auto 0; text-align: center; }
+.luma-embed-shell .luma-embed { margin: 0 auto; }
+.luma-embed-status { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: rgba(5,5,5,.65); margin: 0 auto .75rem; text-align: center; }
+.luma-embed { opacity: .18; transition: opacity .25s ease; }
+.luma-embed.is-loaded { opacity: 1; }
+.luma-fallback { margin: .9rem auto 0; font-size: 10px; }
+@media (max-width: 640px) { .luma-embed-shell { width: 100%; } }
+
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 120; background: #ff5a00; color: #050505; border: 2px solid #050505; padding: .75rem 1rem; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; transition: top .2s ease; }
+.skip-link:focus { top: 1rem; }
+:focus-visible { outline: 3px solid #ff5a00; outline-offset: 3px; }

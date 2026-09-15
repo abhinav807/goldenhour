@@ -313,14 +313,13 @@ function OriginkitBaseInteractiveBackground({
     const onMouseMove = (e: MouseEvent) =>
       updateMousePosition(e.pageX, e.pageY);
     const onTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
       const touch = e.touches[0];
       if (touch) updateMousePosition(touch.clientX, touch.clientY);
     };
 
     window.addEventListener("resize", onResize);
     window.addEventListener("mousemove", onMouseMove);
-    container.addEventListener("touchmove", onTouchMove, { passive: false });
+    container.addEventListener("touchmove", onTouchMove, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -373,8 +372,8 @@ function OriginkitBaseInteractiveBackground({
         return;
       }
       lastFrameRef.current = time;
-      if (!isVisibleRef.current) {
-        rafRef.current = requestAnimationFrame(tick);
+      if (!isVisibleRef.current || document.hidden) {
+        rafRef.current = null;
         return;
       }
       const mouse = mouseRef.current;
@@ -398,8 +397,13 @@ function OriginkitBaseInteractiveBackground({
       drawLines();
       rafRef.current = requestAnimationFrame(tick);
     };
+    const onVisibilityChange = () => {
+      if (!document.hidden && isVisibleRef.current && rafRef.current === null) rafRef.current = requestAnimationFrame(tick);
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
     rafRef.current = requestAnimationFrame(tick);
     return () => {
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;
@@ -449,7 +453,7 @@ function OriginkitBaseInteractiveBackground({
 }
 
 const __originkitPresetProps = {
-  "count": 44,
+  "count": 72,
   "movement": 28,
   "resolution": 2,
   "force": 7,

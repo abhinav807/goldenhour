@@ -17,14 +17,17 @@ import Dispatch from "@/components/Dispatch";
 import Timeline from "@/components/Timeline";
 import Prizes from "@/components/Prizes";
 import BackToTop from "@/components/BackToTop";
+import EventStructuredData from "@/components/EventStructuredData";
 
 export default function Home() {
   return (
     <>
+      <EventStructuredData />
+      <a href="#main-content" className="skip-link">SKIP TO MAIN CONTENT</a>
       <ScrollReveal />
       <CursorFollower />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Marquee />
         <About />

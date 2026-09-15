@@ -22,6 +22,14 @@ const faqs = [
     q: "HOW DO TEAMS WORK?",
     a: "Teams can have 1–3 participants. You can form one before the event or find teammates through the GOLDENHOUR community. Solo builders are welcome too.",
   },
+  {
+    q: "IS THE VENUE CONFIRMED?",
+    a: "The event is planned for Delhi, and the venue will be announced separately. The date is currently marked tentative.",
+  },
+  {
+    q: "HOW DO I REGISTER?",
+    a: "Use the Luma registration form in the registration section, or open the direct registration page if the embedded form does not load.",
+  },
 ];
 
 export default function FAQ() {
@@ -49,10 +57,10 @@ export default function FAQ() {
               className={`brutal-card bg-offwhite reveal ${i < 3 ? "delay-1" : "delay-2"}`}
             >
               <button
-                className="w-full p-5 md:p-6 flex justify-between items-center text-left gap-4"
+                className="w-full p-5 md:p-6 flex justify-center items-center text-center gap-4"
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
-                <span className="font-archivo text-sm md:text-base text-black">
+                <span className="font-archivo text-sm md:text-base text-black text-center">
                   {faq.q}
                 </span>
                 <span className="font-space text-xl md:text-2xl text-sunset transition-transform duration-200 shrink-0 w-8 h-8 flex items-center justify-center border border-black/10">
