@@ -133,6 +133,7 @@ function OriginkitBaseInteractiveBackground({
   const zoomProbeRef = useRef<HTMLDivElement>(null);
   const lastSizeRef = useRef({ width: 0, height: 0, zoom: 1 });
   const isVisibleRef = useRef(true);
+  const lastFrameRef = useRef(0);
 
   const cfgRef = useRef({
     strokeColor,
@@ -342,31 +343,21 @@ function OriginkitBaseInteractiveBackground({
 
   useEffect(() => {
     if (!containerRef.current || !zoomProbeRef.current) return;
-    let rafId = 0;
-    const EPSILON = 1;
-    const checkSize = () => {
-      const container = containerRef.current;
-      const probe = zoomProbeRef.current;
-      if (!container || !probe) return;
+    const container = containerRef.current;
+    const probe = zoomProbeRef.current;
+    const resizeObserver = new ResizeObserver(() => {
       const width = container.clientWidth || container.offsetWidth || 1;
       const height = container.clientHeight || container.offsetHeight || 1;
       const zoom = probe.getBoundingClientRect().width / 20;
       const last = lastSizeRef.current;
-      const changed =
-        Math.abs(width - last.width) > EPSILON ||
-        Math.abs(height - last.height) > EPSILON ||
-        Math.abs(zoom - last.zoom) > 0.01;
-      if (changed) {
+      if (Math.abs(width - last.width) > 1 || Math.abs(height - last.height) > 1 || Math.abs(zoom - last.zoom) > 0.01) {
         lastSizeRef.current = { width, height, zoom };
         setSize();
         setLines();
       }
-      rafId = requestAnimationFrame(checkSize);
-    };
-    rafId = requestAnimationFrame(checkSize);
-    return () => {
-      if (rafId) cancelAnimationFrame(rafId);
-    };
+    });
+    resizeObserver.observe(container);
+    return () => resizeObserver.disconnect();
 
   }, [strokeColor, count, resolution]);
 
@@ -377,6 +368,11 @@ function OriginkitBaseInteractiveBackground({
 
   useEffect(() => {
     const tick = (time: number) => {
+      if (time - lastFrameRef.current < 33) {
+        rafRef.current = requestAnimationFrame(tick);
+        return;
+      }
+      lastFrameRef.current = time;
       if (!isVisibleRef.current) {
         rafRef.current = requestAnimationFrame(tick);
         return;
@@ -453,10 +449,10 @@ function OriginkitBaseInteractiveBackground({
 }
 
 const __originkitPresetProps = {
-  "count": 92,
-  "movement": 50,
-  "resolution": 3,
-  "force": 10,
+  "count": 44,
+  "movement": 28,
+  "resolution": 2,
+  "force": 7,
   "strokeColor": "#FF5A00",
   "backgroundColor": "#050505"
 };
