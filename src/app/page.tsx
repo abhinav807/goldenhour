@@ -16,6 +16,7 @@ import MobileCTA from "@/components/MobileCTA";
 import Dispatch from "@/components/Dispatch";
 import Timeline from "@/components/Timeline";
 import Prizes from "@/components/Prizes";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -41,6 +42,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileCTA />
+      <BackToTop />
     </>
   );
 }
