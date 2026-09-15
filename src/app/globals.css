@@ -110,3 +110,11 @@ main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-
 
 .hero-cta { justify-content: center; align-items: center; }
 .hero-cta > a { margin-inline: 0 !important; text-align: center; }
+
+/* High-contrast hero secondary actions: the black hero needs a visible foreground. */
+.hero-secondary-btn { background: #050505; color: #ff5a00; border-color: #ff5a00; box-shadow: 4px 4px 0 #ff5a00; }
+.hero-secondary-btn:hover { background: #ff5a00; color: #050505; border-color: #050505; box-shadow: 8px 8px 0 #050505; }
+/* Keep copy centered inside every card, box, list, and footer column. */
+main section article, main section .brutal-card, main section .brutal-card-orange, main section .brutal-card-black, footer, footer address, footer ul { text-align: center; }
+footer ul { list-style: none; padding-left: 0; }
+main section p, main section h1, main section h2, main section h3, main section h4, main section blockquote, footer p, footer h1, footer h2, footer h3, footer h4 { text-align: center; }
