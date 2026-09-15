@@ -3,7 +3,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import InteractiveBackground from "@/components/InteractiveBackground";
 
 const volunteerUrl = "https://forms.gle/R8cuBKNLj1ftXKfJ8";
-const details = [["WHEN", "LATE OCT / EARLY NOV"], ["WHERE", "DELHI / VENUE TBA"], ["DURATION", "10 HOURS"], ["ENTRY", "FREE"]];
+const details = [["WHEN", "15 NOVEMBER 2026"], ["WHERE", "DELHI / VENUE TBA"], ["DURATION", "10 HOURS"], ["ENTRY", "FREE"]];
 
 export default function Hero() {
   return (
