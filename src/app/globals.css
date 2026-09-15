@@ -74,3 +74,20 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
 @media (max-width: 768px) { .crosshair-cursor { display: none !important; } .brutal-card:hover, .brutal-card-orange:hover, .brutal-card-black:hover { transform: none; box-shadow: 7px 7px 0 #050505; } }
 @media (max-width: 768px) { main, footer { padding-bottom: 4.75rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; } .hero-ripple, .hero-ripple-middle, .hero-ripple-core { transform: translate(-50%, -50%) !important; } }
+
+/* Hero visual density and intentionally distinct mobile composition. */
+.hero-background { opacity: .38; }
+@media (min-width: 769px) {
+  .hero-background { transform: scale(1.04); transform-origin: center; }
+}
+@media (max-width: 768px) {
+  .hero-background { opacity: .46; transform: scale(1.16); transform-origin: center; }
+  #hero { min-height: 760px; padding-left: 1rem; padding-right: 1rem; }
+  #hero > div.relative { padding-top: 7rem; padding-bottom: 6rem; }
+  #hero h1 { font-size: clamp(4rem, 21vw, 6.5rem); line-height: .78; }
+  #hero { background-size: 38px 38px; }
+}
+@media (max-width: 420px) {
+  #hero > div.relative { gap: .25rem; }
+  #hero .brutal-btn-outline, #hero .brutal-btn-orange { width: 100%; justify-content: center; }
+}

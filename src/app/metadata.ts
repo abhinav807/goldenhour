@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { eventConfig } from "@/lib/event";
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.goldenhourdelhi.co.in").replace(/\/$/, "");
-export const baseDescription = "GOLDENHOUR is a student-led 10-hour technology event in Delhi on 15 November 2026. The venue will be announced soon.";
+export const baseDescription = `GOLDENHOUR is a student-led 10-hour technology event in Delhi on ${eventConfig.date} (${eventConfig.dateStatus.toLowerCase()}). The venue will be announced soon.`;
 
 export function pageMetadata(title: string, description = baseDescription, path = "/"): Metadata {
   const url = `${siteUrl}${path}`;
