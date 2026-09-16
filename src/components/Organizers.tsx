@@ -19,14 +19,14 @@ export default function Organizers() {
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">THE<br />ORGANIZERS<span className="text-sunset">.</span></h2>
           <p className="font-space text-xs md:text-sm text-black/55 mt-6 leading-relaxed">The people holding the thread from first idea to final build.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1120px] mx-auto text-center">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-8 max-w-[1120px] mx-auto text-center">
           {organizers.map((organizer, index) => {
             const isAryan = organizer.name === "ARYAN BRITE";
             const isFirst = index === 0;
             const isPranab = organizer.name === "PRANAB SAINI";
             const isYashpal = organizer.name === "YASHPAL YADAV";
             return (
-              <article key={organizer.name} className={`brutal-card p-8 md:p-10 min-h-[280px] flex flex-col justify-between items-center text-center reveal ${index === 0 ? "delay-1" : "delay-2"} ${index === 1 || isPranab || isYashpal ? "bg-sunset" : "bg-black"}`}>
+              <article key={organizer.name} className={`brutal-card p-8 md:p-10 min-h-[280px] flex flex-col justify-between items-center text-center reveal lg:col-span-2 ${index === 0 ? "delay-1 lg:col-start-2" : index === 1 ? "delay-2 lg:col-start-4" : "delay-2"} ${index === 1 || isPranab || isYashpal ? "bg-sunset" : "bg-black"}`}>
                 <div className="flex justify-between items-start w-full">
                   <span className={`w-14 h-14 border-2 flex items-center justify-center font-archivo text-xl ${isFirst ? "border-offwhite bg-offwhite text-black" : isAryan ? "border-sunset bg-black text-sunset" : isYashpal ? "border-black bg-black text-sunset" : "border-black bg-black text-offwhite"}`}>{organizer.num}</span>
                   <ArrowUpRight className={isFirst || isAryan || isPranab ? "text-black" : "text-black"} size={24} />
