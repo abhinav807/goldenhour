@@ -7,7 +7,8 @@ export const eventConfig = {
   registrationUrl: "https://luma.com/bxo7adm4",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
-  nerdsRoomUrl: "https://nerdsroom.org",
+  delhiHacksUrl: "https://www.delhihacks.me",
+  nerdsRoomUrl: "https://nerdsroom.org", // Legacy archive compatibility; not used by the live event page.
   codeCraftersUrl: "https://www.codecrafters.io",
   dateStatus: "TENTATIVE",
 } as const;
