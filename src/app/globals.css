@@ -179,3 +179,6 @@ html { scroll-behavior: smooth; }
 
 .gh-falling-btn { background: #ff5a00 !important; color: #050505 !important; border-color: #050505 !important; box-shadow: 4px 4px 0 #050505 !important; }
 .gh-falling-btn:hover { background: #050505 !important; color: #ff5a00 !important; border-color: #ff5a00 !important; box-shadow: 7px 7px 0 #ff5a00 !important; }
+
+/* Keep the company mark left-aligned; hero copy remains centered independently. */
+@media (min-width: 769px) { .gh-company-nav { display: flex; } .gh-company-nav .gh-wordmark { justify-content: flex-start; } }
