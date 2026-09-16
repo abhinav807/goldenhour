@@ -140,3 +140,18 @@ main section p, main section h1, main section h2, main section h3, main section 
 .gh-ticker { position: absolute; left: 0; right: 0; bottom: 0; padding: .8rem 0; background: #050505; color: #ff5a00; white-space: nowrap; overflow: hidden; font-family: 'Space Mono', monospace; font-size: .75rem; font-weight: 700; letter-spacing: .12em; word-spacing: 1.4rem; }
 .gh-kicker { font-family: 'Space Mono', monospace; font-size: .7rem; font-weight: 700; letter-spacing: .16em; color: #ff5a00; }
 @media (max-width: 640px) { .gh-company-nav { height: 4rem; padding: 0 1rem; }.gh-company-nav .brutal-btn-orange { padding: .65rem .8rem; font-size: .6rem; }.gh-company-hero h1 { font-size: clamp(4rem, 20vw, 7rem); }.gh-company-hero { min-height: 820px; } }
+
+html { scroll-behavior: smooth; }
+.gh-company-page { --cursor-x: 50vw; --cursor-y: 35vh; background-image: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255,90,0,.14), transparent 24rem), linear-gradient(135deg, rgba(255,90,0,.035) 25%, transparent 25%, transparent 50%, rgba(255,90,0,.035) 50%, rgba(255,90,0,.035) 75%, transparent 75%); background-size: auto, 72px 72px; }
+.gh-company-hero { background-image: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255,90,0,.18), transparent 20rem), linear-gradient(135deg, rgba(5,5,5,.025) 25%, transparent 25%, transparent 50%, rgba(5,5,5,.025) 50%, rgba(5,5,5,.025) 75%, transparent 75%); background-size: auto, 58px 58px; }
+.gh-ticker > div, .gh-section-tape > div { width: max-content; animation: gh-tape-scroll 28s linear infinite; }
+@keyframes gh-tape-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.gh-section-tape { overflow: hidden; background: #ff5a00; color: #050505; border-bottom: 3px solid #050505; padding: .85rem 0; white-space: nowrap; font-family: 'Space Mono', monospace; font-size: .72rem; font-weight: 700; letter-spacing: .14em; }
+.gh-section-tape-dark { background: #050505; color: #ff5a00; border-color: #ff5a00; }
+.gh-partner-tile { transition: transform .2s ease, box-shadow .2s ease; }.gh-partner-tile:hover { transform: translate(-3px,-3px); box-shadow: 11px 11px 0 #050505; }
+.goldenhacks-cursor { position: fixed; inset: 0; z-index: 200; pointer-events: none; mix-blend-mode: difference; }
+.goldenhacks-cursor-dot, .goldenhacks-cursor-ring { position: absolute; left: var(--cursor-x); top: var(--cursor-y); display: block; transform: translate(-50%,-50%); }
+.goldenhacks-cursor-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; }.goldenhacks-cursor-ring { width: 34px; height: 34px; border: 1px solid #fff; border-radius: 50%; transition: width .15s ease, height .15s ease; }
+@media (min-width: 769px) { .gh-company-page, .gh-company-page a, .gh-company-page button { cursor: none; } }
+@media (max-width: 768px) { .goldenhacks-cursor { display: none; } .gh-ticker > div, .gh-section-tape > div { animation-duration: 42s; } }
+@media (prefers-reduced-motion: reduce) { .goldenhacks-cursor { display: none; } html { scroll-behavior: auto; } .gh-ticker > div, .gh-section-tape > div { animation: none; } }
