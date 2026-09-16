@@ -1,0 +1,16 @@
+"use client";
+
+const schedule = [
+  ["09:00 AM – 10:00 AM", "REGISTRATION & INTRODUCTION", "Participant check-in, verification, badge collection, venue orientation, team settling and brief introductions before the event begins."],
+  ["10:00 AM – 11:00 AM", "SPONSORS & EVENT OVERVIEW", "Welcome address, introduction to GOLDENHOUR, sponsor introductions, hackathon format, rules, judging criteria and submission requirements."],
+  ["11:00 AM – 02:00 PM", "HACKING SPRINT 01", "The first major build session. Teams finalize their ideas, set up repositories, plan their architecture and begin building their projects."],
+  ["02:00 PM – 02:30 PM", "LUNCH BREAK", "Lunch served for participants, with time to recharge before the afternoon sprint."],
+  ["02:30 PM – 04:00 PM", "HACKING SPRINT 02", "The final development sprint. Teams continue building, integrate features, test their projects, fix issues and prepare everything for submission."],
+  ["04:00 PM – 05:00 PM", "PROJECT SUBMISSION", "Final submission window. Teams submit their GitHub repository, deployed project/demo link and required project information. 04:00 PM is the hard submission deadline."],
+  ["05:00 PM – 06:00 PM", "REMOTE JUDGING", "Submitted projects are evaluated by the judging panel remotely/online. Judges review submitted projects, repositories, deployed demos and project information according to the official judging criteria."],
+  ["06:00 PM – 06:30 PM", "AWARDS & CLOSING", "Winner announcement, prize distribution, sponsor acknowledgements, organizer remarks, certificates and closing photographs."],
+];
+
+export default function Timeline() {
+  return <section id="timeline" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden grid-pattern"><div className="max-w-[1100px] mx-auto relative z-10"><header className="text-center max-w-3xl mx-auto mb-16 reveal"><div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div><h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black">THE BUILD<br />DAY<span className="text-sunset">.</span></h2><p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">Participants and organizers are physically present. Judges evaluate submitted work remotely and online after the hard submission deadline.</p></header><div className="space-y-4">{schedule.map(([time, title, description], index) => <article key={time} className={`brutal-card bg-offwhite p-6 md:p-8 grid md:grid-cols-[220px_1fr] gap-5 md:gap-10 items-start reveal ${index % 2 ? "delay-2" : "delay-1"}`}><div className="font-space text-xs md:text-sm text-sunset font-bold leading-relaxed">{time}</div><div><h3 className="font-archivo text-xl md:text-2xl text-black mb-3">{title}</h3><p className="font-dm text-sm md:text-base text-black/65 leading-relaxed">{description}</p></div></article>)}</div><div className="mt-8 border-2 border-black bg-sunset p-6 text-center shadow-[7px_7px_0_#050505]"><p className="font-space text-xs font-bold uppercase tracking-[.14em]">HARD SUBMISSION DEADLINE / 04:00 PM</p><p className="font-space text-[10px] mt-2">Development closes when submissions close.</p></div></div></section>;
+}

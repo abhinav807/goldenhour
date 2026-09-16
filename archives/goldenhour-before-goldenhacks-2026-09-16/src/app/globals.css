@@ -132,11 +132,3 @@ main section p, main section h1, main section h2, main section h3, main section 
 .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 120; background: #ff5a00; color: #050505; border: 2px solid #050505; padding: .75rem 1rem; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; transition: top .2s ease; }
 .skip-link:focus { top: 1rem; }
 :focus-visible { outline: 3px solid #ff5a00; outline-offset: 3px; }
-.gh-company-page { min-height: 100vh; }
-.gh-company-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 1.25rem; background: rgba(247,247,242,.94); border-bottom: 2px solid #050505; backdrop-filter: blur(8px); }
-.gh-wordmark { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.1rem, 3vw, 1.8rem); letter-spacing: -.08em; }.gh-wordmark span { color: #ff5a00; }
-.gh-company-hero { position: relative; min-height: 100vh; border-bottom: 4px solid #050505; background-color: #f7f7f2; overflow: hidden; }
-.gh-hero-grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3,1fr); opacity: .22; pointer-events: none; }.gh-hero-grid span { border-right: 1px solid #050505; }.gh-hero-grid span:nth-child(3n) { border-right: 0; }.gh-hero-grid::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(135deg, transparent 49.5%, #ff5a00 49.5%, #ff5a00 50.5%, transparent 50.5%); background-size: 120px 120px; opacity: .22; }
-.gh-ticker { position: absolute; left: 0; right: 0; bottom: 0; padding: .8rem 0; background: #050505; color: #ff5a00; white-space: nowrap; overflow: hidden; font-family: 'Space Mono', monospace; font-size: .75rem; font-weight: 700; letter-spacing: .12em; word-spacing: 1.4rem; }
-.gh-kicker { font-family: 'Space Mono', monospace; font-size: .7rem; font-weight: 700; letter-spacing: .16em; color: #ff5a00; }
-@media (max-width: 640px) { .gh-company-nav { height: 4rem; padding: 0 1rem; }.gh-company-nav .brutal-btn-orange { padding: .65rem .8rem; font-size: .6rem; }.gh-company-hero h1 { font-size: clamp(4rem, 20vw, 7rem); }.gh-company-hero { min-height: 820px; } }

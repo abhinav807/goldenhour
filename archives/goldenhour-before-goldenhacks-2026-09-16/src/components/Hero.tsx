@@ -1,0 +1,16 @@
+"use client";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import InteractiveBackground from "@/components/InteractiveBackground";
+import { eventConfig } from "@/lib/event";
+
+const details = [["WHEN", `${eventConfig.date} (${eventConfig.dateStatus})`], ["WHERE", eventConfig.location], ["DURATION", eventConfig.duration], ["ENTRY", eventConfig.entry]];
+
+export default function Hero() {
+  return (
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-10 hero-grid">
+      <div className="hero-background absolute inset-0 z-0 pointer-events-none" aria-hidden="true"><InteractiveBackground /></div>
+      <div className="relative z-10 w-full max-w-none mx-auto pt-32 pb-28 text-center flex flex-col items-center"><div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8 font-space text-[10px] uppercase tracking-[.18em]"><span className="text-offwhite/55">01 / DELHI</span><span className="text-sunset">OPEN TO STUDENTS</span><span className="flex items-center gap-3 text-offwhite"><span className="h-2.5 w-2.5 bg-sunset animate-[pulse-dot_1.5s_ease-in-out_infinite]" />THE CLOCK IS RUNNING // 2026</span></div><h1 className="font-archivo text-[clamp(4.5rem,13vw,11rem)] leading-[.8] tracking-[-.08em] max-w-[1100px] mx-auto">GOLDEN<span className="text-sunset">.</span><br />HOUR</h1><div className="mt-10 max-w-[760px] mx-auto flex flex-col items-center gap-8"><p className="font-dm text-lg md:text-2xl text-offwhite/70 max-w-lg leading-snug">A student-built technology experience for people who refuse to wait for the right moment.</p><div className="hero-cta w-full flex flex-wrap items-center justify-center gap-3"><a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className="brutal-btn-orange px-7 py-4 mx-0">REGISTER NOW <ArrowRight size={16} /></a><a href={eventConfig.volunteerUrl} target="_blank" rel="noreferrer" className="brutal-btn-outline hero-secondary-btn px-7 py-4 mx-0">VOLUNTEER WITH US</a><a href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noreferrer" className="brutal-btn-outline hero-secondary-btn px-7 py-4 mx-0">JOIN WHATSAPP COMMUNITY</a></div><p className="font-space text-[10px] text-offwhite/45 uppercase tracking-[.14em]">Participant registration is now open.</p></div><div className="mt-8 md:mt-14 pt-6 border-t border-offwhite/20 w-full max-w-[1000px] mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 md:gap-6 text-center max-[400px]:hidden">{details.map(([label, value]) => <div key={label}><p className="font-space text-[9px] text-offwhite/40 uppercase tracking-[.16em] mb-2">{label}</p><p className="font-space text-xs text-offwhite font-bold">{value}</p></div>)}</div></div>
+      <a href="#about" className="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 font-space text-[10px] uppercase tracking-[.18em] text-offwhite/50 hover:text-sunset" aria-label="Scroll to learn more">SCROLL TO START <ArrowDown size={14} /></a><div className="absolute bottom-0 left-0 w-full h-1 bg-sunset" />
+    </section>
+  );
+}

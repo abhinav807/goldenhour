@@ -1,51 +1,71 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import About from "@/components/About";
-import Events from "@/components/Events";
-import Countdown from "@/components/Countdown";
-import Rules from "@/components/Rules";
-import Organizers from "@/components/Organizers";
-import Sponsors from "@/components/Sponsors";
-import FAQ from "@/components/FAQ";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
-import CursorFollower from "@/components/CursorFollower";
-import MobileCTA from "@/components/MobileCTA";
-import Dispatch from "@/components/Dispatch";
-import Timeline from "@/components/Timeline";
-import Prizes from "@/components/Prizes";
-import BackToTop from "@/components/BackToTop";
-import EventStructuredData from "@/components/EventStructuredData";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+const events = [
+  {
+    name: "GOLDENHOUR V1",
+    type: "10-HOUR STUDENT HACKATHON",
+    date: "14 NOVEMBER 2026 / TENTATIVE",
+    description: "A student-led build sprint for under-19 builders in Delhi NCR. Build, compete, and create things that push boundaries.",
+    href: "/goldenhour",
+    action: "ENTER GOLDENHOUR",
+    internal: true,
+  },
+  {
+    name: "FALLING SUN",
+    type: "NIGHT-TO-DAWN DEVELOPMENT HACKATHON",
+    date: "DATE TO BE ANNOUNCED",
+    description: "An intensive build focused on autonomous agents, modern interfaces, and scalable technology.",
+    href: "https://www.delhihacks.me",
+    action: "VISIT DELHI HACKS",
+    internal: false,
+  },
+];
+
+const principles = ["CONTINUOUS INNOVATION", "HANDS-ON ENGINEERING", "RADICAL INCLUSION", "COMMUNITY FIRST"];
 
 export default function Home() {
   return (
-    <>
-      <EventStructuredData />
-      <a href="#main-content" className="skip-link">SKIP TO MAIN CONTENT</a>
-      <ScrollReveal />
-      <CursorFollower />
-      <Navbar />
-      <main id="main-content">
-        <Hero />
-        <Marquee />
-        <About />
-        <Events />
-        <Timeline />
-        <Countdown />
-        <Dispatch />
-        <Rules />
-        <Organizers />
-        <Prizes />
-        <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
-        <Sponsors />
-        <FinalCTA />
-        <FAQ />
-      </main>
-      <Footer />
-      <MobileCTA />
-      <BackToTop />
-    </>
+    <main className="gh-company-page bg-offwhite text-black overflow-hidden">
+      <nav className="gh-company-nav" aria-label="GoldenHacks navigation">
+        <Link href="#top" className="gh-wordmark" aria-label="GoldenHacks home">GOLDEN<span>.</span>HACKS</Link>
+        <div className="hidden md:flex items-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
+          <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
+        </div>
+        <Link href="#events" className="brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
+      </nav>
+
+      <section id="top" className="gh-company-hero dot-pattern">
+        <div className="gh-hero-grid" aria-hidden="true"><span /><span /><span /><span /><span /><span /><span /><span /><span /></div>
+        <div className="relative z-10 max-w-[1240px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36">
+          <p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHOUR ORGANIZING COMPANY / DELHI NCR</p>
+          <h1 className="font-archivo text-[19vw] sm:text-[15vw] md:text-[12vw] leading-[.76] tracking-[-.08em] max-w-6xl">BUILD<br /><span className="text-sunset">WHAT&apos;S</span><br />NEXT<span className="text-offwhite">.</span></h1>
+          <div className="mt-12 grid md:grid-cols-[1fr_auto] gap-8 items-end max-w-5xl">
+            <p className="font-dm text-xl md:text-3xl leading-snug max-w-2xl">A student-led innovation organization creating hackathons, workshops, and opportunities for students to build, collaborate, and turn ideas into impact.</p>
+            <Link href="#events" className="brutal-btn-orange px-7 py-4 justify-center">VIEW HACKATHONS <ArrowUpRight size={18} /></Link>
+          </div>
+        </div>
+        <div className="gh-ticker" aria-hidden="true">BUILD. IMPROVE. REPEAT. / STUDENT INNOVATORS / FREE FOR STUDENTS / BUILD. IMPROVE. REPEAT. /</div>
+      </section>
+
+      <section id="about" className="px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
+        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.1fr_.9fr] gap-12 lg:gap-24 items-start">
+          <div><p className="gh-kicker">01 / THE COMPANY</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">MORE THAN<br /><span className="text-sunset">EVENTS.</span></h2></div>
+          <div className="space-y-7 font-dm text-lg md:text-xl leading-relaxed text-center lg:text-left"><p>GoldenHacks creates platforms for students to learn, build, collaborate, and showcase their ideas.</p><p>Hackathons, technical masterclasses, acceleration opportunities, innovation sprints, ideathons, mentorship, and project showcases all point in one direction: the next generation of Indian builders.</p><div className="brutal-card-black p-7 text-offwhite text-center"><p className="font-space text-xs text-sunset uppercase tracking-widest font-bold mb-3">THE PROMISE</p><p className="font-archivo text-2xl">100% FREE FOR ALL STUDENTS.</p><p className="font-space text-xs text-offwhite/60 mt-3">Beginners and experts. Everyone gets a place to start.</p></div></div>
+        </div>
+      </section>
+
+      <section id="events" className="bg-sunset px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
+        <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">PICK YOUR<br /><span className="text-offwhite">BUILD.</span></h2></div><div className="grid lg:grid-cols-2 gap-8">{events.map((event, i) => <article key={event.name} className={`p-7 md:p-10 border-2 border-black shadow-[8px_8px_0_#050505] ${i === 0 ? "bg-offwhite" : "bg-black text-offwhite"}`}><div className="flex justify-between items-start gap-4 mb-12"><span className={`font-space text-[10px] font-bold px-3 py-2 ${i === 0 ? "bg-black text-sunset" : "bg-sunset text-black"}`}>0{i + 1}</span><span className={`font-space text-[10px] font-bold uppercase text-right ${i === 0 ? "text-black/55" : "text-offwhite/55"}`}>{event.date}</span></div><p className={`font-space text-[10px] tracking-widest font-bold mb-4 ${i === 0 ? "text-black/55" : "text-sunset"}`}>{event.type}</p><h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3><p className={`font-dm text-lg leading-relaxed max-w-lg mb-10 ${i === 0 ? "text-black/70" : "text-offwhite/70"}`}>{event.description}</p>{event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black">{event.action} <ArrowUpRight size={18} /></a>}</article>)}</div></div>
+      </section>
+
+      <section id="founders" className="px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
+        <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">03 / THE PEOPLE</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">BUILT BY<br /><span className="text-sunset">BUILDERS.</span></h2></div><div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"><div className="brutal-card p-8 md:p-10 text-center"><p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-FOUNDER / 01</p><h3 className="font-archivo text-4xl md:text-5xl">ABHINAV<br />GOYAL<span className="text-sunset">.</span></h3></div><div className="brutal-card-orange p-8 md:p-10 text-center"><p className="font-space text-[10px] text-black/60 tracking-widest mb-4">CO-FOUNDER / 02</p><h3 className="font-archivo text-4xl md:text-5xl">DIVYA<span className="text-offwhite">.</span></h3></div></div></div>
+      </section>
+
+      <section className="bg-black text-offwhite px-5 md:px-10 py-24 md:py-36 border-b-4 border-sunset"><div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center"><div><p className="gh-kicker text-sunset">04 / THE STANDARD</p><h2 className="font-archivo text-5xl md:text-7xl leading-[.82] mt-6">A MOVEMENT<br />IN THE <span className="text-sunset">MAKING.</span></h2></div><div className="grid grid-cols-2 gap-3">{principles.map((principle, i) => <div key={principle} className="border border-offwhite/20 p-5 min-h-32 flex items-end"><p className="font-space text-xs font-bold leading-relaxed">0{i + 1}<br /><span className="text-sunset">{principle}</span></p></div>)}</div></div></section>
+
+      <footer id="contact" className="bg-sunset px-5 md:px-10 py-16"><div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-10 items-end"><div><p className="font-space text-xs font-bold tracking-widest mb-5">GOLDENHACKS / DELHI NCR / INDIA</p><h2 className="font-archivo text-5xl md:text-7xl leading-[.8]">LET&apos;S BUILD<br /><span className="text-offwhite">TOGETHER.</span></h2></div><div className="md:text-right"><a href="mailto:goldenhourdelhi@gmail.com" className="font-archivo text-xl underline underline-offset-4">goldenhourdelhi@gmail.com</a><div className="flex md:justify-end gap-4 mt-6"><a href="https://www.linkedin.com/company/goldenhourdelhi/" target="_blank" rel="noreferrer" aria-label="GoldenHour on LinkedIn" className="p-3 border-2 border-black font-space font-bold">LI</a><a href="https://www.instagram.com/goldenhour.delhi/" target="_blank" rel="noreferrer" aria-label="GoldenHour on Instagram" className="p-3 border-2 border-black font-space font-bold">IG</a></div></div></div><div className="max-w-[1200px] mx-auto mt-16 pt-5 border-t border-black/30 flex flex-col md:flex-row justify-between gap-3 font-space text-[10px] font-bold"><span>GOLDENHACKS © 2026</span><span>BUILD. IMPROVE. REPEAT.</span></div></footer>
+    </main>
   );
 }
