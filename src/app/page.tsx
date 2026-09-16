@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
+import Marquee from "@/components/Marquee";
 
 const events = [
   {
@@ -27,7 +28,7 @@ const events = [
 const principles = ["CONTINUOUS INNOVATION", "HANDS-ON ENGINEERING", "RADICAL INCLUSION", "COMMUNITY FIRST"];
 const tapeWords = "GOLDENHACKS / BUILD. IMPROVE. REPEAT. / STUDENT INNOVATORS / FREE FOR STUDENTS / ";
 function SectionTape({ dark = false }: { dark?: boolean }) {
-  return <div className={`gh-section-tape ${dark ? "gh-section-tape-dark" : ""}`} aria-hidden="true"><div>{tapeWords}{tapeWords}</div></div>;
+  return <Marquee reverse={dark} speed={dark ? 45 : 35} bg={dark ? "bg-black" : "bg-sunset"} borderColor={dark ? "border-sunset" : "border-black"} />;
 }
 
 export default function Home() {
@@ -75,7 +76,7 @@ export default function Home() {
 
       <SectionTape dark />
       <section id="partners" className="bg-offwhite px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
-        <div className="max-w-[1200px] mx-auto text-center"><p className="gh-kicker">04 / THE PARTNERS</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6 mb-14">BUILT<br /><span className="text-sunset">TOGETHER.</span></h2><a href="https://www.delhihacks.me" target="_blank" rel="noreferrer" className="gh-partner-tile brutal-card-orange max-w-2xl mx-auto p-8 md:p-12 block text-center"><p className="font-space text-[10px] text-black/60 tracking-widest mb-8">FOUNDING PARTNER / 01</p><div className="bg-offwhite border-2 border-black p-6 md:p-8 mx-auto max-w-sm"><Image src="/brand/delhi-hacks-partner.png" alt="DelhiHacks logo" width={500} height={500} className="w-full h-auto object-contain" /></div><h3 className="font-archivo text-4xl md:text-6xl mt-8">DELHIHACKS<span className="text-offwhite">.</span></h3><p className="font-space text-xs text-black/70 mt-4">CLICK TO VISIT DELHIHACKS.ME <ArrowUpRight size={16} className="inline-block ml-1" /></p></a></div>
+        <div className="max-w-[1200px] mx-auto text-center"><p className="gh-kicker">04 / THE PARTNERS</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6 mb-14">BUILT<br /><span className="text-sunset">TOGETHER.</span></h2><a href="https://www.delhihacks.me" target="_blank" rel="noreferrer" className="gh-partner-tile brutal-card-orange max-w-2xl mx-auto p-8 md:p-12 block text-center"><p className="font-space text-[10px] text-black/60 tracking-widest mb-8">FOUNDING PARTNER / 01</p><div className="bg-offwhite border-2 border-black p-6 md:p-8 mx-auto max-w-sm"><Image src="/brand/delhi-hacks-logo.svg" alt="DelhiHacks logo" width={500} height={500} className="w-full h-auto object-contain" /></div><h3 className="font-archivo text-4xl md:text-6xl mt-8">DELHIHACKS<span className="text-offwhite">.</span></h3><p className="font-space text-xs text-black/70 mt-4">CLICK TO VISIT DELHIHACKS.ME <ArrowUpRight size={16} className="inline-block ml-1" /></p></a></div>
       </section>
       <SectionTape />
       <section className="bg-black text-offwhite px-5 md:px-10 py-24 md:py-36 border-b-4 border-sunset"><div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center"><div><p className="gh-kicker text-sunset">04 / THE STANDARD</p><h2 className="font-archivo text-5xl md:text-7xl leading-[.82] mt-6">A MOVEMENT<br />IN THE <span className="text-sunset">MAKING.</span></h2></div><div className="grid grid-cols-2 gap-3">{principles.map((principle, i) => <div key={principle} className="border border-offwhite/20 p-5 min-h-32 flex items-end"><p className="font-space text-xs font-bold leading-relaxed">0{i + 1}<br /><span className="text-sunset">{principle}</span></p></div>)}</div></div></section>

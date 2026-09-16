@@ -212,7 +212,7 @@ function OriginkitBaseInteractiveBackground({
     const mouse = mouseRef.current;
     const rect = container.getBoundingClientRect();
     mouse.x = x - rect.left;
-    mouse.y = y - rect.top + window.scrollY;
+    mouse.y = y - rect.top;
     if (!mouse.set) {
       mouse.sx = mouse.x;
       mouse.sy = mouse.y;
@@ -310,16 +310,12 @@ function OriginkitBaseInteractiveBackground({
       setSize();
       setLines();
     };
-    const onMouseMove = (e: MouseEvent) =>
-      updateMousePosition(e.pageX, e.pageY);
-    const onTouchMove = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      if (touch) updateMousePosition(touch.clientX, touch.clientY);
-    };
+    const onPointerMove = (e: PointerEvent) =>
+      updateMousePosition(e.clientX, e.clientY);
+    
 
     window.addEventListener("resize", onResize);
-    window.addEventListener("mousemove", onMouseMove);
-    container.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -333,8 +329,7 @@ function OriginkitBaseInteractiveBackground({
 
     return () => {
       window.removeEventListener("resize", onResize);
-      window.removeEventListener("mousemove", onMouseMove);
-      container.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("pointermove", onPointerMove);
       observer.disconnect();
     };
 

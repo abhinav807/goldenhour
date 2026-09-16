@@ -15,7 +15,7 @@ export default function CursorFollower() {
   }, []);
 
   useEffect(() => {
-    const move = (e: MouseEvent) => {
+    const move = (e: PointerEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
       cancelAnimationFrame(raf.current);
       raf.current = requestAnimationFrame(update);
@@ -27,11 +27,11 @@ export default function CursorFollower() {
       if (dotRef.current) dotRef.current.style.opacity = "1";
     };
 
-    window.addEventListener("mousemove", move, { passive: true });
+    window.addEventListener("pointermove", move, { passive: true });
     document.addEventListener("mouseleave", leave);
     document.addEventListener("mouseenter", enter);
     return () => {
-      window.removeEventListener("mousemove", move);
+      window.removeEventListener("pointermove", move);
       document.removeEventListener("mouseleave", leave);
       document.removeEventListener("mouseenter", enter);
       cancelAnimationFrame(raf.current);

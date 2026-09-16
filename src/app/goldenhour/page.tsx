@@ -18,12 +18,14 @@ import Timeline from "@/components/Timeline";
 import Prizes from "@/components/Prizes";
 import BackToTop from "@/components/BackToTop";
 import EventStructuredData from "@/components/EventStructuredData";
+import BackToHome from "@/components/BackToHome";
 
 export default function Home() {
   return (
     <>
       <EventStructuredData />
       <a href="#main-content" className="skip-link">SKIP TO MAIN CONTENT</a>
+      <BackToHome />
       <ScrollReveal />
       <CursorFollower />
       <Navbar />

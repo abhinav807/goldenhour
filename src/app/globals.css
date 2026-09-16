@@ -155,3 +155,7 @@ html { scroll-behavior: smooth; }
 @media (min-width: 769px) { .gh-company-page, .gh-company-page a, .gh-company-page button { cursor: none; } }
 @media (max-width: 768px) { .goldenhacks-cursor { display: none; } .gh-ticker > div, .gh-section-tape > div { animation-duration: 42s; } }
 @media (prefers-reduced-motion: reduce) { .goldenhacks-cursor { display: none; } html { scroll-behavior: auto; } .gh-ticker > div, .gh-section-tape > div { animation: none; } }
+
+.back-to-home { position: fixed; top: 1rem; left: 1rem; z-index: 80; display: inline-flex; align-items: center; gap: .4rem; padding: .7rem .9rem; border: 2px solid #ff5a00; background: #050505; color: #ff5a00; box-shadow: 3px 3px 0 #ff5a00; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; text-decoration: none; transition: transform .16s ease, background .16s ease, color .16s ease; }
+.back-to-home:hover { transform: translate(-2px,-2px); background: #ff5a00; color: #050505; }
+@media (max-width: 640px) { .back-to-home { top: .75rem; left: .75rem; font-size: 8px; padding: .6rem .7rem; } }
