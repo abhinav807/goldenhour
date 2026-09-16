@@ -1,17 +1,27 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function GoldenHacksCursor() {
+  const cursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const root = document.documentElement;
+    const cursor = cursorRef.current;
+    if (!cursor) return;
     const onMove = (event: PointerEvent) => {
-      root.style.setProperty("--cursor-x", `${event.clientX}px`);
-      root.style.setProperty("--cursor-y", `${event.clientY}px`);
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
+      cursor.style.opacity = "1";
     };
+    const onLeave = () => { cursor.style.opacity = "0"; };
+    const onEnter = () => { cursor.style.opacity = "1"; };
     window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
+    document.addEventListener("mouseleave", onLeave);
+    document.addEventListener("mouseenter", onEnter);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("mouseenter", onEnter);
+    };
   }, []);
-
-  return <div className="goldenhacks-cursor" aria-hidden="true"><span className="goldenhacks-cursor-dot" /><span className="goldenhacks-cursor-ring" /></div>;
+  return <div ref={cursorRef} className="goldenhacks-cursor" aria-hidden="true"><span className="goldenhacks-cursor-dot" /><span className="goldenhacks-cursor-ring" /></div>;
 }

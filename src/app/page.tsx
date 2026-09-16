@@ -16,7 +16,7 @@ const events = [
   },
   {
     name: "FALLING SUN",
-    type: "NIGHT-TO-DAWN DEVELOPMENT HACKATHON",
+    type: "BY DELHIHACKS / NIGHT-TO-DAWN DEVELOPMENT HACKATHON",
     date: "DATE TO BE ANNOUNCED",
     description: "An intensive build focused on autonomous agents, modern interfaces, and scalable technology.",
     href: "https://www.delhihacks.me",
@@ -44,11 +44,11 @@ export default function Home() {
 
       <section id="top" className="gh-company-hero dot-pattern">
         <div className="gh-hero-grid" aria-hidden="true"><span /><span /><span /><span /><span /><span /><span /><span /><span /></div>
-        <div className="relative z-10 max-w-[1240px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36">
-          <p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHOUR ORGANIZING COMPANY / DELHI NCR</p>
-          <h1 className="font-archivo text-[19vw] sm:text-[15vw] md:text-[12vw] leading-[.76] tracking-[-.08em] max-w-6xl">GOLDEN<span className="text-sunset">HOUR</span><span className="text-offwhite">.</span></h1>
-          <div className="mt-12 grid md:grid-cols-[1fr_auto] gap-8 items-end max-w-5xl">
-            <p className="font-archivo text-2xl md:text-5xl leading-[.9] max-w-2xl">BUILD BEFORE SUNRISE.</p>
+        <div className="relative z-10 max-w-[1240px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36 text-center">
+          <p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHACKS / DELHI NCR / INDIA</p>
+          <h1 className="font-archivo text-[19vw] sm:text-[15vw] md:text-[12vw] leading-[.76] tracking-[-.08em] max-w-6xl mx-auto">GOLDEN<span className="text-sunset">HOUR</span><span className="text-offwhite">.</span></h1>
+          <div className="mt-12 flex flex-col items-center gap-8 max-w-5xl mx-auto">
+            <p className="font-archivo text-2xl md:text-5xl leading-[.9] max-w-2xl mx-auto text-center">BUILD BEFORE SUNRISE.</p>
             <Link href="#events" className="brutal-btn-orange px-7 py-4 justify-center">VIEW HACKATHONS <ArrowUpRight size={18} /></Link>
           </div>
         </div>

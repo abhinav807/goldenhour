@@ -149,8 +149,8 @@ html { scroll-behavior: smooth; }
 .gh-section-tape { overflow: hidden; background: #ff5a00; color: #050505; border-bottom: 3px solid #050505; padding: .85rem 0; white-space: nowrap; font-family: 'Space Mono', monospace; font-size: .72rem; font-weight: 700; letter-spacing: .14em; }
 .gh-section-tape-dark { background: #050505; color: #ff5a00; border-color: #ff5a00; }
 .gh-partner-tile { transition: transform .2s ease, box-shadow .2s ease; }.gh-partner-tile:hover { transform: translate(-3px,-3px); box-shadow: 11px 11px 0 #050505; }
-.goldenhacks-cursor { position: fixed; inset: 0; z-index: 200; pointer-events: none; mix-blend-mode: difference; }
-.goldenhacks-cursor-dot, .goldenhacks-cursor-ring { position: absolute; left: var(--cursor-x); top: var(--cursor-y); display: block; transform: translate(-50%,-50%); }
+.goldenhacks-cursor { position: fixed; left: -100px; top: -100px; width: 1px; height: 1px; z-index: 200; pointer-events: none; mix-blend-mode: difference; opacity: 0; transition: opacity .12s ease; }
+.goldenhacks-cursor-dot, .goldenhacks-cursor-ring { position: absolute; left: 0; top: 0; display: block; transform: translate(-50%,-50%); }
 .goldenhacks-cursor-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; }.goldenhacks-cursor-ring { width: 34px; height: 34px; border: 1px solid #fff; border-radius: 50%; transition: width .15s ease, height .15s ease; }
 @media (min-width: 769px) { .gh-company-page, .gh-company-page a, .gh-company-page button { cursor: none; } }
 @media (max-width: 768px) { .goldenhacks-cursor { display: none; } .gh-ticker > div, .gh-section-tape > div { animation-duration: 42s; } }
@@ -159,3 +159,6 @@ html { scroll-behavior: smooth; }
 .back-to-home { position: fixed; top: 1rem; left: 1rem; z-index: 80; display: inline-flex; align-items: center; gap: .4rem; padding: .7rem .9rem; border: 2px solid #ff5a00; background: #050505; color: #ff5a00; box-shadow: 3px 3px 0 #ff5a00; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; text-decoration: none; transition: transform .16s ease, background .16s ease, color .16s ease; }
 .back-to-home:hover { transform: translate(-2px,-2px); background: #ff5a00; color: #050505; }
 @media (max-width: 640px) { .back-to-home { top: .75rem; left: .75rem; font-size: 8px; padding: .6rem .7rem; } }
+
+.gh-company-hero .gh-hero-grid { opacity: .18; }
+.gh-company-hero h1 { text-shadow: 10px 10px 0 rgba(255,90,0,.12); }
