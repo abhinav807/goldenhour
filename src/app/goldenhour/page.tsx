@@ -29,7 +29,7 @@ export default function Home() {
       <ScrollReveal />
       <CursorFollower />
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" className="event-page-root">
         <Hero />
         <Marquee />
         <About />

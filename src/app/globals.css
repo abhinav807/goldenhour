@@ -182,3 +182,16 @@ html { scroll-behavior: smooth; }
 
 /* Keep the company mark left-aligned; hero copy remains centered independently. */
 @media (min-width: 769px) { .gh-company-nav { display: flex; } .gh-company-nav .gh-wordmark { justify-content: flex-start; } }
+
+.event-page-root [id] { scroll-margin-top: 92px; }
+.event-page-root #events > div > div.grid > article { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.event-page-root #timeline article { min-height: 148px; }
+.event-page-root #sponsors a.group { height: 100%; }
+.event-page-root #countdown .grid > div { min-width: 0; }
+.event-page-root .font-dm { text-wrap: pretty; }
+@media (max-width: 640px) {
+  .event-page-root section { scroll-margin-top: 76px; }
+  .event-page-root #timeline article { min-height: 0; }
+  .event-page-root #countdown .grid { gap: 1rem; }
+  .event-page-root #countdown .grid > div { padding-inline: .25rem; }
+}

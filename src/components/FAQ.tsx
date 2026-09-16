@@ -57,6 +57,9 @@ export default function FAQ() {
               className={`brutal-card bg-offwhite reveal ${i < 3 ? "delay-1" : "delay-2"}`}
             >
               <button
+                id={`faq-question-${i}`}
+                aria-expanded={openIdx === i}
+                aria-controls={`faq-answer-${i}`}
                 className="w-full p-5 md:p-6 flex justify-center items-center text-center gap-4"
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
@@ -68,9 +71,12 @@ export default function FAQ() {
                 </span>
               </button>
               <div
+                id={`faq-answer-${i}`}
+                role="region"
+                aria-labelledby={`faq-question-${i}`}
                 className="overflow-hidden transition-all duration-300"
                 style={{
-                  maxHeight: openIdx === i ? "200px" : "0",
+                  maxHeight: openIdx === i ? "500px" : "0",
                   opacity: openIdx === i ? 1 : 0,
                 }}
               >
