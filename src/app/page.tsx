@@ -34,12 +34,12 @@ function SectionTape({ dark = false }: { dark?: boolean }) {
 export default function Home() {
   return (
     <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor />
-      <nav className="gh-company-nav" aria-label="GoldenHacks navigation">
-        <Link href="#top" className="gh-wordmark" aria-label="GoldenHacks home">GOLDEN<span>.</span>HACKS</Link>
-        <div className="hidden md:flex items-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
+      <nav className="gh-company-nav" aria-label="GoldenHour navigation">
+        <Link href="#top" className="gh-wordmark" aria-label="GoldenHour home"><Image src="/brand/goldenhour-symbol.png" alt="GoldenHour logo" width={40} height={40} className="gh-wordmark-logo" /><span>GOLDEN<span>.</span>HOUR</span></Link>
+        <div className="gh-company-links hidden md:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
           <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
         </div>
-        <Link href="#events" className="brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
+        <Link href="#events" className="gh-explore brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
       </nav>
 
       <section id="top" className="gh-company-hero dot-pattern">

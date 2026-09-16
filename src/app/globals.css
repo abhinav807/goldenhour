@@ -162,3 +162,17 @@ html { scroll-behavior: smooth; }
 
 .gh-company-hero .gh-hero-grid { opacity: .18; }
 .gh-company-hero h1 { text-shadow: 10px 10px 0 rgba(255,90,0,.12); }
+
+.gh-wordmark { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; white-space: nowrap; }
+.gh-wordmark-logo { width: 2rem; height: 2rem; object-fit: contain; }
+.gh-company-links a { color: #050505; transition: color .16s ease, transform .16s ease; text-align: center; }
+.gh-company-links a:hover { color: #ff5a00; transform: translateY(-2px); }
+.gh-explore { transition: background .16s ease, color .16s ease, transform .16s ease, box-shadow .16s ease; }
+.gh-explore:hover { background: #050505; color: #ff5a00; border-color: #ff5a00; box-shadow: 6px 6px 0 #ff5a00; }
+@media (min-width: 769px) { .gh-company-nav { display: grid; grid-template-columns: 1fr auto 1fr; justify-content: center; } .gh-company-nav > .gh-explore { justify-self: end; } }
+@media (max-width: 640px) { .gh-wordmark-logo { width: 1.75rem; height: 1.75rem; } }
+
+.gh-company-page section, .gh-company-page footer { text-align: center; }
+.gh-company-page .lg\:text-left { text-align: center !important; }
+.gh-company-page footer .md\:text-right { text-align: center !important; }
+.gh-company-page footer .md\:justify-end { justify-content: center !important; }
