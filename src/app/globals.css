@@ -181,7 +181,7 @@ html { scroll-behavior: smooth; }
 .gh-falling-btn:hover { background: #050505 !important; color: #ff5a00 !important; border-color: #ff5a00 !important; box-shadow: 7px 7px 0 #ff5a00 !important; }
 
 /* Keep the company mark left-aligned; hero copy remains centered independently. */
-@media (min-width: 769px) { .gh-company-nav { display: flex; } .gh-company-nav .gh-wordmark { justify-content: flex-start; } }
+@media (min-width: 769px) { .gh-company-nav { display: flex; padding-left: 0; } .gh-company-nav .gh-wordmark { justify-content: flex-start; } .gh-hero-copy { transform: translateX(-2.5vw); } }
 
 .event-page-root [id] { scroll-margin-top: 92px; }
 .event-page-root #events > div > div.grid > article { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }

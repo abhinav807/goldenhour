@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor />
       <nav className="gh-company-nav" aria-label="GoldenHacks navigation">
-        <Link href="#top" className="gh-wordmark" aria-label="GoldenHacks home">GOLDEN<span>.</span>HACKS</Link>
+        <Link href="#top" className="gh-wordmark" aria-label="GoldenHour home">GOLDEN<span>.</span>HOUR</Link>
         <div className="gh-company-links hidden md:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
           <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
         </div>
@@ -44,7 +44,7 @@ export default function Home() {
 
       <section id="top" className="gh-company-hero dot-pattern">
         <div className="gh-hero-grid" aria-hidden="true"><span /><span /><span /><span /><span /><span /><span /><span /><span /></div>
-        <div className="relative z-10 max-w-[1240px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36 text-center">
+        <div className="gh-hero-copy relative z-10 max-w-[1240px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36 text-center">
           <p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHACKS / DELHI NCR / INDIA</p>
           <h1 className="font-archivo text-[19vw] sm:text-[15vw] md:text-[12vw] leading-[.76] tracking-[-.08em] max-w-6xl mx-auto">GOLDEN<span className="text-sunset">HOUR</span><span className="text-offwhite">.</span></h1>
           <div className="mt-12 flex flex-col items-center gap-8 max-w-5xl mx-auto">
