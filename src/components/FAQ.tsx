@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "HOW DO I REGISTER?",
-    a: "Use the GoldenHour V1 registration form in the registration section, or open the direct registration page if needed.",
+    a: "Registration is currently closed and will open in November 2026. Check the registration section for the live form when it opens.",
   },
 ];
 

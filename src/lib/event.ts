@@ -4,6 +4,8 @@ export const eventConfig = {
   location: "DELHI / VENUE TBA",
   duration: "10 HOURS",
   entry: "FREE",
+  registrationOpen: false,
+  registrationOpening: "NOVEMBER 2026",
   registrationUrl: "https://forms.gle/8vLSjwYhj9GGrjEs7",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",

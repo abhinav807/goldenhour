@@ -27,8 +27,7 @@ export default function EventStructuredData() {
       "@type": "Offer",
       price: "0",
       priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      url: eventConfig.registrationUrl,
+      availability: "https://schema.org/PreOrder",
     },
   };
 
