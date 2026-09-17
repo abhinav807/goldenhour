@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "HOW DO I REGISTER?",
-    a: "Use the Luma registration form in the registration section, or open the direct registration page if the embedded form does not load.",
+    a: "Use the GoldenHour V1 registration form in the registration section, or open the direct registration page if needed.",
   },
 ];
 

@@ -4,7 +4,7 @@ export const eventConfig = {
   location: "DELHI / VENUE TBA",
   duration: "10 HOURS",
   entry: "FREE",
-  registrationUrl: "https://luma.com/bxo7adm4",
+  registrationUrl: "https://forms.gle/8vLSjwYhj9GGrjEs7",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
   delhiHacksUrl: "https://www.delhihacks.me",
