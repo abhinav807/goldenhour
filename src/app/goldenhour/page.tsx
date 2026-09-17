@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import About from "@/components/About";
@@ -11,7 +10,6 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import CursorFollower from "@/components/CursorFollower";
 import MobileCTA from "@/components/MobileCTA";
 import Dispatch from "@/components/Dispatch";
 import Timeline from "@/components/Timeline";
@@ -27,8 +25,6 @@ export default function Home() {
       <a href="#main-content" className="skip-link">SKIP TO MAIN CONTENT</a>
       <BackToHome />
       <ScrollReveal />
-      <CursorFollower />
-      <Navbar />
       <main id="main-content" className="event-page-root">
         <Hero />
         <Marquee />
