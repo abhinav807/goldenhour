@@ -7,7 +7,7 @@ import Marquee from "@/components/Marquee";
 const events = [
   {
     name: "GOLDENHOUR V1",
-    type: "10-HOUR STUDENT HACKATHON",
+    type: "12-HOUR STUDENT HACKATHON",
     date: "14 NOVEMBER 2026 / TENTATIVE",
     description: "A student-led build sprint for under-19 builders in Delhi NCR. Build, compete, and create things that push boundaries.",
     href: "/goldenhour",

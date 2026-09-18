@@ -5,7 +5,7 @@ export default function EventStructuredData() {
     "@context": "https://schema.org",
     "@type": "Event",
     name: "GOLDENHOUR",
-    description: "A student-led 10-hour technology event for builders, designers, and makers.",
+    description: "A student-led 12-hour technology event from 8:00 AM to 8:00 PM for builders, designers, and makers.",
     startDate: eventConfig.isoDate,
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",

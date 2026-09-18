@@ -1,8 +1,8 @@
 export const eventConfig = {
   date: "14 NOVEMBER 2026",
-  isoDate: "2026-11-14T09:00:00+05:30",
+  isoDate: "2026-11-14T08:00:00+05:30",
   location: "DELHI / VENUE TBA",
-  duration: "10 HOURS",
+  duration: "12 HOURS",
   entry: "FREE",
   registrationOpen: false,
   registrationOpening: "NOVEMBER 2026",
