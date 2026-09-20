@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const explore = [["ABOUT", "#about"], ["TRACKS", "#events"], ["TIMELINE", "#timeline"], ["PRIZES", "#prizes"], ["RULES", "#rules"], ["ORGANIZERS", "#organizers"], ["FAQ", "#faq"]];
+const explore = [["ABOUT", "#about"], ["TRACKS", "#events"], ["TIMELINE", "#timeline"], ["PRIZES", "#prizes"], ["RESOURCES", "#resources"], ["JUDGING", "#judging"], ["SUBMISSION", "#submission"], ["VENUE", "#venue"], ["RULES", "#rules"], ["ORGANIZERS", "#organizers"], ["FAQ", "#faq"]];
 import { eventConfig } from "@/lib/event";
 
 export default function Footer() {

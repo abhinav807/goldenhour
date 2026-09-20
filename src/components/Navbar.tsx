@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { eventConfig } from "@/lib/event";
 
-const links = [{ label: "HOME", hash: "#hero" }, { label: "ABOUT", hash: "#about" }, { label: "TRACKS", hash: "#events" }, { label: "CLOCK", hash: "#countdown" }, { label: "TIMELINE", hash: "#timeline" }, { label: "NOTE", hash: "#dispatch" }, { label: "RULES", hash: "#rules" }, { label: "TEAM", hash: "#organizers" }, { label: "PRIZES", hash: "#prizes" }, { label: "SPONSORS", hash: "#sponsors" }, { label: "REGISTER", hash: "#register" }, { label: "FAQ", hash: "#faq" }];
+const links = [{ label: "HOME", hash: "#hero" }, { label: "ABOUT", hash: "#about" }, { label: "TRACKS", hash: "#events" }, { label: "CLOCK", hash: "#countdown" }, { label: "TIMELINE", hash: "#timeline" }, { label: "NOTE", hash: "#dispatch" }, { label: "RULES", hash: "#rules" }, { label: "TEAM", hash: "#organizers" }, { label: "PRIZES", hash: "#prizes" }, { label: "SPONSORS", hash: "#sponsors" }, { label: "RESOURCES", hash: "#resources" }, { label: "JUDGING", hash: "#judging" }, { label: "REGISTER", hash: "#register" }, { label: "FAQ", hash: "#faq" }];
 
 export default function Navbar() {
   const pathname = usePathname();

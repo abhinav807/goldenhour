@@ -17,6 +17,8 @@ import Prizes from "@/components/Prizes";
 import BackToTop from "@/components/BackToTop";
 import EventStructuredData from "@/components/EventStructuredData";
 import BackToHome from "@/components/BackToHome";
+import Resources from "@/components/Resources";
+import EventInfo from "@/components/EventInfo";
 
 export default function Home() {
   return (
@@ -38,6 +40,8 @@ export default function Home() {
         <Prizes />
         <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
         <Sponsors />
+        <Resources />
+        <EventInfo />
         <FinalCTA />
         <FAQ />
       </main>
