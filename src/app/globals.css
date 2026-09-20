@@ -198,7 +198,7 @@ html { scroll-behavior: smooth; }
 .event-page-root .font-dm { text-wrap: pretty; }
 .event-page-root .bg-black .brutal-btn-outline.border-sunset { background: #050505; color: #ff5a00; border-color: #ff5a00; box-shadow: 4px 4px 0 #ff5a00; }
 .event-page-root .bg-black .brutal-btn-outline.border-sunset:hover { background: #ff5a00; color: #050505; border-color: #050505; box-shadow: 8px 8px 0 #050505; }
-body { zoom: .8; }
+body { zoom: 1; }
 @media (max-width: 640px) {
   .event-page-root section { scroll-margin-top: 76px; }
   .event-page-root #timeline article { min-height: 0; }
