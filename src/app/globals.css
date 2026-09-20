@@ -114,6 +114,13 @@ main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-
 /* High-contrast hero secondary actions: the black hero needs a visible foreground. */
 .hero-secondary-btn { background: #050505; color: #ff5a00; border-color: #ff5a00; box-shadow: 4px 4px 0 #ff5a00; }
 .hero-secondary-btn:hover { background: #ff5a00; color: #050505; border-color: #050505; box-shadow: 8px 8px 0 #050505; }
+/* Keep generic CTAs readable when they are placed inside a dark or orange section. */
+.event-page-root .bg-black .brutal-btn-outline:not(.border-sunset) { background: #f7f7f2; color: #050505; border-color: #f7f7f2; box-shadow: 4px 4px 0 #ff5a00; }
+.event-page-root .bg-black .brutal-btn-outline:not(.border-sunset):hover { background: #ff5a00; color: #050505; border-color: #050505; box-shadow: 8px 8px 0 #050505; }
+.event-page-root .bg-black .brutal-btn:not(.bg-offwhite):not(.bg-sunset) { background: #ff5a00; color: #050505; border-color: #050505; box-shadow: 4px 4px 0 #ff5a00; }
+.event-page-root .bg-black .brutal-btn:not(.bg-offwhite):not(.bg-sunset):hover { background: #f7f7f2; color: #050505; box-shadow: 8px 8px 0 #050505; }
+.event-page-root .bg-sunset .brutal-btn-outline:not(.border-sunset) { background: #050505; color: #f7f7f2; border-color: #050505; box-shadow: 4px 4px 0 #050505; }
+.event-page-root .bg-sunset .brutal-btn-outline:not(.border-sunset):hover { background: #f7f7f2; color: #050505; border-color: #050505; box-shadow: 8px 8px 0 #050505; }
 /* Keep copy centered inside every card, box, list, and footer column. */
 main section article, main section .brutal-card, main section .brutal-card-orange, main section .brutal-card-black, footer, footer address, footer ul { text-align: center; }
 footer ul { list-style: none; padding-left: 0; }
