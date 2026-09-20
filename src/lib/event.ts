@@ -1,18 +1,54 @@
 export const eventConfig = {
-  date: "14 NOVEMBER 2026",
+  siteName: "GoldenHour Delhi",
+  entityName: "GoldenHour",
+  alternateName: "GoldenHour hackathon",
+  siteUrl: "https://www.goldenhourdelhi.co.in",
+  description: "GoldenHour V1 is a free, student-run 12-hour hackathon for builders under 19 in Delhi NCR.",
+  date: "14 November 2026",
+  dateShort: "14 Nov 2026",
   isoDate: "2026-11-14T08:00:00+05:30",
-  location: "DELHI / VENUE TBA",
-  duration: "12 HOURS",
-  entry: "FREE",
+  endIsoDate: "2026-11-14T20:00:00+05:30",
+  dateStatus: "TENTATIVE",
+  venue: "Venue to be announced",
+  location: "Delhi NCR, India",
+  duration: "12 hours",
+  entry: "Free",
+  ageLimit: "Under 19",
+  teamSize: "1–3 participants",
   registrationOpen: false,
-  registrationOpening: "NOVEMBER 2026",
+  registrationOpening: "November 2026",
+  tracks: ["Web Development", "Game Development"],
+  prizes: ["CodeCrafters VIP memberships", "Trophies", "Certificates", "Stickers"],
   registrationUrl: "https://forms.gle/8vLSjwYhj9GGrjEs7",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
   delhiHacksUrl: "https://www.delhihacks.me",
-  nerdsRoomUrl: "https://nerdsroom.org", // Legacy archive compatibility; not used by the live event page.
+  nerdsRoomUrl: "https://nerdsroom.org",
   codeCraftersUrl: "https://www.codecrafters.io",
-  dateStatus: "TENTATIVE",
+  osenUrl: "https://www.osen.co.in",
+  contactEmail: "goldenhourdelhi@gmail.com",
+  instagramUrl: "https://www.instagram.com/goldenhour.delhi/",
+  linkedinUrl: "https://www.linkedin.com/company/goldenhourdelhi/",
+  founders: ["Abhinav Goyal", "Divya"],
+  lastUpdated: "2026-09-20",
 } as const;
 
-export const eventDateLabel = `${eventConfig.date} / ${eventConfig.dateStatus}`;
+export const faqItems = [
+  { q: "What is GoldenHour?", a: "GoldenHour V1 is a free, student-run 12-hour hackathon for builders under 19 in Delhi NCR.", category: "ABOUT", detail: "Teams can build in Web Development or Game Development. GoldenHour is the hackathon name, not the photography term." },
+  { q: "Who can participate?", a: "Students under 19 can participate in GoldenHour V1.", category: "ELIGIBILITY", detail: "The event is intended for school, college, and other student builders in Delhi NCR." },
+  { q: "Is GoldenHour free?", a: "Yes. GoldenHour V1 is free to attend.", category: "LOGISTICS", detail: "There is no participation fee." },
+  { q: "Do I need to know coding?", a: "No. You do not need to be a coder to join GoldenHour.", category: "ELIGIBILITY", detail: "Teams can include people who design, plan, write, or contribute in other ways." },
+  { q: "What is the team size?", a: "Teams can have 1–3 participants.", category: "TEAMS", detail: "Solo builders are welcome." },
+  { q: "What tracks are there?", a: "GoldenHour V1 has Web Development and Game Development tracks.", category: "ABOUT", detail: "Choose the track that best matches what you want to build." },
+  { q: "When and where is GoldenHour?", a: "GoldenHour V1 is planned for 14 November 2026 in Delhi NCR, and the date is tentative.", category: "LOGISTICS", detail: "The venue is to be announced. The event status is: date tentative, venue TBA." },
+  { q: "How do I register?", a: "Registration is closed now and is scheduled to open in November 2026.", category: "REGISTRATION", detail: "Use the registration section when the form is opened." },
+  { q: "What should I bring?", a: "Bring a laptop, charger, and any hardware you want to use.", category: "LOGISTICS", detail: "The event team will publish the final participant checklist before registration opens." },
+  { q: "What are the prizes?", a: "Prizes include CodeCrafters VIP memberships, trophies, certificates, and stickers.", category: "PRIZES", detail: "The listed prizes are the confirmed prize information currently available." },
+  { q: "Is there a code of conduct?", a: "Yes. GoldenHour has a Code of Conduct for participants and event stakeholders.", category: "SAFETY", detail: "Read the full Code of Conduct before participating." },
+  { q: "Can beginners or Class 8–12 students join?", a: "Beginners can join if they are under 19.", category: "ELIGIBILITY", detail: "Class 8–12 eligibility is not separately confirmed; the confirmed rule is the under-19 age limit." },
+  { q: "Is AI use allowed?", a: "AI-use rules for GoldenHour V1 still need an owner decision.", category: "NEEDS OWNER ANSWER", detail: "The event team should publish the permitted tools, disclosure requirements, and judging implications before registration opens." },
+] as const;
+
+export const eventDateLabel = `${eventConfig.dateShort} / ${eventConfig.dateStatus}`;
+export const eventStatusLine = `Date tentative. Venue TBA. Registration opens ${eventConfig.registrationOpening}.`;
+export const canonicalEventPath = "/goldenhour";
