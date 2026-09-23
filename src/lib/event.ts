@@ -4,11 +4,11 @@ export const eventConfig = {
   alternateName: "GoldenHour hackathon",
   siteUrl: "https://www.goldenhourdelhi.co.in",
   description: "GoldenHour V1 is a free, student-run 12-hour hackathon for builders under 19 in Delhi NCR.",
-  date: "14 November 2026",
-  dateShort: "14 Nov 2026",
-  isoDate: "2026-11-14T08:00:00+05:30",
-  endIsoDate: "2026-11-14T20:00:00+05:30",
-  dateStatus: "TENTATIVE",
+  date: "21 November 2026",
+  dateShort: "21 Nov 2026",
+  isoDate: "2026-11-21T08:00:00+05:30",
+  endIsoDate: "2026-11-21T20:00:00+05:30",
+  dateStatus: "SCHEDULED",
   venue: "Venue to be announced",
   location: "Delhi NCR, India",
   duration: "12 hours",
@@ -40,7 +40,7 @@ export const faqItems = [
   { q: "Do I need to know coding?", a: "No. You do not need to be a coder to join GoldenHour.", category: "ELIGIBILITY", detail: "Teams can include people who design, plan, write, or contribute in other ways." },
   { q: "What is the team size?", a: "Teams can have 1–3 participants.", category: "TEAMS", detail: "Solo builders are welcome." },
   { q: "What tracks are there?", a: "GoldenHour V1 has Web Development and Game Development tracks.", category: "ABOUT", detail: "Choose the track that best matches what you want to build." },
-  { q: "When and where is GoldenHour?", a: "GoldenHour V1 is planned for 14 November 2026 in Delhi NCR, and the date is tentative.", category: "LOGISTICS", detail: "The venue is to be announced. The event status is: date tentative, venue TBA." },
+  { q: "When and where is GoldenHour?", a: "GoldenHour V1 is scheduled for 21 November 2026 in Delhi NCR.", category: "LOGISTICS", detail: "The venue is to be announced. The event status is: scheduled date, venue TBA." },
   { q: "How do I register?", a: "Registration is closed now and is scheduled to open in November 2026.", category: "REGISTRATION", detail: "Use the registration section when the form is opened." },
   { q: "What should I bring?", a: "Bring a laptop, charger, and any hardware you want to use.", category: "LOGISTICS", detail: "The event team will publish the final participant checklist before registration opens." },
   { q: "What are the prizes?", a: "Prizes include CodeCrafters VIP memberships, trophies, certificates, and stickers.", category: "PRIZES", detail: "The listed prizes are the confirmed prize information currently available." },
@@ -50,5 +50,5 @@ export const faqItems = [
 ] as const;
 
 export const eventDateLabel = `${eventConfig.dateShort} / ${eventConfig.dateStatus}`;
-export const eventStatusLine = `Date tentative. Venue TBA. Registration opens ${eventConfig.registrationOpening}.`;
+export const eventStatusLine = `Scheduled for ${eventConfig.date}. Venue TBA. Registration opens ${eventConfig.registrationOpening}.`;
 export const canonicalEventPath = "/goldenhour";

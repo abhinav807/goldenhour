@@ -49,7 +49,7 @@ export default function GoldenHourPage() {
       <EventInfo />
       <FinalCTA />
       <FAQ />
-      <p className="sr-only">Event status: {eventConfig.dateStatus}. The date is tentative, the venue is to be announced, and registration opens {eventConfig.registrationOpening}.</p>
+      <p className="sr-only">Event status: {eventConfig.dateStatus}. The event is scheduled for {eventConfig.date}, the venue is to be announced, and registration opens {eventConfig.registrationOpening}.</p>
     </main>
     <Footer />
     <MobileCTA />

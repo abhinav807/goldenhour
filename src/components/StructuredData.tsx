@@ -23,7 +23,7 @@ export function EventStructuredData() {
     "@id": `${eventConfig.siteUrl}/goldenhour#event`,
     name: "GoldenHour V1 — Free 12-Hour Student Hackathon",
     alternateName: eventConfig.alternateName,
-    description: `${eventConfig.description} The date is tentative and the venue is to be announced. Registration opens ${eventConfig.registrationOpening}.`,
+    description: `${eventConfig.description} Scheduled for ${eventConfig.date}; the venue is to be announced. Registration opens ${eventConfig.registrationOpening}.`,
     startDate: eventConfig.isoDate,
     endDate: eventConfig.endIsoDate,
     eventStatus: "https://schema.org/EventScheduled",
