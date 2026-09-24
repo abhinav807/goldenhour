@@ -46,13 +46,13 @@ The key performance gap is LCP above the 2.5-second target in this lab run. CLS 
 
 ### Technical SEO
 
-`src/app/metadata.ts` now generates page-specific canonical, Open Graph, Twitter, robots, and 1200×630 image metadata. `/goldenhour` has a unique title under 60 characters, a description that states the date is tentative and the venue is TBA, and a self-referencing canonical. The root layout now uses `lang="en-IN"` and a consistent GoldenHour Delhi entity name.
+`src/app/metadata.ts` now generates page-specific canonical, Open Graph, Twitter, robots, and 1200×630 image metadata. `/goldenhour` has a unique title under 60 characters, a description that states the scheduled date and the venue is TBA, and a self-referencing canonical. The root layout now uses `lang="en-IN"` and a consistent GoldenHour Delhi entity name.
 
 `src/app/sitemap.ts` now publishes the home, event, about, privacy, terms, and code-of-conduct pages. Utility and thank-you routes are excluded. `src/app/robots.ts` keeps private route exclusions and explicitly allows reputable search and answer crawlers. This is a policy choice: allowing search crawlers improves discovery, while allowing training crawlers can increase reuse of public content. Revisit the named crawler list if the organizers prefer a narrower policy.
 
 ### Structured data
 
-`src/components/StructuredData.tsx` adds Organization, WebSite, Event, FAQPage, and BreadcrumbList JSON-LD. Event values are drawn from the central config. The event description explicitly says the date is tentative, the venue is to be announced, and registration opens in November 2026. No live registration URL is emitted while registration is closed.
+`src/components/StructuredData.tsx` adds Organization, WebSite, Event, FAQPage, and BreadcrumbList JSON-LD. Event values are drawn from the central config. The event description states the scheduled date and that the venue is to be announced, and registration opens in November 2026. No live registration URL is emitted while registration is closed.
 
 ### Answer-first content
 
@@ -60,7 +60,7 @@ The key performance gap is LCP above the 2.5-second target in this lab run. CLS 
 
 ### Generative-engine surface
 
-`src/app/llms.txt/route.ts` generates a concise, current Markdown summary from the same event config. `/about` provides an official description, fact sheet, founders, partners, canonical brand usage, contact, and social links.
+`src/app/llms.txt/route.ts` generates a concise, current Markdown summary from the same event config. `/about` provides an official description, fact sheet, founders, canonical brand usage, contact, and social links.
 
 ### Social assets
 
@@ -71,7 +71,7 @@ The following 1200×630 PNGs were generated in `public/og/` using the existing b
 The following decisions are not safe to fabricate:
 
 1. Confirm the venue and replace `venue` in `src/lib/event.ts` when known.
-2. Confirm whether 14 November 2026 remains the intended date, then change `dateStatus` from `TENTATIVE` only when formally approved.
+2. The event date is confirmed as 14 November 2026 and `dateStatus` is `SCHEDULED`.
 3. Decide the AI-use policy and replace the FAQ placeholder with the approved wording.
 4. Confirm whether the participant checklist can promise Wi-Fi, power, food, or hardware support; the new FAQ avoids those unconfirmed promises.
 5. Confirm OSEN’s canonical public URL before using it in partner backlinks or schema if `https://www.osen.co.in` is not correct.
@@ -112,18 +112,18 @@ Use these initial queries monthly after indexing:
 | Priority | Action | Owner guidance |
 |---|---|---|
 | P0 | Verify the site in Google Search Console and Bing Webmaster Tools, then submit `/sitemap.xml`. | Requires owner account access. |
-| P0 | Add descriptive backlinks from DelhiHacks, CodeCrafters, and OSEN partner pages to `/goldenhour`. | Use anchors such as “GoldenHour V1 student hackathon in Delhi NCR.” |
+| P0 | Add descriptive backlinks from relevant CodeCrafters and OSEN partner pages to `/goldenhour`. | Use anchors such as “GoldenHour V1 student hackathon in Delhi NCR.” |
 | P0 | Update Instagram and LinkedIn bios to use “GoldenHour Delhi” and link to `/goldenhour`. | Align the displayed description and event status. |
 | P1 | List the event on Unstop. | Unstop currently exposes an India hackathon directory and organizer/partner pages. Confirm current terms during submission. |
 | P1 | Request a student-run hackathon listing on Devfolio. | Devfolio’s public materials state that student-run hackathons can request the platform for free; confirm eligibility and current terms. |
 | P1 | List on Devpost if the event accepts the platform’s format. | Devpost has an active hackathon directory; confirm whether an in-person Delhi event and under-19 audience fit current rules. |
-| P2 | Consider Luma or Eventbrite only after venue and registration details are confirmed. | Do not create duplicate stale event pages while the date and venue are tentative. |
+| P2 | Consider Luma or Eventbrite only after venue and registration details are confirmed. | Do not create duplicate stale event pages while the venue is unconfirmed. |
 | P2 | Ask schools, coding clubs, and teachers for genuine event mentions. | Provide the fact sheet and Code of Conduct; do not mass-submit or keyword-stuff. |
 | P2 | Share useful, non-promotional answers on Reddit, Quora, and YouTube. | Answer relevant questions with the canonical link only where it genuinely helps. |
 
 ## External entity alignment checklist
 
-Use the exact same name, description, founders, event status, and links on Instagram, LinkedIn, WhatsApp community description, DelhiHacks partner pages, CodeCrafters sponsor pages, OSEN pages, school outreach material, and any event listing. Avoid claiming the venue, confirmed date, open registration, prize values, or AI policy until the owner approves them.
+Use the exact same name, description, founders, event status, and links on Instagram, LinkedIn, WhatsApp community description, CodeCrafters sponsor pages, OSEN pages, school outreach material, and any event listing. Avoid claiming the venue, confirmed date, open registration, prize values, or AI policy until the owner approves them.
 
 ## References
 

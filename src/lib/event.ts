@@ -22,7 +22,6 @@ export const eventConfig = {
   registrationUrl: "https://forms.gle/8vLSjwYhj9GGrjEs7",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
-  delhiHacksUrl: "https://www.delhihacks.me",
   nerdsRoomUrl: "https://nerdsroom.org",
   codeCraftersUrl: "https://www.codecrafters.io",
   osenUrl: "https://www.osen.co.in",

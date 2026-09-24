@@ -31,7 +31,6 @@ export function EventStructuredData() {
     location: { "@type": "Place", name: eventConfig.venue, address: { "@type": "PostalAddress", addressLocality: "Delhi", addressRegion: "Delhi NCR", addressCountry: "IN" } },
     organizer: { "@id": `${eventConfig.siteUrl}/#organization` },
     sponsor: [
-      { "@type": "Organization", name: "DelhiHacks", url: eventConfig.delhiHacksUrl },
       { "@type": "Organization", name: "CodeCrafters", url: eventConfig.codeCraftersUrl },
       { "@type": "Organization", name: "OSEN", url: eventConfig.osenUrl },
     ],
