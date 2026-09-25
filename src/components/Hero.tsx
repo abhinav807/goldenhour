@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 import InteractiveBackground from "@/components/InteractiveBackground";
 import { eventConfig } from "@/lib/event";
 
-const details = [["WHEN", `${eventConfig.date} (${eventConfig.dateStatus})`], ["WHERE", eventConfig.location], ["DURATION", eventConfig.duration], ["ENTRY", eventConfig.entry]];
+const details = [["WHEN", `${eventConfig.date} (${eventConfig.dateStatus})`], ["WHERE", eventConfig.location], ["DURATION", eventConfig.duration], ["CAPACITY", eventConfig.participantLimit]];
 
 export default function Hero() {
   return (

@@ -15,6 +15,7 @@ export const eventConfig = {
   entry: "Free",
   ageLimit: "Under 19",
   teamSize: "1–3 participants",
+  participantLimit: "~60 participants",
   registrationOpen: false,
   registrationOpening: "November 2026",
   tracks: ["Web Development", "Game Development"],
@@ -34,12 +35,12 @@ export const eventConfig = {
 
 export const faqItems = [
   { q: "What is GoldenHour?", a: "GoldenHour V1 is a free, student-run 12-hour hackathon for builders under 19 in Delhi NCR.", category: "ABOUT", detail: "Teams can build in Web Development or Game Development. GoldenHour is the hackathon name, not the photography term." },
-  { q: "Who can participate?", a: "Students under 19 can participate in GoldenHour V1.", category: "ELIGIBILITY", detail: "The event is intended for school, college, and other student builders in Delhi NCR." },
+  { q: "Who can participate?", a: "Students under 19 can participate in GoldenHour V1, with capacity for approximately 60 participants.", category: "ELIGIBILITY", detail: "The event is intended for school, college, and other student builders in Delhi NCR." },
   { q: "Is GoldenHour free?", a: "Yes. GoldenHour V1 is free to attend.", category: "LOGISTICS", detail: "There is no participation fee." },
   { q: "Do I need to know coding?", a: "No. You do not need to be a coder to join GoldenHour.", category: "ELIGIBILITY", detail: "Teams can include people who design, plan, write, or contribute in other ways." },
   { q: "What is the team size?", a: "Teams can have 1–3 participants.", category: "TEAMS", detail: "Solo builders are welcome." },
   { q: "What tracks are there?", a: "GoldenHour V1 has Web Development and Game Development tracks.", category: "ABOUT", detail: "Choose the track that best matches what you want to build." },
-  { q: "When and where is GoldenHour?", a: "GoldenHour V1 is scheduled for 21 November 2026 in Delhi NCR.", category: "LOGISTICS", detail: "The venue is to be announced. The event status is: scheduled date, venue TBA." },
+  { q: "When and where is GoldenHour?", a: "GoldenHour V1 is scheduled for 14 November 2026 in Delhi NCR.", category: "LOGISTICS", detail: "The venue is to be announced. The event status is: scheduled date, venue TBA." },
   { q: "How do I register?", a: "Registration is closed now and is scheduled to open in November 2026.", category: "REGISTRATION", detail: "Use the registration section when the form is opened." },
   { q: "What should I bring?", a: "Bring a laptop, charger, and any hardware you want to use.", category: "LOGISTICS", detail: "The event team will publish the final participant checklist before registration opens." },
   { q: "What are the prizes?", a: "Prizes include CodeCrafters VIP memberships, trophies, certificates, and stickers.", category: "PRIZES", detail: "The listed prizes are the confirmed prize information currently available." },

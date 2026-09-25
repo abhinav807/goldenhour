@@ -19,6 +19,7 @@ const groups: Array<{ title: string; people: Person[]; tone: "dark" | "sunset" |
     people: [
       { num: "03", name: "YASHPAL YADAV", role: "CO-ORGANISER" },
       { num: "04", name: "ANURAG", role: "CO-ORGANISER" },
+      { num: "05", name: "HARSH", role: "CO-ORGANISER" },
     ],
   },
   {
