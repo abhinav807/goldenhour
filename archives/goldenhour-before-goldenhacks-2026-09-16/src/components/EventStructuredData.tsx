@@ -21,7 +21,7 @@ export default function EventStructuredData() {
     organizer: {
       "@type": "Organization",
       name: "GOLDENHOUR organizing team",
-      email: "goldenhourdelhi@gmail.com",
+      email: "abhinavgoyal300@gmail.com",
     },
     offers: {
       "@type": "Offer",

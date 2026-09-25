@@ -9,7 +9,7 @@ export const eventConfig = {
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
   nerdsRoomUrl: "https://nerdsroom.org",
   codeCraftersUrl: "https://www.codecrafters.io",
-  dateStatus: "TENTATIVE",
+  dateStatus: "SCHEDULED",
 } as const;
 
 export const eventDateLabel = `${eventConfig.date} / ${eventConfig.dateStatus}`;

@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "IS THE VENUE CONFIRMED?",
-    a: "The event is planned for Delhi, and the venue will be announced separately. The date is currently marked tentative.",
+    a: "The event is planned for Delhi, and the venue will be announced separately. The date is scheduled for 14 November 2026.",
   },
   {
     q: "HOW DO I REGISTER?",

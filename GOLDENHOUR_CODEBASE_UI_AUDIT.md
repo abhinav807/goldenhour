@@ -48,7 +48,7 @@ The main maintainability concern is that `InteractiveBackground.tsx` and especia
 
 #### 1. Resolve event-date and venue messaging before launch
 
-The page states `15 NOVEMBER 2026` in the countdown, hero metadata, registration details, and metadata description, while the footer still says `DELHI / DATE TBA / VENUE TBA` and the hero says `DELHI / VENUE TBA`. This creates avoidable uncertainty, especially because a live countdown implies the date is confirmed.
+The page states `14 NOVEMBER 2026` in the countdown, hero metadata, registration details, and metadata description, while the footer still says `DELHI / DATE TBA / VENUE TBA` and the hero says `DELHI / VENUE TBA`. This creates avoidable uncertainty, especially because a live countdown implies the date is confirmed.
 
 **Recommendation:** decide whether the date is confirmed. If confirmed, replace every “DATE TBA” occurrence and make the venue wording consistent. If the date is not confirmed, remove or pause the countdown and use one consistent “date and venue pending” state across metadata, hero, footer, FAQ, and legal copy.
 
