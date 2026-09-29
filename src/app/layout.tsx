@@ -6,6 +6,7 @@ import IntroLoader from "@/components/IntroLoader";
 import SiteChrome from "@/components/SiteChrome";
 import { baseDescription, siteUrl } from "./metadata";
 import { SiteStructuredData } from "@/components/StructuredData";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
@@ -24,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN" className="antialiased"><body className="min-h-screen"><SiteStructuredData /><IntroLoader /><SiteChrome />{children}<CookieBanner /><Analytics /></body></html>;
+  return <html lang="en-IN" className="antialiased"><body className="min-h-screen"><SiteStructuredData /><IntroLoader /><SiteChrome />{children}<CookieBanner /><Analytics /><VercelAnalytics /></body></html>;
 }
