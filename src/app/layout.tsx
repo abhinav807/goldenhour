@@ -9,9 +9,9 @@ import { SiteStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
-  title: { default: "GoldenHour Delhi — Student Hackathon", template: "%s | GoldenHour Delhi" },
+  title: { default: "GoldenHour Delhi — Student Hackathon", template: "%s" },
   description: baseDescription,
-  keywords: ["GoldenHour Delhi", "student hackathon Delhi", "under 19 hackathon", "free hackathon Delhi NCR"],
+  keywords: ["GoldenHour Delhi", "student hackathon Delhi", "ages 13–19 hackathon", "free hackathon Delhi NCR"],
   applicationName: "GoldenHour Delhi",
   authors: [{ name: "GoldenHour Delhi organizing team" }],
   creator: "GoldenHour Delhi organizing team",

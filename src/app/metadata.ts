@@ -8,7 +8,7 @@ export const defaultOgImage = { url: "/og/home.png", width: 1200, height: 630, a
 export function pageMetadata(title: string, description = baseDescription, path = "/", image = defaultOgImage): Metadata {
   const url = `${siteUrl}${path}`;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: url },
     openGraph: { title, description, url, siteName: eventConfig.siteName, locale: "en_IN", type: "website", images: [image] },

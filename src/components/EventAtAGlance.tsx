@@ -2,7 +2,7 @@ import { eventConfig, eventStatusLine } from "@/lib/event";
 
 const facts = [
   ["WHAT", "GoldenHour V1 is a 12-hour student hackathon."],
-  ["WHO", `Students under ${eventConfig.ageLimit.replace("Under ", "")} can participate.`],
+  ["WHO", "Participants aged 13–19 on event day (under 20)."],
   ["CAPACITY", eventConfig.participantLimit],
   ["WHEN", `${eventConfig.dateShort} (${eventConfig.dateStatus.toLowerCase()}).`],
   ["WHERE", `${eventConfig.location}; ${eventConfig.venue}.`],

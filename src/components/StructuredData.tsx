@@ -21,9 +21,9 @@ export function EventStructuredData() {
   const event = {
     "@type": "Event",
     "@id": `${eventConfig.siteUrl}/goldenhour#event`,
-    name: "GoldenHour V1 — Free 12-Hour Student Hackathon",
+    name: "GoldenHour V1 — Free 12-Hour Student Build Day",
     alternateName: eventConfig.alternateName,
-    description: `${eventConfig.description} Scheduled for ${eventConfig.date}; the venue is to be announced. Registration opens ${eventConfig.registrationOpening}.`,
+    description: `${eventConfig.description} Date is tentative; venue is to be announced. Registration is open.`,
     startDate: eventConfig.isoDate,
     endDate: eventConfig.endIsoDate,
     eventStatus: "https://schema.org/EventScheduled",
@@ -35,8 +35,8 @@ export function EventStructuredData() {
       { "@type": "Organization", name: "OSEN", url: eventConfig.osenUrl },
     ],
     isAccessibleForFree: true,
-    offers: { "@type": "Offer", price: 0, priceCurrency: "INR", availability: "https://schema.org/PreOrder", description: `Registration opens ${eventConfig.registrationOpening}.` },
-    audience: { "@type": "Audience", audienceType: "Students under 19" },
+    offers: { "@type": "Offer", url: eventConfig.registrationUrl, price: 0, priceCurrency: "INR", availability: "https://schema.org/InStock", description: "Free registration is open." },
+    audience: { "@type": "Audience", audienceType: "Participants aged 13–19 on the event date (under 20)" },
     image: `${eventConfig.siteUrl}/og/goldenhour.png`,
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...event }) }} />;

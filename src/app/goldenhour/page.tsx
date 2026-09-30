@@ -33,7 +33,7 @@ export default function GoldenHourPage() {
     <main id="main-content" className="event-page-root">
       <Hero />
       <EventAtAGlance />
-      <section aria-labelledby="what-is-goldenhour" className="bg-offwhite px-5 md:px-10 py-16 md:py-24 border-b-4 border-black"><div className="max-w-[900px] mx-auto"><p className="gh-kicker">DEFINITION / GOLDENHOUR DELHI</p><h2 id="what-is-goldenhour" className="font-archivo text-4xl md:text-6xl leading-[.85] mt-5 mb-6">WHAT IS <span className="text-sunset">GOLDENHOUR?</span></h2><p className="font-dm text-lg leading-relaxed">GoldenHour V1 is a free, student-run 12-hour hackathon for builders under 19 in Delhi NCR. The event is organized by the GoldenHour team and has Web Development and Game Development tracks.</p></div></section>
+      <section aria-labelledby="what-is-goldenhour" className="bg-offwhite px-5 md:px-10 py-16 md:py-24 border-b-4 border-black"><div className="max-w-[900px] mx-auto"><p className="gh-kicker">DEFINITION / GOLDENHOUR DELHI</p><h2 id="what-is-goldenhour" className="font-archivo text-4xl md:text-6xl leading-[.85] mt-5 mb-6">WHAT IS <span className="text-sunset">GOLDENHOUR?</span></h2><p className="font-dm text-lg leading-relaxed">GoldenHour V1 is a free, student-run 12-hour Build Day in Delhi NCR, with Web Development and Game Development tracks. Participants must be at least 13 and under 20 on 14 November 2026 (ages 13–19 on event day). The date is tentative and the venue is yet to be announced.</p></div></section>
       <Marquee />
       <About />
       <Events />
@@ -49,7 +49,7 @@ export default function GoldenHourPage() {
       <EventInfo />
       <FinalCTA />
       <FAQ />
-      <p className="sr-only">Event status: {eventConfig.dateStatus}. The event is scheduled for {eventConfig.date}, the venue is to be announced, and registration opens {eventConfig.registrationOpening}.</p>
+      <p className="sr-only">Event status: {eventConfig.dateStatus}. The event is scheduled for {eventConfig.date}, tentatively, in {eventConfig.location}. Registration is open. Participants must be at least 13 and under 20 on event day.</p>
     </main>
     <Footer />
     <MobileCTA />

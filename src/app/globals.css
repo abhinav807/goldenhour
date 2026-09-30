@@ -84,7 +84,7 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
   .hero-background { opacity: .46; transform: scale(1.16); transform-origin: center; }
   #hero { min-height: 760px; padding-left: 1rem; padding-right: 1rem; }
   #hero > div.relative { padding-top: 7rem; padding-bottom: 6rem; }
-  #hero h1 { font-size: clamp(4rem, 21vw, 6.5rem); line-height: .78; }
+  #hero h1 { font-size: clamp(2rem, 11vw, 4rem); line-height: .82; }
   #hero { background-size: 38px 38px; }
 }
 @media (max-width: 420px) {
@@ -204,4 +204,16 @@ body { zoom: 1; }
   .event-page-root #timeline article { min-height: 0; }
   .event-page-root #countdown .grid { gap: 1rem; }
   .event-page-root #countdown .grid > div { padding-inline: .25rem; }
+}
+
+/* Keep long-form policy copy readable while event marketing sections remain centered. */
+.legal-document > h1 { text-align: center; }
+.legal-document section,
+.legal-document p,
+.legal-document li { text-align: left !important; }
+body:has(.cookie-banner) .back-to-top { display: none !important; }
+@media print {
+  .print\:hidden, nav, footer, .back-to-home, .mobile-cta, .cookie-banner { display: none !important; }
+  body, main, article { background: white !important; color: black !important; }
+  .legal-document { max-width: none !important; }
 }

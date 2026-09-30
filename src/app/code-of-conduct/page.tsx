@@ -28,12 +28,14 @@ const sections: Section[] = [
   { title: "16. Fairness and Due Process", paragraphs: ["GoldenHour will make reasonable efforts to handle incidents consistently and fairly.", "The organizers may consider:"], bullets: ["The seriousness of the conduct.", "Whether anyone was placed at risk.", "Whether the behavior was repeated.", "Available evidence.", "The circumstances surrounding the incident.", "Previous relevant violations during the event."],},
   { title: "17. Cooperation", paragraphs: ["By participating in GoldenHour, you agree to cooperate with reasonable event procedures, including:"], bullets: ["Registration and identity verification requirements.", "Venue security procedures.", "Event rules.", "Judging and submission procedures.", "Reasonable investigations into Code of Conduct violations."],},
   { title: "18. Scope", paragraphs: ["This Code of Conduct applies throughout the GoldenHour experience, including:"], bullets: ["The physical event venue.", "Official GoldenHour online communities.", "Official event communication channels.", "Official event activities.", "Events or activities directly associated with GoldenHour.", "Sponsors, judges, volunteers, organizers, guests, and other non-participant attendees are expected to follow the same standards."]},
+  { title: "19. Participants Under 18", paragraphs: ["GoldenHour V1 is open to participants aged 13–19 on event day. A participant who is under 18 must have permission from a parent or legal guardian. The registration form requests a guardian-consent declaration, and a signed consent slip must be brought to check-in.", "Participants are expected to maintain appropriate boundaries and to follow organizer directions. Anyone with a safety concern should report it to a GoldenHour organizer or designated event staff member."]},
+  { title: "20. Age Verification and Travel", paragraphs: ["At check-in, organizers may view a school ID, Aadhaar, passport, or birth certificate solely to verify age. Organizers will not copy, photograph, or store the identity document.", "Participants arrange their own travel; no overnight accommodation is provided. These arrangements are provisional until the venue is confirmed. For a participant under 18, a parent or guardian must arrange the journey home."]},
 ];
 
 export default function CodeOfConductPage() {
   return (
     <main className="min-h-screen bg-offwhite px-5 md:px-12 py-24 md:py-36">
-      <article className="max-w-[900px] mx-auto">
+      <article className="legal-document max-w-[900px] mx-auto">
         <Link href="/goldenhour" className="font-space text-xs text-sunset hover:text-black">← BACK TO GOLDENHOUR V1</Link>
         <p className="font-space text-xs text-black/50 mt-14 mb-5">EFFECTIVE FOR ALL GOLDENHOUR EVENTS, INCLUDING GOLDENHOUR V1</p>
         <h1 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.82]">CODE OF<br /><span className="text-sunset">CONDUCT.</span></h1>
@@ -42,12 +44,11 @@ export default function CodeOfConductPage() {
           <p>This Code of Conduct applies to every person participating in or associated with a GoldenHour event, including participants, volunteers, organizers, speakers, sponsors, judges, guests, photographers, and event staff.</p>
           <p>By registering for, attending, volunteering at, or otherwise participating in GoldenHour, you agree to follow this Code of Conduct.</p>
           {sections.map((section) => <section key={section.title} className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">{section.title}</h2>{section.paragraphs?.map((paragraph) => <p key={paragraph} className="mb-5">{paragraph}</p>)}{section.bullets && <ul className="list-disc pl-6 space-y-3">{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}
-          <section className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">REPORTING CONTACT</h2><p><strong>GoldenHour Organizing Team</strong><br />Email: <a className="underline text-sunset" href="mailto:abhinavgoyal300@gmail.com">abhinavgoyal300@gmail.com</a></p><p className="mt-5">For urgent incidents during the event, approach any clearly identified GoldenHour organizer or volunteer and ask for the event lead.</p></section>
+          <section className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">REPORTING CONTACT</h2><p><strong>GoldenHour Organizing Team</strong><br />Email: <a className="underline text-sunset" href="mailto:hello@goldenhourdelhi.co.in">hello@goldenhourdelhi.co.in</a></p><p className="mt-5">For urgent incidents during the event, approach any clearly identified GoldenHour organizer or volunteer and ask for the event lead.</p></section>
           <section className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">OUR COMMITMENT</h2><p>GoldenHour exists to give people a place to <strong>build, learn, experiment, collaborate, and meet other builders</strong>.</p><p className="mt-5">We want participants to be able to focus on creating great projects without worrying about harassment, intimidation, discrimination, or unsafe behavior.</p><p className="mt-5">By participating in GoldenHour, you help create that environment.</p><p className="mt-8 font-archivo text-2xl text-sunset">Build boldly. Treat people respectfully. Leave the community better than you found it.</p></section>
-          <p className="border-t-2 border-black/15 pt-8 font-space text-xs text-black/55">LAST UPDATED: SEPTEMBER 2026<br />GOLDENHOUR<br />CONTACT: <a className="underline text-sunset" href="mailto:abhinavgoyal300@gmail.com">abhinavgoyal300@gmail.com</a></p>
+          <p className="border-t-2 border-black/15 pt-8 font-space text-xs text-black/55">LAST UPDATED: 30 SEPTEMBER 2026<br />GOLDENHOUR<br />CONTACT: <a className="underline text-sunset" href="mailto:hello@goldenhourdelhi.co.in">hello@goldenhourdelhi.co.in</a></p>
         </div>
       </article>
     </main>
   );
 }
-

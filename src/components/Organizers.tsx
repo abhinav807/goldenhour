@@ -26,8 +26,8 @@ const groups: Array<{ title: string; people: Person[]; tone: "dark" | "sunset" |
     title: "MENTORS",
     tone: "light",
     people: [
-      { num: "05", name: "ARYAN BRITE", role: "MENTOR / JUDGE" },
-      { num: "06", name: "SUKHDEV", role: "MENTOR" },
+      { num: "06", name: "ARYAN BRITE", role: "MENTOR / JUDGE" },
+      { num: "07", name: "SUKHDEV", role: "MENTOR" },
     ],
   },
 ];
@@ -57,9 +57,9 @@ function PersonCard({ person, tone, delay }: { person: Person; tone: "dark" | "s
 export default function Organizers() {
   return (
     <section id="organizers" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden dot-pattern">
-      <div className="max-w-[1240px] mx-auto text-center">
+      <div className="max-w-[1200px] mx-auto text-center">
         <div className="max-w-2xl mx-auto mb-14 md:mb-16 reveal">
-          <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase shadow-[2px_2px_0_#050505]">04 / PEOPLE BEHIND THE CLOCK</div>
+          <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase shadow-[2px_2px_0_#050505]">05 / PEOPLE BEHIND THE CLOCK</div>
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">THE<br />TEAM<span className="text-sunset">.</span></h2>
           <p className="font-space text-xs md:text-sm text-black/55 mt-6 leading-relaxed">The people holding the thread from first idea to final build.</p>
         </div>
