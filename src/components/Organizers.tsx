@@ -11,15 +11,15 @@ const groups: Array<{ title: string; people: Person[]; tone: "dark" | "sunset" |
     people: [
       { num: "01", name: "ABHINAV GOYAL", role: "LEAD ORGANISER / BUILDER" },
       { num: "02", name: "DIVYA", role: "LEAD ORGANISER / BUILDER" },
+      { num: "03", name: "HARSH", role: "LEAD ORGANISER" },
+      { num: "04", name: "ANURAG", role: "LEAD ORGANISER" },
     ],
   },
   {
     title: "CO-ORGANISERS",
     tone: "sunset",
     people: [
-      { num: "03", name: "YASHPAL YADAV", role: "CO-ORGANISER" },
-      { num: "04", name: "ANURAG", role: "CO-ORGANISER" },
-      { num: "05", name: "HARSH", role: "CO-ORGANISER" },
+      { num: "05", name: "YASHPAL YADAV", role: "CO-ORGANISER" },
     ],
   },
   {

@@ -31,7 +31,9 @@ export const eventConfig = {
   instagramUrl: "https://www.instagram.com/goldenhour.delhi/",
   linkedinUrl: "https://www.linkedin.com/company/goldenhourdelhi/",
   founders: ["Abhinav Goyal", "Divya"],
-  lastUpdated: "2026-09-30",
+  leadOrganizers: ["Abhinav Goyal", "Divya", "Harsh", "Anurag"],
+  coOrganizers: ["Yashpal Yadav"],
+  lastUpdated: "2026-10-06",
 } as const;
 
 export const faqItems = [
