@@ -33,6 +33,7 @@ export function EventStructuredData() {
     sponsor: [
       { "@type": "Organization", name: "CodeCrafters", url: eventConfig.codeCraftersUrl },
       { "@type": "Organization", name: "OSEN", url: eventConfig.osenUrl },
+      { "@type": "Organization", name: eventConfig.refreshmentPartner },
     ],
     isAccessibleForFree: true,
     offers: { "@type": "Offer", url: eventConfig.registrationUrl, price: 0, priceCurrency: "INR", availability: "https://schema.org/InStock", description: "Free registration is open." },

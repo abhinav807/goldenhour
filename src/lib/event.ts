@@ -27,6 +27,7 @@ export const eventConfig = {
   volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
   codeCraftersUrl: "https://www.codecrafters.io",
   osenUrl: "https://osen.live/",
+  refreshmentPartner: "SEWAN FOODS",
   contactEmail: "hello@goldenhourdelhi.co.in",
   instagramUrl: "https://www.instagram.com/goldenhour.delhi/",
   linkedinUrl: "https://www.linkedin.com/company/goldenhourdelhi/",
