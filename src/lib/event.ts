@@ -20,7 +20,7 @@ export const eventConfig = {
   participantLimit: "Approximately 60 participants",
   registrationOpen: true,
   tracks: ["Web Development", "Game Development"],
-  prizes: ["CodeCrafters VIP memberships", "GoldenHour trophies", "Certificates", "Stickers"],
+  prizes: ["CodeCrafters VIP memberships", "GoldenHour trophies", "n8n Pro subscriptions (one month per participant; 60 USD monthly value)", "Certificates", "Stickers"],
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",
   guardianConsentUrl: "/guardian-consent",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
@@ -28,6 +28,7 @@ export const eventConfig = {
   codeCraftersUrl: "https://www.codecrafters.io",
   osenUrl: "https://osen.live/",
   refreshmentPartner: "SEWAN FOODS",
+  giftSponsor: "n8n",
   contactEmail: "hello@goldenhourdelhi.co.in",
   instagramUrl: "https://www.instagram.com/goldenhour.delhi/",
   linkedinUrl: "https://www.linkedin.com/company/goldenhourdelhi/",
@@ -82,9 +83,9 @@ export const faqItems = [
   },
   {
     q: "What prizes are there, and how are they awarded?",
-    a: "Winning teams receive GoldenHour trophies; CodeCrafters VIP memberships are awarded per participant.",
+    a: "Winning teams receive GoldenHour trophies; CodeCrafters VIP memberships are awarded per participant. Every participant also receives one month of n8n Pro, valued at 60 USD per month.",
     category: "PRIZES",
-    detail: "Membership durations differ by place. All participants also receive a GoldenHour sticker and a digital certificate.",
+    detail: "Membership durations differ by place. All participants also receive a GoldenHour sticker and a digital certificate. n8n is the gift sponsor for the one-month Pro subscriptions.",
   },
   {
     q: "How do travel and accommodation work?",
