@@ -24,7 +24,7 @@ export const eventConfig = {
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",
   guardianConsentUrl: "/guardian-consent",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
-  volunteerUrl: "https://forms.gle/R8cuBKNLj1ftXKfJ8",
+  volunteerUrl: "https://forms.gle/Riv3qEv3Bf7YTCdV9",
   codeCraftersUrl: "https://www.codecrafters.io",
   osenUrl: "https://osen.live/",
   refreshmentPartner: "SEWAN FOODS",
