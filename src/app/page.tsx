@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
 import Marquee from "@/components/Marquee";
@@ -63,7 +64,75 @@ export default function Home() {
 
       <SectionTape />
       <section id="founders" className="px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
-        <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">03 / THE PEOPLE</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">BUILT BY<br /><span className="text-sunset">BUILDERS.</span></h2></div><div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"><div className="brutal-card p-8 md:p-10 text-center"><p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-FOUNDER / 01</p><h3 className="font-archivo text-4xl md:text-5xl">ABHINAV<br />GOYAL<span className="text-sunset">.</span></h3></div><div className="brutal-card-orange p-8 md:p-10 text-center"><p className="font-space text-[10px] text-black/60 tracking-widest mb-4">CO-FOUNDER / 02</p><h3 className="font-archivo text-4xl md:text-5xl">DIVYA<span className="text-offwhite">.</span></h3></div></div></div>
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-14">
+            <p className="gh-kicker">03 / THE PEOPLE</p>
+            <h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">BUILT BY<br /><span className="text-sunset">BUILDERS.</span></h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="brutal-card p-0 text-center overflow-hidden">
+              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
+                <Image src="/abhinav.jpg" alt="Abhinav Goyal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
+              </div>
+              <div className="p-8 md:p-10">
+                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-FOUNDER / 01</p>
+                <h3 className="font-archivo text-4xl md:text-5xl">ABHINAV<br />GOYAL<span className="text-sunset">.</span></h3>
+              </div>
+            </div>
+            <div className="brutal-card-orange p-0 text-center overflow-hidden">
+              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
+                <Image src="/divya.jpg" alt="Divya" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
+              </div>
+              <div className="p-8 md:p-10">
+                <p className="font-space text-[10px] text-black/60 tracking-widest mb-4">CO-FOUNDER / 02</p>
+                <h3 className="font-archivo text-4xl md:text-5xl">DIVYA<span className="text-offwhite">.</span></h3>
+              </div>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-[1200px] mx-auto mt-8">
+            <div className="brutal-card p-0 text-center overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
+                <Image src="/anurag.jpg" alt="Anurag" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+              </div>
+              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
+                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">MEDIA LEAD / 03</p>
+                <h3 className="font-archivo text-4xl md:text-5xl">ANURAG<span className="text-sunset">.</span></h3>
+              </div>
+            </div>
+            
+            <div className="brutal-card-orange p-0 text-center overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[3/4] border-b-2 border-black bg-black/5 flex items-center justify-center">
+                <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)', backgroundSize: '10px 10px' }}></div>
+                <span className="relative z-10 font-space text-[10px] text-black uppercase tracking-widest font-bold bg-[#f7f7f2] px-3 py-2 border-2 border-black shadow-[3px_3px_0_#050505]">Photo Pending</span>
+              </div>
+              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
+                <p className="font-space text-[10px] text-black/60 tracking-widest mb-4">SUPPORTER / 04</p>
+                <h3 className="font-archivo text-4xl md:text-5xl">HARSH<span className="text-offwhite">.</span></h3>
+              </div>
+            </div>
+
+            <div className="brutal-card p-0 text-center overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
+                <Image src="/yashpal.jpg" alt="Yashpal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+              </div>
+              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
+                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-ORGANISER / 05</p>
+                <h3 className="font-archivo text-4xl md:text-5xl">YASHPAL<span className="text-sunset">.</span></h3>
+              </div>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-1 gap-8 max-w-md mx-auto mt-8">
+            <div className="brutal-card-black p-0 text-center overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
+                <Image src="/himanish.jpg" alt="Himanish Salgotra" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
+              </div>
+              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
+                <p className="font-space text-[10px] text-sunset tracking-widest mb-4">EVENT INCHARGE / 06</p>
+                <h3 className="font-archivo text-4xl md:text-5xl text-offwhite">HIMANISH<br />SALGOTRA<span className="text-sunset">.</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
 
