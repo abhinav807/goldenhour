@@ -40,7 +40,7 @@ export default function Home() {
         <div className="gh-hero-grid" aria-hidden="true"><span /><span /><span /><span /><span /><span /><span /><span /><span /></div>
         <div className="gh-hero-copy relative z-10 max-w-[1200px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36 text-center">
           <p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHOUR DELHI / DELHI NCR / INDIA</p>
-          <h1 className="font-archivo text-[19vw] sm:text-[15vw] md:text-[12vw] leading-[.76] tracking-[-.08em] max-w-6xl mx-auto">GOLDEN<span className="text-sunset">HOUR</span><span className="text-offwhite">.</span></h1>
+          <h1 className="font-archivo text-[clamp(4rem,18vw,120px)] sm:text-[clamp(5rem,15vw,140px)] md:text-[clamp(6rem,12vw,160px)] leading-[.76] tracking-[-.08em] max-w-6xl mx-auto">GOLDEN<span className="text-sunset">HOUR</span><span className="text-offwhite">.</span></h1>
           <div className="mt-12 flex flex-col items-center gap-8 max-w-5xl mx-auto">
             <p className="font-archivo text-2xl md:text-5xl leading-[.9] max-w-2xl mx-auto text-center">BUILD BEFORE SUNRISE.</p>
             <Link href="#events" className="brutal-btn-orange px-7 py-4 justify-center">VIEW GOLDENHOUR V1 <ArrowUpRight size={18} /></Link>
