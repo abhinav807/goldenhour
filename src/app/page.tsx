@@ -69,7 +69,7 @@ export default function Home() {
             <p className="gh-kicker">03 / THE PEOPLE</p>
             <h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">BUILT BY<br /><span className="text-sunset">BUILDERS.</span></h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-[1200px] mx-auto">
             <div className="brutal-card p-0 text-center overflow-hidden">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/abhinav.jpg" alt="Abhinav Goyal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
