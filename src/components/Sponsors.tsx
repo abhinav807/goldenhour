@@ -20,7 +20,6 @@ type Sponsor = {
 const sponsors: Sponsor[] = [
   { name: "CODECRAFTERS", role: "PRIZE SPONSOR", href: eventConfig.codeCraftersUrl, logo: "/brand/codecrafters-logo.svg", alt: "CodeCrafters logo", width: 220, height: 155, visit: "VISIT CODECRAFTERS" },
   { name: "OSEN", role: "ACADEMIC SPONSOR", href: eventConfig.osenUrl, logo: "/brand/osen-logo.png", alt: "OSEN logo", width: 356, height: 134, visit: "OSEN / ACADEMIC SPONSOR", dark: true },
-  { name: "MUMBAI TECH COMMUNITY", role: "COMMUNITY PARTNER", logo: "/brand/mumbai-tech-community.png", alt: "Mumbai Tech Community logo", width: 1254, height: 1254, note: "COMMUNITY PARTNER", dark: true },
   { name: eventConfig.refreshmentPartner, role: "REFRESHMENT PARTNER", logo: "/brand/sewan-foods.png", alt: "SEWAN FOODS logo — Food for Impact", width: 1137, height: 660, note: "FOOD FOR IMPACT" },
   { name: eventConfig.giftSponsor, role: "GIFT SPONSOR", logo: "/brand/n8n-logo.png", alt: "n8n logo", width: 296, height: 80, note: "N8N PRO / PARTICIPANT GIFT", dark: true },
 ];
@@ -44,7 +43,7 @@ export default function Sponsors() {
       <div className="text-center max-w-3xl mx-auto mb-16 border-b-2 border-offwhite/15 pb-10 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">SPONSORS / PARTNERS</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">BACK THE<br /><span className="text-sunset">BUILD.</span></h2>
-        <p className="font-space text-xs text-offwhite/45 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. OSEN is the academic sponsor. Mumbai Tech Community is the community partner. SEWAN FOODS is the refreshment partner. n8n is the gift sponsor, providing a Pro month to every participant.</p>
+        <p className="font-space text-xs text-offwhite/45 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is the gift sponsor, providing a Pro month to every participant.</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
         {sponsors.map((sponsor, index) => {
@@ -63,7 +62,7 @@ export default function Sponsors() {
         <a href="mailto:hello@goldenhourdelhi.co.in?subject=GOLDENHOUR%20sponsorship" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-8 hover:text-offwhite">CONTACT US TO SPONSOR <ArrowUpRight size={15} aria-hidden="true" /></a>
         <a href={eventConfig.volunteerUrl} target="_blank" rel="noreferrer" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-5 text-black/65 hover:text-offwhite">VOLUNTEER WITH US <ArrowUpRight size={15} aria-hidden="true" /></a>
       </div>
-      <p className="font-space text-[10px] text-offwhite/30 uppercase tracking-[.16em] mt-10 text-center reveal">GOLDENHOUR / CODECRAFTERS / OSEN / MUMBAI TECH COMMUNITY / SEWAN FOODS / N8N</p>
+      <p className="font-space text-[10px] text-offwhite/30 uppercase tracking-[.16em] mt-10 text-center reveal">GOLDENHOUR / CODECRAFTERS / OSEN / SEWAN FOODS / N8N</p>
     </div>
   </section>;
 }
