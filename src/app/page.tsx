@@ -53,7 +53,7 @@ export default function Home() {
       <section id="about" className="px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
         <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.1fr_.9fr] gap-12 lg:gap-24 items-start">
           <div><p className="gh-kicker">01 / THE COMPANY</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">MORE THAN<br /><span className="text-sunset">EVENTS.</span></h2></div>
-          <div className="space-y-7 font-dm text-lg md:text-xl leading-relaxed text-center lg:text-left"><p>GoldenHour Delhi creates platforms for students to learn, build, collaborate, and showcase their ideas.</p><p>Hackathons, technical masterclasses, acceleration opportunities, innovation sprints, ideathons, mentorship, and project showcases all point in one direction: the next generation of Indian builders.</p><div className="brutal-card-black p-7 text-offwhite text-center"><p className="font-space text-xs text-sunset uppercase tracking-widest font-bold mb-3">THE PROMISE</p><p className="font-archivo text-2xl">FREE FOR AGES 13–19 ON EVENT DAY.</p><p className="font-space text-xs text-offwhite/60 mt-3">Beginners and experts. Everyone gets a place to start.</p></div></div>
+          <div className="space-y-7 font-dm text-lg md:text-xl leading-relaxed text-center lg:text-left"><p>GoldenHour Delhi creates platforms for students to learn, build, collaborate, and showcase their ideas.</p><p>Hackathons, technical masterclasses, acceleration opportunities, innovation sprints, ideathons, and project showcases all point in one direction: the next generation of Indian builders.</p><div className="brutal-card-black p-7 text-offwhite text-center"><p className="font-space text-xs text-sunset uppercase tracking-widest font-bold mb-3">THE PROMISE</p><p className="font-archivo text-2xl">FREE FOR AGES 13–19 ON EVENT DAY.</p><p className="font-space text-xs text-offwhite/60 mt-3">Beginners and experts. Everyone gets a place to start.</p></div></div>
         </div>
       </section>
 
@@ -100,17 +100,6 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="brutal-card-orange p-0 text-center overflow-hidden flex flex-col">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black bg-black/5 flex items-center justify-center">
-                <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)', backgroundSize: '10px 10px' }}></div>
-                <span className="relative z-10 font-space text-[10px] text-black uppercase tracking-widest font-bold bg-[#f7f7f2] px-3 py-2 border-2 border-black shadow-[3px_3px_0_#050505]">Photo Pending</span>
-              </div>
-              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-black/60 tracking-widest mb-4">SUPPORTER / 04</p>
-                <h3 className="font-archivo text-4xl md:text-5xl">HARSH<span className="text-offwhite">.</span></h3>
-              </div>
-            </div>
-
             <div className="brutal-card p-0 text-center overflow-hidden flex flex-col">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/yashpal.jpg" alt="Yashpal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />

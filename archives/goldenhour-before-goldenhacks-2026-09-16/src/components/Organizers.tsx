@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 const organizers = [
   { num: "01", name: "ABHINAV GOYAL", role: "ORGANIZER / BUILDER" },
   { num: "02", name: "DIVYA", role: "ORGANIZER / BUILDER" },
-  { num: "03", name: "ARYAN BRITE", role: "JUDGE / MENTOR" },
+  { num: "03", name: "ARYAN BRITE", role: "JUDGE" },
 ];
 
 export default function Organizers() {
