@@ -34,8 +34,8 @@ export const eventConfig = {
   linkedinUrl: "https://www.linkedin.com/company/goldenhourdelhi/",
   founders: ["Abhinav Goyal", "Divya"],
   leadOrganizers: ["Abhinav Goyal", "Divya", "Anurag"],
-  coOrganizers: ["Yashpal Yadav"],
-  lastUpdated: "2026-10-06",
+  coOrganizers: ["Yashpal Yadav", "Himanish Salgotra"],
+  lastUpdated: "2026-10-19",
 } as const;
 
 export const faqItems = [

@@ -105,7 +105,7 @@ export default function Home() {
                 <Image src="/yashpal.jpg" alt="Yashpal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
               <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-ORGANISER / 05</p>
+                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-ORGANISER / 04</p>
                 <h3 className="font-archivo text-4xl md:text-5xl">YASHPAL<span className="text-sunset">.</span></h3>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 <Image src="/himanish.jpg" alt="Himanish Salgotra" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
               </div>
               <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-sunset tracking-widest mb-4">EVENT INCHARGE / 06</p>
+                <p className="font-space text-[10px] text-sunset tracking-widest mb-4">CO-ORGANISER / 05</p>
                 <h3 className="font-archivo text-4xl md:text-5xl text-offwhite">HIMANISH<br />SALGOTRA<span className="text-sunset">.</span></h3>
               </div>
             </div>
