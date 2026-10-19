@@ -17,7 +17,7 @@ export const eventConfig = {
   ageLimit: "Ages 13–19; must be under 20 on 14 November 2026",
   minimumAge: 13,
   teamSize: "1–3 participants",
-  participantLimit: "Approximately 60 participants",
+  participantLimit: "100+ students",
   registrationOpen: true,
   tracks: ["Web Development", "Game Development"],
   prizes: ["CodeCrafters VIP memberships", "GoldenHour trophies", "n8n Pro subscriptions (one month per participant; 60 USD monthly value)", "Certificates", "Stickers"],
