@@ -69,16 +69,16 @@ export default function Timeline() {
             const panelId = `phase-panel-${index}`;
             const buttonId = `phase-button-${index}`;
             return <article key={phase.start} className={`relative ml-0 border-2 border-black bg-offwhite shadow-[6px_6px_0_#050505] ${phase.submission ? "ring-4 ring-sunset" : ""}`}>
-              <button id={buttonId} type="button" className="relative w-full text-left p-5 md:p-7 pl-14 md:pl-20" onClick={() => toggle(index)} aria-expanded={isOpen} aria-controls={panelId}>
+              <button id={buttonId} type="button" className="relative w-full text-center p-5 md:p-7" onClick={() => toggle(index)} aria-expanded={isOpen} aria-controls={panelId}>
                 <span className="absolute left-2 md:left-5 top-5 w-8 h-8 md:w-10 md:h-10 bg-black text-sunset border-2 border-sunset flex items-center justify-center font-archivo text-sm md:text-base" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <span className="flex flex-wrap justify-between items-center gap-3"><span className="font-space text-[10px] md:text-xs font-bold text-sunset">{startLabel} – {endLabel} IST</span><span className={`font-space text-[9px] font-bold px-2 py-1 border border-black ${status === "UPCOMING" ? "bg-yellow text-black" : "bg-black text-offwhite"}`}>{status}</span></span>
-                <span className="block font-archivo text-xl md:text-2xl text-black mt-3 pr-8">{phase.title}</span>
+                <span className="block font-archivo text-xl md:text-2xl text-black mt-3 px-8">{phase.title}</span>
                 <ChevronDown size={20} className={`absolute right-5 md:right-7 bottom-6 text-black transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
-              {isOpen && <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t-2 border-black p-5 md:p-7 md:pl-20">
+              {isOpen && <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t-2 border-black p-5 md:p-7 text-center">
                 <p className="font-dm text-sm md:text-base text-black/70 leading-relaxed">{phase.description}</p>
-                {phase.objectives && <div className="mt-6 border-2 border-black p-5"><h3 className="font-space text-[10px] font-bold uppercase tracking-[.14em] mb-3">PHASE OBJECTIVES &amp; ACTIONS</h3><ul className="font-dm text-sm text-black/70 space-y-2 list-disc list-inside">{phase.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ul></div>}
-                {phase.tip && <p className="font-space text-xs text-black mt-5 border-l-4 border-sunset pl-4"><strong>NOTE:</strong> {phase.tip}</p>}
+                {phase.objectives && <div className="mt-6 border-2 border-black p-5"><h3 className="font-space text-[10px] font-bold uppercase tracking-[.14em] mb-3">PHASE OBJECTIVES &amp; ACTIONS</h3><ul className="font-dm text-sm text-black/70 space-y-2 list-none">{phase.objectives.map((objective) => <li key={objective}>— {objective}</li>)}</ul></div>}
+                {phase.tip && <p className="font-space text-xs text-black mt-5 border-t-4 border-sunset pt-4"><strong>NOTE:</strong> {phase.tip}</p>}
                 {phase.review && <p className="font-space text-[10px] text-black/50 uppercase mt-5">Detailed arrangements to be confirmed by organizers.</p>}
                 {phase.submission && <div className="mt-6 border-2 border-black bg-sunset p-5 text-center"><p className="font-space text-xs font-bold uppercase tracking-[.14em] flex items-center justify-center gap-2"><ClipboardCheck size={16} aria-hidden="true" /> HARD SUBMISSION DEADLINE / 05:00 PM IST</p><p className="font-space text-[10px] mt-2">Submissions close at 5:00 PM IST sharp. Late work cannot be accepted.</p></div>}
               </div>}
