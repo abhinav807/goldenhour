@@ -21,7 +21,7 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
 ::selection { background: #050505; color: #ff5a00; }
 :focus-visible { outline: 3px solid #ff5a00; outline-offset: 4px; }
 
-.font-archivo { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: -0.055em; line-height: .88; }
+.font-archivo { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: -0.045em; line-height: 1.08; }
 .font-space { font-family: 'Space Mono', monospace; letter-spacing: -0.025em; }
 .font-dm { font-family: 'DM Sans', sans-serif; }
 
@@ -214,4 +214,15 @@ body:has(.cookie-banner) .back-to-top { display: none !important; }
   .print\:hidden, nav, footer, .back-to-home, .mobile-cta, .cookie-banner { display: none !important; }
   body, main, article { background: white !important; color: black !important; }
   .legal-document { max-width: none !important; }
+}
+
+/* Readable desktop typography: display headlines may be tight, but cards and copy must breathe. */
+.event-page-root .font-archivo { overflow-wrap: normal; word-break: normal; }
+.event-page-root h1.font-archivo, .event-page-root h2.font-archivo { line-height: 1.02; }
+.event-page-root h3.font-archivo { line-height: 1.16; letter-spacing: -.035em; }
+.event-page-root #prizes article .font-archivo { line-height: 1.22; letter-spacing: -.025em; }
+.event-page-root #prizes article { min-width: 0; }
+.event-page-root #prizes article p { max-width: 100%; }
+@media (min-width: 1024px) {
+  .event-page-root #prizes > div { max-width: 1200px; }
 }
