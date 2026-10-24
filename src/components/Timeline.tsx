@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ClipboardCheck } from "lucide-react";
 import { eventConfig } from "@/lib/event";
 
@@ -29,18 +29,33 @@ const phases: Phase[] = [
   { start: "19:00", end: "20:00", title: "CLOSING & COMMUNITY", description: "Closing remarks, photographs and final networking before the 12-hour Build Day concludes.", review: true },
 ];
 
-function phaseStatus(phase: Phase) {
+function phaseStatus(phase: Phase, now: number | null) {
+  // Keep the initial server and client markup identical; the live clock starts after hydration.
+  if (now === null) return "SCHEDULED";
   const eventDay = eventConfig.isoDate.slice(0, 10);
   const start = new Date(`${eventDay}T${phase.start}:00+05:30`).getTime();
   const end = new Date(`${eventDay}T${phase.end}:00+05:30`).getTime();
-  const now = Date.now();
   if (now < start) return "UPCOMING";
   if (now < end) return "ACTIVE";
   return "COMPLETED";
 }
 
+// Pure string formatting avoids Node/browser differences in Intl time formatting.
+function formatTime(hhmm: string) {
+  const [hours, minutes] = hhmm.split(":").map(Number);
+  const hour12 = hours % 12 || 12;
+  return `${String(hour12).padStart(2, "0")}:${String(minutes).padStart(2, "0")} ${hours >= 12 ? "PM" : "AM"}`;
+}
+
 export default function Timeline() {
   const [open, setOpen] = useState<number[]>([0]);
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    const update = () => setNow(Date.now());
+    update();
+    const timer = window.setInterval(update, 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
   const allOpen = open.length === phases.length;
   const toggle = (index: number) => setOpen((current) => current.includes(index) ? current.filter((item) => item !== index) : [...current, index]);
   const toggleAll = () => setOpen(allOpen ? [] : phases.map((_, index) => index));
@@ -51,21 +66,21 @@ export default function Timeline() {
         <header className="text-center max-w-3xl mx-auto mb-12 reveal">
           <div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div>
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black">THE BUILD<br />DAY<span className="text-sunset">.</span></h2>
-          <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is tentative; venue details will follow.</p>
+          <p className="font-space text-xs md:text-sm text-black/80 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is tentative; venue details will follow.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 text-center">
-            <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">DURATION</p><p className="font-archivo text-xl mt-2">08:00–20:00 / 12H</p></div>
-            <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">SUBMISSIONS CLOSE</p><p className="font-archivo text-xl mt-2">17:00 / IST</p></div>
-            <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">VENUE</p><p className="font-archivo text-xl mt-2">{eventConfig.venue}</p></div>
+            <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/80">DURATION</p><p className="font-archivo text-xl mt-2">08:00–20:00 / 12H</p></div>
+            <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/80">SUBMISSIONS CLOSE</p><p className="font-archivo text-xl mt-2">17:00 / IST</p></div>
+            <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/80">VENUE</p><p className="font-archivo text-xl mt-2">{eventConfig.venue}</p></div>
           </div>
-          <p className="font-space text-[9px] uppercase text-black/45 mt-4">{eventConfig.date} / {eventConfig.dateStatus}</p>
+          <p className="font-space text-[9px] uppercase text-black/80 mt-4">{eventConfig.date} / {eventConfig.dateStatus}</p>
         </header>
         <div className="flex justify-center gap-3 mb-8"><button type="button" onClick={toggleAll} className="brutal-btn bg-black text-offwhite px-4 py-3 text-[10px]" aria-label={allOpen ? "Collapse all timeline phases" : "Expand all timeline phases"}>{allOpen ? "COLLAPSE ALL" : "EXPAND ALL"}</button></div>
         <div className="relative space-y-4 before:absolute before:left-5 md:before:left-8 before:top-5 before:bottom-5 before:w-1 before:bg-black">
           {phases.map((phase, index) => {
             const isOpen = open.includes(index);
-            const status = phaseStatus(phase);
-            const startLabel = new Date(`2000-01-01T${phase.start}:00Z`).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true, timeZone: "UTC" });
-            const endLabel = new Date(`2000-01-01T${phase.end}:00Z`).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true, timeZone: "UTC" });
+            const status = phaseStatus(phase, now);
+            const startLabel = formatTime(phase.start);
+            const endLabel = formatTime(phase.end);
             const panelId = `phase-panel-${index}`;
             const buttonId = `phase-button-${index}`;
             return <article key={phase.start} className={`relative ml-0 border-2 border-black bg-offwhite shadow-[6px_6px_0_#050505] ${phase.submission ? "ring-4 ring-sunset" : ""}`}>
@@ -76,10 +91,10 @@ export default function Timeline() {
                 <ChevronDown size={20} className={`absolute right-5 md:right-7 bottom-6 text-black transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
               {isOpen && <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t-2 border-black p-5 md:p-7 text-center">
-                <p className="font-dm text-sm md:text-base text-black/70 leading-relaxed">{phase.description}</p>
-                {phase.objectives && <div className="mt-6 border-2 border-black p-5"><h3 className="font-space text-[10px] font-bold uppercase tracking-[.14em] mb-3">PHASE OBJECTIVES &amp; ACTIONS</h3><ul className="font-dm text-sm text-black/70 space-y-2 list-none">{phase.objectives.map((objective) => <li key={objective}>— {objective}</li>)}</ul></div>}
+                <p className="font-dm text-sm md:text-base text-black/80 leading-relaxed">{phase.description}</p>
+                {phase.objectives && <div className="mt-6 border-2 border-black p-5"><h3 className="font-space text-[10px] font-bold uppercase tracking-[.14em] mb-3">PHASE OBJECTIVES &amp; ACTIONS</h3><ul className="font-dm text-sm text-black/80 space-y-2 list-none">{phase.objectives.map((objective) => <li key={objective}>— {objective}</li>)}</ul></div>}
                 {phase.tip && <p className="font-space text-xs text-black mt-5 border-t-4 border-sunset pt-4"><strong>NOTE:</strong> {phase.tip}</p>}
-                {phase.review && <p className="font-space text-[10px] text-black/50 uppercase mt-5">Detailed arrangements to be confirmed by organizers.</p>}
+                {phase.review && <p className="font-space text-[10px] text-black/80 uppercase mt-5">Detailed arrangements to be confirmed by organizers.</p>}
                 {phase.submission && <div className="mt-6 border-2 border-black bg-sunset p-5 text-center"><p className="font-space text-xs font-bold uppercase tracking-[.14em] flex items-center justify-center gap-2"><ClipboardCheck size={16} aria-hidden="true" /> HARD SUBMISSION DEADLINE / 05:00 PM IST</p><p className="font-space text-[10px] mt-2">Submissions close at 5:00 PM IST sharp. Late work cannot be accepted.</p></div>}
               </div>}
             </article>;

@@ -59,7 +59,7 @@ export default function Home() {
 
       <SectionTape dark />
       <section id="events" className="bg-sunset px-5 md:px-10 py-24 md:py-36 border-b-4 border-black">
-          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">PICK YOUR<br /><span className="text-offwhite">BUILD.</span></h2></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <article key={event.name} className={`p-7 md:p-10 border-2 border-black shadow-[8px_8px_0_#050505] text-center flex flex-col items-center ${i === 0 ? "bg-offwhite" : "bg-black text-offwhite"}`}><div className="flex w-full justify-center items-center gap-4 mb-12"><span className={`font-space text-[10px] font-bold px-3 py-2 ${i === 0 ? "bg-black text-sunset" : "bg-sunset text-black"}`}>0{i + 1}</span><span className={`font-space text-[10px] font-bold uppercase ${i === 0 ? "text-black/55" : "text-offwhite/55"}`}>{event.date}</span></div><p className={`font-space text-[10px] tracking-widest font-bold mb-4 ${i === 0 ? "text-black/55" : "text-sunset"}`}>{event.type}</p><h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3><p className={`font-dm text-lg leading-relaxed max-w-lg mb-10 ${i === 0 ? "text-black/70" : "text-offwhite/70"}`}>{event.description}</p>{event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}</article>)}</div></div>
+          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">PICK YOUR<br /><span className="text-offwhite">BUILD.</span></h2></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <article key={event.name} className={`p-7 md:p-10 border-2 border-black shadow-[8px_8px_0_#050505] text-center flex flex-col items-center ${i === 0 ? "bg-offwhite" : "bg-black text-offwhite"}`}><div className="flex w-full justify-center items-center gap-4 mb-12"><span className={`font-space text-[10px] font-bold px-3 py-2 ${i === 0 ? "bg-black text-sunset" : "bg-sunset text-black"}`}>0{i + 1}</span><span className={`font-space text-[10px] font-bold uppercase ${i === 0 ? "text-black/80" : "text-offwhite/70"}`}>{event.date}</span></div><p className={`font-space text-[10px] tracking-widest font-bold mb-4 ${i === 0 ? "text-black/80" : "text-sunset"}`}>{event.type}</p><h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3><p className={`font-dm text-lg leading-relaxed max-w-lg mb-10 ${i === 0 ? "text-black/80" : "text-offwhite/70"}`}>{event.description}</p>{event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}</article>)}</div></div>
       </section>
 
       <SectionTape />
@@ -75,7 +75,7 @@ export default function Home() {
                 <Image src="/abhinav.jpg" alt="Abhinav Goyal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
               </div>
               <div className="p-8 md:p-10">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-FOUNDER / 01</p>
+                <p className="font-space text-[10px] text-black/80 tracking-widest mb-4">CO-FOUNDER / 01</p>
                 <h3 className="font-archivo text-4xl md:text-5xl">ABHINAV<br />GOYAL<span className="text-sunset">.</span></h3>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function Home() {
                 <Image src="/divya.jpg" alt="Divya" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
               </div>
               <div className="p-8 md:p-10">
-                <p className="font-space text-[10px] text-black/60 tracking-widest mb-4">CO-FOUNDER / 02</p>
+                <p className="font-space text-[10px] text-black/80 tracking-widest mb-4">CO-FOUNDER / 02</p>
                 <h3 className="font-archivo text-4xl md:text-5xl">DIVYA<span className="text-offwhite">.</span></h3>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function Home() {
                 <Image src="/anurag.jpg" alt="Anurag" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
               <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">MEDIA LEAD / 03</p>
+                <p className="font-space text-[10px] text-black/80 tracking-widest mb-4">MEDIA LEAD / 03</p>
                 <h3 className="font-archivo text-4xl md:text-5xl">ANURAG<span className="text-sunset">.</span></h3>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
                 <Image src="/yashpal.jpg" alt="Yashpal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
               <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-ORGANISER / 04</p>
+                <p className="font-space text-[10px] text-black/80 tracking-widest mb-4">CO-ORGANISER / 04</p>
                 <h3 className="font-archivo text-4xl md:text-5xl">YASHPAL<span className="text-sunset">.</span></h3>
               </div>
             </div>

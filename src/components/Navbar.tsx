@@ -88,7 +88,7 @@ export default function Navbar() {
       <div className="flex flex-col items-center gap-5 w-full py-2">
         {links.map((link) => <a key={link.hash} href={destination(link.hash)} className={`font-archivo text-2xl ${active === link.hash ? "text-sunset" : "text-offwhite hover:text-sunset"}`} onClick={close}>{link.label}</a>)}
       </div>
-      <p className="font-space text-center text-[10px] text-offwhite/55 uppercase tracking-wider">Ages 13–19 on event day · 14 Nov 2026 (tentative)</p>
+      <p className="font-space text-center text-[10px] text-offwhite/70 uppercase tracking-wider">Ages 13–19 on event day · 14 Nov 2026 (tentative)</p>
     </div>}
   </>;
 }

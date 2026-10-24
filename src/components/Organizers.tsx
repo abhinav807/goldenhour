@@ -25,9 +25,9 @@ const groups: Array<{ title: string; people: Person[]; tone: "dark" | "sunset" |
 ];
 
 const toneClasses = {
-  dark: { card: "bg-black text-offwhite", number: "border-offwhite bg-offwhite text-black", name: "text-offwhite", role: "text-offwhite/55", arrow: "text-sunset" },
-  sunset: { card: "bg-sunset text-black", number: "border-black bg-black text-sunset", name: "text-black", role: "text-black/65", arrow: "text-black" },
-  light: { card: "bg-offwhite text-black", number: "border-black bg-yellow text-black", name: "text-black", role: "text-black/60", arrow: "text-sunset" },
+  dark: { card: "bg-black text-offwhite", number: "border-offwhite bg-offwhite text-black", name: "text-offwhite", role: "text-offwhite/70", arrow: "text-sunset" },
+  sunset: { card: "bg-sunset text-black", number: "border-black bg-black text-sunset", name: "text-black", role: "text-black/80", arrow: "text-black" },
+  light: { card: "bg-offwhite text-black", number: "border-black bg-yellow text-black", name: "text-black", role: "text-black/80", arrow: "text-sunset" },
 };
 
 function PersonCard({ person, tone, delay }: { person: Person; tone: "dark" | "sunset" | "light"; delay: string }) {
@@ -53,7 +53,7 @@ export default function Organizers() {
         <div className="max-w-2xl mx-auto mb-14 md:mb-16 reveal">
           <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase shadow-[2px_2px_0_#050505]">05 / PEOPLE BEHIND THE CLOCK</div>
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">THE<br />TEAM<span className="text-sunset">.</span></h2>
-          <p className="font-space text-xs md:text-sm text-black/55 mt-6 leading-relaxed">The people holding the thread from first idea to final build.</p>
+          <p className="font-space text-xs md:text-sm text-black/80 mt-6 leading-relaxed">The people holding the thread from first idea to final build.</p>
         </div>
         <div className="space-y-14 max-w-[1120px] mx-auto">
           {groups.map((group) => (

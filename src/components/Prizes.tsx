@@ -12,7 +12,7 @@ export default function Prizes() {
       <header className="text-center max-w-3xl mx-auto mb-16 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase">06 / RECOGNITION</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">PRIZES<span className="text-sunset">.</span></h2>
-        <p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. Every participant also receives one month of n8n Pro, valued at <strong className="font-bold text-offwhite">60 USD</strong> per month.</p>
+        <p className="font-space text-xs md:text-sm text-offwhite/70 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. Every participant also receives one month of n8n Pro, valued at <strong className="font-bold text-offwhite">60 USD</strong> per month.</p>
       </header>
 
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1100px] mx-auto">
@@ -49,7 +49,7 @@ export default function Prizes() {
         </div>
       </div>
 
-      <p className="font-space text-[9px] text-offwhite/40 uppercase mt-8 text-center">Prize sponsor: <a href={eventConfig.codeCraftersUrl} target="_blank" rel="noreferrer" className="underline hover:text-sunset">CodeCrafters</a> · Gift sponsor: {eventConfig.giftSponsor}</p>
+      <p className="font-space text-[9px] text-offwhite/70 uppercase mt-8 text-center">Prize sponsor: <a href={eventConfig.codeCraftersUrl} target="_blank" rel="noreferrer" className="underline hover:text-sunset">CodeCrafters</a> · Gift sponsor: {eventConfig.giftSponsor}</p>
     </div>
   </section>;
 }

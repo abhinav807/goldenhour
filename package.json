@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "qa:browser": "node scripts/audit-browser.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.45.0",

@@ -26,9 +26,9 @@ export function EventStructuredData() {
     description: `${eventConfig.description} Date is tentative; venue is to be announced. Registration is open.`,
     startDate: eventConfig.isoDate,
     endDate: eventConfig.endIsoDate,
-    eventStatus: "https://schema.org/EventScheduled",
+    ...(eventConfig.dateStatus === "TENTATIVE" ? {} : { eventStatus: "https://schema.org/EventScheduled" }),
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    location: { "@type": "Place", name: eventConfig.venue, address: { "@type": "PostalAddress", addressLocality: "Delhi", addressRegion: "Delhi NCR", addressCountry: "IN" } },
+    ...(eventConfig.venue === "Venue to be announced" ? {} : { location: { "@type": "Place", name: eventConfig.venue, address: { "@type": "PostalAddress", addressLocality: "Delhi", addressRegion: "Delhi NCR", addressCountry: "IN" } } }),
     organizer: { "@id": `${eventConfig.siteUrl}/#organization` },
     sponsor: [
       { "@type": "Organization", name: "CodeCrafters", url: eventConfig.codeCraftersUrl },

@@ -37,7 +37,7 @@ export default function CodeOfConductPage() {
     <main className="min-h-screen bg-offwhite px-5 md:px-12 py-24 md:py-36">
       <article className="legal-document max-w-[900px] mx-auto">
         <Link href="/goldenhour" className="font-space text-xs text-sunset hover:text-black">← BACK TO GOLDENHOUR V1</Link>
-        <p className="font-space text-xs text-black/50 mt-14 mb-5">EFFECTIVE FOR ALL GOLDENHOUR EVENTS, INCLUDING GOLDENHOUR V1</p>
+        <p className="font-space text-xs text-black/80 mt-14 mb-5">EFFECTIVE FOR ALL GOLDENHOUR EVENTS, INCLUDING GOLDENHOUR V1</p>
         <h1 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.82]">CODE OF<br /><span className="text-sunset">CONDUCT.</span></h1>
         <div className="mt-12 space-y-12 font-dm text-base md:text-lg leading-relaxed text-black/75">
           <p>GoldenHour is committed to creating a safe, respectful, inclusive, and welcoming environment where students can learn, build, collaborate, and share ideas.</p>
@@ -46,7 +46,7 @@ export default function CodeOfConductPage() {
           {sections.map((section) => <section key={section.title} className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">{section.title}</h2>{section.paragraphs?.map((paragraph) => <p key={paragraph} className="mb-5">{paragraph}</p>)}{section.bullets && <ul className="list-disc pl-6 space-y-3">{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}
           <section className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">REPORTING CONTACT</h2><p><strong>GoldenHour Organizing Team</strong><br />Email: <a className="underline text-sunset" href="mailto:hello@goldenhourdelhi.co.in">hello@goldenhourdelhi.co.in</a></p><p className="mt-5">For urgent incidents during the event, approach any clearly identified GoldenHour organizer or volunteer and ask for the event lead.</p></section>
           <section className="border-t-2 border-black/15 pt-8"><h2 className="font-archivo text-2xl md:text-3xl text-black mb-6">OUR COMMITMENT</h2><p>GoldenHour exists to give people a place to <strong>build, learn, experiment, collaborate, and meet other builders</strong>.</p><p className="mt-5">We want participants to be able to focus on creating great projects without worrying about harassment, intimidation, discrimination, or unsafe behavior.</p><p className="mt-5">By participating in GoldenHour, you help create that environment.</p><p className="mt-8 font-archivo text-2xl text-sunset">Build boldly. Treat people respectfully. Leave the community better than you found it.</p></section>
-          <p className="border-t-2 border-black/15 pt-8 font-space text-xs text-black/55">LAST UPDATED: 30 SEPTEMBER 2026<br />GOLDENHOUR<br />CONTACT: <a className="underline text-sunset" href="mailto:hello@goldenhourdelhi.co.in">hello@goldenhourdelhi.co.in</a></p>
+          <p className="border-t-2 border-black/15 pt-8 font-space text-xs text-black/80">LAST UPDATED: 30 SEPTEMBER 2026<br />GOLDENHOUR<br />CONTACT: <a className="underline text-sunset" href="mailto:hello@goldenhourdelhi.co.in">hello@goldenhourdelhi.co.in</a></p>
         </div>
       </article>
     </main>

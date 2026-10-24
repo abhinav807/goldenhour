@@ -81,7 +81,7 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
   .hero-background { transform: scale(1.04); transform-origin: center; }
 }
 @media (max-width: 768px) {
-  .hero-background { opacity: .46; transform: scale(1.16); transform-origin: center; }
+  .hero-background { opacity: .46; transform: none; transform-origin: center; }
   #hero { min-height: 760px; padding-left: 1rem; padding-right: 1rem; }
   #hero > div.relative { padding-top: 7rem; padding-bottom: 6rem; }
   #hero h1 { font-size: clamp(2rem, 11vw, 4rem); line-height: .82; }
@@ -213,3 +213,42 @@ body:has(.cookie-banner) .back-to-top { display: none !important; }
   body, main, article { background: white !important; color: black !important; }
   .legal-document { max-width: none !important; }
 }
+
+
+/* WCAG contrast repairs: retain the branded orange surface, but make actual text legible.
+   The original #ff5a00 accent remains unchanged on dark surfaces and in backgrounds. */
+.bg-offwhite .text-sunset,
+.gh-company-page .text-sunset,
+.bg-offwhite .gh-kicker,
+.gh-company-page .gh-kicker { color: #c84100; }
+
+/* Dark panels nested inside a light page still need the bright sunset accent. */
+.bg-black .text-sunset,
+.brutal-card-black .text-sunset,
+.bg-offwhite .bg-black .text-sunset,
+.bg-offwhite .brutal-card-black .text-sunset,
+.gh-company-page .bg-black .text-sunset { color: #ff5a00; }
+
+/* Pale/yellow lettering on bright orange was below 3:1 even at display sizes. */
+.bg-sunset .text-offwhite,
+.bg-sunset .text-yellow,
+.bg-sunset [class*="text-offwhite/"],
+.bg-sunset [class*="text-black/"],
+.brutal-card-orange .text-offwhite,
+.brutal-card-orange .text-yellow,
+.brutal-card-orange [class*="text-offwhite/"],
+.brutal-card-orange [class*="text-black/"] { color: #050505; }
+
+/* Restore light lettering inside any genuinely dark nested card. */
+.bg-sunset .bg-black .text-offwhite,
+.bg-sunset .bg-black [class*="text-offwhite/"],
+.brutal-card-orange .bg-black .text-offwhite { color: #f7f7f2; }
+
+/* Accent on orange must be black; bright accent stays legible on a dark chip. */
+.bg-sunset .text-sunset,
+.bg-sunset .gh-kicker,
+.brutal-card-orange .text-sunset,
+.brutal-card-orange .gh-kicker { color: #050505; }
+.bg-black.text-sunset,
+.bg-offwhite .bg-black.text-sunset,
+.gh-company-page .bg-black.text-sunset { color: #ff5a00; }
