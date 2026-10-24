@@ -273,3 +273,61 @@
 @media (prefers-reduced-motion: reduce) {
   .gh-ink-card, .gh-home-people-card, .gh-timeline-card, .gh-faq-item { transition: none !important; }
 }
+
+/* Navigation remains functional, but visually belongs to the printed event identity. */
+.gh-site-nav {
+  background-image: url("/textures/grain-paper.svg");
+  background-size: 12rem 12rem;
+}
+.gh-site-nav a[aria-current="location"] {
+  color: var(--gh-sun);
+  background-color: rgba(255,90,0,.13);
+  box-shadow: inset 0 -.16rem 0 var(--gh-orange);
+  padding: .4rem .45rem;
+}
+.gh-site-nav a[aria-current="location"]:hover { color: var(--gh-paper); }
+.gh-back-home {
+  position: absolute;
+  top: 5.75rem;
+  z-index: 35;
+  letter-spacing: .04em;
+  border-style: dashed;
+  background-image: url("/textures/grain-paper.svg");
+  background-size: 12rem 12rem;
+}
+.gh-marquee-print {
+  background-image: url("/textures/grain-paper.svg");
+  background-size: 12rem 12rem;
+}
+.gh-marquee-print.bg-sunset {
+  background-image: url("/textures/grain-ink.svg");
+}
+.gh-company-page .gh-company-nav {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+}
+.gh-company-page .gh-home-people-card img {
+  filter: saturate(.8) contrast(1.04);
+  transition: filter .25s ease, transform .4s ease;
+}
+.gh-company-page .gh-home-people-card:hover img {
+  filter: saturate(1) contrast(1);
+  transform: scale(1.012);
+}
+.gh-company-page .gh-home-people-card .font-space { line-height: 1.55; }
+
+/* Readable print texture on static policy and information pages. */
+.gh-document-paper {
+  background-image: url("/textures/grain-ink.svg");
+  background-repeat: repeat;
+  background-size: 12rem 12rem;
+}
+.gh-document-paper :where(h1,h2,h3) { text-wrap: balance; }
+.gh-document-paper :where(p,li) { line-height: 1.65; }
+@media (max-width: 640px) {
+  .gh-back-home { top: 4.75rem; }
+  .gh-company-page .gh-home-people-card:hover img { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gh-company-page .gh-home-people-card img { transition: none; }
+}
