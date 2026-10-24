@@ -331,3 +331,49 @@
 @media (prefers-reduced-motion: reduce) {
   .gh-company-page .gh-home-people-card img { transition: none; }
 }
+
+/* Higher specificity is intentional: existing legacy .brutal-card.bg-* background
+   shorthands must not wipe out the textured background-image. */
+.event-page-root .gh-ink-card.bg-black,
+.gh-company-page .gh-ink-card.bg-black {
+  background-image: url("/textures/grain-paper.svg");
+  background-size: 12rem 12rem;
+}
+.event-page-root .gh-ink-card.bg-offwhite,
+.event-page-root .gh-ink-card.bg-yellow,
+.event-page-root .gh-ink-card.bg-sunset,
+.gh-company-page .gh-ink-card.bg-offwhite,
+.gh-company-page .gh-ink-card.bg-yellow,
+.gh-company-page .gh-ink-card.bg-sunset {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+}
+
+/* Limit action density: one bold registration button and low-noise supporting links. */
+.event-page-root #hero .gh-hero-mini-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  min-height: 2.75rem;
+  border-bottom: .125rem solid rgba(255,212,0,.55);
+  color: var(--gh-paper);
+  font: 700 .69rem/1.45 "Space Mono", monospace;
+  letter-spacing: .055em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .18s ease, border-color .18s ease;
+}
+.event-page-root #hero .gh-hero-mini-link:hover,
+.event-page-root #hero .gh-hero-mini-link:focus-visible {
+  color: var(--gh-sun);
+  border-color: var(--gh-orange);
+}
+@media (max-width: 640px) {
+  .event-page-root #hero .gh-hero-mini-link { width: auto; max-width: 100%; }
+}
+@media print {
+  .gh-document-paper, .gh-grain-paper, .gh-grain-night, .gh-grain-sunset {
+    background-image: none !important;
+  }
+}
