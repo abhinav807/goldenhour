@@ -22,16 +22,16 @@ const sponsors: Sponsor[] = [
   { name: "INTERVIEW BUDDY", role: "SPONSOR", href: "https://interviewbuddy.net", logo: "/brand/interviewbuddy-logo.png", alt: "Interview Buddy logo", width: 965, height: 340, visit: "VISIT INTERVIEW BUDDY" },
   { name: "OSEN", role: "ACADEMIC SPONSOR", href: eventConfig.osenUrl, logo: "/brand/osen-logo.png", alt: "OSEN logo", width: 356, height: 134, visit: "OSEN / ACADEMIC SPONSOR", dark: true },
   { name: eventConfig.refreshmentPartner, role: "REFRESHMENT PARTNER", logo: "/brand/sewan-foods.png", alt: "SEWAN FOODS logo — Food for Impact", width: 1137, height: 660, note: "FOOD FOR IMPACT" },
-  { name: eventConfig.giftSponsor, role: "GIFT SPONSOR", logo: "/brand/n8n-logo.png", alt: "n8n logo", width: 296, height: 80, note: "N8N PRO / PARTICIPANT GIFT", dark: true },
+  { name: eventConfig.giftSponsor, role: "GIFT SPONSOR", logo: "/brand/n8n-logo.png", alt: "n8n logo", width: 296, height: 80, note: "80 ONE-MONTH CLOUD PRO LICENSES", dark: true },
 ];
 
-const cardClass = "group brutal-card p-7 md:p-8 text-center flex flex-col items-center justify-center min-h-[360px] reveal";
+const cardClass = "group brutal-card p-7 md:p-8 text-center flex flex-col items-center justify-center min-h-[290px] reveal";
 
 function SponsorContent({ sponsor }: { sponsor: Sponsor }) {
   return <>
     <p className={`font-space text-[10px] uppercase tracking-[.16em] mb-8 ${sponsor.dark ? "text-offwhite" : "text-black/55"}`}>{sponsor.role}</p>
-    <div className={`${sponsor.dark ? "bg-black border-offwhite" : "bg-offwhite border-black"} border-2 p-5 w-full max-w-[310px] h-[190px] flex items-center justify-center`}>
-      <Image src={sponsor.logo} alt={sponsor.alt} width={sponsor.width} height={sponsor.height} unoptimized className="max-w-[220px] max-h-[150px] w-auto h-auto object-contain" />
+    <div className={`${sponsor.dark ? "bg-black border-offwhite" : "bg-offwhite border-black"} border-2 p-5 w-full max-w-[310px] h-[145px] flex items-center justify-center`}>
+      <Image src={sponsor.logo} alt={sponsor.alt} width={sponsor.width} height={sponsor.height} unoptimized className="max-w-[220px] max-h-[110px] w-auto h-auto object-contain" />
     </div>
     <h3 className="font-archivo text-2xl md:text-3xl mt-7">{sponsor.name}</h3>
     {sponsor.href ? <p className={`font-space text-[10px] uppercase tracking-[.14em] mt-4 inline-flex items-center gap-2 group-hover:text-sunset ${sponsor.dark ? "text-offwhite" : ""}`}>{sponsor.visit} <ExternalLink size={14} aria-hidden="true" /></p> : sponsor.note ? <p className={`font-space text-[10px] uppercase tracking-[.14em] mt-4 ${sponsor.dark ? "text-offwhite" : "text-black/60"}`}>{sponsor.note}</p> : null}
@@ -39,12 +39,12 @@ function SponsorContent({ sponsor }: { sponsor: Sponsor }) {
 }
 
 export default function Sponsors() {
-  return <section id="sponsors" className="bg-black py-28 md:py-40 px-5 md:px-10 relative overflow-hidden">
+  return <section id="sponsors" className="bg-black py-20 md:py-28 px-5 md:px-10 relative overflow-hidden">
     <div className="max-w-[1200px] mx-auto relative z-10">
       <div className="text-center max-w-3xl mx-auto mb-16 border-b-2 border-offwhite/15 pb-10 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">SPONSORS / PARTNERS</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">BACK THE<br /><span className="text-sunset">BUILD.</span></h2>
-        <p className="font-space text-xs text-offwhite/45 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is the gift sponsor, providing a Pro month to every participant.</p>
+        <p className="font-space text-xs text-offwhite/45 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
         {sponsors.map((sponsor, index) => {

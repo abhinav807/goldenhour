@@ -7,7 +7,7 @@ const prizes = [
 ];
 
 export default function Prizes() {
-  return <section id="prizes" className="bg-black text-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden">
+  return <section id="prizes" className="bg-black text-offwhite py-20 md:py-28 px-5 md:px-10 relative overflow-hidden">
     <div className="max-w-[1200px] mx-auto relative z-10">
       <header className="text-center max-w-3xl mx-auto mb-16 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase">06 / RECOGNITION</div>
@@ -15,26 +15,26 @@ export default function Prizes() {
         <p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. 80 sponsored one-month n8n Cloud Pro licenses are available for allocation (stated value <strong className="font-bold text-offwhite">$60</strong> each); access is not guaranteed for every participant.</p>
       </header>
 
-      <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1100px] mx-auto">
-        {prizes.map(({ medal, place, title, trophy, reward, tone }, index) => <article key={place} className={`p-8 md:p-10 min-h-[390px] border-2 border-black flex flex-col justify-between text-center reveal ${index === 0 ? "md:col-span-2 md:max-w-[520px] md:mx-auto w-full" : ""} ${tone}`}>
+      <div className="grid lg:grid-cols-3 gap-6 md:gap-7 max-w-[1100px] mx-auto">
+        {prizes.map(({ medal, place, title, trophy, reward, tone }) => <article key={place} className={`p-7 md:p-9 min-h-[320px] border-2 border-black flex flex-col justify-between text-center reveal ${tone}`}>
           <div>
             <div className="text-5xl mb-6" aria-hidden="true">{medal}</div>
             <p className="font-space text-[10px] font-bold tracking-[.16em] mb-4">{place}</p>
             <h3 className="font-archivo text-3xl md:text-4xl leading-[.9]">{title}</h3>
           </div>
-          <div className="mt-10 border-t-2 border-black/25 pt-7 space-y-1">
+          <div className="mt-8 border-t-2 border-black/25 pt-5 space-y-1">
             <p className="font-space text-xs font-bold uppercase tracking-[.08em] leading-relaxed">{trophy}</p>
-            <p className="font-archivo text-base md:text-lg uppercase mt-4 leading-snug break-normal">{reward}</p>
+            <p className="font-archivo text-base md:text-lg uppercase mt-3 leading-relaxed break-normal">{reward}</p>
             <p className="font-space text-[10px] uppercase tracking-[.08em] mt-3 opacity-75 leading-relaxed">CODECRAFTERS VIP MEMBERSHIP</p>
           </div>
         </article>)}
       </div>
 
-      <div className="max-w-[1100px] mx-auto mt-10 grid md:grid-cols-2 gap-6"><div className="border-2 border-sunset p-7"><h3 className="font-archivo text-2xl text-sunset">WINNERS / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">Digital winner certificate · <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler Premium worth $100</a> · AI Interview Voucher worth ₹550.</p></div><div className="border-2 border-offwhite/30 p-7"><h3 className="font-archivo text-2xl">RUNNERS-UP / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">90% AI Interview Discount Voucher to practice and improve.</p></div></div>
+      <div className="max-w-[1100px] mx-auto mt-8 grid md:grid-cols-2 gap-6"><div className="border-2 border-sunset p-7"><h3 className="font-archivo text-2xl text-sunset">WINNERS / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">Digital winner certificate · <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler Premium worth $100</a> · AI Interview Voucher worth ₹550.</p></div><div className="border-2 border-offwhite/30 p-7"><h3 className="font-archivo text-2xl">RUNNERS-UP / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">90% AI Interview Discount Voucher to practice and improve.</p></div></div>
 
       <p className="font-dm text-sm text-offwhite/70 max-w-[850px] mx-auto mt-10 text-center leading-relaxed">First, second and third place depend on the number of eligible teams and the judges&apos; evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed.</p>
 
-      <div className="mt-24 max-w-[1100px] mx-auto border-t-2 border-offwhite/20 pt-14 text-center reveal">
+      <div className="mt-16 max-w-[1100px] mx-auto border-t-2 border-offwhite/20 pt-14 text-center reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-6 uppercase">PARTICIPANT REWARDS</div>
         <h3 className="font-archivo text-4xl sm:text-5xl md:text-6xl">EVERY BUILDER GETS<span className="text-sunset">.</span></h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 max-w-[1100px] mx-auto">
