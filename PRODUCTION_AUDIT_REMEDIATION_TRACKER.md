@@ -1,8 +1,8 @@
 # GoldenHour V1 — Production Audit Remediation Register
 
-**Audit date:** 24 October 2026  
-**Starting commit:** `00e8ab7d5df18847f76d8ce657c23a483f365ce3` (`main`)  
-**Repair branch:** `fix/goldenhour-production-audit-2026-10`  
+**Audit date:** 24 October 2026
+**Starting commit:** `00e8ab7d5df18847f76d8ce657c23a483f365ce3` (`main`)
+**Repair branch:** `fix/goldenhour-production-audit-2026-10`
 **Inputs:** `goldenhour-audit-report.md`, `goldenhour-issues.csv`, `goldenhour-fix-plan.md` (user-supplied)
 
 ## Executive summary
