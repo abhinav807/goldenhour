@@ -1,0 +1,275 @@
+/* GOLDENHOUR / EDITORIAL PRINT SYSTEM — experimental branch only.
+   Design source: GoldenHour's own orange / black / paper palette, not generated theme tokens.
+   Texture assets are small tileable SVGs; they have no network or animation dependencies. */
+
+:root {
+  --gh-ink: #050505;
+  --gh-paper: #f7f7f2;
+  --gh-orange: #ff5a00;
+  --gh-sun: #ffd400;
+  --gh-quiet: rgba(5,5,5,.6);
+  --gh-printed-shadow: .4375rem .4375rem 0 var(--gh-ink);
+}
+
+.gh-grain-paper {
+  background-image: url("/textures/grain-ink.svg");
+  background-repeat: repeat;
+  background-size: 12rem 12rem;
+}
+.gh-grain-paper.grid-pattern {
+  background-image: url("/textures/grain-ink.svg"),
+    linear-gradient(rgba(0,0,0,.042) .0625rem,transparent .0625rem),
+    linear-gradient(90deg,rgba(0,0,0,.042) .0625rem,transparent .0625rem);
+  background-size: 12rem 12rem, 2.75rem 2.75rem, 2.75rem 2.75rem;
+}
+.gh-grain-paper.dot-pattern {
+  background-image: url("/textures/grain-ink.svg"),
+    radial-gradient(rgba(0,0,0,.12) .0625rem, transparent .078125rem);
+  background-size: 12rem 12rem, 1.375rem 1.375rem;
+}
+.gh-grain-night {
+  background-image: url("/textures/grain-paper.svg");
+  background-size: 12rem 12rem;
+  background-repeat: repeat;
+}
+.gh-grain-sunset {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+  background-repeat: repeat;
+}
+
+/* The hero is a print composition: noise, ruled grid and one faded halftone sun.
+   The ornamental layer sits below actual text and links. */
+.event-page-root .gh-hero-print {
+  isolation: isolate;
+  background-image:
+    url("/textures/grain-paper.svg"),
+    linear-gradient(rgba(255,255,255,.043) .0625rem, transparent .0625rem),
+    linear-gradient(90deg,rgba(255,255,255,.043) .0625rem, transparent .0625rem);
+  background-size: 12rem 12rem, 3.5rem 3.5rem, 3.5rem 3.5rem;
+}
+.event-page-root .gh-hero-print::before {
+  content: "";
+  position: absolute;
+  right: max(-5rem, calc((100vw - 84rem) / 2));
+  top: 18%;
+  width: clamp(14rem, 33vw, 31rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: .38;
+  background:
+    radial-gradient(circle, transparent 51%, rgba(255,90,0,.65) 52% 52.35%, transparent 53%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 1.25rem, rgba(255,90,0,.14) 1.3rem 1.36rem),
+    radial-gradient(circle, rgba(255,90,0,.17), transparent 70%);
+  mask-image: radial-gradient(circle, #000 17%, transparent 75%);
+  pointer-events: none;
+}
+.event-page-root .gh-hero-print > .relative.z-10 { isolation: isolate; }
+.gh-edition-stamp {
+  position: absolute;
+  top: 9.5rem;
+  right: clamp(1rem,4vw,4rem);
+  width: 6.75rem;
+  height: 6.75rem;
+  z-index: 8;
+  border: .125rem dashed rgba(255,212,0,.75);
+  border-radius: 50%;
+  transform: rotate(13deg);
+  color: var(--gh-sun);
+  font-family: "Space Mono", monospace;
+  font-size: .62rem;
+  letter-spacing: .035em;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  text-align: center;
+}
+.gh-edition-stamp strong { font-family: "Archivo Black", sans-serif; font-size: 1.3rem; line-height: 1.2; }
+.gh-hero-subline {
+  border-top: .0625rem solid rgba(247,247,242,.2);
+  border-bottom: .0625rem solid rgba(247,247,242,.2);
+  padding-block: .8rem;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+.gh-hero-type { text-shadow: .07em .07em 0 rgba(255,90,0,.09); }
+.gh-hero-print .hero-cta a:first-child { background-image: url("/textures/grain-ink.svg"); background-size: 12rem; }
+
+/* Editorial section system; scoped to opted-in containers, never blanket text rules. */
+.gh-section-head { position: relative; isolation: isolate; }
+.gh-section-head h2 { text-wrap: balance; }
+.gh-section-head::after {
+  content: "// GH.01";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: rgba(255,90,0,.58);
+  font: 700 .6rem/1.5 "Space Mono", monospace;
+  letter-spacing: .14em;
+}
+.gh-cutline {
+  height: .0625rem;
+  width: 100%;
+  background: linear-gradient(90deg, transparent 0 5%, var(--gh-orange) 5% 20%, rgba(5,5,5,.15) 20% 95%, transparent 95%);
+}
+.gh-caption-rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  font: 700 .65rem/1.6 "Space Mono", monospace;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(5,5,5,.6);
+}
+.gh-caption-rail::before, .gh-caption-rail::after {
+  content: ""; width: 1.25rem; height: .0625rem; background: currentColor; opacity: .5;
+}
+
+/* Textures live within card backgrounds. No opaque pseudo-overlay sits above copy. */
+.gh-ink-card { position: relative; isolation: isolate; }
+.gh-ink-card.bg-black { background-image: url("/textures/grain-paper.svg"); background-size: 12rem 12rem; }
+.gh-ink-card.bg-offwhite, .gh-ink-card.bg-yellow,
+.gh-ink-card.bg-sunset { background-image: url("/textures/grain-ink.svg"); background-size: 12rem 12rem; }
+.gh-ink-card::after {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: .27rem;
+  background: var(--gh-orange); pointer-events: none;
+}
+.gh-ink-card.bg-sunset::after, .gh-ink-card.bg-yellow::after { background: var(--gh-ink); }
+.gh-ink-card.bg-black::after { background: var(--gh-sun); }
+.gh-ink-card:focus-within { outline: .1875rem solid var(--gh-orange); outline-offset: .25rem; }
+
+/* Tracks become readable printed editorial cards, not decorative blocks. */
+.event-page-root #events .gh-track-card {
+  min-height: 35rem;
+  justify-content: space-between;
+}
+.event-page-root #events .gh-track-card h3 { max-width: 18rem; }
+.event-page-root #events .gh-track-card ul { padding-inline: .75rem; }
+.event-page-root #events .gh-track-card ul li { line-height: 1.45; }
+.event-page-root #events .gh-track-card .gh-track-index {
+  width: 4.25rem; height: 4.25rem;
+  box-shadow: .25rem .25rem 0 var(--gh-orange);
+}
+.event-page-root #events .gh-track-card.bg-black .gh-track-index { box-shadow: .25rem .25rem 0 var(--gh-sun); }
+.event-page-root #events .gh-track-card a { align-self: stretch; }
+.event-page-root #events .gh-track-card a:hover { letter-spacing: .035em; }
+
+/* Give the schedule clear scannable intervals, a quieter paper substrate and active feedback. */
+.event-page-root #timeline .gh-timeline-card {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+  border-left: .35rem solid var(--gh-orange);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.event-page-root #timeline .gh-timeline-card:nth-child(3n) { border-left-color: var(--gh-sun); }
+.event-page-root #timeline .gh-timeline-card:hover { box-shadow: .5rem .5rem 0 var(--gh-ink); }
+.event-page-root #timeline .gh-timeline-card > button { transition: background-color .16s ease; }
+.event-page-root #timeline .gh-timeline-card > button:hover { background-color: rgba(255,90,0,.055); }
+.event-page-root #timeline .gh-timeline-card > button[aria-expanded="true"] { background-color: rgba(255,212,0,.085); }
+
+/* Visually distinct numbered prize tickets. Actual benefits remain untouched. */
+.event-page-root #prizes .gh-prize-ticket {
+  position: relative; isolation: isolate;
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+}
+.event-page-root #prizes .gh-prize-ticket::before,
+.event-page-root #prizes .gh-prize-ticket::after {
+  content: ""; position: absolute; top: 50%; width: 1rem; height: 1rem;
+  border-radius: 50%; background: var(--gh-ink);
+  transform: translateY(-50%); pointer-events: none;
+}
+.event-page-root #prizes .gh-prize-ticket::before { left: -.55rem; }
+.event-page-root #prizes .gh-prize-ticket::after { right: -.55rem; }
+.event-page-root #prizes .gh-prize-ticket h3 { text-wrap: balance; }
+
+/* Sponsor tiles are consistent printed nameplates; do not override max-w-* utilities. */
+.event-page-root #sponsors .gh-sponsor-tile { position: relative; isolation: isolate; }
+.event-page-root #sponsors .gh-sponsor-tile.bg-black { background-image: url("/textures/grain-paper.svg"); background-size: 12rem 12rem; }
+.event-page-root #sponsors .gh-sponsor-tile:not(.bg-black) { background-image: url("/textures/grain-ink.svg"); background-size: 12rem 12rem; }
+.event-page-root #sponsors .gh-sponsor-tile::after {
+  content: ""; width: 1.4rem; height: 1.4rem; position: absolute;
+  right: 1rem; top: 1rem; border-top: .125rem solid var(--gh-orange);
+  border-right: .125rem solid var(--gh-orange); pointer-events: none;
+}
+.event-page-root #sponsors .gh-sponsor-pitch {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+  border: .1875rem solid var(--gh-ink);
+}
+.event-page-root #sponsors .gh-sponsor-pitch h3 { line-height: 1.06; text-wrap: balance; }
+.event-page-root #sponsors .gh-sponsor-pitch p { margin-inline: auto; }
+
+/* Less hostile FAQ scanning: precision rails and interaction feedback. */
+.event-page-root #faq .gh-faq-item { transition: box-shadow .2s ease, border-color .2s ease; }
+.event-page-root #faq .gh-faq-item:hover, .event-page-root #faq .gh-faq-item:focus-within {
+  border-color: var(--gh-orange); box-shadow: .3rem .3rem 0 var(--gh-orange);
+}
+.event-page-root #faq .gh-faq-item button:hover { background: rgba(255,90,0,.035); }
+.event-page-root #faq .gh-faq-item button[aria-expanded="true"] { background: rgba(255,212,0,.08); }
+
+/* Orange registration field: bold type but no fake readability sacrifice. */
+.event-page-root #register.gh-grain-sunset { background-image: url("/textures/grain-ink.svg"); }
+.event-page-root #register .gh-register-meta { border-top: .125rem dashed rgba(5,5,5,.34); }
+
+/* GoldenHour Delhi homepage gets the same tactile paper without changing its brand. */
+.gh-company-page .gh-home-print {
+  isolation: isolate;
+  background-image:
+    url("/textures/grain-ink.svg"),
+    radial-gradient(circle at 72% 44%, rgba(255,90,0,.14), transparent 36%),
+    radial-gradient(rgba(5,5,5,.09) .0625rem, transparent .075rem);
+  background-size: 12rem 12rem, auto, 1.5rem 1.5rem;
+}
+.gh-company-page .gh-home-print::before {
+  content: ""; position: absolute; width: min(37vw, 30rem); aspect-ratio: 1;
+  top: 23%; right: 8%; border-radius: 50%; border: .125rem dashed rgba(255,90,0,.25);
+  box-shadow: inset 0 0 0 3rem rgba(255,90,0,.028), 0 0 0 2rem rgba(255,212,0,.025);
+  pointer-events: none; z-index: 0;
+}
+.gh-company-page .gh-home-print h1 { text-wrap: nowrap; }
+.gh-home-print .gh-home-issue {
+  display: inline-block; border: .125rem solid var(--gh-ink);
+  color: var(--gh-ink); background: var(--gh-sun);
+  font: 700 .62rem/1.4 "Space Mono", monospace;
+  padding: .4rem .65rem; text-transform: uppercase;
+  box-shadow: .2rem .2rem 0 var(--gh-ink);
+}
+.gh-company-page .gh-home-editorial {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+}
+.gh-company-page .gh-home-dark {
+  background-image: url("/textures/grain-paper.svg");
+  background-size: 12rem 12rem;
+}
+.gh-company-page .gh-home-orange {
+  background-image: url("/textures/grain-ink.svg");
+  background-size: 12rem 12rem;
+}
+.gh-company-page .gh-home-people-card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.gh-company-page .gh-home-people-card:hover { transform: translate(-.2rem,-.2rem); }
+.gh-company-page .gh-home-people-card .font-archivo { text-wrap: balance; }
+
+/* Motion is tactile but optional, never a barrier to reading. */
+@media (hover: none) {
+  .gh-ink-card:hover, .gh-home-people-card:hover { transform: none !important; }
+}
+@media (max-width: 768px) {
+  .gh-edition-stamp { display: none; }
+  .event-page-root .gh-hero-print::before { right: -3rem; top: 16%; opacity: .24; }
+  .gh-section-head::after { display: none; }
+  .event-page-root #events .gh-track-card { min-height: 0; }
+  .event-page-root #timeline .gh-timeline-card { border-left-width: .23rem; }
+  .gh-company-page .gh-home-print::before { width: 16rem; right: -5rem; top: 12%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gh-ink-card, .gh-home-people-card, .gh-timeline-card, .gh-faq-item { transition: none !important; }
+}
