@@ -14,7 +14,7 @@ export default function FinalCTA() {
         <a href={`mailto:${eventConfig.contactEmail}`} className="inline-flex items-center justify-center gap-2 font-space text-xs font-bold uppercase underline underline-offset-4 hover:no-underline">Questions? Email us <Mail size={15} aria-hidden="true" /></a>
       </div>
       <p className="font-space text-[10px] text-black/65 mt-7">One team leader submits one form for the team and includes each member. Under-18s need parent/guardian consent and a signed slip at check-in.</p>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-black/20 pt-7 mt-12 text-center">{[["DATE", `${eventConfig.date} (${eventConfig.dateStatus})`], ["LOCATION", eventConfig.venue], ["DURATION", eventConfig.duration], ["ENTRY", eventConfig.entry]].map(([label, value]) => <div key={label}><p className="font-space text-[10px] text-black/45 uppercase font-bold mb-1">{label}</p><p className="font-space text-xs font-bold text-black">{value}</p></div>)}</div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-black/20 pt-7 mt-12 text-center">{[["DATE", eventConfig.date], ["LOCATION", eventConfig.venue], ["DURATION", eventConfig.duration], ["ENTRY", eventConfig.entry]].map(([label, value]) => <div key={label}><p className="font-space text-[10px] text-black/45 uppercase font-bold mb-1">{label}</p><p className="font-space text-xs font-bold text-black">{value}</p></div>)}</div>
     </div>
   </section>;
 }

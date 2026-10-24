@@ -8,7 +8,7 @@ export const eventConfig = {
   dateShort: "14 November 2026",
   isoDate: "2026-11-14T08:00:00+05:30",
   endIsoDate: "2026-11-14T20:00:00+05:30",
-  dateStatus: "TENTATIVE",
+  dateStatus: "CONFIRMED",
   venue: "Venue to be announced",
   location: "Delhi NCR, India",
   duration: "12 hours",
@@ -39,7 +39,7 @@ export const eventConfig = {
 } as const;
 
 export const faqItems = [
-  { q: "What is GoldenHour V1?", a: "A free, student-led 12-hour hackathon in Delhi NCR, tentatively scheduled for 14 November 2026.", detail: "The venue will be announced once confirmed." },
+  { q: "What is GoldenHour V1?", a: "A free, student-led 12-hour hackathon in Delhi NCR, scheduled for 14 November 2026.", detail: "The venue will be announced once confirmed." },
   { q: "Who can participate, and how big can teams be?", a: "Participants must be 13–19 years old on event day. Teams can have 1–3 members, including solo participants.", detail: "Participants under 18 need parent or guardian consent." },
   { q: "Which tracks are available?", a: "Web Development, Game Development and Graphic Designing.", detail: "Already registered? To switch to Graphic Designing, ask your team leader to message the organizers; you do not need to submit another form." },
   { q: "How do we register?", a: "The team leader fills out the official registration form once for their team.", detail: "Registration is free." },
@@ -48,6 +48,6 @@ export const faqItems = [
   { q: "What must we submit?", a: "A project repository, README and working demonstration by the published submission deadline.", detail: "AI tools may be used if disclosed. The project must be built during the event." },
 ] as const;
 
-export const eventDateLabel = `${eventConfig.dateShort} (${eventConfig.dateStatus})`;
+export const eventDateLabel = eventConfig.dateShort;
 export const eventStatusLine = `${eventDateLabel}. Venue to be announced. Registration is open.`;
 export const canonicalEventPath = "/goldenhour";

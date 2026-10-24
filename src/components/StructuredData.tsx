@@ -23,7 +23,7 @@ export function EventStructuredData() {
     "@id": `${eventConfig.siteUrl}/goldenhour#event`,
     name: "GoldenHour V1 — Free 12-Hour Student Build Day",
     alternateName: eventConfig.alternateName,
-    description: `${eventConfig.description} Date is tentative; venue is to be announced. Registration is open.`,
+    description: `${eventConfig.description} Event date is 14 November 2026; venue is to be announced. Registration is open.`,
     startDate: eventConfig.isoDate,
     endDate: eventConfig.endIsoDate,
     eventStatus: "https://schema.org/EventScheduled",

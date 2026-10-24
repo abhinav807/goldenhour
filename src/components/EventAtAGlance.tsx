@@ -4,7 +4,7 @@ const facts = [
   ["WHAT", "GoldenHour V1 is a 12-hour student hackathon."],
   ["WHO", "Participants aged 13–19 on event day (under 20)."],
   ["CAPACITY", eventConfig.participantLimit],
-  ["WHEN", `${eventConfig.dateShort} (${eventConfig.dateStatus.toLowerCase()}).`],
+  ["WHEN", `${eventConfig.dateShort}.`],
   ["WHERE", `${eventConfig.location}; ${eventConfig.venue}.`],
   ["COST", `${eventConfig.entry}.`],
   ["TEAM SIZE", `${eventConfig.teamSize}.`],

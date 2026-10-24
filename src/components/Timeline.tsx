@@ -51,13 +51,13 @@ export default function Timeline() {
         <header className="text-center max-w-3xl mx-auto mb-12 reveal">
           <div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div>
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black">THE BUILD<br />DAY<span className="text-sunset">.</span></h2>
-          <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is tentative; venue details will follow.</p>
+          <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is confirmed; venue details will follow.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 text-center">
             <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">DURATION</p><p className="font-archivo text-xl mt-2">08:00–20:00 / 12H</p></div>
             <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">SUBMISSIONS CLOSE</p><p className="font-archivo text-xl mt-2">17:00 / IST</p></div>
             <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">VENUE</p><p className="font-archivo text-xl mt-2">{eventConfig.venue}</p></div>
           </div>
-          <p className="font-space text-[9px] uppercase text-black/45 mt-4">{eventConfig.date} / {eventConfig.dateStatus}</p>
+          <p className="font-space text-[9px] uppercase text-black/45 mt-4">{eventConfig.date}</p>
         </header>
         <div className="flex justify-center gap-3 mb-8"><button type="button" onClick={toggleAll} className="brutal-btn bg-black text-offwhite px-4 py-3 text-[10px]" aria-label={allOpen ? "Collapse all timeline phases" : "Expand all timeline phases"}>{allOpen ? "COLLAPSE ALL" : "EXPAND ALL"}</button></div>
         <div className="relative space-y-4 before:absolute before:left-5 md:before:left-8 before:top-5 before:bottom-5 before:w-1 before:bg-black">

@@ -278,3 +278,17 @@ body:has(.cookie-banner) .back-to-top { display: none !important; }
   .event-page-root #prizes article { min-height: 285px; }
   .event-page-root section .font-archivo { overflow-wrap: break-word; }
 }
+
+/* GoldenHour drawing-board details: a restrained technical graphic language.
+   Based on broad editorial treatment, not copied assets or FallingSun styles. */
+.gh-cursor-guides { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; opacity:0; transition:opacity 250ms ease; }
+.gh-cursor-guides[data-active="true"] { opacity:.85; }
+.gh-guide-v, .gh-guide-h, .gh-guide-target { position:absolute; display:block; pointer-events:none; }
+.gh-guide-v { top:0; bottom:0; left:var(--guide-x,50%); width:1px; background:linear-gradient(to bottom, transparent, rgba(255,90,0,.36) 25%, rgba(255,90,0,.36) 75%, transparent); }
+.gh-guide-h { left:0; right:0; top:var(--guide-y,50%); height:1px; background:linear-gradient(to right, transparent, rgba(255,90,0,.36) 25%, rgba(255,90,0,.36) 75%, transparent); }
+.gh-guide-target { left:var(--guide-x,50%); top:var(--guide-y,50%); width:20px; height:20px; border:1px solid rgba(255,212,0,.75); border-radius:50%; transform:translate(-50%,-50%); box-shadow:0 0 0 5px rgba(255,90,0,.07); }
+.event-page-root #events > div > div:last-child { position:relative; }
+.event-page-root #events > div > div:last-child::before, .event-page-root #events > div > div:last-child::after { content:""; position:absolute; width:12px; height:12px; border-color:#050505; pointer-events:none; }
+.event-page-root #events > div > div:last-child::before { top:-6px; left:-6px; border-top:2px solid; border-left:2px solid; }
+.event-page-root #events > div > div:last-child::after { bottom:-6px; right:-6px; border-bottom:2px solid; border-right:2px solid; }
+@media (hover:none), (pointer:coarse), (prefers-reduced-motion: reduce) { .gh-cursor-guides { display:none !important; } }

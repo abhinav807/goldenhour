@@ -9,7 +9,7 @@ const events = [
   {
     name: "GOLDENHOUR V1",
     type: `${eventConfig.duration.toUpperCase()} STUDENT HACKATHON`,
-    date: `${eventConfig.dateShort.toUpperCase()} / ${eventConfig.dateStatus}`,
+    date: eventConfig.dateShort.toUpperCase(),
     description: eventConfig.description,
     href: "/goldenhour",
     action: "ENTER GOLDENHOUR V1",

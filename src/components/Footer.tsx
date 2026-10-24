@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="text-center pb-14 md:pb-16 border-b border-offwhite/15">
         <Image src="/brand/goldenhour-symbol-transparent.png" alt="" width={500} height={500} className="block w-24 h-24 md:w-32 md:h-32 object-contain mx-auto" />
         <p className="font-dm text-lg md:text-xl text-offwhite/65 max-w-xl mx-auto mt-6 leading-relaxed">A student-built experience for people who make things before they feel ready.</p>
-        <p className="font-space text-[10px] text-sunset font-bold uppercase tracking-[.15em] mt-6">DELHI NCR / {eventConfig.date.toUpperCase()} (TENTATIVE) / VENUE TBA</p>
+        <p className="font-space text-[10px] text-sunset font-bold uppercase tracking-[.15em] mt-6">DELHI NCR / {eventConfig.date.toUpperCase()} / VENUE TBA</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 py-14 md:py-16 text-center">
         <div><p className="font-space text-[10px] font-bold text-sunset uppercase tracking-[.16em] mb-5">THE ORGANIZING TEAM</p><address className="not-italic font-space text-xs text-offwhite/65 leading-loose">GOLDENHOUR DELHI<br />DELHI NCR<br /><a href={`mailto:${eventConfig.contactEmail}`} className="text-offwhite underline underline-offset-4 hover:text-sunset">{eventConfig.contactEmail}</a></address></div>
