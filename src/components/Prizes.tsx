@@ -16,16 +16,16 @@ export default function Prizes() {
       </header>
 
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1100px] mx-auto">
-        {prizes.map(({ medal, place, title, trophy, reward, tone }, index) => <article key={place} className={`p-8 md:p-10 min-h-[360px] border-2 border-black flex flex-col justify-between text-center reveal ${index === 0 ? "md:col-span-2 md:max-w-[520px] md:mx-auto w-full" : ""} ${tone}`}>
+        {prizes.map(({ medal, place, title, trophy, reward, tone }, index) => <article key={place} className={`p-8 md:p-10 min-h-[390px] border-2 border-black flex flex-col justify-between text-center reveal ${index === 0 ? "md:col-span-2 md:max-w-[520px] md:mx-auto w-full" : ""} ${tone}`}>
           <div>
             <div className="text-5xl mb-6" aria-hidden="true">{medal}</div>
             <p className="font-space text-[10px] font-bold tracking-[.16em] mb-4">{place}</p>
             <h3 className="font-archivo text-3xl md:text-4xl leading-[.9]">{title}</h3>
           </div>
-          <div className="mt-8 border-t-2 border-black/25 pt-6">
-            <p className="font-space text-xs font-bold uppercase tracking-[.12em]">{trophy}</p>
-            <p className="font-archivo text-lg md:text-xl uppercase mt-3">{reward}</p>
-            <p className="font-space text-[10px] uppercase tracking-[.12em] mt-2 opacity-65">CODECRAFTERS VIP MEMBERSHIP</p>
+          <div className="mt-10 border-t-2 border-black/25 pt-7 space-y-1">
+            <p className="font-space text-xs font-bold uppercase tracking-[.08em] leading-relaxed">{trophy}</p>
+            <p className="font-archivo text-base md:text-lg uppercase mt-4 leading-snug break-normal">{reward}</p>
+            <p className="font-space text-[10px] uppercase tracking-[.08em] mt-3 opacity-75 leading-relaxed">CODECRAFTERS VIP MEMBERSHIP</p>
           </div>
         </article>)}
       </div>
