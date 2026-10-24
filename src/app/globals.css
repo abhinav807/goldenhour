@@ -92,11 +92,18 @@ body { background: #f7f7f2; color: #050505; font-family: 'DM Sans', sans-serif; 
   #hero .brutal-btn-outline, #hero .brutal-btn-orange { width: 100%; justify-content: center; }
 }
 
-/* Centered presentation system: all section copy and controls share one visual axis. */
-main section, footer { text-align: center; }
-main section .text-left, main section .text-right, footer .text-left, footer .text-right { text-align: center !important; }
-main section button, footer button { text-align: center !important; }
-main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-btn-outline, footer .brutal-btn, footer .brutal-btn-orange, footer .brutal-btn-outline { margin-inline: auto; }
+/* Layout alignment belongs to each component. Avoid global overrides of
+   Tailwind text utilities and buttons, which break desktop grids and forms. */
+.event-page-root section > div[class*="max-w-"] { margin-inline: auto; }
+.event-page-root section h1,
+.event-page-root section h2,
+.event-page-root section h3 { overflow-wrap: anywhere; }
+.event-page-root .grid > * { min-width: 0; }
+@media (min-width: 1024px) {
+  .event-page-root #dispatch > div { grid-template-columns: minmax(0, 1fr); max-width: 900px; }
+  .event-page-root #dispatch h2 { font-size: clamp(3rem, 7vw, 6.5rem); line-height: .9; text-align: center; }
+  .event-page-root #dispatch > div > div:last-child { border-left: 0; padding-left: 0; }
+}
 .hero-background { opacity: .38; }
 .loading-screen { animation: loading-fade-in .55s ease-out both; }
 .loading-mark { animation: loading-mark-in .8s cubic-bezier(.2,.8,.2,1) .12s both; }
@@ -121,11 +128,6 @@ main section .brutal-btn, main section .brutal-btn-orange, main section .brutal-
 .event-page-root .bg-black .brutal-btn:not(.bg-offwhite):not(.bg-sunset):hover { background: #f7f7f2; color: #050505; box-shadow: 8px 8px 0 #050505; }
 .event-page-root .bg-sunset .brutal-btn-outline:not(.border-sunset) { background: #050505; color: #f7f7f2; border-color: #050505; box-shadow: 4px 4px 0 #050505; }
 .event-page-root .bg-sunset .brutal-btn-outline:not(.border-sunset):hover { background: #f7f7f2; color: #050505; border-color: #050505; box-shadow: 8px 8px 0 #050505; }
-/* Keep copy centered inside every card, box, list, and footer column. */
-main section article, main section .brutal-card, main section .brutal-card-orange, main section .brutal-card-black, footer, footer address, footer ul { text-align: center; }
-footer ul { list-style: none; padding-left: 0; }
-main section p, main section h1, main section h2, main section h3, main section h4, main section blockquote, footer p, footer h1, footer h2, footer h3, footer h4 { text-align: center; }
-
 .luma-embed { display: block; width: min(600px, 100%); height: 450px; margin: 2.5rem auto 0; border: 1px solid rgba(191, 203, 218, .53); border-radius: 4px; background: #fff; }
 @media (max-width: 640px) { .luma-embed { height: 450px; } }
 .luma-embed-shell { width: min(600px, 100%); margin: 2.5rem auto 0; text-align: center; }
