@@ -12,7 +12,7 @@ export default function Prizes() {
       <header className="text-center max-w-3xl mx-auto mb-16 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase">06 / RECOGNITION</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">PRIZES<span className="text-sunset">.</span></h2>
-        <p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. Every participant also receives one month of n8n Pro, valued at <strong className="font-bold text-offwhite">60 USD</strong> per month.</p>
+        <p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. 80 sponsored one-month n8n Cloud Pro licenses are available for allocation (stated value <strong className="font-bold text-offwhite">$60</strong> each); access is not guaranteed for every participant.</p>
       </header>
 
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1100px] mx-auto">
@@ -47,13 +47,23 @@ export default function Prizes() {
             <p className="font-dm text-sm text-offwhite/65 leading-relaxed">Every participant receives an official digital certificate of participation.</p>
           </div>
           <div className="border-2 border-sunset p-7">
-            <p className="font-archivo text-2xl text-sunset mb-3">1 MONTH OF N8N PRO</p>
-            <p className="font-dm text-sm text-offwhite/65 leading-relaxed">Every participant receives one month of n8n Pro, valued at <strong className="font-bold text-offwhite">60 USD</strong> per month.</p>
+            <p className="font-archivo text-2xl text-sunset mb-3">80 N8N CLOUD PRO LICENSES</p>
+            <p className="font-dm text-sm text-offwhite/65 leading-relaxed">80 one-month licenses are available (stated value $60 each). Allocation and redemption details will be shared with eligible participants.</p>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-6 mt-6 text-left">
+          <div className="border-2 border-offwhite/25 p-7">
+            <p className="font-archivo text-2xl text-sunset mb-3">FUELER DIGITAL BUNDLE</p>
+            <p className="font-dm text-sm text-offwhite/70 leading-relaxed">Proposed participant benefit: <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler</a> Digital Bundle (sponsor-stated value $800). Subject to final sponsor confirmation and distribution arrangements.</p>
+          </div>
+          <div className="border-2 border-offwhite/25 p-7">
+            <p className="font-archivo text-2xl text-sunset mb-3">INTERVIEWBUDDY DISCOUNT</p>
+            <p className="font-dm text-sm text-offwhite/70 leading-relaxed">Proposed 10% discount coupon for expert-driven interview sessions for participants. Subject to final sponsor confirmation and voucher distribution.</p>
           </div>
         </div>
       </div>
 
-      <p className="font-space text-[9px] text-offwhite/40 uppercase mt-8 text-center">Prize sponsor: <a href={eventConfig.codeCraftersUrl} target="_blank" rel="noreferrer" className="underline hover:text-sunset">CodeCrafters</a> · Gift sponsor: {eventConfig.giftSponsor}</p>
+      <p className="font-space text-[9px]' text-offwhite/40 uppercase mt-8 text-center">Prize sponsor: <a href={eventConfig.codeCraftersUrl} target="_blank" rel="noreferrer" className="underline hover:text-sunset">CodeCrafters</a> · Gift sponsor: {eventConfig.giftSponsor}</p>
     </div>
   </section>;
 }
