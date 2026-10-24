@@ -20,7 +20,7 @@ export const eventConfig = {
   participantLimit: "100+ students",
   registrationOpen: true,
   tracks: ["Web Development", "Game Development", "Graphic Designing"],
-  prizes: ["CodeCrafters VIP memberships", "GoldenHour trophies", "n8n Pro subscriptions (one month per participant; 60 USD monthly value)", "Certificates", "Stickers"],
+  prizes: ["$100 worth of Fueler Premium per winner", "AI Interview Vouchers worth ₹550 for winners", "90% AI Interview Discount Vouchers for runners-up", "Digital certificates", "CodeCrafters VIP memberships", "GoldenHour trophies", "n8n Pro subscriptions (one month per participant; 60 USD monthly value)", "Certificates", "Stickers"],
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",
   guardianConsentUrl: "/guardian-consent",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
@@ -39,90 +39,13 @@ export const eventConfig = {
 } as const;
 
 export const faqItems = [
-  {
-    q: "What is GoldenHour V1?",
-    a: "GoldenHour V1 is a free, student-run 12-hour build day in Delhi NCR, scheduled for 14 November 2026 (tentative).",
-    category: "ABOUT",
-    detail: "The day runs from 8:00 AM to 8:00 PM India Standard Time, with about six hours of active build sprints. The venue is still to be announced.",
-  },
-  {
-    q: "Who can participate?",
-    a: "Participants must be at least 13 and under 20 on 14 November 2026 (ages 13–19 on the event date).",
-    category: "ELIGIBILITY",
-    detail: "At check-in, organizers may view a school ID, Aadhaar, passport, or birth certificate to verify age. They will not copy or store the document.",
-  },
-  {
-    q: "Do participants under 18 need guardian consent?",
-    a: "Yes. Participants under 18 need permission from a parent or legal guardian.",
-    category: "SAFETY",
-    detail: "Consent is requested in the registration form and a signed guardian consent slip must be brought to check-in. Use the printable slip linked in the registration section.",
-  },
-  {
-    q: "What is the team size? Can designers or PMs join?",
-    a: "Teams may have 1–3 participants, including solo builders.",
-    category: "TEAMS",
-    detail: "Designers and project managers are welcome as contributors; Graphic Designing is also a dedicated track.",
-  },
-  {
-    q: "What tracks are available?",
-    a: "Choose Web Development, Game Development or Graphic Designing.",
-    category: "ABOUT",
-    detail: "Projects should fit the selected track and be demonstrated at the event.",
-  },
-  {
-    q: "May we use AI tools or code we wrote before the event?",
-    a: "AI tools are allowed. Disclose the tools you used in your project README.",
-    category: "RULES",
-    detail: "You may use open-source libraries, templates, and your own reusable boilerplate. The project itself must be started at the event.",
-  },
-  {
-    q: "How do we submit our project, and how will it be judged?",
-    a: "Submit a public repository, a README, and a working demo link before the 5:00 PM IST hard deadline.",
-    category: "RULES",
-    detail: "Judging areas are functionality, technical implementation, user experience/design, and innovation/creativity. The organizers will publish any scoring weights before the event.",
-  },
-  {
-    q: "What prizes are there, and how are they awarded?",
-    a: "Winning teams receive GoldenHour trophies; CodeCrafters VIP memberships are awarded per participant. Every participant also receives one month of n8n Pro, valued at 60 USD per month.",
-    category: "PRIZES",
-    detail: "Membership durations differ by place. First, second and third place depend on the number of eligible teams and the judges' evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed. All participants also receive a GoldenHour sticker and a digital certificate. n8n is the gift sponsor for the one-month Pro subscriptions.",
-  },
-  {
-    q: "How do travel and accommodation work?",
-    a: "Participants arrange their own travel. Overnight accommodation is not provided.",
-    category: "LOGISTICS",
-    detail: "This plan is provisional until the venue is confirmed. Participants under 18 need their parent or guardian to arrange their journey home.",
-  },
-  {
-    q: "What if the date or venue changes?",
-    a: "The published date is tentative and the venue has not yet been confirmed.",
-    category: "LOGISTICS",
-    detail: "If organizers make a change, they will update the event website and use registration contact details to communicate it.",
-  },
-  {
-    q: "Will participants receive a certificate?",
-    a: "Every participant receives a digital certificate of participation.",
-    category: "LOGISTICS",
-    detail: "Participants also receive an official GoldenHour sticker.",
-  },
-  {
-    q: "How do I register?",
-    a: "Registration is open through the official Google Form.",
-    category: "REGISTRATION",
-    detail: "The team leader submits one form for the team and includes each team member. Google sign-in is currently required by the form. Participants under 18 need parent/guardian consent and must bring a signed consent slip to check-in.",
-  },
-  {
-    q: "What should I bring?",
-    a: "Bring a laptop and charger, plus any hardware you want to use.",
-    category: "LOGISTICS",
-    detail: "The venue and final participant checklist will be announced when confirmed.",
-  },
-  {
-    q: "Where can I read the safety rules or ask a question?",
-    a: "Read the GoldenHour Code of Conduct before attending.",
-    category: "SAFETY",
-    detail: "For questions or to request access to or deletion of registration information, email hello@goldenhourdelhi.co.in.",
-  },
+  { q: "What is GoldenHour V1?", a: "A free, student-led 12-hour hackathon in Delhi NCR, tentatively scheduled for 14 November 2026.", detail: "The venue will be announced once confirmed." },
+  { q: "Who can participate, and how big can teams be?", a: "Participants must be 13–19 years old on event day. Teams can have 1–3 members, including solo participants.", detail: "Participants under 18 need parent or guardian consent." },
+  { q: "Which tracks are available?", a: "Web Development, Game Development and Graphic Designing.", detail: "Already registered? To switch to Graphic Designing, ask your team leader to message the organizers; you do not need to submit another form." },
+  { q: "How do we register?", a: "The team leader fills out the official registration form once for their team.", detail: "Registration is free." },
+  { q: "How are winners selected?", a: "Judges assess eligible submissions for functionality, execution, design and creativity.", detail: "First, second and third place are conditional on the number of eligible teams and judging standards. Some positions may remain unawarded." },
+  { q: "What do winners receive?", a: "Each winner receives a digital certificate, $100 worth of Fueler Premium and an AI Interview Voucher worth ₹550.", detail: "Runners-up receive a 90% AI Interview Discount Voucher. Other announced prizes may apply according to placement." },
+  { q: "What must we submit?", a: "A project repository, README and working demonstration by the published submission deadline.", detail: "AI tools may be used if disclosed. The project must be built during the event." },
 ] as const;
 
 export const eventDateLabel = `${eventConfig.dateShort} (${eventConfig.dateStatus})`;
