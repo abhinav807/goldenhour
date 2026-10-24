@@ -226,3 +226,20 @@ body:has(.cookie-banner) .back-to-top { display: none !important; }
 @media (min-width: 1024px) {
   .event-page-root #prizes > div { max-width: 1200px; }
 }
+
+/* Desktop visual rhythm: keep section headers aligned to the content axis,
+   with enough line box height for Archivo Black's uppercase glyphs. */
+@media (min-width: 769px) {
+  .event-page-root > section > div[class*="max-w-"] { margin-left: auto; margin-right: auto; }
+  .event-page-root section header { text-align: center; }
+  .event-page-root section header > p { margin-left: auto; margin-right: auto; }
+  .event-page-root section header h1,
+  .event-page-root section header h2 { margin-left: auto; margin-right: auto; }
+  .event-page-root #prizes article { text-align: center; }
+  .event-page-root #prizes article .font-archivo { line-height: 1.35; }
+  .event-page-root #prizes article .font-space { line-height: 1.65; }
+  .event-page-root #prizes article .border-t-2 { padding-top: 2rem; }
+}
+.event-page-root .font-archivo { line-height: 1.2; }
+.event-page-root h1.font-archivo, .event-page-root h2.font-archivo { line-height: 1.14; }
+.event-page-root #dispatch h2.font-archivo { line-height: 1.12; }
