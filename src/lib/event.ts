@@ -19,7 +19,7 @@ export const eventConfig = {
   teamSize: "1–3 participants",
   participantLimit: "100+ students",
   registrationOpen: true,
-  tracks: ["Web Development", "Game Development"],
+  tracks: ["Web Development", "Game Development", "Graphic Designing"],
   prizes: ["CodeCrafters VIP memberships", "GoldenHour trophies", "n8n Pro subscriptions (one month per participant; 60 USD monthly value)", "Certificates", "Stickers"],
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",
   guardianConsentUrl: "/guardian-consent",
@@ -35,7 +35,7 @@ export const eventConfig = {
   founders: ["Abhinav Goyal", "Divya"],
   leadOrganizers: ["Abhinav Goyal", "Divya", "Anurag"],
   coOrganizers: ["Yashpal Yadav", "Himanish Salgotra"],
-  lastUpdated: "2026-10-19",
+  lastUpdated: "2026-10-24",
 } as const;
 
 export const faqItems = [
@@ -61,11 +61,11 @@ export const faqItems = [
     q: "What is the team size? Can designers or PMs join?",
     a: "Teams may have 1–3 participants, including solo builders.",
     category: "TEAMS",
-    detail: "Designers and project managers are welcome as contributors on Web Development or Game Development teams.",
+    detail: "Designers and project managers are welcome as contributors; Graphic Designing is also a dedicated track.",
   },
   {
     q: "What tracks are available?",
-    a: "Choose Web Development or Game Development.",
+    a: "Choose Web Development, Game Development or Graphic Designing.",
     category: "ABOUT",
     detail: "Projects should fit the selected track and be demonstrated at the event.",
   },
@@ -85,7 +85,7 @@ export const faqItems = [
     q: "What prizes are there, and how are they awarded?",
     a: "Winning teams receive GoldenHour trophies; CodeCrafters VIP memberships are awarded per participant. Every participant also receives one month of n8n Pro, valued at 60 USD per month.",
     category: "PRIZES",
-    detail: "Membership durations differ by place. All participants also receive a GoldenHour sticker and a digital certificate. n8n is the gift sponsor for the one-month Pro subscriptions.",
+    detail: "Membership durations differ by place. First, second and third place depend on the number of eligible teams and the judges' evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed. All participants also receive a GoldenHour sticker and a digital certificate. n8n is the gift sponsor for the one-month Pro subscriptions.",
   },
   {
     q: "How do travel and accommodation work?",
