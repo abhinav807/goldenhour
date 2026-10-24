@@ -1,143 +1,238 @@
 import Link from "next/link";
-import Image from "next/image";
-import HoloCard from "@/components/HoloCard";
-import { ArrowUpRight } from "lucide-react";
-import GoldenHacksCursor from "@/components/GoldenHacksCursor";
-import Marquee from "@/components/Marquee";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { eventConfig } from "@/lib/event";
+import Sunrise from "@/components/Sunrise";
+import Team from "@/components/Team";
+import Footer from "@/components/Footer";
+import SpotlightCard from "@/components/SpotlightCard";
+import s from "@/components/Editorial.module.css";
 
-const events = [
+const principles = [
   {
-    name: "GOLDENHOUR V1",
-    type: `${eventConfig.duration.toUpperCase()} STUDENT HACKATHON`,
-    date: eventConfig.dateShort.toUpperCase(),
-    description: eventConfig.description,
-    href: "/goldenhour",
-    action: "ENTER GOLDENHOUR V1",
-    internal: true,
+    word: "BUILD.\nIMPROVE.\nREPEAT.",
+    label: "Continuous innovation",
+    text: "An unfinished idea is a starting point. Try it, test it, and make the next version better.",
+  },
+  {
+    word: "LESS THEORY.\nMORE MAKING.",
+    label: "Hands-on engineering",
+    text: "Learn by turning a blank canvas into something that works.",
+  },
+  {
+    word: "YOUR FIRST\nBUILD COUNTS.",
+    label: "Radical inclusion",
+    text: "Beginners and experienced builders share the same starting line.",
+  },
+  {
+    word: "GOOD THINGS ARE BUILT TOGETHER.",
+    label: "Community first",
+    text: "Find your people. Share what you know. Make room for someone else's idea.",
   },
 ];
 
-const principles = ["CONTINUOUS INNOVATION", "HANDS-ON ENGINEERING", "RADICAL INCLUSION", "COMMUNITY FIRST"];
-const tapeWords = "GOLDENHOUR DELHI / BUILD. IMPROVE. REPEAT. / STUDENT INNOVATORS / FREE FOR AGES 13–19 ON EVENT DAY / ";
-function LinkedinMark() { return <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13ZM3.56 20.45H7.1V9H3.56v11.45Z" /></svg>; }
-function InstagramMark() { return <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>; }
-function SectionTape({ dark = false }: { dark?: boolean }) {
-  return <Marquee reverse={dark} speed={dark ? 45 : 35} bg={dark ? "bg-black" : "bg-sunset"} borderColor={dark ? "border-sunset" : "border-black"} />;
-}
-
 export default function Home() {
   return (
-    <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor />
-      <nav className="gh-company-nav" aria-label="GoldenHour Delhi navigation">
-        <Link href="#top" className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
-        <div className="gh-company-links hidden md:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
-          <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
-        </div>
-        <Link href="#events" className="gh-explore brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
-      </nav>
-
-      <section id="top" className="gh-company-hero dot-pattern gh-home-print">
-        <div className="gh-hero-grid" aria-hidden="true"><span /><span /><span /><span /><span /><span /><span /><span /><span /></div>
-        <div className="gh-hero-copy relative z-10 max-w-[1200px] mx-auto px-5 md:px-10 pt-28 pb-24 md:pt-40 md:pb-36 text-center">
-          <span className="gh-home-issue mb-6">INDEPENDENT BUILD CULTURE / ISSUE 01</span><p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHOUR DELHI / DELHI NCR / INDIA</p>
-          <h1 className="font-archivo text-[clamp(4rem,18vw,120px)] sm:text-[clamp(5rem,15vw,140px)] md:text-[clamp(4rem,9vw,130px)] leading-[.76] tracking-[-.08em] max-w-6xl mx-auto">GOLDEN<span className="text-sunset">HOUR</span><span className="text-offwhite">.</span></h1>
-          <div className="mt-12 flex flex-col items-center gap-8 max-w-5xl mx-auto">
-            <p className="font-archivo text-2xl md:text-5xl leading-[.9] max-w-2xl mx-auto text-center">BUILD BEFORE SUNRISE.</p>
-            <Link href="#events" className="brutal-btn-orange px-7 py-4 justify-center">VIEW GOLDENHOUR V1 <ArrowUpRight size={18} /></Link>
+    <>
+      <main id="main-content" className={s.shell}>
+        <section id="top" className={s.cover}>
+          <div className={s.wrap}>
+            <div className={`${s.coverTop} ${s.eyebrow}`}>
+              <span>Independent build culture / Delhi NCR</span>
+              <span>Made by students. For students.</span>
+            </div>
+            <div className={s.coverGrid}>
+              <div className={s.coverCopy}>
+                <h1 className={s.coverTitle}>
+                  <span>BUILD</span>
+                  <span>BEFORE</span>
+                  <span className={s.accent}>SUNRISE.</span>
+                </h1>
+                <p>
+                  We are GoldenHour Delhi. A student-led community for big
+                  ideas, first attempts, and things you can actually build.
+                </p>
+                <div className={s.coverActions}>
+                  <Link href="/goldenhour" className={s.button}>
+                    Explore GoldenHour V1 <ArrowUpRight size={18} />
+                  </Link>
+                  <a href="#about" className={s.textLink}>
+                    Meet the movement <ArrowDown size={16} />
+                  </a>
+                </div>
+              </div>
+              <Sunrise />
+            </div>
+            <div className={`${s.coverFoot} ${s.eyebrow}`}>
+              <span>From a blank page to something real.</span>
+              <span>Build. Improve. Repeat. ↘</span>
+            </div>
+          </div>
+        </section>
+        <div className={s.factStrip}>
+          <div className={s.wrap}>
+            <strong>NEXT UP: GOLDENHOUR V1</strong>
+            <span className={s.eyebrow}>
+              {eventConfig.date} / {eventConfig.duration} / {eventConfig.entry}{" "}
+              entry
+            </span>
+            <Link href="/goldenhour" className={s.textLink}>
+              Find your track <ArrowUpRight size={16} />
+            </Link>
           </div>
         </div>
-        <div className="gh-ticker" aria-hidden="true"><div>{tapeWords}{tapeWords}</div></div>
-      </section>
-      <SectionTape />
-
-      <section id="about" className="gh-home-editorial px-5 md:px-10 py-20 md:py-28 border-b-4 border-black">
-        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.1fr_.9fr] gap-12 lg:gap-24 items-start">
-          <div><p className="gh-kicker">01 / THE COMPANY</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">MORE THAN<br /><span className="text-sunset">EVENTS.</span></h2></div>
-          <div className="space-y-7 font-dm text-lg md:text-xl leading-relaxed text-center lg:text-left"><p>GoldenHour Delhi creates platforms for students to learn, build, collaborate, and showcase their ideas.</p><p>Hackathons, technical masterclasses, acceleration opportunities, innovation sprints, ideathons, and project showcases all point in one direction: the next generation of Indian builders.</p><div className="brutal-card-black p-7 text-offwhite text-center"><p className="font-space text-xs text-sunset uppercase tracking-widest font-bold mb-3">THE PROMISE</p><p className="font-archivo text-2xl">FREE FOR AGES 13–19 ON EVENT DAY.</p><p className="font-space text-xs text-offwhite/60 mt-3">Beginners and experts. Everyone gets a place to start.</p></div></div>
-        </div>
-      </section>
-
-      <SectionTape dark />
-      <section id="events" className="bg-sunset gh-home-orange px-5 md:px-10 py-20 md:py-28 border-b-4 border-black">
-          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">PICK YOUR<br /><span className="text-offwhite">BUILD.</span></h2></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <article key={event.name} className={`gh-ink-card p-7 md:p-10 border-2 border-black shadow-[8px_8px_0_#050505] text-center flex flex-col items-center ${i === 0 ? "bg-offwhite" : "bg-black text-offwhite"}`}><div className="flex w-full justify-center items-center gap-4 mb-12"><span className={`font-space text-[10px] font-bold px-3 py-2 ${i === 0 ? "bg-black text-sunset" : "bg-sunset text-black"}`}>0{i + 1}</span><span className={`font-space text-[10px] font-bold uppercase ${i === 0 ? "text-black/55" : "text-offwhite/55"}`}>{event.date}</span></div><p className={`font-space text-[10px] tracking-widest font-bold mb-4 ${i === 0 ? "text-black/55" : "text-sunset"}`}>{event.type}</p><h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3><p className={`font-dm text-lg leading-relaxed max-w-lg mb-10 ${i === 0 ? "text-black/70" : "text-offwhite/70"}`}>{event.description}</p>{event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}</article>)}</div></div>
-      </section>
-
-      <SectionTape />
-      <section id="founders" className="gh-home-editorial px-5 md:px-10 py-20 md:py-28 border-b-4 border-black">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-14">
-            <p className="gh-kicker">03 / THE PEOPLE</p>
-            <h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">BUILT BY<br /><span className="text-sunset">BUILDERS.</span></h2>
+        <section id="about" className={s.section}>
+          <div className={`${s.wrap} ${s.intro}`}>
+            <div>
+              <p className={s.eyebrow}>01 / A movement in the making</p>
+              <h2 className={s.heading}>
+                BIG IDEAS.
+                <br />
+                SMALL STARTS.
+                <br />
+                REAL THINGS.
+              </h2>
+            </div>
+            <div className={s.introCopy}>
+              <p className={s.body}>
+                GoldenHour Delhi creates platforms for students to learn, build,
+                collaborate, and showcase their ideas.
+              </p>
+              <p className={`${s.body} ${s.muted}`}>
+                Our ambition goes beyond one event: hackathons, technical
+                masterclasses, innovation sprints, ideathons, acceleration
+                opportunities and project showcases. GoldenHour V1 is the next
+                place to start.
+              </p>
+              <div className={s.note}>
+                <strong className={s.eyebrow}>
+                  Your curiosity is enough to begin.
+                </strong>
+                <p>
+                  GoldenHour V1 is free for ages 13–19 on event day. Solo
+                  builders and teams of up to three are welcome.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-[1200px] mx-auto">
-            <HoloCard>
-            <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
-                <Image src="/abhinav.jpg" alt="Abhinav Goyal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
+        </section>
+        <section id="events" className={`${s.section} ${s.posterSection}`}>
+          <div className={s.wrap}>
+            <header className={s.sectionHead}>
+              <div>
+                <p className={s.eyebrow}>02 / The next gathering</p>
+                <h2 className={s.heading}>
+                  ONE DAY.
+                  <br />
+                  MAKE IT COUNT.
+                </h2>
               </div>
-              <div className="p-8 md:p-10">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-FOUNDER / 01</p>
-                <h3 className="font-archivo text-4xl md:text-5xl">ABHINAV<br />GOYAL<span className="text-sunset">.</span></h3>
+              <p className={s.body}>
+                A blank canvas. Three tracks.
+                <br />
+                Something real by the end of the day.
+              </p>
+            </header>
+            <article className={s.poster}>
+              <div className={s.posterMain}>
+                <p className={s.eyebrow}>
+                  The first edition / Student build day
+                </p>
+                <h3>
+                  GOLDENHOUR
+                  <br />
+                  V1<span className={s.accent}>.</span>
+                </h3>
+                <p className={s.body}>{eventConfig.description}</p>
+                <div className={s.posterTracks}>
+                  {eventConfig.tracks.map((track) => (
+                    <span key={track}>{track}</span>
+                  ))}
+                </div>
               </div>
-            </div>
-            </HoloCard>
-            <HoloCard>
-            <div className="brutal-card-orange gh-home-people-card p-0 text-center overflow-hidden">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
-                <Image src="/divya.jpg" alt="Divya" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
+              <div className={s.posterAside}>
+                <dl>
+                  <div>
+                    <dt>Date / confirmed</dt>
+                    <dd>{eventConfig.date}</dd>
+                  </div>
+                  <div>
+                    <dt>Time</dt>
+                    <dd>08:00–20:00 IST</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>
+                      Delhi NCR
+                      <br />
+                      <span className={s.muted}>{eventConfig.venue}</span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Entry / registration</dt>
+                    <dd>
+                      {eventConfig.entry} /{" "}
+                      {eventConfig.registrationOpen ? "Open" : "Closed"}
+                    </dd>
+                  </div>
+                </dl>
+                <Link href="/goldenhour" className={s.button}>
+                  Explore the event <ArrowUpRight size={18} />
+                </Link>
               </div>
-              <div className="p-8 md:p-10">
-                <p className="font-space text-[10px] text-black/60 tracking-widest mb-4">CO-FOUNDER / 02</p>
-                <h3 className="font-archivo text-4xl md:text-5xl">DIVYA<span className="text-offwhite">.</span></h3>
-              </div>
-            </div>
-            </HoloCard>
+            </article>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[1100px] mx-auto mt-8">
-            <HoloCard>
-            <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
-                <Image src="/anurag.jpg" alt="Anurag" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+        </section>
+        <Team />
+        <section id="standard" className={`${s.section} ${s.standard}`}>
+          <div className={s.wrap}>
+            <header className={s.sectionHead}>
+              <div>
+                <p className={`${s.eyebrow} ${s.accent}`}>
+                  04 / The GoldenHour standard
+                </p>
+                <h2 className={s.heading}>
+                  HOW WE
+                  <br />
+                  SHOW UP.
+                </h2>
               </div>
-              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">MEDIA LEAD / 03</p>
-                <h3 className="font-archivo text-2xl md:text-3xl">ANURAG<span className="text-sunset">.</span></h3>
-              </div>
+              <p className={s.body}>
+                Four principles. Every project.
+                <br />
+                Every person in the room.
+              </p>
+            </header>
+            <div className={s.principles}>
+              {principles.map((item, index) => (
+                <SpotlightCard
+                  key={item.label}
+                  className={s.principle}
+                  spotlightColor={index === 0 ? "#ffd400" : "#ff5a00"}
+                >
+                  <span className={s.eyebrow}>{item.label}</span>
+                  {index === 0 && (
+                    <span className={s.principleMark} aria-hidden="true">
+                      ↗
+                    </span>
+                  )}
+                  <div>
+                    <h3>
+                      {item.word.split("\n").map((line, i) => (
+                        <span key={line}>
+                          {i > 0 && <br />}
+                          {line}
+                        </span>
+                      ))}
+                    </h3>
+                    <p>{item.text}</p>
+                  </div>
+                </SpotlightCard>
+              ))}
             </div>
-            </HoloCard>
-            
-            <HoloCard>
-            <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
-                <Image src="/yashpal.jpg" alt="Yashpal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
-              </div>
-              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-ORGANISER / 04</p>
-                <h3 className="font-archivo text-2xl md:text-3xl">YASHPAL<span className="text-sunset">.</span></h3>
-              </div>
-            </div>
-            </HoloCard>
-            <HoloCard>
-            <div className="brutal-card-black gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
-                <Image src="/himanish.jpg" alt="Himanish Salgotra" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
-              </div>
-              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-sunset tracking-widest mb-4">CO-ORGANISER / 05</p>
-                <h3 className="font-archivo text-2xl md:text-3xl text-offwhite">HIMANISH<br />SALGOTRA<span className="text-sunset">.</span></h3>
-              </div>
-            </div>
-            </HoloCard>
           </div>
-        </div>
-      </section>
-
-
-      <SectionTape />
-      <section className="bg-black gh-home-dark text-offwhite px-5 md:px-10 py-20 md:py-28 border-b-4 border-sunset"><div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center"><div><p className="gh-kicker text-sunset">04 / THE STANDARD</p><h2 className="font-archivo text-5xl md:text-5xl lg:text-6xl leading-[1.08] mt-6">A MOVEMENT<br />IN THE <span className="text-sunset">MAKING.</span></h2></div><div className="grid grid-cols-2 gap-3">{principles.map((principle, i) => <div key={principle} className="border border-offwhite/20 p-5 min-h-32 flex items-center justify-center text-center"><p className="font-space text-xs font-bold leading-relaxed">0{i + 1}<br /><span className="text-sunset">{principle}</span></p></div>)}</div></div></section>
-
-      <footer id="contact" className="bg-sunset gh-home-orange px-5 md:px-10 py-16"><div className="max-w-[1200px] mx-auto grid md:grid-cols-[1.15fr_.85fr_1fr] gap-10 items-start text-center"><div><p className="font-space text-xs font-bold tracking-widest mb-5">GOLDENHOUR DELHI / DELHI NCR / INDIA</p><h2 className="font-archivo text-5xl md:text-7xl leading-[.8]">LET&apos;S BUILD<br /><span className="text-offwhite">TOGETHER.</span></h2><a href="mailto:hello@goldenhourdelhi.co.in" className="inline-block font-archivo text-xl underline underline-offset-4 mt-8">hello@goldenhourdelhi.co.in</a><div className="flex justify-center gap-4 mt-6"><a href="https://www.linkedin.com/company/goldenhourdelhi/" target="_blank" rel="noreferrer" aria-label="GoldenHour on LinkedIn" className="p-3 border-2 border-black hover:bg-black hover:text-sunset transition-colors"><LinkedinMark /></a><a href="https://www.instagram.com/goldenhour.delhi/" target="_blank" rel="noreferrer" aria-label="GoldenHour on Instagram" className="p-3 border-2 border-black hover:bg-black hover:text-sunset transition-colors"><InstagramMark /></a></div></div><div><p className="font-space text-[10px] font-bold tracking-[.16em] mb-5">MAIN WEBSITE</p><nav aria-label="Main website pages" className="flex flex-col gap-3 font-space text-xs"><a href="#about" className="hover:underline">ABOUT</a><a href="#events" className="hover:underline">HACKATHONS</a><a href="#founders" className="hover:underline">FOUNDERS</a><a href="#contact" className="hover:underline">CONTACT</a></nav></div><div><p className="font-space text-[10px] font-bold tracking-[.16em] mb-5">EVENT &amp; LEGAL</p><nav aria-label="Event and legal pages" className="flex flex-col gap-3 font-space text-xs"><a href="/goldenhour" className="hover:underline">GOLDENHOUR V1</a><a href="/goldenhour#faq" className="hover:underline">FAQ</a><a href="/code-of-conduct" className="hover:underline">CODE OF CONDUCT</a><a href="/privacy" className="hover:underline">PRIVACY</a><a href="/terms" className="hover:underline">TERMS</a></nav></div></div><div className="max-w-[1200px] mx-auto mt-16 pt-5 border-t border-black/30 flex flex-col md:flex-row justify-between gap-3 font-space text-[10px] font-bold text-center"><span>GOLDENHOUR DELHI © 2026</span><span>BUILD. IMPROVE. REPEAT.</span></div></footer>
-    </main>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

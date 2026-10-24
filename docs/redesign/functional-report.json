@@ -1,0 +1,247 @@
+{
+  "checks": [
+    {
+      "name": "Route /",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /goldenhour",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /about",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /code-of-conduct",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /privacy",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /terms",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /guardian-consent",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /thank-you",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /empty-state",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /robots.txt",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /sitemap.xml",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Route /llms.txt",
+      "status": "pass",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "404 status",
+      "status": "pass"
+    },
+    {
+      "name": "Anchor targets /",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 320",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 360",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 390",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 430",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 768",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 1024",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 1440",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow / 1728",
+      "status": "pass"
+    },
+    {
+      "name": "Menu open/focus trap/Escape/return/anchor / 390",
+      "status": "pass"
+    },
+    {
+      "name": "Menu open/focus trap/Escape/return/anchor / 768",
+      "status": "pass"
+    },
+    {
+      "name": "Anchor targets /goldenhour",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 320",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 360",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 390",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 430",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 768",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 1024",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 1440",
+      "status": "pass"
+    },
+    {
+      "name": "Reflow /goldenhour 1728",
+      "status": "pass"
+    },
+    {
+      "name": "Menu open/focus trap/Escape/return/anchor /goldenhour 390",
+      "status": "pass"
+    },
+    {
+      "name": "Menu open/focus trap/Escape/return/anchor /goldenhour 768",
+      "status": "pass"
+    },
+    {
+      "name": "Schedule keyboard disclosure / all 11 phases",
+      "status": "pass"
+    },
+    {
+      "name": "FAQ search, answer, empty state, reset",
+      "status": "pass"
+    },
+    {
+      "name": "Resource filters and every copy button",
+      "status": "pass",
+      "details": {
+        "copiedCommands": 20
+      }
+    },
+    {
+      "name": "Clipboard denial feedback",
+      "status": "pass"
+    },
+    {
+      "name": "Resource collapse",
+      "status": "pass"
+    },
+    {
+      "name": "Registration destination preserved",
+      "status": "pass",
+      "details": {
+        "registrationLinks": 6
+      }
+    },
+    {
+      "name": "Event JSON-LD dates, timezone and free entry",
+      "status": "pass"
+    },
+    {
+      "name": "All event portraits and partner logos loaded",
+      "status": "pass"
+    },
+    {
+      "name": "Home → event → browser back",
+      "status": "pass"
+    },
+    {
+      "name": "Reduced-motion foil fallback",
+      "status": "pass"
+    },
+    {
+      "name": "No WebGL/canvas on home",
+      "status": "pass"
+    },
+    {
+      "name": "No-JavaScript content, schedule, FAQ, countdown date and resources",
+      "status": "pass"
+    },
+    {
+      "name": "Countdown after deadline has factual status",
+      "status": "pass"
+    },
+    {
+      "name": "Cookie essential-only consent",
+      "status": "pass"
+    },
+    {
+      "name": "No browser runtime errors",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

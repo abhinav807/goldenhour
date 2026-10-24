@@ -34,7 +34,7 @@ const sections: Section[] = [
 
 export default function CodeOfConductPage() {
   return (
-    <main className="min-h-screen gh-document-paper bg-offwhite px-5 md:px-12 py-24 md:py-36">
+    <main id="main-content" className="min-h-screen gh-document-paper bg-offwhite px-5 md:px-12 py-24 md:py-36">
       <article className="legal-document max-w-[900px] mx-auto">
         <Link href="/goldenhour" className="font-space text-xs text-sunset hover:text-black">← BACK TO GOLDENHOUR V1</Link>
         <p className="font-space text-xs text-black/50 mt-14 mb-5">EFFECTIVE FOR ALL GOLDENHOUR EVENTS, INCLUDING GOLDENHOUR V1</p>

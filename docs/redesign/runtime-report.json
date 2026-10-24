@@ -1,0 +1,32 @@
+[
+  {
+    "name": "live-baseline",
+    "url": "https://www.goldenhourdelhi.co.in",
+    "viewport": "1440x1000",
+    "browser": "155.0.4283.62",
+    "sampleMs": 5006,
+    "rafCallbacks": 1505,
+    "canvas": 5,
+    "visibleCanvas": 5,
+    "visibleFoil": 0,
+    "TaskDurationMs": 444.961,
+    "ScriptDurationMs": 58.062000000000005,
+    "LayoutDurationMs": 0,
+    "RecalcStyleDurationMs": 94.348
+  },
+  {
+    "name": "redesign",
+    "url": "http://127.0.0.1:3100",
+    "viewport": "1440x1000",
+    "browser": "155.0.4283.62",
+    "sampleMs": 5018.10000000149,
+    "rafCallbacks": 0,
+    "canvas": 0,
+    "visibleCanvas": 0,
+    "visibleFoil": 5,
+    "TaskDurationMs": 1.761,
+    "ScriptDurationMs": 0,
+    "LayoutDurationMs": 0,
+    "RecalcStyleDurationMs": 0
+  }
+]

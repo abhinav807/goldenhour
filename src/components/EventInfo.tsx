@@ -1,9 +1,133 @@
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { eventConfig } from "@/lib/event";
-
-const criteria = ["FUNCTIONALITY", "TECHNICAL IMPLEMENTATION", "UX / DESIGN", "INNOVATION / CREATIVITY"];
-const requirements = ["Public GitHub repository", "README.md explaining the project and disclosing AI tools used", "Working deployed or demo link", "Clear project name and team details"];
-
+import s from "./Editorial.module.css";
+import d from "./EventDetails.module.css";
+const criteria = [
+  "Functionality",
+  "Technical implementation",
+  "UX / Design",
+  "Innovation / Creativity",
+];
+const requirements = [
+  "Public GitHub repository",
+  "README explaining the project and disclosing AI tools used",
+  "Working deployed or demo link",
+  "Clear project name and team details",
+];
 export default function EventInfo() {
-  return <><section id="judging" className="bg-sunset gh-grain-sunset py-20 md:py-28 px-5 md:px-10"><div className="max-w-[1100px] mx-auto"><header className="text-center max-w-3xl mx-auto mb-14"><div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">08 / JUDGING</div><h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">WHAT GETS<br />NOTICED<span className="text-offwhite">?</span></h2><p className="font-space text-xs md:text-sm text-black/65 max-w-lg mx-auto mt-6">Projects will be reviewed across four clear areas. Exact judging weights are TO BE ANNOUNCED.</p></header><div className="grid sm:grid-cols-2 gap-5">{criteria.map((criterion, index) => <article key={criterion} className="border-2 border-black bg-offwhite p-7 md:p-9 text-center shadow-[6px_6px_0_#050505]"><span className="font-archivo text-4xl text-sunset">0{index + 1}</span><h3 className="font-archivo text-xl md:text-2xl lg:text-3xl text-black mt-5">{criterion}</h3><p className="font-space text-[10px] uppercase text-black/50 tracking-[.12em] mt-5">WEIGHT / TO BE ANNOUNCED</p></article>)}</div></div></section><section id="submission" className="bg-black text-offwhite gh-grain-night py-20 md:py-28 px-5 md:px-10"><div className="max-w-[1100px] mx-auto grid lg:grid-cols-2 gap-8"><article className="brutal-card-black gh-ink-card border-offwhite/30 p-8 md:p-10 text-center flex flex-col items-center"><p className="font-space text-[10px] text-sunset font-bold uppercase tracking-[.16em]">09 / SUBMISSION REQUIREMENTS</p><h2 className="font-archivo text-4xl md:text-6xl mt-6">MAKE IT<br /><span className="text-sunset">REVIEWABLE.</span></h2><ul className="mt-8 text-center space-y-4">{requirements.map((requirement) => <li key={requirement} className="font-dm text-sm text-offwhite/75 flex justify-center gap-3 items-center"><CheckCircle2 size={18} className="text-sunset shrink-0" />{requirement}</li>)}</ul><p className="font-space text-[10px] text-offwhite/45 uppercase tracking-[.12em] mt-8">Submissions close at 5:00 PM IST sharp. No late submissions can be accepted.</p></article><article id="venue" className="brutal-card-black border-offwhite/30 p-8 md:p-10 text-center"><p className="font-space text-[10px] text-sunset font-bold uppercase tracking-[.16em]">10 / VENUE</p><h2 className="font-archivo text-4xl md:text-6xl mt-6">VENUE<br /><span className="text-sunset">TBA.</span></h2><p className="font-dm text-base text-offwhite/70 leading-relaxed mt-8">The GoldenHour V1 venue will be announced separately. We will publish the address, nearest metro, Wi-Fi and power details once confirmed.</p><div className="grid grid-cols-2 gap-3 mt-8">{["ADDRESS / TO BE ANNOUNCED", "NEAREST METRO / TO BE ANNOUNCED", "WI-FI / TO BE ANNOUNCED", "POWER / TO BE ANNOUNCED"].map((item) => <div key={item} className="border border-offwhite/25 p-4 font-space text-[9px] text-offwhite/55 uppercase text-center">{item}</div>)}</div></article></div><div id="help" className="max-w-[900px] mx-auto mt-8 border-2 border-sunset bg-black p-7 text-center"><p className="font-space text-[10px] text-sunset uppercase tracking-[.16em] font-bold">NEED A HAND?</p><h3 className="font-archivo text-3xl md:text-5xl mt-4 text-offwhite">ASK THE TEAM<span className="text-sunset">.</span></h3><div className="flex flex-wrap justify-center gap-3 mt-7"><a className="brutal-btn-outline border-sunset bg-black text-sunset" href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noreferrer">WHATSAPP <ArrowUpRight size={15} /></a><a className="brutal-btn-outline border-sunset bg-black text-sunset" href="mailto:hello@goldenhourdelhi.co.in">EMAIL <ArrowUpRight size={15} /></a><a className="brutal-btn-outline border-sunset bg-black text-sunset" href="https://www.instagram.com/goldenhour.delhi/" target="_blank" rel="noreferrer">INSTAGRAM <ArrowUpRight size={15} /></a><a className="brutal-btn-outline border-sunset bg-black text-sunset" href="https://www.linkedin.com/company/goldenhourdelhi/" target="_blank" rel="noreferrer">LINKEDIN <ArrowUpRight size={15} /></a></div></div></section></>;
+  return (
+    <>
+      <section id="judging" className={s.section}>
+        <div className={`${s.wrap} ${d.infoGrid}`}>
+          <div>
+            <p className={s.eyebrow}>What the judges look for</p>
+            <h2 className={s.heading} style={{ marginTop: 24 }}>
+              MAKE IT WORK.
+              <br />
+              MAKE IT YOURS.
+            </h2>
+            <p className={s.body} style={{ marginTop: 24 }}>
+              Projects are reviewed across four areas. Exact judging weights
+              will be announced.
+            </p>
+          </div>
+          <div className={d.criteria}>
+            {criteria.map((name, i) => (
+              <article key={name} className={d.criterion}>
+                <span className={s.eyebrow}>0{i + 1} /</span>
+                <h3>{name}</h3>
+                <p className={s.eyebrow}>Weight / To be announced</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="submission" className={s.section}>
+        <div className={s.wrap}>
+          <div className={d.infoGrid}>
+            <article className={d.infoCard}>
+              <p className={s.eyebrow}>Ready for review</p>
+              <h2>
+                THE SUBMISSION
+                <br />
+                CHECKLIST.
+              </h2>
+              <ul>
+                {requirements.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>
+                <strong>17:00 IST is the hard cutoff.</strong>
+                <br />
+                Check every link before submitting. Late submissions cannot be
+                accepted.
+              </p>
+            </article>
+            <article id="venue" className={d.infoCard}>
+              <p className={s.eyebrow}>Delhi NCR / Details to follow</p>
+              <h2>
+                A PLACE TO
+                <br />
+                MAKE THINGS.
+              </h2>
+              <p>
+                The venue is not yet confirmed. We’ll publish the exact address,
+                nearest metro, Wi-Fi, power and accessibility details when
+                available.
+              </p>
+              <div className={d.venueFacts}>
+                {[
+                  "Address",
+                  "Nearest metro",
+                  "Wi-Fi & power",
+                  "Accessibility",
+                ].map((item) => (
+                  <div key={item}>
+                    {item}
+                    <br />
+                    <strong>To be announced</strong>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+          <div id="help" className={d.help}>
+            <strong className={s.eyebrow}>Need a hand? Ask the team.</strong>
+            <div>
+              <a
+                className={s.textLink}
+                href={eventConfig.whatsappCommunityUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp ↗
+              </a>
+              <a
+                className={s.textLink}
+                href={`mailto:${eventConfig.contactEmail}`}
+              >
+                Email ↗
+              </a>
+              <a
+                className={s.textLink}
+                href={eventConfig.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram ↗
+              </a>
+              <a
+                className={s.textLink}
+                href={eventConfig.linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

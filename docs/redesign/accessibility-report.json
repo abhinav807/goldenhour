@@ -1,0 +1,192 @@
+[
+  {
+    "path": "/",
+    "width": 390,
+    "violations": [],
+    "passes": 25,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/",
+    "width": 1440,
+    "violations": [],
+    "passes": 24,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/goldenhour",
+    "width": 390,
+    "violations": [],
+    "passes": 32,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/goldenhour",
+    "width": 1440,
+    "violations": [],
+    "passes": 32,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/guardian-consent",
+    "width": 390,
+    "violations": [],
+    "passes": 23,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/guardian-consent",
+    "width": 1440,
+    "violations": [],
+    "passes": 23,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/about",
+    "width": 390,
+    "violations": [],
+    "passes": 24,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/about",
+    "width": 1440,
+    "violations": [],
+    "passes": 22,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/privacy",
+    "width": 390,
+    "violations": [],
+    "passes": 23,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/privacy",
+    "width": 1440,
+    "violations": [],
+    "passes": 21,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/terms",
+    "width": 390,
+    "violations": [],
+    "passes": 23,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/terms",
+    "width": 1440,
+    "violations": [],
+    "passes": 21,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/code-of-conduct",
+    "width": 390,
+    "violations": [],
+    "passes": 24,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/code-of-conduct",
+    "width": 1440,
+    "violations": [],
+    "passes": 22,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/thank-you",
+    "width": 390,
+    "violations": [],
+    "passes": 22,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/thank-you",
+    "width": 1440,
+    "violations": [],
+    "passes": 20,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/empty-state",
+    "width": 390,
+    "violations": [],
+    "passes": 22,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/empty-state",
+    "width": 1440,
+    "violations": [],
+    "passes": 20,
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/not-a-real-route",
+    "width": 390,
+    "violations": [],
+    "passes": 22,
+    "incomplete": [
+      "aria-valid-attr-value",
+      "color-contrast"
+    ]
+  },
+  {
+    "path": "/not-a-real-route",
+    "width": 1440,
+    "violations": [],
+    "passes": 20,
+    "incomplete": [
+      "color-contrast"
+    ]
+  }
+]

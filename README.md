@@ -1,6 +1,6 @@
 # GOLDENHOUR
 
-Premium brutalist landing page for GOLDENHOUR, a student-led 10-hour technology event in Delhi.
+Premium brutalist landing page for GOLDENHOUR, a student-led 12-hour build day in Delhi NCR. GoldenHour V1 takes place on 14 November 2026, 08:00–20:00 IST, for ages 13–19. Tracks: Web Development, Game Development and Graphic Designing. Venue to be announced. `src/lib/event.ts` is the event-data source.
 
 ## Local development
 

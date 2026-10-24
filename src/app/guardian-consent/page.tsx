@@ -6,7 +6,7 @@ import { pageMetadata } from "../metadata";
 export const metadata = pageMetadata("Parent/Guardian Consent Slip — GoldenHour V1", "Printable parent or legal guardian consent slip required at check-in for GoldenHour participants under 18.", "/guardian-consent");
 
 export default function GuardianConsentPage() {
-  return <main className="min-h-screen gh-document-paper bg-offwhite px-5 md:px-12 py-20 md:py-28"><article className="max-w-[800px] mx-auto">
+  return <main id="main-content" className="min-h-screen gh-document-paper bg-offwhite px-5 md:px-12 py-20 md:py-28"><article className="max-w-[800px] mx-auto">
     <div className="print:hidden flex justify-between items-center gap-4"><Link href="/goldenhour" className="font-space text-xs text-sunset hover:text-black">← BACK TO GOLDENHOUR V1</Link><PrintButton /></div>
     <p className="font-space text-[10px] text-black/50 mt-10 mb-4">FOR PARTICIPANTS UNDER 18 / BRING THE SIGNED ORIGINAL TO CHECK-IN</p>
     <h1 className="font-archivo text-5xl sm:text-6xl md:text-7xl">PARENT / GUARDIAN<br /><span className="text-sunset">CONSENT SLIP.</span></h1>

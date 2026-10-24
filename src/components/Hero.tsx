@@ -1,18 +1,64 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import InteractiveBackground from "@/components/InteractiveBackground";
-import CursorGuides from "@/components/CursorGuides";
 import { eventConfig } from "@/lib/event";
-
-const details = [["WHEN", eventConfig.date], ["WHERE", eventConfig.location], ["DURATION", eventConfig.duration], ["ENTRY", eventConfig.entry]];
+import Sunrise from "./Sunrise";
+import s from "./Editorial.module.css";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-black text-offwhite overflow-hidden px-5 md:px-10 hero-grid gh-hero-print">
-      <CursorGuides />
-      <div className="gh-edition-stamp" aria-hidden="true"><span>ISSUE NO.</span><strong>01 / 26</strong><span>DELHI NCR</span></div>
-      <div className="hero-background absolute inset-0 z-0 pointer-events-none" aria-hidden="true"><InteractiveBackground /></div>
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto pt-32 pb-28 text-center flex flex-col items-center"><div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8 font-space text-[10px] uppercase tracking-[.18em]"><span className="text-offwhite/55">DELHI NCR / INDIA</span><span className="text-sunset">AGES 13–19 ON EVENT DAY</span><span className="flex items-center gap-3 text-offwhite"><span className="h-2.5 w-2.5 bg-sunset animate-[pulse-dot_1.5s_ease-in-out_infinite]" aria-hidden="true" />REGISTRATION OPEN</span></div><h1 className="font-archivo text-[clamp(2.5rem,7.5vw,7rem)] leading-[.8] tracking-[-.08em] max-w-[1050px] mx-auto gh-hero-type">GOLDENHOUR<br /><span className="text-sunset">V1.</span></h1><div className="mt-10 max-w-[760px] mx-auto flex flex-col items-center gap-8"><p className="font-dm text-lg md:text-2xl text-offwhite/70 max-w-lg leading-snug">A free 12-hour hackathon for students across Delhi NCR. Pick Web Development, Game Development or Graphic Designing — and build something real.</p><div className="hero-cta w-full flex flex-wrap items-center justify-center gap-x-7 gap-y-4"><a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className="brutal-btn-orange px-7 py-4 mx-0">REGISTER NOW <ArrowUpRight size={16} /></a><a href={eventConfig.volunteerUrl} target="_blank" rel="noreferrer" className="gh-hero-mini-link">VOLUNTEER WITH US <ArrowUpRight size={16} /></a><a href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noreferrer" className="gh-hero-mini-link">JOIN WHATSAPP COMMUNITY <ArrowUpRight size={16} /></a></div><p className="font-space text-[10px] text-offwhite/70 uppercase tracking-[.14em] gh-hero-subline">14 NOVEMBER 2026 / 08:00-20:00 IST. Venue details to be announced. One form per team.</p></div><div className="mt-8 md:mt-14 pt-6 border-t border-offwhite/20 w-full max-w-[1000px] mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 md:gap-6 text-center max-[400px]:hidden">{details.map(([label, value]) => <div key={label}><p className="font-space text-[9px] text-offwhite/40 uppercase tracking-[.16em] mb-2">{label}</p><p className="font-space text-xs text-offwhite font-bold">{value}</p></div>)}</div></div>
-      <a href="#about" className="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 font-space text-[10px] uppercase tracking-[.18em] text-offwhite/50 hover:text-sunset" aria-label="Scroll to learn more">SCROLL TO START <ArrowDown size={14} /></a><div className="absolute bottom-0 left-0 w-full h-1 bg-sunset" />
+    <section id="hero" className={s.cover}>
+      <div className={s.wrap}>
+        <div className={`${s.coverTop} ${s.eyebrow}`}>
+          <span>The first edition / Delhi NCR</span>
+          <span>
+            Registration {eventConfig.registrationOpen ? "open" : "closed"}
+          </span>
+        </div>
+        <div className={s.coverGrid}>
+          <div className={s.coverCopy}>
+            <p className={s.eyebrow}>
+              Free entry / {eventConfig.duration} of making
+            </p>
+            <h1 className={`${s.coverTitle} ${s.eventTitle}`}>
+              <span>GOLDEN</span>
+              <span>
+                HOUR <small>V1.</small>
+              </span>
+            </h1>
+            <p>
+              Pick your track. Find your people. Build something worth showing.
+              A day for students who would rather make the next thing than wait
+              for it.
+            </p>
+            <p className={s.eyebrow}>
+              <time dateTime={eventConfig.isoDate}>
+                {eventConfig.date} / 08:00–20:00 IST
+              </time>
+            </p>
+            <div className={s.coverActions}>
+              <a
+                href={eventConfig.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={s.button}
+              >
+                Register for free <ArrowUpRight size={18} />
+              </a>
+              <a href="#events" className={s.textLink}>
+                Explore the tracks <ArrowDown size={16} />
+              </a>
+            </div>
+            <p className={s.eyebrow} style={{ marginTop: 20, marginBottom: 0 }}>
+              Ages 13–19 on event day /{" "}
+              <span style={{ whiteSpace: "nowrap" }}>Teams of 1–3</span>
+            </p>
+          </div>
+          <Sunrise />
+        </div>
+        <div className={`${s.coverFoot} ${s.eyebrow}`}>
+          <span>Three tracks / One build day</span>
+          <span>Delhi NCR / Venue to be announced</span>
+        </div>
+      </div>
     </section>
   );
 }

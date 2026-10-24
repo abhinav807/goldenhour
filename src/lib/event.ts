@@ -1,9 +1,32 @@
+// Reward terms retained from the official event page and existing prize records.
+export const eventRewards = {
+  placements: [
+    { place: "01", title: "First place", membership: "2-year" },
+    { place: "02", title: "Second place", membership: "1-year" },
+    { place: "03", title: "Third place", membership: "6-month" },
+  ],
+  winner:
+    "Digital winner certificate, $100 worth of Fueler Premium and an AI Interview Voucher worth ₹550.",
+  runnerUp: "90% AI Interview Discount Voucher.",
+  participants:
+    "Official GoldenHour stickers and a digital certificate of participation.",
+  n8nCount: 80,
+  n8n: "80 sponsored one-month n8n Cloud Pro licenses (stated value $60 each). Subject to allocation; not guaranteed for every participant. Redemption details will be shared with eligible participants.",
+  fuelerProvisional:
+    "Fueler Digital Bundle (sponsor-stated value $800). Subject to final sponsor confirmation and distribution arrangements.",
+  interviewProvisional:
+    "10% discount coupon for expert-driven InterviewBuddy sessions. Subject to final sponsor confirmation and voucher distribution.",
+  awardConditions:
+    "First, second and third place depend on eligible team numbers and the judges’ evaluation. Positions may remain unawarded if judging standards are not met. Placements and prizes are not guaranteed.",
+} as const;
+
 export const eventConfig = {
   siteName: "GoldenHour Delhi",
   entityName: "GoldenHour",
   alternateName: "GoldenHour hackathon",
   siteUrl: "https://www.goldenhourdelhi.co.in",
-  description: "GoldenHour V1 is a free, student-run 12-hour build day for participants aged 13–19 (under 20 on event day) in Delhi NCR.",
+  description:
+    "GoldenHour V1 is a free, student-run 12-hour build day for participants aged 13–19 (under 20 on event day) in Delhi NCR.",
   date: "14 November 2026",
   dateShort: "14 November 2026",
   isoDate: "2026-11-14T08:00:00+05:30",
@@ -20,7 +43,19 @@ export const eventConfig = {
   participantLimit: "100+ students",
   registrationOpen: true,
   tracks: ["Web Development", "Game Development", "Graphic Designing"],
-  prizes: ["$100 worth of Fueler Premium per winner", "AI Interview Vouchers worth ₹550 for winners", "90% AI Interview Discount Vouchers for runners-up", "Digital certificates", "Provisional: Fueler Digital Bundle ($800 stated value) for participants", "Provisional: InterviewBuddy 10% expert-driven session discount for participants", "CodeCrafters VIP memberships", "GoldenHour trophies", "80 sponsored one-month n8n Cloud Pro licenses ($60 value each; limited allocation)", "Certificates", "Stickers"],
+  prizes: [
+    "$100 worth of Fueler Premium per winner",
+    "AI Interview Vouchers worth ₹550 for winners",
+    "90% AI Interview Discount Vouchers for runners-up",
+    "Digital certificates",
+    "Provisional: Fueler Digital Bundle ($800 stated value) for participants",
+    "Provisional: InterviewBuddy 10% expert-driven session discount for participants",
+    "CodeCrafters VIP memberships",
+    "GoldenHour trophies",
+    "80 sponsored one-month n8n Cloud Pro licenses ($60 value each; limited allocation)",
+    "Certificates",
+    "Stickers",
+  ],
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",
   guardianConsentUrl: "/guardian-consent",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
@@ -39,13 +74,44 @@ export const eventConfig = {
 } as const;
 
 export const faqItems = [
-  { q: "What is GoldenHour V1?", a: "A free, student-led 12-hour hackathon in Delhi NCR, scheduled for 14 November 2026.", detail: "The venue will be announced once confirmed." },
-  { q: "Who can participate, and how big can teams be?", a: "Participants must be 13–19 years old on event day. Teams can have 1–3 members, including solo participants.", detail: "Participants under 18 need parent or guardian consent." },
-  { q: "Which tracks are available?", a: "Web Development, Game Development and Graphic Designing.", detail: "Already registered? To switch to Graphic Designing, ask your team leader to message the organizers; you do not need to submit another form." },
-  { q: "How do we register?", a: "The team leader fills out the official registration form once for their team.", detail: "Registration is free." },
-  { q: "How are winners selected?", a: "Judges assess eligible submissions for functionality, execution, design and creativity.", detail: "First, second and third place are conditional on the number of eligible teams and judging standards. Some positions may remain unawarded." },
-  { q: "What do winners receive?", a: "Each winner receives a digital certificate, $100 worth of Fueler Premium and an AI Interview Voucher worth ₹550.", detail: "Runners-up receive a 90% AI Interview Discount Voucher. Provisional participant offers: Fueler Digital Bundle (stated value $800) and InterviewBuddy 10% expert-driven session discount, subject to sponsor confirmation. There are 80 sponsored n8n Cloud Pro licenses (one month each), subject to allocation." },
-  { q: "What must we submit?", a: "A project repository, README and working demonstration by the published submission deadline.", detail: "AI tools may be used if disclosed. The project must be built during the event." },
+  {
+    q: "What is GoldenHour V1?",
+    a: "A free, student-led 12-hour hackathon in Delhi NCR, scheduled for 14 November 2026.",
+    detail: "The venue will be announced once confirmed.",
+  },
+  {
+    q: "Who can participate, and how big can teams be?",
+    a: "Participants must be 13–19 years old on event day. Teams can have 1–3 members, including solo participants.",
+    detail: "Participants under 18 need parent or guardian consent.",
+  },
+  {
+    q: "Which tracks are available?",
+    a: "Web Development, Game Development and Graphic Designing.",
+    detail:
+      "Already registered? To switch to Graphic Designing, ask your team leader to message the organizers; you do not need to submit another form.",
+  },
+  {
+    q: "How do we register?",
+    a: "The team leader fills out the official registration form once for their team.",
+    detail: "Registration is free.",
+  },
+  {
+    q: "How are winners selected?",
+    a: "Judges assess eligible submissions for functionality, execution, design and creativity.",
+    detail:
+      "First, second and third place are conditional on the number of eligible teams and judging standards. Some positions may remain unawarded.",
+  },
+  {
+    q: "What do winners receive?",
+    a: eventRewards.winner,
+    detail: `Runners-up: ${eventRewards.runnerUp} Limited allocation: ${eventRewards.n8n} Provisional participant offers: ${eventRewards.fuelerProvisional} ${eventRewards.interviewProvisional}`,
+  },
+  {
+    q: "What must we submit?",
+    a: "A project repository, README and working demonstration by the published submission deadline.",
+    detail:
+      "AI tools may be used if disclosed. The project must be built during the event.",
+  },
 ] as const;
 
 export const eventDateLabel = eventConfig.dateShort;

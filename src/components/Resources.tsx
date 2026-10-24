@@ -1,16 +1,38 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ArrowUpRight, Check, Copy, Eye, EyeOff } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { resources, type ResourceCategory } from "@/lib/resources";
 
-const filters: Array<"ALL" | ResourceCategory> = ["ALL", "WEB DEVELOPMENT", "GAME DEVELOPMENT", "TEMPLATES & DOCS"];
+import s from "./Editorial.module.css";
+import d from "./EventDetails.module.css";
+
+const filters: Array<"ALL" | ResourceCategory> = [
+  "ALL",
+  "WEB DEVELOPMENT",
+  "GAME DEVELOPMENT",
+  "TEMPLATES & DOCS",
+];
 
 export default function Resources() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("ALL");
   const [showAll, setShowAll] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
-  const visible = useMemo(() => filter === "ALL" ? resources : resources.filter((resource) => resource.track === filter), [filter]);
+  const [copyError, setCopyError] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(
+    () => () => {
+      if (timer.current) clearTimeout(timer.current);
+    },
+    [],
+  );
+  const visible = useMemo(
+    () =>
+      filter === "ALL"
+        ? resources
+        : resources.filter((resource) => resource.track === filter),
+    [filter],
+  );
   const displayed = showAll ? visible : visible.slice(0, 3);
 
   const changeFilter = (nextFilter: (typeof filters)[number]) => {
@@ -19,14 +41,130 @@ export default function Resources() {
   };
 
   const copyCommand = async (resource: (typeof resources)[number]) => {
+    setCopyError(false);
     try {
       await navigator.clipboard.writeText(resource.command);
       setCopied(resource.id);
-      window.setTimeout(() => setCopied((current) => current === resource.id ? null : current), 1600);
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(
+        () =>
+          setCopied((current) => (current === resource.id ? null : current)),
+        1600,
+      );
     } catch {
       setCopied(null);
+      setCopyError(true);
     }
   };
 
-    return <section id="resources" className="bg-black text-offwhite py-20 md:py-28 px-5 md:px-10 relative overflow-hidden gh-grain-night"><div className="max-w-[1200px] mx-auto relative z-10"><header className="text-center max-w-3xl mx-auto mb-12 reveal gh-section-head"><div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-6 uppercase">07 / RESOURCES</div><h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">TOOLS FOR<br /><span className="text-sunset">YOUR SPRINT.</span></h2><p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">Use the tools that help you build. All open-source frameworks, engines and templates are allowed unless the official rules say otherwise.</p></header><div className="flex flex-wrap justify-center gap-2 mb-10" role="tablist" aria-label="Filter resources">{filters.map((item) => <button key={item} role="tab" aria-selected={filter === item} onClick={() => changeFilter(item)} className={`font-space text-[10px] font-bold tracking-[.08em] uppercase border-2 px-3 py-2 transition-colors ${filter === item ? "bg-sunset text-black border-sunset" : "bg-black text-offwhite border-offwhite/40 hover:border-sunset hover:text-sunset"}`}>{item}</button>)}</div><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">{displayed.map((resource) => <article key={resource.id} className="brutal-card-black gh-ink-card border-offwhite/30 p-6 flex flex-col items-center min-h-[300px] text-center"><div className="flex items-center justify-center gap-4 w-full"><span className="font-space text-[9px] text-sunset tracking-[.14em] uppercase font-bold">{resource.category}</span><span className="font-space text-[9px] text-offwhite/45 uppercase">{resource.track.replace(" DEVELOPMENT", "")}</span></div><h3 className="font-archivo text-2xl md:text-3xl text-offwhite mt-8">{resource.title}</h3><p className="font-dm text-sm text-offwhite/60 leading-relaxed mt-4">{resource.description}</p><div className="mt-auto pt-6 w-full"><code className="block text-center bg-black border border-offwhite/20 p-3 text-[10px] leading-relaxed text-sunset break-words">{resource.command}</code><div className="flex flex-wrap justify-center gap-2 mt-4"><button onClick={() => copyCommand(resource)} className="brutal-btn-outline border-sunset text-sunset px-3 py-2 text-[10px]" aria-label={`${copied === resource.id ? "Copied" : "Copy"} ${resource.title} starter command`}>{copied === resource.id ? <><Check size={13} /> COPIED</> : <><Copy size={13} /> COPY</>}</button><a href={resource.url} target={resource.url.startsWith("#") ? undefined : "_blank"} rel={resource.url.startsWith("#") ? undefined : "noreferrer"} className="brutal-btn-orange px-3 py-2 text-[10px]">DOCS <ArrowUpRight size={13} /></a></div></div></article>)}</div>{visible.length > 3 && <div className="flex justify-center mt-8"><button onClick={() => setShowAll((current) => !current)} aria-expanded={showAll} className="brutal-btn-orange px-6 py-4 text-xs">{showAll ? <><EyeOff size={16} /> SHOW LESS</> : <><Eye size={16} /> SHOW ALL ({visible.length})</>}</button></div>}<div className="mt-10 border-2 border-sunset bg-sunset text-black p-6 text-center"><p className="font-space text-xs font-bold uppercase tracking-[.14em]">RULES OF USE</p><p className="font-dm text-sm mt-2 max-w-2xl mx-auto">AI tools and open-source libraries are allowed only if this matches the official rules. If you are unsure, check with the organizers before using them.</p></div></div></section>;
+  return (
+    <section id="resources" className={`${s.section} ${s.standard}`}>
+      <div className={s.wrap}>
+        <header className={s.sectionHead}>
+          <div>
+            <p className={`${s.eyebrow} ${s.accent}`}>The builder’s toolkit</p>
+            <h2 className={s.heading}>
+              A HEAD START.
+              <br />
+              NOT A SHORTCUT.
+            </h2>
+          </div>
+          <p className={s.body}>
+            Frameworks, engines and useful starting points. Pick what helps you
+            make your idea real.
+          </p>
+        </header>
+        <div className={d.filters} role="group" aria-label="Filter resources">
+          {filters.map((item) => (
+            <button
+              key={item}
+              type="button"
+              aria-pressed={filter === item}
+              onClick={() => changeFilter(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        <p role="status" className={d.resourceStatus}>
+          {copyError
+            ? "Could not copy. Select the command and copy it manually."
+            : copied
+              ? "Command copied to clipboard."
+              : `${visible.length} resources / ${filter.toLowerCase()}`}
+        </p>
+        <div className={d.resourceGrid} data-enhanced>
+          {displayed.map((resource) => (
+            <article key={resource.id} className={d.resource}>
+              <span className={`${s.eyebrow} ${s.accent}`}>
+                {resource.category}
+              </span>
+              <h3>{resource.title}</h3>
+              <p>{resource.description}</p>
+              <code>{resource.command}</code>
+              <div className={d.resourceActions}>
+                <button
+                  type="button"
+                  onClick={() => copyCommand(resource)}
+                  aria-label={`${copied === resource.id ? "Copied" : "Copy command for"} ${resource.title}`}
+                >
+                  {copied === resource.id ? (
+                    <>
+                      <Check size={16} /> Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={16} /> Copy command
+                    </>
+                  )}
+                </button>
+                <a
+                  href={resource.url}
+                  target={resource.url.startsWith("#") ? undefined : "_blank"}
+                  rel="noreferrer"
+                  aria-label={`Docs for ${resource.title}`}
+                >
+                  Docs <ArrowUpRight size={16} />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        {visible.length > 3 && (
+          <div className={d.showMore}>
+            <button
+              type="button"
+              aria-expanded={showAll}
+              onClick={() => setShowAll((v) => !v)}
+              className={s.button}
+            >
+              {showAll
+                ? "Show fewer resources"
+                : `Show all ${visible.length} resources`}
+            </button>
+          </div>
+        )}
+        <noscript>
+          <style>{`.${d.filters}, .${d.resourceStatus}, .${d.showMore}, .${d.resourceGrid}[data-enhanced] { display: none; }`}</style>
+          <div className={d.resourceGrid}>
+            {resources.map((resource) => (
+              <article key={resource.id} className={d.resource}>
+                <h3>{resource.title}</h3>
+                <p>{resource.description}</p>
+                <code>{resource.command}</code>
+                <a href={resource.url} className={s.textLink}>
+                  Documentation ↗
+                </a>
+              </article>
+            ))}
+          </div>
+        </noscript>
+        <p className={d.terms}>
+          Open-source frameworks, engines and templates are allowed under the
+          event rules. Disclose AI tools in your README. If you are unsure about
+          a tool, ask the organizers.
+        </p>
+      </div>
+    </section>
+  );
 }

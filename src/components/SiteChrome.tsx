@@ -1,11 +1,11 @@
-"use client";
-
-import { usePathname } from "next/navigation";
-import CursorFollower from "@/components/CursorFollower";
-import Navbar from "@/components/Navbar";
-
+import Navbar from "./Navbar";
 export default function SiteChrome() {
-  const pathname = usePathname();
-  if (pathname === "/") return null;
-  return <><CursorFollower /><Navbar /></>;
+  return (
+    <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      <Navbar />
+    </>
+  );
 }
