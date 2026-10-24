@@ -20,7 +20,7 @@ export const eventConfig = {
   participantLimit: "100+ students",
   registrationOpen: true,
   tracks: ["Web Development", "Game Development", "Graphic Designing"],
-  prizes: ["$100 worth of Fueler Premium per winner", "AI Interview Vouchers worth ₹550 for winners", "90% AI Interview Discount Vouchers for runners-up", "Digital certificates", "CodeCrafters VIP memberships", "GoldenHour trophies", "n8n Pro subscriptions (one month per participant; 60 USD monthly value)", "Certificates", "Stickers"],
+  prizes: ["$100 worth of Fueler Premium per winner", "AI Interview Vouchers worth ₹550 for winners", "90% AI Interview Discount Vouchers for runners-up", "Digital certificates", "Provisional: Fueler Digital Bundle ($800 stated value) for participants", "Provisional: InterviewBuddy 10% expert-driven session discount for participants", "CodeCrafters VIP memberships", "GoldenHour trophies", "80 sponsored one-month n8n Cloud Pro licenses ($60 value each; limited allocation)", "Certificates", "Stickers"],
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",
   guardianConsentUrl: "/guardian-consent",
   whatsappCommunityUrl: "https://chat.whatsapp.com/CpSkfYnkEmKAXURIWp7TQi",
@@ -44,7 +44,7 @@ export const faqItems = [
   { q: "Which tracks are available?", a: "Web Development, Game Development and Graphic Designing.", detail: "Already registered? To switch to Graphic Designing, ask your team leader to message the organizers; you do not need to submit another form." },
   { q: "How do we register?", a: "The team leader fills out the official registration form once for their team.", detail: "Registration is free." },
   { q: "How are winners selected?", a: "Judges assess eligible submissions for functionality, execution, design and creativity.", detail: "First, second and third place are conditional on the number of eligible teams and judging standards. Some positions may remain unawarded." },
-  { q: "What do winners receive?", a: "Each winner receives a digital certificate, $100 worth of Fueler Premium and an AI Interview Voucher worth ₹550.", detail: "Runners-up receive a 90% AI Interview Discount Voucher. Other announced prizes may apply according to placement." },
+  { q: "What do winners receive?", a: "Each winner receives a digital certificate, $100 worth of Fueler Premium and an AI Interview Voucher worth ₹550.", detail: "Runners-up receive a 90% AI Interview Discount Voucher. Provisional participant offers: Fueler Digital Bundle (stated value $800) and InterviewBuddy 10% expert-driven session discount, subject to sponsor confirmation. There are 80 sponsored n8n Cloud Pro licenses (one month each), subject to allocation." },
   { q: "What must we submit?", a: "A project repository, README and working demonstration by the published submission deadline.", detail: "AI tools may be used if disclosed. The project must be built during the event." },
 ] as const;
 
