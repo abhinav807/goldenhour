@@ -7,16 +7,16 @@ const prizes = [
 ];
 
 export default function Prizes() {
-  return <section id="prizes" className="bg-black text-offwhite py-20 md:py-28 px-5 md:px-10 relative overflow-hidden">
+  return <section id="prizes" className="bg-black text-offwhite py-20 md:py-28 px-5 md:px-10 relative overflow-hidden gh-grain-night">
     <div className="max-w-[1200px] mx-auto relative z-10">
-      <header className="text-center max-w-3xl mx-auto mb-16 reveal">
+      <header className="text-center max-w-3xl mx-auto mb-16 reveal gh-section-head">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase">06 / RECOGNITION</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">PRIZES<span className="text-sunset">.</span></h2>
         <p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. 80 sponsored one-month n8n Cloud Pro licenses are available for allocation (stated value <strong className="font-bold text-offwhite">$60</strong> each); access is not guaranteed for every participant.</p>
       </header>
 
       <div className="grid lg:grid-cols-3 gap-6 md:gap-7 max-w-[1100px] mx-auto">
-        {prizes.map(({ medal, place, title, trophy, reward, tone }) => <article key={place} className={`p-7 md:p-9 min-h-[320px] border-2 border-black flex flex-col justify-between text-center reveal ${tone}`}>
+        {prizes.map(({ medal, place, title, trophy, reward, tone }) => <article key={place} className={`gh-prize-ticket p-7 md:p-9 min-h-[320px] border-2 border-black flex flex-col justify-between text-center reveal ${tone}`}>
           <div>
             <div className="text-5xl mb-6" aria-hidden="true">{medal}</div>
             <p className="font-space text-[10px] font-bold tracking-[.16em] mb-4">{place}</p>
@@ -30,7 +30,7 @@ export default function Prizes() {
         </article>)}
       </div>
 
-      <div className="max-w-[1100px] mx-auto mt-8 grid md:grid-cols-2 gap-6"><div className="border-2 border-sunset p-7"><h3 className="font-archivo text-2xl text-sunset">WINNERS / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">Digital winner certificate · <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler Premium worth $100</a> · AI Interview Voucher worth ₹550.</p></div><div className="border-2 border-offwhite/30 p-7"><h3 className="font-archivo text-2xl">RUNNERS-UP / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">90% AI Interview Discount Voucher to practice and improve.</p></div></div>
+      <div className="max-w-[1100px] mx-auto mt-8 grid md:grid-cols-2 gap-6"><div className="border-2 border-sunset gh-grain-night p-7"><h3 className="font-archivo text-2xl text-sunset">WINNERS / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">Digital winner certificate · <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler Premium worth $100</a> · AI Interview Voucher worth ₹550.</p></div><div className="border-2 border-offwhite/30 gh-grain-night p-7"><h3 className="font-archivo text-2xl">RUNNERS-UP / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">90% AI Interview Discount Voucher to practice and improve.</p></div></div>
 
       <p className="font-dm text-sm text-offwhite/70 max-w-[850px] mx-auto mt-10 text-center leading-relaxed">First, second and third place depend on the number of eligible teams and the judges&apos; evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed.</p>
 
