@@ -15,6 +15,7 @@ const policy = [
   ["ORIGINALITY", "Open-source libraries, templates and your own reusable boilerplate are allowed."],
   ["AI TOOLS", "Allowed when disclosed in the project README."],
   ["SUBMISSION", "Submit repository, README and working demo by 5:00 PM IST sharp."],
+  ["AWARD POSITIONS", "First, second and third place depend on the number of eligible teams and the judges’ evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed."],
 ];
 
 export default function Rules() {
