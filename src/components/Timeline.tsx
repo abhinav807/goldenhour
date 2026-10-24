@@ -46,7 +46,7 @@ export default function Timeline() {
   const toggleAll = () => setOpen(allOpen ? [] : phases.map((_, index) => index));
 
   return (
-    <section id="timeline" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden grid-pattern gh-grain-paper">
+    <section id="timeline" className="bg-offwhite py-20 md:py-28 px-5 md:px-10 relative overflow-hidden grid-pattern gh-grain-paper">
       <div className="max-w-[1100px] mx-auto relative z-10">
         <header className="text-center max-w-3xl mx-auto mb-12 reveal gh-section-head">
           <div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div>
@@ -60,7 +60,7 @@ export default function Timeline() {
           <p className="font-space text-[9px] uppercase text-black/45 mt-4">{eventConfig.date}</p>
         </header>
         <div className="flex justify-center gap-3 mb-8"><button type="button" onClick={toggleAll} className="brutal-btn bg-black text-offwhite px-4 py-3 text-[10px]" aria-label={allOpen ? "Collapse all timeline phases" : "Expand all timeline phases"}>{allOpen ? "COLLAPSE ALL" : "EXPAND ALL"}</button></div>
-        <div className="relative space-y-4 before:absolute before:left-5 md:before:left-8 before:top-5 before:bottom-5 before:w-1 before:bg-black">
+        <div className="relative space-y-3 before:absolute before:left-5 md:before:left-8 before:top-5 before:bottom-5 before:w-1 before:bg-black">
           {phases.map((phase, index) => {
             const isOpen = open.includes(index);
             const status = phaseStatus(phase);
@@ -69,10 +69,10 @@ export default function Timeline() {
             const panelId = `phase-panel-${index}`;
             const buttonId = `phase-button-${index}`;
             return <article key={phase.start} className={`gh-timeline-card relative ml-0 border-2 border-black bg-offwhite shadow-[6px_6px_0_#050505] ${phase.submission ? "ring-4 ring-sunset" : ""}`}>
-              <button id={buttonId} type="button" className="relative w-full text-center p-5 md:p-7" onClick={() => toggle(index)} aria-expanded={isOpen} aria-controls={panelId}>
+              <button id={buttonId} type="button" className="relative w-full text-center p-4 md:p-5" onClick={() => toggle(index)} aria-expanded={isOpen} aria-controls={panelId}>
                 <span className="absolute left-2 md:left-5 top-5 w-8 h-8 md:w-10 md:h-10 bg-black text-sunset border-2 border-sunset flex items-center justify-center font-archivo text-sm md:text-base" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <span className="flex flex-wrap justify-between items-center gap-3"><span className="font-space text-[10px] md:text-xs font-bold text-sunset">{startLabel} – {endLabel} IST</span><span className={`font-space text-[9px] font-bold px-2 py-1 border border-black ${status === "UPCOMING" ? "bg-yellow text-black" : "bg-black text-offwhite"}`}>{status}</span></span>
-                <span className="block font-archivo text-xl md:text-2xl text-black mt-3 px-8">{phase.title}</span>
+                <span className="block font-archivo text-lg md:text-xl text-black mt-3 px-8">{phase.title}</span>
                 <ChevronDown size={20} className={`absolute right-5 md:right-7 bottom-6 text-black transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
               {isOpen && <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t-2 border-black p-5 md:p-7 text-center">
