@@ -46,9 +46,9 @@ export default function Timeline() {
   const toggleAll = () => setOpen(allOpen ? [] : phases.map((_, index) => index));
 
   return (
-    <section id="timeline" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden grid-pattern">
+    <section id="timeline" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden grid-pattern gh-grain-paper">
       <div className="max-w-[1100px] mx-auto relative z-10">
-        <header className="text-center max-w-3xl mx-auto mb-12 reveal">
+        <header className="text-center max-w-3xl mx-auto mb-12 reveal gh-section-head">
           <div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div>
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black">THE BUILD<br />DAY<span className="text-sunset">.</span></h2>
           <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is confirmed; venue details will follow.</p>
@@ -68,7 +68,7 @@ export default function Timeline() {
             const endLabel = new Date(`2000-01-01T${phase.end}:00Z`).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true, timeZone: "UTC" });
             const panelId = `phase-panel-${index}`;
             const buttonId = `phase-button-${index}`;
-            return <article key={phase.start} className={`relative ml-0 border-2 border-black bg-offwhite shadow-[6px_6px_0_#050505] ${phase.submission ? "ring-4 ring-sunset" : ""}`}>
+            return <article key={phase.start} className={`gh-timeline-card relative ml-0 border-2 border-black bg-offwhite shadow-[6px_6px_0_#050505] ${phase.submission ? "ring-4 ring-sunset" : ""}`}>
               <button id={buttonId} type="button" className="relative w-full text-center p-5 md:p-7" onClick={() => toggle(index)} aria-expanded={isOpen} aria-controls={panelId}>
                 <span className="absolute left-2 md:left-5 top-5 w-8 h-8 md:w-10 md:h-10 bg-black text-sunset border-2 border-sunset flex items-center justify-center font-archivo text-sm md:text-base" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <span className="flex flex-wrap justify-between items-center gap-3"><span className="font-space text-[10px] md:text-xs font-bold text-sunset">{startLabel} – {endLabel} IST</span><span className={`font-space text-[9px] font-bold px-2 py-1 border border-black ${status === "UPCOMING" ? "bg-yellow text-black" : "bg-black text-offwhite"}`}>{status}</span></span>
