@@ -44,7 +44,7 @@ export default function Sponsors() {
       <div className="text-center max-w-3xl mx-auto mb-16 gh-section-head border-b-2 border-offwhite/15 pb-10 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">SPONSORS / PARTNERS</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">BACK THE<br /><span className="text-sunset">BUILD.</span></h2>
-        <p className="font-space text-xs text-offwhite/45 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
+        <p className="font-space text-xs text-offwhite/65 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
         {sponsors.map((sponsor, index) => {
@@ -63,7 +63,7 @@ export default function Sponsors() {
         <a href="mailto:hello@goldenhourdelhi.co.in?subject=GOLDENHOUR%20sponsorship" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-8 hover:text-offwhite">CONTACT US TO SPONSOR <ArrowUpRight size={15} aria-hidden="true" /></a>
         <a href={eventConfig.volunteerUrl} target="_blank" rel="noreferrer" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-5 text-black/65 hover:text-offwhite">VOLUNTEER WITH US <ArrowUpRight size={15} aria-hidden="true" /></a>
       </div>
-      <p className="font-space text-[10px] text-offwhite/30 uppercase tracking-[.16em] mt-10 text-center reveal">GOLDENHOUR / CODECRAFTERS / INTERVIEW BUDDY / OSEN / SEWAN FOODS / N8N</p>
+      <p className="font-space text-[10px] text-offwhite/55 uppercase tracking-[.16em] mt-10 text-center reveal">GOLDENHOUR / CODECRAFTERS / INTERVIEW BUDDY / OSEN / SEWAN FOODS / N8N</p>
     </div>
   </section>;
 }
