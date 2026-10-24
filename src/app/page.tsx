@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import HoloCard from "@/components/HoloCard";
 import { ArrowUpRight } from "lucide-react";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
 import Marquee from "@/components/Marquee";
@@ -70,6 +71,7 @@ export default function Home() {
             <h2 className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6">BUILT BY<br /><span className="text-sunset">BUILDERS.</span></h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-[1200px] mx-auto">
+            <HoloCard>
             <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/abhinav.jpg" alt="Abhinav Goyal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
@@ -79,6 +81,8 @@ export default function Home() {
                 <h3 className="font-archivo text-4xl md:text-5xl">ABHINAV<br />GOYAL<span className="text-sunset">.</span></h3>
               </div>
             </div>
+            </HoloCard>
+            <HoloCard>
             <div className="brutal-card-orange gh-home-people-card p-0 text-center overflow-hidden">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/divya.jpg" alt="Divya" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
@@ -88,8 +92,10 @@ export default function Home() {
                 <h3 className="font-archivo text-4xl md:text-5xl">DIVYA<span className="text-offwhite">.</span></h3>
               </div>
             </div>
+            </HoloCard>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[1100px] mx-auto mt-8">
+            <HoloCard>
             <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/anurag.jpg" alt="Anurag" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
@@ -99,7 +105,9 @@ export default function Home() {
                 <h3 className="font-archivo text-2xl md:text-3xl">ANURAG<span className="text-sunset">.</span></h3>
               </div>
             </div>
+            </HoloCard>
             
+            <HoloCard>
             <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/yashpal.jpg" alt="Yashpal" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
@@ -109,6 +117,8 @@ export default function Home() {
                 <h3 className="font-archivo text-2xl md:text-3xl">YASHPAL<span className="text-sunset">.</span></h3>
               </div>
             </div>
+            </HoloCard>
+            <HoloCard>
             <div className="brutal-card-black gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
                 <Image src="/himanish.jpg" alt="Himanish Salgotra" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
@@ -118,6 +128,7 @@ export default function Home() {
                 <h3 className="font-archivo text-2xl md:text-3xl text-offwhite">HIMANISH<br />SALGOTRA<span className="text-sunset">.</span></h3>
               </div>
             </div>
+            </HoloCard>
           </div>
         </div>
       </section>
