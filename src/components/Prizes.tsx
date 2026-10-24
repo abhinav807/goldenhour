@@ -30,6 +30,8 @@ export default function Prizes() {
         </article>)}
       </div>
 
+      <p className="font-dm text-sm text-offwhite/70 max-w-[850px] mx-auto mt-10 text-center leading-relaxed">First, second and third place depend on the number of eligible teams and the judges&apos; evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed.</p>
+
       <div className="mt-24 max-w-[1100px] mx-auto border-t-2 border-offwhite/20 pt-14 text-center reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-6 uppercase">PARTICIPANT REWARDS</div>
         <h3 className="font-archivo text-4xl sm:text-5xl md:text-6xl">EVERY BUILDER GETS<span className="text-sunset">.</span></h3>
