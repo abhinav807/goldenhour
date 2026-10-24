@@ -24,7 +24,7 @@ export default function Navbar() {
   const [active, setActive] = useState("");
   const destination = (hash: string) => isEventPage ? hash : `/goldenhour${hash}`;
   const homeHref = isEventPage ? "#hero" : "/goldenhour#hero";
-  const navClass = `fixed top-0 left-0 w-full z-50 transition-all duration-200 ${scrolled || !isEventPage ? "bg-black/95 backdrop-blur-sm border-b-2 border-sunset" : "bg-black/30"}`;
+  const navClass = `gh-site-nav fixed top-0 left-0 w-full z-50 transition-all duration-200 ${scrolled || !isEventPage ? "bg-black/95 backdrop-blur-sm border-b-2 border-sunset" : "bg-black/30"}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -69,7 +69,7 @@ export default function Navbar() {
           <span className="font-archivo text-xl md:text-2xl text-offwhite tracking-tighter group-hover:text-sunset transition-colors">GOLDEN<span className="text-sunset">.</span>HOUR</span>
         </Link>
         <div className="hidden lg:flex min-w-0 flex-1 items-center justify-center gap-5 xl:gap-6 ml-3">
-          {links.map((link) => <a key={link.hash} href={destination(link.hash)} className={`font-space text-[9px] tracking-[.06em] whitespace-nowrap transition-colors ${active === link.hash ? "text-sunset" : "text-offwhite/70 hover:text-sunset"}`}>{link.label}</a>)}
+          {links.map((link) => <a key={link.hash} href={destination(link.hash)} aria-current={active === link.hash ? "location" : undefined} className={`font-space text-[9px] tracking-[.06em] whitespace-nowrap transition-colors ${active === link.hash ? "text-sunset" : "text-offwhite/70 hover:text-sunset"}`}>{link.label}</a>)}
           <a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className="font-space text-[9px] font-bold tracking-[.06em] whitespace-nowrap text-black bg-sunset px-3 py-2 hover:bg-offwhite transition-colors" aria-label="Open the participant registration form in a new tab">REGISTER <ArrowUpRight size={12} className="inline" aria-hidden="true" /></a>
         </div>
         <button id="mobile-navigation-trigger" type="button" className="lg:hidden text-offwhite p-2" onClick={() => setMenuOpen(true)} aria-label="Open navigation menu" aria-expanded={menuOpen} aria-controls="mobile-navigation"><Menu size={24} aria-hidden="true" /></button>
