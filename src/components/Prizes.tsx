@@ -30,6 +30,8 @@ export default function Prizes() {
         </article>)}
       </div>
 
+      <div className="max-w-[1100px] mx-auto mt-10 grid md:grid-cols-2 gap-6"><div className="border-2 border-sunset p-7"><h3 className="font-archivo text-2xl text-sunset">WINNERS / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">Digital winner certificate · <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler Premium worth $100</a> · AI Interview Voucher worth ₹550.</p></div><div className="border-2 border-offwhite/30 p-7"><h3 className="font-archivo text-2xl">RUNNERS-UP / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">90% AI Interview Discount Voucher to practice and improve.</p></div></div>
+
       <p className="font-dm text-sm text-offwhite/70 max-w-[850px] mx-auto mt-10 text-center leading-relaxed">First, second and third place depend on the number of eligible teams and the judges&apos; evaluation. A position may remain unawarded if there are too few eligible submissions or judging criteria are not met. Placements and prizes are not guaranteed.</p>
 
       <div className="mt-24 max-w-[1100px] mx-auto border-t-2 border-offwhite/20 pt-14 text-center reveal">
