@@ -22,7 +22,7 @@ export default function Marquee({ reverse = false, speed = 35, bg = "bg-black", 
   ];
 
   return (
-    <section className={`${bg} overflow-hidden border-y-2 ${borderColor} py-4 md:py-5 w-full`} aria-hidden="true">
+    <section className={`${bg} gh-marquee-print overflow-hidden border-y-2 ${borderColor} py-4 md:py-5 w-full`} aria-hidden="true">
       <div className="overflow-hidden whitespace-nowrap">
         <div
           className="inline-flex whitespace-nowrap font-archivo text-xl md:text-3xl lg:text-4xl"
