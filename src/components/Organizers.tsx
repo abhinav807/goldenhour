@@ -33,7 +33,7 @@ const toneClasses = {
 function PersonCard({ person, tone, delay }: { person: Person; tone: "dark" | "sunset" | "light"; delay: string }) {
   const styles = toneClasses[tone];
   return (
-    <article className={`brutal-card p-6 md:p-8 min-h-[220px] flex flex-col justify-between items-center text-center reveal ${delay} ${styles.card}`}>
+    <article className={`brutal-card gh-ink-card p-6 md:p-8 min-h-[220px] flex flex-col justify-between items-center text-center reveal ${delay} ${styles.card}`}>
       <div className="flex justify-between items-start w-full">
         <span className={`w-11 h-11 border-2 flex items-center justify-center font-archivo text-base ${styles.number}`}>{person.num}</span>
         <ArrowUpRight className={styles.arrow} size={21} aria-hidden="true" />
@@ -48,9 +48,9 @@ function PersonCard({ person, tone, delay }: { person: Person; tone: "dark" | "s
 
 export default function Organizers() {
   return (
-    <section id="organizers" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden dot-pattern">
+    <section id="organizers" className="bg-offwhite py-28 md:py-40 px-5 md:px-10 relative overflow-hidden dot-pattern gh-grain-paper">
       <div className="max-w-[1200px] mx-auto text-center">
-        <div className="max-w-2xl mx-auto mb-14 md:mb-16 reveal">
+        <div className="max-w-2xl mx-auto mb-14 md:mb-16 reveal gh-section-head">
           <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase shadow-[2px_2px_0_#050505]">05 / PEOPLE BEHIND THE CLOCK</div>
           <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">THE<br />TEAM<span className="text-sunset">.</span></h2>
           <p className="font-space text-xs md:text-sm text-black/55 mt-6 leading-relaxed">The people holding the thread from first idea to final build.</p>
