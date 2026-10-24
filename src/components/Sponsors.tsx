@@ -25,7 +25,7 @@ const sponsors: Sponsor[] = [
   { name: eventConfig.giftSponsor, role: "GIFT SPONSOR", logo: "/brand/n8n-logo.png", alt: "n8n logo", width: 296, height: 80, note: "80 ONE-MONTH CLOUD PRO LICENSES", dark: true },
 ];
 
-const cardClass = "group brutal-card p-7 md:p-8 text-center flex flex-col items-center justify-center min-h-[290px] reveal";
+const cardClass = "group brutal-card gh-sponsor-tile p-7 md:p-8 text-center flex flex-col items-center justify-center min-h-[290px] reveal";
 
 function SponsorContent({ sponsor }: { sponsor: Sponsor }) {
   return <>
@@ -39,9 +39,9 @@ function SponsorContent({ sponsor }: { sponsor: Sponsor }) {
 }
 
 export default function Sponsors() {
-  return <section id="sponsors" className="bg-black py-20 md:py-28 px-5 md:px-10 relative overflow-hidden">
+  return <section id="sponsors" className="bg-black py-20 md:py-28 px-5 md:px-10 relative overflow-hidden gh-grain-night">
     <div className="max-w-[1200px] mx-auto relative z-10">
-      <div className="text-center max-w-3xl mx-auto mb-16 border-b-2 border-offwhite/15 pb-10 reveal">
+      <div className="text-center max-w-3xl mx-auto mb-16 gh-section-head border-b-2 border-offwhite/15 pb-10 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">SPONSORS / PARTNERS</div>
         <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">BACK THE<br /><span className="text-sunset">BUILD.</span></h2>
         <p className="font-space text-xs text-offwhite/45 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
@@ -56,7 +56,7 @@ export default function Sponsors() {
             : <article key={sponsor.name} className={className}><SponsorContent sponsor={sponsor} /></article>;
         })}
       </div>
-      <div className="max-w-[760px] mx-auto mt-10 brutal-card-orange p-8 md:p-12 text-center reveal">
+      <div className="max-w-[760px] mx-auto mt-10 brutal-card-orange gh-sponsor-pitch p-8 md:p-12 text-center reveal">
         <p className="font-space text-[10px] uppercase tracking-[.16em] mb-5">SPONSOR OPPORTUNITIES / 2026</p>
         <h3 className="font-archivo text-4xl md:text-6xl leading-[.82]">SPONSOR<br />SLOTS<br /><span className="text-offwhite">OPEN.</span></h3>
         <p className="font-dm text-base md:text-lg mt-8 max-w-md mx-auto leading-relaxed">Want to support student builders or sponsor a future GOLDENHOUR edition? Email the organizing team to start a conversation.</p>
