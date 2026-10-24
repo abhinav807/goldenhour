@@ -6,7 +6,7 @@ import { eventConfig } from "@/lib/event";
 const explore = [["ABOUT", "#about"], ["TRACKS", "#events"], ["TIMELINE", "#timeline"], ["RULES", "#rules"], ["PRIZES", "#prizes"], ["FAQ", "#faq"]];
 
 export default function Footer() {
-  return <footer className="bg-black text-offwhite px-5 md:px-10 py-24 md:py-32 border-t-4 border-sunset">
+  return <footer className="bg-black gh-grain-night text-offwhite px-5 md:px-10 py-24 md:py-32 border-t-4 border-sunset">
     <div className="max-w-[1200px] mx-auto">
       <div className="text-center pb-14 md:pb-16 border-b border-offwhite/15">
         <Image src="/brand/goldenhour-symbol-transparent.png" alt="" width={500} height={500} className="block w-24 h-24 md:w-32 md:h-32 object-contain mx-auto" />
