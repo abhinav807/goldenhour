@@ -22,6 +22,7 @@ export default function ProfileSummary({ profile, email, created = false }: { pr
       <div><dt>Gender</dt><dd>{GENDER_OPTIONS.find((option) => option.value === profile.gender)?.label ?? profile.gender}</dd></div>
     </dl>
     <div className={s.actions}>
+      <Link href="/tickets" className={s.secondary}>My tickets</Link>
       <Link href="/" className={s.button}>Back to home <ArrowRight size={17} aria-hidden="true" /></Link>
       {created && <Link href="/profile" className={s.secondary}>View my profile</Link>}
     </div>

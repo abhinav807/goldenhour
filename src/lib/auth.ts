@@ -3,6 +3,8 @@ import { betterAuth } from "better-auth/minimal";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { getAuthEnvironment } from "./auth-env";
 import { getDatabase } from "./mongodb";
+import { APIError } from "better-auth/api";
+import { isMasterAdminEmail } from "./admin-policy";
 
 async function createAuth() {
   const env = getAuthEnvironment();
@@ -28,6 +30,17 @@ async function createAuth() {
       },
     },
     user: { modelName: "gh_auth_user" },
+    databaseHooks: {
+      user: {
+        create: {
+          before: async (user) => {
+            if (isMasterAdminEmail(user.email) && !user.emailVerified) {
+              throw new APIError("FORBIDDEN", { code: "MASTER_ADMIN_GOOGLE_REQUIRED", message: "Use Google to sign in with a master admin email." });
+            }
+          },
+        },
+      },
+    },
     session: { modelName: "gh_auth_session", expiresIn: 60 * 60 * 24 * 7, updateAge: 60 * 60 * 24 },
     account: {
       modelName: "gh_auth_account",

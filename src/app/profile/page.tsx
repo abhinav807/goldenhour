@@ -10,7 +10,7 @@ export default async function ProfilePage() {
   const account = await getCurrentAccount();
   if (!account) redirect("/login");
   if (!account.profile) redirect("/onboarding");
-  return <AuthShell eyebrow="GoldenHour / Your profile" title="Good to have you here." description="Your GoldenHour profile is ready. This is your space.">
+  return <AuthShell eyebrow="GoldenHour / Your profile" title="Good to have you here." description="Your GoldenHour profile is ready. This is your space." accountNav={{ isAdmin: account.isAdmin, active: "profile" }}>
     <ProfileSummary profile={account.profile} email={account.user.email} />
   </AuthShell>;
 }

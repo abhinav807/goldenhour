@@ -30,6 +30,8 @@ export async function getDatabase() {
         db.collection("gh_auth_verification").createIndex({ identifier: 1 }),
         db.collection("gh_auth_verification").createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
         db.collection("gh_auth_rate_limit").createIndex({ key: 1 }, { unique: true }),
+        db.collection("gh_tickets").createIndex({ userId: 1, createdAt: -1 }),
+        db.collection("gh_tickets").createIndex({ eventKey: 1, qrHash: 1 }, { unique: true }),
       ]);
     }).catch(async (error: unknown) => {
       globalMongo.goldenhourMongo = undefined;

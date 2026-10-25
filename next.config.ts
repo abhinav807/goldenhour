@@ -11,7 +11,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  async headers() { return [{ source: "/(.*)", headers: securityHeaders }]; },
+  async headers() {
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      { source: "/admin/check-in", headers: [{ key: "Permissions-Policy", value: "camera=(self), microphone=(), geolocation=()" }] },
+    ];
+  },
 };
 
 export default nextConfig;

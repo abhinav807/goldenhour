@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor />
       <nav className="gh-company-nav" aria-label="GoldenHour Delhi navigation">
-        <Link href="#top" className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
+        <Link href={eventConfig.siteUrl} className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
         <div className="gh-company-links hidden lg:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
           <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
         </div>

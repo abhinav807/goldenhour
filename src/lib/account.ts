@@ -2,6 +2,7 @@ import "server-only";
 import { headers } from "next/headers";
 import { getSession } from "./auth";
 import { getProfile } from "./profiles";
+import { isMasterAdmin } from "./admin-policy";
 
 export async function getCurrentAccount() {
   const session = await getSession(await headers());
@@ -9,5 +10,6 @@ export async function getCurrentAccount() {
   return {
     user: { id: session.user.id, email: session.user.email, name: session.user.name },
     profile: await getProfile(session.user.id),
+    isAdmin: isMasterAdmin(session.user),
   };
 }

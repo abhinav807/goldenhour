@@ -11,6 +11,7 @@ function GoogleMark() {
 }
 
 function loginError(code: string | undefined, status?: number) {
+  if (code === "MASTER_ADMIN_GOOGLE_REQUIRED") return "Use Continue with Google for a master admin account.";
   if (status === 429 || code === "TOO_MANY_REQUESTS") return "Too many attempts. Wait a minute, then try again.";
   if (code?.includes("ALREADY_EXISTS")) return "An account already uses this email. Try logging in or continuing with Google.";
   if (code === "INVALID_EMAIL_OR_PASSWORD") return "The email or password is incorrect. Check both and try again.";
@@ -33,7 +34,7 @@ export default function LoginForm({ googleError = false }: { googleError?: boole
     setBusy("google");
     setError("");
     try {
-      const result = await authClient.signIn.social({ provider: "google", callbackURL: "/onboarding", errorCallbackURL: "/login?error=google" });
+      const result = await authClient.signIn.social({ provider: "google", callbackURL: "/login", errorCallbackURL: "/login?error=google" });
       if (result.error) { report("Google login is unavailable right now. Try again or use email."); setBusy(null); }
     } catch {
       report("Couldn’t connect to Google. Check your connection and try again.");
@@ -51,10 +52,10 @@ export default function LoginForm({ googleError = false }: { googleError?: boole
     setError("");
     try {
       const result = mode === "signup"
-        ? await authClient.signUp.email({ email, password, name: "New member", callbackURL: "/onboarding" })
-        : await authClient.signIn.email({ email, password, callbackURL: "/onboarding" });
+        ? await authClient.signUp.email({ email, password, name: "New member", callbackURL: "/login" })
+        : await authClient.signIn.email({ email, password, callbackURL: "/login" });
       if (result.error) { report(loginError(result.error.code, result.error.status)); setBusy(null); return; }
-      router.replace("/onboarding");
+      router.replace("/login");
       router.refresh();
     } catch {
       report("Couldn’t connect. Check your connection and try again.");

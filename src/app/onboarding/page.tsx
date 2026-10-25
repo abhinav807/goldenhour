@@ -12,7 +12,7 @@ export default async function OnboardingPage() {
   if (account.profile) redirect("/profile");
   const lastBirthDate = new Date();
   lastBirthDate.setUTCDate(lastBirthDate.getUTCDate() - 1);
-  return <AuthShell eyebrow="GoldenHour / Meet the builder" title="A little about you." description="Your name, your story, your place in GoldenHour. Add your details to finish setting up." step={2}>
+  return <AuthShell eyebrow="GoldenHour / Meet the builder" title="A little about you." description="Your name, your story, your place in GoldenHour. Add your details to finish setting up." step={2} accountNav={{ isAdmin: account.isAdmin, active: "profile" }}>
     <ProfileForm email={account.user.email} defaultName={account.user.name} today={lastBirthDate.toISOString().slice(0, 10)} />
   </AuthShell>;
 }

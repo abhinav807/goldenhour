@@ -23,7 +23,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("");
   const destination = (hash: string) => isEventPage ? hash : `/goldenhour${hash}`;
-  const homeHref = isEventPage ? "#hero" : "/goldenhour#hero";
+  const homeHref = eventConfig.siteUrl;
   const navClass = `gh-site-nav fixed top-0 left-0 w-full z-50 transition-all duration-200 ${scrolled || !isEventPage ? "bg-black/95 backdrop-blur-sm border-b-2 border-sunset" : "bg-black/30"}`;
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function Navbar() {
   return <>
     <nav className={navClass} aria-label="GoldenHour V1 navigation">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 flex items-center justify-between gap-5 h-16 md:h-20">
-        <Link href={homeHref} className="flex items-center gap-3 group shrink-0" onClick={close} aria-label="GoldenHour V1 home">
+        <Link href={homeHref} className="flex items-center gap-3 group shrink-0" onClick={close} aria-label="GoldenHour Delhi home">
           <Image src="/brand/goldenhour-symbol.png" alt="" width={48} height={48} className="h-9 w-9 object-contain" priority />
           <span className="font-archivo text-xl md:text-2xl text-offwhite tracking-tighter group-hover:text-sunset transition-colors">GOLDEN<span className="text-sunset">.</span>HOUR</span>
         </Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
     </nav>
     {menuOpen && <div id="mobile-navigation" className="fixed inset-0 z-[60] bg-black flex flex-col items-center justify-start overflow-y-auto gap-6 p-6 pt-6 pb-12 md:hidden" role="dialog" aria-modal="true" aria-label="GoldenHour V1 navigation">
       <div className="w-full max-w-sm flex items-center justify-between">
-        <Link href={homeHref} className="flex items-center gap-2" aria-label="GoldenHour V1 home" onClick={close}><Image src="/brand/goldenhour-symbol.png" alt="" width={40} height={40} className="w-10 h-10 object-contain" /><span className="font-archivo text-lg text-offwhite">GOLDEN<span className="text-sunset">.</span>HOUR</span></Link>
+        <Link href={homeHref} className="flex items-center gap-2" aria-label="GoldenHour Delhi home" onClick={close}><Image src="/brand/goldenhour-symbol.png" alt="" width={40} height={40} className="w-10 h-10 object-contain" /><span className="font-archivo text-lg text-offwhite">GOLDEN<span className="text-sunset">.</span>HOUR</span></Link>
         <button id="mobile-navigation-close" type="button" className="text-offwhite hover:text-sunset p-2" onClick={close} aria-label="Close navigation menu"><X size={28} aria-hidden="true" /></button>
       </div>
       <div className="flex flex-col items-center gap-3 w-full max-w-sm border-y border-offwhite/20 py-6">
