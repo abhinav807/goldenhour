@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { eventConfig } from "@/lib/event";
+import ThemeToggle from "./ThemeToggle";
+import styles from "./Navigation.module.css";
 
 const links = [
   { label: "ABOUT", hash: "#about" },
@@ -63,22 +65,22 @@ export default function Navbar() {
 
   return <>
     <nav className={navClass} aria-label="GoldenHour V1 navigation">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8 flex items-center justify-between gap-5 h-16 md:h-20">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-6 flex items-center justify-between gap-3 h-16 md:h-20">
         <Link href={homeHref} className="flex items-center gap-3 group shrink-0" onClick={close} aria-label="GoldenHour Delhi home">
-          <Image src="/brand/goldenhour-symbol.png" alt="" width={48} height={48} className="h-9 w-9 object-contain" priority />
+          <Image src="/brand/goldenhour-symbol.png" alt="" width={48} height={48} className="hidden min-[400px]:block h-9 w-9 object-contain" priority />
           <span className="font-archivo text-xl md:text-2xl text-offwhite tracking-tighter group-hover:text-sunset transition-colors">GOLDEN<span className="text-sunset">.</span>HOUR</span>
         </Link>
-        <div className="hidden lg:flex min-w-0 flex-1 items-center justify-center gap-5 xl:gap-6 ml-3">
-          {links.map((link) => <a key={link.hash} href={destination(link.hash)} aria-current={active === link.hash ? "location" : undefined} className={`font-space text-[9px] tracking-[.06em] whitespace-nowrap transition-colors ${active === link.hash ? "text-sunset" : "text-offwhite/70 hover:text-sunset"}`}>{link.label}</a>)}
-          <a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className="font-space text-[9px] font-bold tracking-[.06em] whitespace-nowrap text-black bg-sunset px-3 py-2 hover:bg-offwhite transition-colors" aria-label="Open the participant registration form in a new tab">REGISTER <ArrowUpRight size={12} className="inline" aria-hidden="true" /></a>
+        <div className="hidden lg:flex min-w-0 flex-1 items-center justify-center gap-3 xl:gap-5">
+          {links.map((link) => <a key={link.hash} href={destination(link.hash)} aria-current={active === link.hash ? "location" : undefined} className={`${styles.eventLink} font-space tracking-[.02em] whitespace-nowrap transition-colors ${active === link.hash ? "text-sunset" : "text-offwhite/70 hover:text-sunset"}`}>{link.label}</a>)}
+          <a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className={`${styles.register} font-space tracking-[.02em] whitespace-nowrap text-black bg-sunset hover:bg-offwhite transition-colors`} aria-label="Open the participant registration form in a new tab">REGISTER <ArrowUpRight size={16} aria-hidden="true" /></a>
         </div>
-        <button id="mobile-navigation-trigger" type="button" className="lg:hidden text-offwhite p-2" onClick={() => setMenuOpen(true)} aria-label="Open navigation menu" aria-expanded={menuOpen} aria-controls="mobile-navigation"><Menu size={24} aria-hidden="true" /></button>
+        <div className={`${styles.eventActions} text-offwhite`}><ThemeToggle /><button id="mobile-navigation-trigger" type="button" className={`${styles.menuButton} text-offwhite p-2`} onClick={() => setMenuOpen(true)} aria-label="Open navigation menu" aria-expanded={menuOpen} aria-controls="mobile-navigation"><Menu size={24} aria-hidden="true" /></button></div>
       </div>
     </nav>
-    {menuOpen && <div id="mobile-navigation" className="fixed inset-0 z-[60] bg-black flex flex-col items-center justify-start overflow-y-auto gap-6 p-6 pt-6 pb-12 md:hidden" role="dialog" aria-modal="true" aria-label="GoldenHour V1 navigation">
+    {menuOpen && <div id="mobile-navigation" className="fixed inset-0 z-[60] bg-black flex flex-col items-center justify-start overflow-y-auto gap-6 p-6 pt-6 pb-12 lg:hidden" role="dialog" aria-modal="true" aria-label="GoldenHour V1 navigation">
       <div className="w-full max-w-sm flex items-center justify-between">
         <Link href={homeHref} className="flex items-center gap-2" aria-label="GoldenHour Delhi home" onClick={close}><Image src="/brand/goldenhour-symbol.png" alt="" width={40} height={40} className="w-10 h-10 object-contain" /><span className="font-archivo text-lg text-offwhite">GOLDEN<span className="text-sunset">.</span>HOUR</span></Link>
-        <button id="mobile-navigation-close" type="button" className="text-offwhite hover:text-sunset p-2" onClick={close} aria-label="Close navigation menu"><X size={28} aria-hidden="true" /></button>
+        <button id="mobile-navigation-close" type="button" className={`${styles.menuButton} text-offwhite hover:text-sunset p-2`} onClick={close} aria-label="Close navigation menu"><X size={28} aria-hidden="true" /></button>
       </div>
       <div className="flex flex-col items-center gap-3 w-full max-w-sm border-y border-offwhite/20 py-6">
         <p className="font-space text-xs tracking-[.08em] text-sunset text-center">REGISTRATION IS OPEN</p>

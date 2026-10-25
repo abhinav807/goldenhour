@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN" className="antialiased"><body className="min-h-screen"><SiteStructuredData /><IntroLoader /><SiteChrome />{children}<CookieBanner /><Analytics /></body></html>;
+  return <html lang="en-IN" className="antialiased" data-theme="light" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem("gh-theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){}})()` }} /></head><body className="min-h-screen"><SiteStructuredData /><IntroLoader /><SiteChrome />{children}<CookieBanner /><Analytics /></body></html>;
 }

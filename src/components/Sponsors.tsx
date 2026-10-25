@@ -1,5 +1,6 @@
 "use client";
 
+import TechHeading from "@/components/TechHeading";
 import Image from "next/image";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { eventConfig } from "@/lib/event";
@@ -43,7 +44,7 @@ export default function Sponsors() {
     <div className="max-w-[1200px] mx-auto relative z-10">
       <div className="text-center max-w-3xl mx-auto mb-16 gh-section-head border-b-2 border-offwhite/15 pb-10 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">SPONSORS / PARTNERS</div>
-        <h2 className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite">BACK THE<br /><span className="text-sunset">BUILD.</span></h2>
+        <TechHeading className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite" lines={["BACK THE", {"text": "BUILD.", "className": "text-sunset"}]} />
         <p className="font-space text-xs text-offwhite/65 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-6 max-w-[1100px] mx-auto">

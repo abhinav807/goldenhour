@@ -1,0 +1,43 @@
+.heading {
+  width: 100%;
+  min-width: 0;
+}
+
+.line {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  font-size: var(--tech-line-size, 1em);
+  letter-spacing: var(--tech-letter-spacing, inherit);
+  line-height: 1.08;
+}
+
+.fallback {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.line > .canvas {
+  position: absolute;
+  inset: 0;
+  color: inherit;
+}
+
+.line:has(> .canvas[data-ready="true"]) > .fallback {
+  opacity: 0;
+}
+
+.inline {
+  display: flex;
+  justify-content: center;
+}
+
+.inline > .line {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .line > .canvas { display: none; }
+  .line:has(> .canvas[data-ready="true"]) > .fallback { opacity: 1; }
+}

@@ -453,7 +453,7 @@ const __originkitPresetProps = {
   "resolution": 2,
   "force": 7,
   "strokeColor": "#FF5A00",
-  "backgroundColor": "#050505"
+  "backgroundColor": "var(--gh-ink)"
 };
 
 export default function InteractiveBackground(props: Record<string, unknown>) {

@@ -3,11 +3,17 @@
    Texture assets are small tileable SVGs; they have no network or animation dependencies. */
 
 :root {
-  --gh-ink: #050505;
-  --gh-paper: #f7f7f2;
+  --gh-theme-ink: #050505;
+  --gh-theme-paper: #f7f7f2;
+  --gh-theme-ink-rgb: 5 5 5;
+  --gh-theme-paper-rgb: 247 247 242;
+  --gh-ink-rgb: var(--gh-theme-ink-rgb);
+  --gh-paper-rgb: var(--gh-theme-paper-rgb);
+  --gh-ink: var(--gh-theme-ink);
+  --gh-paper: var(--gh-theme-paper);
   --gh-orange: #ff5a00;
   --gh-sun: #ffd400;
-  --gh-quiet: rgba(5,5,5,.6);
+  --gh-quiet: rgb(var(--gh-ink-rgb) / .6);
   --gh-printed-shadow: .4375rem .4375rem 0 var(--gh-ink);
 }
 
@@ -18,13 +24,13 @@
 }
 .gh-grain-paper.grid-pattern {
   background-image: url("/textures/grain-ink.svg"),
-    linear-gradient(rgba(0,0,0,.042) .0625rem,transparent .0625rem),
-    linear-gradient(90deg,rgba(0,0,0,.042) .0625rem,transparent .0625rem);
+    linear-gradient(rgb(var(--gh-ink-rgb) / .042) .0625rem,transparent .0625rem),
+    linear-gradient(90deg,rgb(var(--gh-ink-rgb) / .042) .0625rem,transparent .0625rem);
   background-size: 12rem 12rem, 2.75rem 2.75rem, 2.75rem 2.75rem;
 }
 .gh-grain-paper.dot-pattern {
   background-image: url("/textures/grain-ink.svg"),
-    radial-gradient(rgba(0,0,0,.12) .0625rem, transparent .078125rem);
+    radial-gradient(rgb(var(--gh-ink-rgb) / .12) .0625rem, transparent .078125rem);
   background-size: 12rem 12rem, 1.375rem 1.375rem;
 }
 .gh-grain-night {
@@ -44,8 +50,8 @@
   isolation: isolate;
   background-image:
     url("/textures/grain-paper.svg"),
-    linear-gradient(rgba(255,255,255,.043) .0625rem, transparent .0625rem),
-    linear-gradient(90deg,rgba(255,255,255,.043) .0625rem, transparent .0625rem);
+    linear-gradient(rgb(var(--gh-paper-rgb) / .043) .0625rem, transparent .0625rem),
+    linear-gradient(90deg,rgb(var(--gh-paper-rgb) / .043) .0625rem, transparent .0625rem);
   background-size: 12rem 12rem, 3.5rem 3.5rem, 3.5rem 3.5rem;
 }
 .event-page-root .gh-hero-print::before {
@@ -90,8 +96,8 @@
 }
 .gh-edition-stamp strong { font-family: "Archivo Black", sans-serif; font-size: 1.3rem; line-height: 1.2; }
 .gh-hero-subline {
-  border-top: .0625rem solid rgba(247,247,242,.2);
-  border-bottom: .0625rem solid rgba(247,247,242,.2);
+  border-top: .0625rem solid rgb(var(--gh-paper-rgb) / .2);
+  border-bottom: .0625rem solid rgb(var(--gh-paper-rgb) / .2);
   padding-block: .8rem;
   max-width: 44rem;
   margin-inline: auto;
@@ -114,7 +120,7 @@
 .gh-cutline {
   height: .0625rem;
   width: 100%;
-  background: linear-gradient(90deg, transparent 0 5%, var(--gh-orange) 5% 20%, rgba(5,5,5,.15) 20% 95%, transparent 95%);
+  background: linear-gradient(90deg, transparent 0 5%, var(--gh-orange) 5% 20%, rgb(var(--gh-ink-rgb) / .15) 20% 95%, transparent 95%);
 }
 .gh-caption-rail {
   display: flex;
@@ -124,7 +130,7 @@
   font: 700 .65rem/1.6 "Space Mono", monospace;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(5,5,5,.6);
+  color: rgb(var(--gh-ink-rgb) / .6);
 }
 .gh-caption-rail::before, .gh-caption-rail::after {
   content: ""; width: 1.25rem; height: .0625rem; background: currentColor; opacity: .5;
@@ -215,7 +221,7 @@
 
 /* Orange registration field: bold type but no fake readability sacrifice. */
 .event-page-root #register.gh-grain-sunset { background-image: url("/textures/grain-ink.svg"); }
-.event-page-root #register .gh-register-meta { border-top: .125rem dashed rgba(5,5,5,.34); }
+.event-page-root #register .gh-register-meta { border-top: .125rem dashed rgb(var(--gh-ink-rgb) / .34); }
 
 /* GoldenHour Delhi homepage gets the same tactile paper without changing its brand. */
 .gh-company-page .gh-home-print {
@@ -223,7 +229,7 @@
   background-image:
     url("/textures/grain-ink.svg"),
     radial-gradient(circle at 72% 44%, rgba(255,90,0,.14), transparent 36%),
-    radial-gradient(rgba(5,5,5,.09) .0625rem, transparent .075rem);
+    radial-gradient(rgb(var(--gh-ink-rgb) / .09) .0625rem, transparent .075rem);
   background-size: 12rem 12rem, auto, 1.5rem 1.5rem;
 }
 .gh-company-page .gh-home-print::before {

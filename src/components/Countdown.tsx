@@ -1,5 +1,6 @@
 "use client";
 
+import TechHeading from "@/components/TechHeading";
 import { useEffect, useState } from "react";
 import Counter from "./Counter";
 import { eventConfig } from "@/lib/event";
@@ -38,7 +39,7 @@ export default function Countdown() {
     <div className="max-w-[1200px] mx-auto relative z-10 reveal text-center">
       <div className="mb-14">
         <p className="font-space text-xs text-sunset uppercase tracking-[.18em] mb-5 font-bold">UNTIL THE HOUR</p>
-        <h2 className="font-archivo text-4xl md:text-6xl text-offwhite">THE CLOCK <span className="text-sunset">IS RUNNING.</span></h2>
+        <TechHeading className="font-archivo text-4xl md:text-6xl text-offwhite" lines={["THE CLOCK", {"text": "IS RUNNING.", "className": "text-sunset"}]} />
         <p className="font-space text-[10px] text-offwhite/45 uppercase leading-relaxed mt-6"><time dateTime={eventConfig.isoDate}>SATURDAY, {eventConfig.date} / 08:00 AM IST</time> / {eventConfig.location} / <span className="text-offwhite/75">12 HOURS OF MAKING</span></p>
       </div>
       <div role="timer" aria-label="Time until GoldenHour starts" aria-live="off" className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-5 border-t border-offwhite/15 pt-10 max-w-[1080px] mx-auto">

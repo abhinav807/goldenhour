@@ -1,5 +1,6 @@
 "use client";
 
+import TechHeading from "@/components/TechHeading";
 import { useState } from "react";
 import { ChevronDown, ClipboardCheck } from "lucide-react";
 import { eventConfig } from "@/lib/event";
@@ -50,7 +51,7 @@ export default function Timeline() {
       <div className="max-w-[1100px] mx-auto relative z-10">
         <header className="text-center max-w-3xl mx-auto mb-12 reveal gh-section-head">
           <div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div>
-          <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black">THE BUILD<br />DAY<span className="text-sunset">.</span></h2>
+          <TechHeading className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black" lines={["THE BUILD", "DAY."]} />
           <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is confirmed; venue details will follow.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 text-center">
             <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">DURATION</p><p className="font-archivo text-xl mt-2">08:00–20:00 / 12H</p></div>

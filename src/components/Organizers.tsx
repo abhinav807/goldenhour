@@ -1,5 +1,6 @@
 "use client";
 
+import TechHeading from "@/components/TechHeading";
 import { ArrowUpRight } from "lucide-react";
 
 type Person = { num: string; name: string; role: string };
@@ -52,7 +53,7 @@ export default function Organizers() {
       <div className="max-w-[1200px] mx-auto text-center">
         <div className="max-w-2xl mx-auto mb-14 md:mb-16 reveal gh-section-head">
           <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase shadow-[2px_2px_0_#050505]">05 / PEOPLE BEHIND THE CLOCK</div>
-          <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">THE<br />TEAM<span className="text-sunset">.</span></h2>
+          <TechHeading className="font-archivo text-5xl sm:text-6xl md:text-8xl" lines={["THE", "TEAM."]} />
           <p className="font-space text-xs md:text-sm text-black/55 mt-6 leading-relaxed">The people holding the thread from first idea to final build.</p>
         </div>
         <div className="space-y-10 max-w-[1120px] mx-auto">

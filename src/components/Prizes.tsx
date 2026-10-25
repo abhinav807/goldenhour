@@ -1,3 +1,4 @@
+import TechHeading from "@/components/TechHeading";
 import { eventConfig } from "@/lib/event";
 
 const prizes = [
@@ -11,7 +12,7 @@ export default function Prizes() {
     <div className="max-w-[1200px] mx-auto relative z-10">
       <header className="text-center max-w-3xl mx-auto mb-16 reveal gh-section-head">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-6 uppercase">06 / RECOGNITION</div>
-        <h2 className="font-archivo text-5xl sm:text-6xl md:text-8xl">PRIZES<span className="text-sunset">.</span></h2>
+        <TechHeading className="font-archivo text-5xl sm:text-6xl md:text-8xl" lines={["PRIZES."]} />
         <p className="font-space text-xs md:text-sm text-offwhite/55 max-w-lg mx-auto mt-6 leading-relaxed">One GoldenHour trophy per winning team. CodeCrafters VIP memberships are awarded per person. 80 sponsored one-month n8n Cloud Pro licenses are available for allocation (stated value <strong className="font-bold text-offwhite">$60</strong> each); access is not guaranteed for every participant.</p>
       </header>
 
