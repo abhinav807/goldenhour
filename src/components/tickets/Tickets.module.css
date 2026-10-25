@@ -8,7 +8,7 @@
 .details > div { min-width: 0; }
 .details dt { color: var(--auth-muted); font-size: 12px; font-weight: 700; margin-bottom: 4px; }
 .details dd { margin: 0; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
-.slip { background: #fff; border-top: 1px solid var(--auth-border); border-bottom: 1px solid var(--auth-border); }
+.slip { padding: 8px; background: #fff; border-top: 1px solid var(--auth-border); border-bottom: 1px solid var(--auth-border); }
 .image { display: block; width: 100%; height: auto; }
 .ticketFooter { padding: 20px 24px; }
 .note { margin: 0; color: var(--auth-muted); font-size: 13px; line-height: 1.65; }

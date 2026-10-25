@@ -59,7 +59,7 @@ export default function AccountsDashboard({ initial }: { initial: AccountList })
   const pages = Math.max(1, Math.ceil(list.total / list.pageSize));
 
   return <div className={s.workspace}>
-    <section className={s.panel} aria-labelledby="accounts-heading" aria-busy={loading}>
+    <section className={`${s.panel} perforated-panel`} aria-labelledby="accounts-heading" aria-busy={loading}>
       <div className={s.toolbar}><h2 id="accounts-heading">All accounts</h2><span className={s.hint}>{list.total} {list.total === 1 ? "account" : "accounts"}</span></div>
       <form onSubmit={submitSearch}>
         <label className={s.label} htmlFor="account-search">Search by name or email</label>
@@ -72,7 +72,7 @@ export default function AccountsDashboard({ initial }: { initial: AccountList })
       {!list.accounts.length && !loading && <p className={s.empty}>{appliedSearch ? "No accounts match this search. Try another name or email." : "No accounts have been created yet."}</p>}
       <nav className={s.pagination} aria-label="Account list pages"><button type="button" className={s.secondary} disabled={loading || list.page <= 1} onClick={() => void loadList(appliedSearch, list.page - 1)}>Previous</button><span className={s.hint} aria-live="polite">Page {list.page} of {pages}</span><button type="button" className={s.secondary} disabled={loading || list.page >= pages} onClick={() => void loadList(appliedSearch, list.page + 1)}>Next</button></nav>
     </section>
-    <section className={s.panel} aria-label="Selected account" aria-busy={detailLoading}>
+    <section className={`${s.panel} perforated-panel`} aria-label="Selected account" aria-busy={detailLoading}>
       {!selected && <><h2>Select an account</h2><p className={s.empty}>Choose a member to edit their details or add an event ticket.</p></>}
       {detailLoading && <p role="status" className={s.empty}>Loading account…</p>}
       {detailError && <><p className={s.error} role="alert">{detailError}</p><button type="button" className={s.textButton} onClick={() => void openAccount(selected)}>Try again</button></>}
@@ -81,7 +81,7 @@ export default function AccountsDashboard({ initial }: { initial: AccountList })
         <AccountEditor key={detail.account.id} account={detail.account} onSaved={updateAccount} />
         <TicketUpload key={`tickets-${detail.account.id}`} userId={detail.account.id} onUploaded={(ticket) => setDetail((current) => current?.account.id === ticket.userId ? { ...current, tickets: [ticket, ...current.tickets] } : current)} />
         <section className={s.section} aria-labelledby="member-tickets-heading"><h3 id="member-tickets-heading" className={s.sectionHeading}>Assigned tickets</h3>
-          {!detail.tickets.length ? <p className={s.hint}>No tickets have been added to this account.</p> : <ul className={s.ticketList}>{detail.tickets.map((ticket) => <li className={s.ticket} key={ticket.id}><h4>{ticket.eventName}</h4>{ticket.eventDate && <p className={s.hint}>{new Date(`${ticket.eventDate}T00:00:00Z`).toLocaleDateString("en-IN", { dateStyle: "long", timeZone: "UTC" })}</p>}{ticket.venue && <p className={s.hint}>{ticket.venue}</p>}<span className={`${s.status} ${ticket.status === "checked-in" ? s.checkedIn : ""}`}>{ticket.status === "checked-in" ? "Checked in" : "Ready for entry"}</span><div><a href={ticket.imageUrl} target="_blank" rel="noreferrer">Open ticket image ↗</a></div></li>)}</ul>}
+          {!detail.tickets.length ? <p className={s.hint}>No tickets have been added to this account.</p> : <ul className={s.ticketList}>{detail.tickets.map((ticket) => <li className={`${s.ticket} perforated-panel`} key={ticket.id}><h4>{ticket.eventName}</h4>{ticket.eventDate && <p className={s.hint}>{new Date(`${ticket.eventDate}T00:00:00Z`).toLocaleDateString("en-IN", { dateStyle: "long", timeZone: "UTC" })}</p>}{ticket.venue && <p className={s.hint}>{ticket.venue}</p>}<span className={`${s.status} ${ticket.status === "checked-in" ? s.checkedIn : ""}`}>{ticket.status === "checked-in" ? "Checked in" : "Ready for entry"}</span><div><a href={ticket.imageUrl} target="_blank" rel="noreferrer">Open ticket image ↗</a></div></li>)}</ul>}
         </section>
       </>}
     </section>

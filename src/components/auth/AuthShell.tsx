@@ -37,7 +37,7 @@ export default function AuthShell({ eyebrow, title, description, step, accountNa
             <span className={step === 2 ? s.currentStep : undefined} aria-current={step === 2 ? "step" : undefined}>02 / Your profile</span>
           </div>}
         </section>
-        <section className={s.panel} aria-label="Your GoldenHour account">{children}</section>
+        <section className={`${s.panel}${wide ? "" : " perforated-panel"}`} aria-label="Your GoldenHour account">{children}</section>
       </div>
       <footer className={s.footer}>
         <span>GoldenHour Delhi / Build. Improve. Repeat.</span>

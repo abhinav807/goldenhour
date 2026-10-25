@@ -153,8 +153,8 @@ export default function HoloCard({ children, className = "", preset = "bursts" }
     };
   }, [preset]);
 
-  return <div ref={rootRef} className={`${styles.card} ${className}`}>
-    <div ref={rotorRef} className={styles.rotor}>
+  return <div ref={rootRef} className={`${styles.card} perforated-shell ${className}`}>
+    <div ref={rotorRef} className={`${styles.rotor} perforated-panel holo-perforated`}>
       <div className={styles.content}>{children}</div>
       <canvas ref={canvasRef} className={styles.foil} aria-hidden="true" />
     </div>

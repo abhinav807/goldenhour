@@ -13,15 +13,15 @@ function checkInDate(value: string) {
 }
 
 export default function TicketList({ tickets }: { tickets: Ticket[] }) {
-  if (!tickets.length) return <div className={s.empty}>
+  if (!tickets.length) return <div className={`${s.empty} perforated-panel`}>
     <div className={s.emptyIcon}><TicketIcon size={30} aria-hidden="true" /></div>
     <h2>No tickets yet.</h2>
     <p>When the GoldenHour team adds a ticket to your account, it will appear here with its event details and entry QR.</p>
     <Link href="/" className={s.link}>Explore GoldenHour <ArrowUpRight size={17} aria-hidden="true" /></Link>
   </div>;
 
-  return <div className={s.list}>
-    {tickets.map((ticket) => <article key={ticket.id} className={s.ticket} aria-labelledby={`ticket-${ticket.id}`}>
+  return <div className={s.list} data-crt-clean>
+    {tickets.map((ticket) => <article key={ticket.id} className={`${s.ticket} perforated-panel`} aria-labelledby={`ticket-${ticket.id}`}>
       <div className={s.info}>
         <p className={`${s.status}${ticket.status === "checked-in" ? ` ${s.used}` : ""}`}>
           {ticket.status === "checked-in" && <Check size={15} aria-hidden="true" />}

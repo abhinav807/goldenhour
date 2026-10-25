@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import HoloCard from "@/components/HoloCard";
+import { RetroStamp, RetroMeter } from "@/components/RetroStamp";
 import { ArrowUpRight } from "lucide-react";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
 import Marquee from "@/components/Marquee";
@@ -69,7 +70,14 @@ export default function Home() {
 
       <SectionTape dark />
       <section id="events" className="bg-sunset gh-home-orange px-5 md:px-10 py-20 md:py-28 border-b-4 border-black">
-          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><TechHeading lines={["PICK YOUR", { text: "BUILD.", className: "text-offwhite" }]} className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6" /></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <article key={event.name} className={`gh-ink-card p-7 md:p-10 border-2 border-black shadow-[8px_8px_0_#050505] text-center flex flex-col items-center ${i === 0 ? "bg-offwhite" : "bg-black text-offwhite"}`}><div className="flex w-full justify-center items-center gap-4 mb-12"><span className={`font-space text-[10px] font-bold px-3 py-2 ${i === 0 ? "bg-black text-sunset" : "bg-sunset text-black"}`}>0{i + 1}</span><span className={`font-space text-[10px] font-bold uppercase ${i === 0 ? "text-black/55" : "text-offwhite/55"}`}>{event.date}</span></div><p className={`font-space text-[10px] tracking-widest font-bold mb-4 ${i === 0 ? "text-black/55" : "text-sunset"}`}>{event.type}</p><h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3><p className={`font-dm text-lg leading-relaxed max-w-lg mb-10 ${i === 0 ? "text-black/70" : "text-offwhite/70"}`}>{event.description}</p>{event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}</article>)}</div></div>
+          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><TechHeading lines={["PICK YOUR", { text: "BUILD.", className: "text-offwhite" }]} className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6" /></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <RetroStamp key={event.name} edge="all" serial={`SYSTEM 2026 / GH.01 / EVENT 0${i + 1}`} status="REGISTRATION OPEN" contentClassName="text-center flex flex-col items-center">
+            <div className="flex w-full justify-center items-center gap-4 my-8"><span className="font-space text-[10px] font-bold px-3 py-2 bg-black text-sunset">0{i + 1}</span><span className="font-space text-[10px] font-bold uppercase text-black/60">{event.date}</span></div>
+            <p className="font-space text-[10px] tracking-widest font-bold mb-4 text-black/60">{event.type}</p>
+            <h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3>
+            <p className="font-dm text-lg leading-relaxed max-w-lg mb-8 text-black/75">{event.description}</p>
+            <div className="w-full mb-8"><RetroMeter label="Free entry" value={100} valueLabel="100% FREE" /></div>
+            {event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}
+          </RetroStamp>)}</div></div>
       </section>
 
       <SectionTape />

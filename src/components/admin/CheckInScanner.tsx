@@ -158,8 +158,8 @@ export default function CheckInScanner() {
   }
 
   const selectedEvent = events.find((event) => event.key === eventKey);
-  return <div className={s.scannerLayout}>
-    <section className={s.panel} aria-labelledby="scanner-heading" aria-busy={busy || decoding}>
+  return <div className={s.scannerLayout} data-crt-clean>
+    <section className={`${s.panel} perforated-panel`} aria-labelledby="scanner-heading" aria-busy={busy || decoding}>
       <h2 id="scanner-heading">Scan a ticket</h2>
       <div className={s.field}>
         <label className={s.label} htmlFor="scan-event">Event</label>
@@ -186,7 +186,7 @@ export default function CheckInScanner() {
       {error && <p role="alert" className={s.error}>{error}</p>}
       {busy && <p className={s.hint} role="status">Checking ticket and saving entry…</p>}
     </section>
-    <section className={`${s.panel} ${s.result}`} aria-label="Ticket check-in result">
+    <section className={`${s.panel} ${s.result} perforated-panel`} aria-label="Ticket check-in result">
       {result ? <div role="status" className={result.accepted ? s.success : s.notice}>
         <h2 className={s.resultTitle} ref={resultHeading} tabIndex={-1}>{result.accepted ? "Entry confirmed." : "Already checked in."}</h2>
         <p>{result.accepted ? "This ticket has been used. Admit this member." : "This ticket has already been used. Do not admit another entry with it."}</p>

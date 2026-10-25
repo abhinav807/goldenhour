@@ -1,11 +1,12 @@
 import TechHeading from "@/components/TechHeading";
+import { RetroStamp } from "@/components/RetroStamp";
 import { eventConfig } from "@/lib/event";
 
 const prizes = [
-  { medal: "🥇", place: "FIRST PLACE", title: "WINNER", trophy: "ONE GOLDENHOUR TROPHY / PER TEAM", reward: "2-YEAR VIP MEMBERSHIP / PER PARTICIPANT", tone: "bg-sunset text-black shadow-[7px_7px_0_#f7f7f2]" },
-  { medal: "🥈", place: "SECOND PLACE", title: "RUNNER-UP", trophy: "ONE GOLDENHOUR TROPHY / PER TEAM", reward: "1-YEAR VIP MEMBERSHIP / PER PARTICIPANT", tone: "bg-offwhite text-black shadow-[7px_7px_0_#ff5a00]" },
-  { medal: "🥉", place: "THIRD PLACE", title: "2ND RUNNER-UP", trophy: "ONE GOLDENHOUR TROPHY / PER TEAM", reward: "6-MONTH VIP MEMBERSHIP / PER PARTICIPANT", tone: "bg-yellow text-black shadow-[7px_7px_0_#f7f7f2]" },
-];
+  { medal: "🥇", place: "FIRST PLACE", title: "WINNER", trophy: "ONE GOLDENHOUR TROPHY / PER TEAM", reward: "2-YEAR VIP MEMBERSHIP / PER PARTICIPANT", tone: "orange" },
+  { medal: "🥈", place: "SECOND PLACE", title: "RUNNER-UP", trophy: "ONE GOLDENHOUR TROPHY / PER TEAM", reward: "1-YEAR VIP MEMBERSHIP / PER PARTICIPANT", tone: "paper" },
+  { medal: "🥉", place: "THIRD PLACE", title: "2ND RUNNER-UP", trophy: "ONE GOLDENHOUR TROPHY / PER TEAM", reward: "6-MONTH VIP MEMBERSHIP / PER PARTICIPANT", tone: "yellow" },
+] as const;
 
 export default function Prizes() {
   return <section id="prizes" className="bg-black text-offwhite py-20 md:py-28 px-5 md:px-10 relative overflow-hidden gh-grain-night">
@@ -17,7 +18,7 @@ export default function Prizes() {
       </header>
 
       <div className="grid lg:grid-cols-3 gap-6 md:gap-7 max-w-[1100px] mx-auto">
-        {prizes.map(({ medal, place, title, trophy, reward, tone }) => <article key={place} className={`gh-prize-ticket p-7 md:p-9 min-h-[320px] border-2 border-black flex flex-col justify-between text-center reveal ${tone}`}>
+        {prizes.map(({ medal, place, title, trophy, reward, tone }) => <RetroStamp key={place} tone={tone} serial="GH.01 / RECOGNITION" className="reveal" contentClassName="min-h-[360px] flex flex-col justify-between text-center">
           <div>
             <div className="text-5xl mb-6" aria-hidden="true">{medal}</div>
             <p className="font-space text-[10px] font-bold tracking-[.16em] mb-4">{place}</p>
@@ -28,7 +29,7 @@ export default function Prizes() {
             <p className="font-archivo text-base md:text-lg uppercase mt-3 leading-relaxed break-normal">{reward}</p>
             <p className="font-space text-[10px] uppercase tracking-[.08em] mt-3 opacity-75 leading-relaxed">CODECRAFTERS VIP MEMBERSHIP</p>
           </div>
-        </article>)}
+        </RetroStamp>)}
       </div>
 
       <div className="max-w-[1100px] mx-auto mt-8 grid md:grid-cols-2 gap-6"><div className="border-2 border-sunset gh-grain-night p-7"><h3 className="font-archivo text-2xl text-sunset">WINNERS / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">Digital winner certificate · <a href="https://fueler.io/premium" target="_blank" rel="noopener noreferrer" className="underline">Fueler Premium worth $100</a> · AI Interview Voucher worth ₹550.</p></div><div className="border-2 border-offwhite/30 gh-grain-night p-7"><h3 className="font-archivo text-2xl">RUNNERS-UP / PER PERSON</h3><p className="font-dm text-sm text-offwhite/80 mt-4 leading-relaxed">90% AI Interview Discount Voucher to practice and improve.</p></div></div>

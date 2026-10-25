@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GoldenHour — CRT and stamp UI</title><style>
+/* Standalone CRT + postage toolkit. No plugin, image download, or animation needed. */
+:root {
+  --retro-paper: #f7f7f2;
+  --retro-ink: #050505;
+  --retro-orange: #ff5a00;
+  --retro-yellow: #ffd400;
+  --retro-neutral-paper: var(--gh-theme-paper, var(--retro-paper));
+  --retro-neutral-ink: var(--gh-theme-ink, var(--retro-ink));
+  --retro-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch' seed='7'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* Add .crt-page to body: both overlays cover the viewport and never intercept input. */
+.crt-page::before,
+.crt-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+}
+.crt-page::before {
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .25) 0 1px, transparent 1px 4px);
+  opacity: .34;
+}
+.crt-page::after {
+  background: var(--retro-noise) 0 0 / 160px 160px repeat;
+  mix-blend-mode: overlay;
+  opacity: .14;
+}
+
+/* Protect machine-readable tickets and camera previews from display interference. */
+.crt-page:has([data-crt-clean])::before,
+.crt-page:has([data-crt-clean])::after { content: none; }
+
+.retro-stamp-shell {
+  min-width: 0;
+  display: flex;
+  height: 100%;
+  filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, .85));
+}
+.retro-stamp {
+  --stamp-paper: var(--retro-neutral-paper);
+  --stamp-ink: var(--retro-neutral-ink);
+  --stamp-accent: var(--retro-orange);
+  /* Existing Tailwind black/offwhite utilities remain readable inside each stamp. */
+  --gh-theme-ink: var(--stamp-ink);
+  --gh-theme-paper: var(--stamp-paper);
+  --gh-ink: var(--stamp-ink);
+  --gh-paper: var(--stamp-paper);
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: clamp(28px, 3vw, 40px);
+  background-color: var(--stamp-paper);
+  color: var(--stamp-ink);
+  border: 1px solid var(--stamp-ink);
+  border-radius: 0;
+  overflow-wrap: anywhere;
+}
+.retro-stamp[data-tone="ink"] {
+  --stamp-paper: var(--retro-neutral-ink);
+  --stamp-ink: var(--retro-neutral-paper);
+  --stamp-accent: var(--retro-orange);
+}
+.retro-stamp[data-tone="orange"] {
+  --stamp-paper: var(--retro-orange);
+  --stamp-ink: var(--retro-ink);
+  --stamp-accent: var(--retro-ink);
+}
+.retro-stamp[data-tone="yellow"] {
+  --stamp-paper: var(--retro-yellow);
+  --stamp-ink: var(--retro-ink);
+  --stamp-accent: var(--retro-ink);
+}
+.retro-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid currentColor;
+  opacity: .65;
+  pointer-events: none;
+  z-index: -1;
+}
+.retro-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--retro-noise) 0 0 / 160px 160px repeat;
+  mix-blend-mode: multiply;
+  opacity: .12;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Intersect opaque masks to subtract transparent half-circles from real edges.
+   The sibling edge remains solid in each layer; no background-colored fake dots. */
+@supports (mask-composite: intersect) or (-webkit-mask-composite: source-in) {
+  .retro-stamp,
+  .crt-page :is(.perforated-panel, .brutal-card, .brutal-card-black, .brutal-card-orange, .gh-timeline-card, .gh-sponsor-tile, .gh-sponsor-pitch, .gh-prize-ticket, .gh-ink-card, .legal-document):not(.retro-stamp):not(.holo-perforated *) {
+    -webkit-mask-image: radial-gradient(circle at 0 12px, transparent 5px, #000 5.75px), radial-gradient(circle at 100% 12px, transparent 5px, #000 5.75px);
+    mask-image: radial-gradient(circle at 0 12px, transparent 5px, #000 5.75px), radial-gradient(circle at 100% 12px, transparent 5px, #000 5.75px);
+    -webkit-mask-size: 100% 24px;
+    mask-size: 100% 24px;
+    -webkit-mask-repeat: repeat-y;
+    mask-repeat: repeat-y;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  .retro-stamp { border: 0; }
+  .retro-stamp[data-edge="all"] {
+    -webkit-mask-image: radial-gradient(circle at 0 12px, transparent 5px, #000 5.75px), radial-gradient(circle at 100% 12px, transparent 5px, #000 5.75px), radial-gradient(circle at 12px 0, transparent 5px, #000 5.75px), radial-gradient(circle at 12px 100%, transparent 5px, #000 5.75px);
+    mask-image: radial-gradient(circle at 0 12px, transparent 5px, #000 5.75px), radial-gradient(circle at 100% 12px, transparent 5px, #000 5.75px), radial-gradient(circle at 12px 0, transparent 5px, #000 5.75px), radial-gradient(circle at 12px 100%, transparent 5px, #000 5.75px);
+    -webkit-mask-size: 100% 24px, 100% 24px, 24px 100%, 24px 100%;
+    mask-size: 100% 24px, 100% 24px, 24px 100%, 24px 100%;
+    -webkit-mask-repeat: repeat-y, repeat-y, repeat-x, repeat-x;
+    mask-repeat: repeat-y, repeat-y, repeat-x, repeat-x;
+  }
+}
+.perforated-shell { filter: drop-shadow(6px 6px 0 #050505); }
+.retro-stamp-shell:focus-within { outline: 3px solid var(--retro-yellow); outline-offset: 5px; }
+.retro-stamp :focus-visible { outline: 3px solid var(--stamp-accent); outline-offset: 4px; }
+.retro-stamp-meta,
+.retro-meter-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  font: 700 11px/1.5 'Space Mono', ui-monospace, monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.retro-stamp-meta { width: 100%; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 1px dashed currentColor; }
+.retro-serial::before { content: "// "; }
+.retro-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 8px;
+  border: 1px solid currentColor;
+  color: var(--stamp-ink);
+}
+.retro-status::before { content: ""; width: 6px; height: 6px; background: currentColor; flex: none; }
+.retro-meter { width: 100%; margin-block: 20px; }
+.retro-meter-label { margin-bottom: 8px; }
+.retro-meter meter { display: block; appearance: none; width: 100%; height: 14px; background: transparent; border: 1px solid currentColor; border-radius: 0; }
+.retro-meter meter::-webkit-meter-bar { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.retro-meter meter::-webkit-meter-optimum-value,
+.retro-meter meter::-webkit-meter-suboptimum-value,
+.retro-meter meter::-webkit-meter-even-less-good-value { background: repeating-linear-gradient(90deg, var(--stamp-accent) 0 7px, transparent 7px 10px); border-radius: 0; }
+.retro-meter meter::-moz-meter-bar { background: repeating-linear-gradient(90deg, var(--stamp-accent) 0 7px, transparent 7px 10px); border-radius: 0; }
+.retro-divider { border: 0; border-top: 1px dashed currentColor; margin-block: 24px; }
+.retro-heading { font-family: 'Archivo Black', 'Arial Black', system-ui, sans-serif; font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; line-height: 1; letter-spacing: -.055em; text-transform: uppercase; }
+
+@media (max-width: 480px) {
+  .retro-stamp-shell { filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, .85)); }
+  .retro-stamp { padding: 28px; }
+  .retro-stamp-meta { font-size: 10px; }
+}
+@media (prefers-contrast: more) {
+  .crt-page::before, .crt-page::after, .retro-stamp::after { content: none; }
+}
+@media print, (forced-colors: active) {
+  .crt-page::before, .crt-page::after, .retro-stamp::before, .retro-stamp::after { content: none; }
+  .retro-stamp-shell, .perforated-shell { filter: none; }
+  .crt-page :is(.perforated-panel, .brutal-card, .brutal-card-black, .brutal-card-orange, .gh-timeline-card, .gh-sponsor-tile, .gh-sponsor-pitch, .gh-prize-ticket, .gh-ink-card, .legal-document) { -webkit-mask-image: none; mask-image: none; }
+  .retro-stamp { -webkit-mask-image: none; mask-image: none; background: Canvas; color: CanvasText; border: 2px solid currentColor; }
+  .retro-status { color: inherit; }
+}
+
+* { box-sizing: border-box; } body { margin:0; padding:32px 20px 64px; background:#050505; color:#f7f7f2; font:16px/1.65 system-ui,sans-serif; } main { max-width:1120px; margin:auto; } h1 { font:900 clamp(40px,7vw,88px)/.95 'Arial Black',system-ui,sans-serif; letter-spacing:-.06em; margin:24px 0; } h2 { margin:0 0 24px; } p { margin:16px 0; } .demo-kicker { color:#ff5a00; font:700 12px/1.6 ui-monospace,monospace; letter-spacing:.12em; } .demo-grid { display:grid; gap:32px; margin-top:40px; align-items:stretch; } .demo-copy { max-width:660px; } .demo-button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; margin-top:20px; padding:12px 18px; border:2px solid #050505; background:#ff5a00; color:#050505; text-decoration:none; font:700 12px/1.5 ui-monospace,monospace; box-shadow:4px 4px 0 #050505; } .demo-button:focus-visible { outline:3px solid #ff5a00; outline-offset:5px; } .demo-title { font-size:clamp(24px,2.5vw,32px); overflow-wrap:normal; } .demo-foot { margin-top:40px; font:12px/1.6 ui-monospace,monospace; } @media(min-width:800px) { .demo-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+</style></head><body class="crt-page"><main>
+<p class="demo-kicker">// SYSTEM 2026 / GOLDENHOUR DELHI</p><h1>THE NEXT HOUR.</h1><p class="demo-copy">GoldenHour brand colors. CRT scanlines. Real perforated edges. This self-contained style sample uses no scripts, external fonts, or image files.</p>
+<div class="demo-grid">
+<div class="retro-stamp-shell"><article class="retro-stamp" data-tone="paper" data-edge="all"><header class="retro-stamp-meta"><span class="retro-serial">GH.01 / EVENT</span><span class="retro-status">REGISTRATION OPEN</span></header><h2 class="retro-heading demo-title">GOLDENHOUR V1.</h2><p>A free 12-hour student hackathon in Delhi NCR.</p><div class="retro-meter"><div class="retro-meter-label"><span>Free entry</span><span aria-hidden="true">100% FREE</span></div><meter min="0" max="100" value="100" aria-label="Free entry" aria-valuetext="100% free">100%</meter></div><a class="demo-button" href="https://www.goldenhourdelhi.co.in/goldenhour">EXPLORE THE EVENT ↗</a></article></div>
+<div class="retro-stamp-shell"><article class="retro-stamp" data-tone="ink" data-edge="sides"><header class="retro-stamp-meta"><span class="retro-serial">GH.01 / TRACK 02</span><span class="retro-status">GAME DEVELOPMENT</span></header><h2 class="retro-heading demo-title">MAKE IT PLAYABLE.</h2><hr class="retro-divider"><p>Build a playable world with a mechanic worth remembering.</p><p>Make the loop feel good. Make the rules interesting.</p><p class="retro-serial">PLAY / TEST / REPEAT</p></article></div>
+<div class="retro-stamp-shell"><article class="retro-stamp" data-tone="yellow" data-edge="sides"><header class="retro-stamp-meta"><span class="retro-serial">GH.01 / TRACK 03</span><span class="retro-status">GRAPHIC DESIGNING</span></header><h2 class="retro-heading demo-title">DESIGN SOMETHING REAL.</h2><hr class="retro-divider"><p>Turn a creative brief into a memorable visual concept through typography, layout and identity.</p><p class="retro-serial">DESIGN / REFINE / PRESENT</p></article></div>
+</div><p class="demo-foot">UI style sample · Not an admission ticket. Real tickets remain clear for QR scanning.</p></main></body></html>
