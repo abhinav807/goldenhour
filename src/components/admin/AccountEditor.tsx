@@ -10,7 +10,19 @@ export default function AccountEditor({ account, onSaved }: { account: AdminAcco
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [saved, setSaved] = useState(false);
+  const [ticketUrl, setTicketUrl] = useState("");
   const [fields, setFields] = useState<Record<string, string>>({});
+
+  async function generateTicket() {
+    setError(""); setTicketUrl(""); setBusy(true);
+    try {
+      const response = await fetch(`/api/admin/accounts/${encodeURIComponent(account.id)}/ticket`, { method: "POST" });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "The ticket could not be generated.");
+      setTicketUrl(result.ticket.imageUrl);
+    } catch (err) { setError(err instanceof Error ? err.message : "The ticket could not be generated."); }
+    finally { setBusy(false); }
+  }
   const yesterday = new Date();
   yesterday.setUTCDate(yesterday.getUTCDate() - 1);
 
@@ -48,6 +60,14 @@ export default function AccountEditor({ account, onSaved }: { account: AdminAcco
         {fields.name && <p className={s.fieldError} id="member-name-error">{fields.name}</p>}
       </div>
       <div className={s.field}>
+        <label className={s.label} htmlFor="member-role">Account role</label>
+        <select className={s.input} id="member-role" name="role" defaultValue={account.role} disabled={busy}>
+          <option value="participant">Participant</option>
+          <option value="volunteer">Volunteer — scan and mark attendance only</option>
+        </select>
+        <p className={s.hint}>Only master admins can change roles. Volunteers cannot manage accounts or tickets.</p>
+      </div>
+      <div className={s.field}>
         <label className={s.label} htmlFor="member-email">Email address</label>
         <input className={s.input} id="member-email" name="email" type="email" required maxLength={254} defaultValue={account.email} readOnly={!account.canEditEmail} disabled={busy} aria-invalid={Boolean(fields.email)} aria-describedby={`member-email-help${fields.email ? " member-email-error" : ""}`} />
         <p className={s.hint} id="member-email-help">{account.canEditEmail ? "Changing the login email removes its verified status and ends existing sessions." : "Google-linked accounts and master admins must keep their current sign-in email."}</p>
@@ -76,5 +96,11 @@ export default function AccountEditor({ account, onSaved }: { account: AdminAcco
     </form>
     {error && <p className={s.error} role="alert">{error}</p>}
     {saved && <p className={s.success} role="status">Account changes saved.</p>}
+    <div className={s.ticketActions}>
+      <h3 className={s.sectionHeading}>Event ticket</h3>
+      <p className={s.hint}>Generate a unique QR ticket for this account. Scanning it marks entry for the configured event.</p>
+      <button className={s.button} type="button" onClick={generateTicket} disabled={busy}>Generate unique ticket QR</button>
+      {ticketUrl && <a className={s.link} href={ticketUrl} target="_blank" rel="noreferrer">Open generated ticket QR</a>}
+    </div>
   </section>;
 }

@@ -8,5 +8,6 @@ export type AdminAccount = {
   name: string;
   createdAt: string;
   isAdmin: boolean;
+  role: "participant" | "volunteer";
   profile: Profile | null;
 };

@@ -1,4 +1,4 @@
-import { ApiError, apiFailure, privateJson, requireAdmin, requireSameOrigin } from "@/lib/api-access";
+import { ApiError, apiFailure, privateJson, requireCheckInStaff, requireSameOrigin } from "@/lib/api-access";
 import { readBoundedBody } from "@/lib/request-body";
 import { checkInTicket } from "@/lib/tickets";
 
@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   try {
     requireSameOrigin(request);
-    const session = await requireAdmin(request);
+    const session = await requireCheckInStaff(request);
     const raw = await readBoundedBody(request, 32 * 1024);
     let body: Record<string, unknown>;
     try {

@@ -1,6 +1,8 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { Binary, MongoServerError, ObjectId } from "mongodb";
+import { randomUUID } from "node:crypto";
+import QRCode from "qrcode";
 import { getDatabase } from "./mongodb";
 import { ApiError, objectId } from "./api-access";
 import { normalizeTicketImage } from "./ticket-image";
@@ -51,6 +53,24 @@ export async function uploadTicket(userId: string, form: FormData, actorId: stri
     if (error instanceof MongoServerError && error.code === 11000) throw new ApiError(409, "That QR code is already assigned to a ticket for this event. Use a unique ticket slip.");
     throw error;
   }
+  return publicTicket(document);
+}
+
+export async function generateAccountTicket(userId: string, actorId: string) {
+  const { db } = await getDatabase();
+  const user = await db.collection("gh_auth_user").findOne({ _id: objectId(userId) }, { projection: { _id: 1 } });
+  if (!user) throw new ApiError(404, "This account no longer exists.");
+  const event = (await import("./event")).eventConfig;
+  const eventName = `${event.entityName} V1`;
+  const eventDate = event.isoDate.slice(0, 10);
+  const qrData = `goldenhour:${randomUUID()}`;
+  const document: TicketDocument = {
+    _id: new ObjectId(), userId, eventName, eventDate, venue: event.venue,
+    eventKey: hash(`${eventName.normalize("NFKC").toLowerCase()}\\n${eventDate}`),
+    image: new Binary(await QRCode.toBuffer(qrData, { width: 1000, margin: 2 })), qrHash: hash(qrData), status: "issued",
+    createdAt: new Date(), uploadedBy: actorId, checkedInAt: null, checkedInBy: null,
+  };
+  await db.collection<TicketDocument>("gh_tickets").insertOne(document);
   return publicTicket(document);
 }
 

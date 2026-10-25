@@ -9,6 +9,6 @@ export const metadata: Metadata = { title: "Venue check-in | GoldenHour Delhi", 
 export default async function CheckInPage() {
   const account = await getCurrentAccount();
   if (!account) redirect("/login");
-  if (!account.isAdmin) redirect("/profile");
+  if (!account.isAdmin && account.role !== "volunteer") redirect("/profile");
   return <AdminShell active="check-in" title="Meet them at the door." description="Choose the event and scan the ticket QR. A valid first scan records entry; a used ticket cannot be admitted again."><CheckInScanner /></AdminShell>;
 }
