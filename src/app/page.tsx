@@ -5,6 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
 import Marquee from "@/components/Marquee";
 import { eventConfig } from "@/lib/event";
+import LoginLink from "@/components/auth/LoginLink";
+import authStyles from "@/components/auth/Auth.module.css";
 
 const events = [
   {
@@ -31,10 +33,13 @@ export default function Home() {
     <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor />
       <nav className="gh-company-nav" aria-label="GoldenHour Delhi navigation">
         <Link href="#top" className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
-        <div className="gh-company-links hidden md:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
+        <div className="gh-company-links hidden lg:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
           <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
         </div>
-        <Link href="#events" className="gh-explore brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
+        <div className={authStyles.landingActions}>
+          <LoginLink />
+          <Link href="#events" className="gh-explore brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
+        </div>
       </nav>
 
       <section id="top" className="gh-company-hero dot-pattern gh-home-print">

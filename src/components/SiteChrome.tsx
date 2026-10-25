@@ -6,6 +6,6 @@ import Navbar from "@/components/Navbar";
 
 export default function SiteChrome() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
+  if (["/", "/login", "/onboarding", "/profile"].includes(pathname)) return null;
   return <><CursorFollower /><Navbar /></>;
 }
