@@ -8,11 +8,12 @@ import { normalizeProfilePhoto } from "./profile-photo";
 import { validateProfileFields } from "./profile-schema";
 import type { AdminAccount } from "./admin-schema";
 
-type AccountDocument = { _id: ObjectId; email: string; emailVerified: boolean; name: string; createdAt: Date; updatedAt: Date };
+type AccountDocument = { _id: ObjectId; email: string; emailVerified: boolean; name: string; role?: "participant" | "volunteer"; createdAt: Date; updatedAt: Date };
 const publicAccount = (user: AccountDocument, profile: ProfileDocument | null, hasGoogleAccount: boolean): AdminAccount => ({
   id: String(user._id), email: user.email, emailVerified: user.emailVerified,
   canEditEmail: !isMasterAdminEmail(user.email) && !hasGoogleAccount,
   name: profile?.name ?? user.name, createdAt: user.createdAt.toISOString(), isAdmin: isMasterAdmin(user),
+  role: user.role === "volunteer" ? "volunteer" : "participant",
   profile: profile ? { ...publicProfile(profile), imageUrl: `/api/admin/accounts/${user._id}/photo` } : null,
 });
 const accountProjection = { email: 1, emailVerified: 1, name: 1, createdAt: 1, updatedAt: 1 };
@@ -89,6 +90,8 @@ export async function editAccount(id: string, form: FormData, actorId: string) {
     throw new ApiError(403, "Google-linked accounts must keep their Google sign-in email.", { email: "This email is tied to the account’s Google identity and cannot be changed." });
   }
   const name = form.get("name");
+  const role = form.get("role");
+  if (role !== "participant" && role !== "volunteer") throw new ApiError(400, "Choose a valid account role.");
   const dateOfBirth = form.get("dateOfBirth");
   const gender = form.get("gender");
   const image = form.get("photo");
@@ -107,7 +110,7 @@ export async function editAccount(id: string, form: FormData, actorId: string) {
   try {
     await transaction.withTransaction(async () => {
       const now = new Date();
-      await db.collection<AccountDocument>("gh_auth_user").updateOne({ _id: userId }, { $set: { name: validation.value.name, email, updatedAt: now, ...(emailChanged ? { emailVerified: false } : {}) } }, { session: transaction });
+      await db.collection<AccountDocument>("gh_auth_user").updateOne({ _id: userId }, { $set: { name: validation.value.name, email, role, updatedAt: now, ...(emailChanged ? { emailVerified: false } : {}) } }, { session: transaction });
       if (hasProfileData) {
         await db.collection<ProfileDocument>("gh_profiles").updateOne({ _id: id }, {
           $set: { ...validation.value, ...(photo ? { photo: new Binary(photo) } : {}) },

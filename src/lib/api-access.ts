@@ -30,6 +30,16 @@ export async function requireAdmin(request: Request) {
   return session;
 }
 
+export async function requireCheckInStaff(request: Request) {
+  const session = await requireSession(request);
+  if (isMasterAdmin(session.user)) return session;
+  const { getDatabase } = await import("./mongodb");
+  const { db } = await getDatabase();
+  const role = (await db.collection("gh_auth_user").findOne({ _id: new ObjectId(session.user.id) }, { projection: { role: 1 } }))?.role;
+  if (role !== "volunteer") throw new ApiError(403, "Only admins and volunteers can scan tickets.");
+  return session;
+}
+
 export function requireSameOrigin(request: Request) {
   if (request.headers.get("origin") !== getAuthEnvironment().baseURL || request.headers.get("sec-fetch-site") === "cross-site") {
     throw new ApiError(403, "Reload this page and try again.");
