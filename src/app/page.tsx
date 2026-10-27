@@ -111,7 +111,7 @@ export default function Home() {
             </div>
             </HoloCard>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[1100px] mx-auto mt-8">
+          <div className="grid sm:grid-cols-2 gap-7 max-w-[1100px] mx-auto mt-8">
             <HoloCard>
             <div className="brutal-card gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
               <div className="relative w-full aspect-[3/4] border-b-2 border-black">
@@ -132,17 +132,6 @@ export default function Home() {
               <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
                 <p className="font-space text-[10px] text-black/50 tracking-widest mb-4">CO-ORGANISER / 04</p>
                 <h3 className="font-archivo text-2xl md:text-3xl">YASHPAL<span className="text-sunset">.</span></h3>
-              </div>
-            </div>
-            </HoloCard>
-            <HoloCard>
-            <div className="brutal-card-black gh-home-people-card p-0 text-center overflow-hidden flex flex-col">
-              <div className="relative w-full aspect-[3/4] border-b-2 border-black">
-                <Image src="/himanish.jpg" alt="Himanish Salgotra" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 400px" />
-              </div>
-              <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
-                <p className="font-space text-[10px] text-sunset tracking-widest mb-4">CO-ORGANISER / 05</p>
-                <h3 className="font-archivo text-2xl md:text-3xl text-offwhite">HIMANISH<br />SALGOTRA<span className="text-sunset">.</span></h3>
               </div>
             </div>
             </HoloCard>
