@@ -8,6 +8,7 @@ import s from "./Admin.module.css";
 type ScanResult = { accepted: boolean; ticket: Ticket; holder: { name: string; email: string } };
 
 export default function CheckInScanner() {
+  const [serialNumber, setSerialNumber] = useState("");
   const [events, setEvents] = useState<TicketEvent[]>([]);
   const [eventKey, setEventKey] = useState("");
   const [loadingEvents, setLoadingEvents] = useState(true);
@@ -58,15 +59,15 @@ export default function CheckInScanner() {
     setStarting(false);
   }
 
-  async function checkIn(qrData: string) {
+  async function checkIn(qrData: string, serial?: string) {
     if (!mounted.current || requestBusy.current) return;
     stopCamera();
     if (!eventKey) { setError("Select an event before scanning a ticket."); return; }
-    if (!qrData || qrData.length > MAX_QR_LENGTH) { setError("This QR code is not supported. Use the ticket slip for this event."); return; }
+    if (!serial && (!qrData || qrData.length > MAX_QR_LENGTH)) { setError("This QR code is not supported. Use the ticket slip for this event."); return; }
     requestBusy.current = true;
     setBusy(true); setError("");
     try {
-      const response = await fetch("/api/admin/check-in", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventKey, qrData }) });
+      const response = await fetch("/api/admin/check-in", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventKey, qrData, ...(serial ? { serialNumber: serial } : {}) }) });
       const data = await response.json();
       if (!mounted.current) return;
       if ((response.ok || response.status === 409) && data.ticket && data.holder) {
@@ -170,6 +171,11 @@ export default function CheckInScanner() {
       </div>
       {eventError && <p role="alert" className={s.error}>{eventError} Reload the page to try again.</p>}
       {!loadingEvents && !events.length && !eventError && <p className={s.notice}>Upload at least one ticket from Accounts before checking in members.</p>}
+      <form className={s.section} onSubmit={(event) => { event.preventDefault(); void checkIn("", serialNumber); }}>
+        <label className={s.label} htmlFor="ticket-serial">Check in by serial number</label>
+        <input id="ticket-serial" className={s.input} value={serialNumber} onChange={(event) => setSerialNumber(event.target.value)} placeholder="GH-�" autoCapitalize="characters" autoComplete="off" required disabled={busy || decoding || Boolean(result)} />
+        <button className={s.button} type="submit" disabled={!eventKey || !serialNumber.trim() || busy || decoding || Boolean(result)}>Check in participant</button>
+      </form>
       <div className={s.camera}>
         <video ref={video} autoPlay playsInline muted hidden={!running} aria-label="Live ticket scanning camera" />
         {!running && <p className={s.cameraHelp}>{busy ? "Checking ticket…" : decoding ? "Reading ticket image…" : starting ? "Waiting for camera access…" : "Select the event, start the camera, and hold the ticket QR inside the view."}</p>}
@@ -190,7 +196,7 @@ export default function CheckInScanner() {
       {result ? <div role="status" className={result.accepted ? s.success : s.notice}>
         <h2 className={s.resultTitle} ref={resultHeading} tabIndex={-1}>{result.accepted ? "Entry confirmed." : "Already checked in."}</h2>
         <p>{result.accepted ? "This ticket has been used. Admit this member." : "This ticket has already been used. Do not admit another entry with it."}</p>
-        <dl><div><dt>Member</dt><dd>{result.holder.name}</dd></div><div><dt>Email</dt><dd>{result.holder.email}</dd></div><div><dt>Event</dt><dd>{result.ticket.eventName}</dd></div>{result.ticket.checkedInAt && <div><dt>Checked in</dt><dd>{new Date(result.ticket.checkedInAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" })} IST</dd></div>}</dl>
+        <dl><div><dt>Member</dt><dd>{result.holder.name}</dd></div><div><dt>Email</dt><dd>{result.holder.email}</dd></div><div><dt>Serial</dt><dd>{result.ticket.serialNumber}</dd></div><div><dt>Event</dt><dd>{result.ticket.eventName}</dd></div>{result.ticket.checkedInAt && <div><dt>Checked in</dt><dd>{new Date(result.ticket.checkedInAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" })} IST</dd></div>}</dl>
       </div> : <><h2>Ready for the next builder.</h2><p className={s.hint}>{selectedEvent ? `Checking tickets for ${selectedEvent.name}.` : "Select the event to begin."} Each ticket can be checked in once. The entry result and member’s details will appear here.</p></>}
     </section>
   </div>;

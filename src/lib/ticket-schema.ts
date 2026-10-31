@@ -6,6 +6,7 @@ export const MAX_QR_LENGTH = 4096;
 
 export type Ticket = {
   id: string;
+  serialNumber: string;
   userId: string;
   eventKey: string;
   eventName: string;
@@ -37,4 +38,10 @@ export function validateTicketDetails(input: Record<string, unknown>) {
 
 export function canViewTicket(ticket: { userId: string }, viewerId: string, admin: boolean) {
   return admin || ticket.userId === viewerId;
+}
+
+export function normalizeTicketSerial(value: unknown): string {
+  const serial = typeof value === "string" ? value.trim().toUpperCase() : "";
+  if (!/^GH-[A-F0-9]{24}$/.test(serial)) throw new Error("Enter a valid GH- ticket serial number.");
+  return serial;
 }

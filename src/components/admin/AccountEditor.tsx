@@ -99,8 +99,8 @@ export default function AccountEditor({ account, onSaved }: { account: AdminAcco
     <div className={s.ticketActions}>
       <h3 className={s.sectionHeading}>Event ticket</h3>
       <p className={s.hint}>Generate a unique QR ticket for this account. Scanning it marks entry for the configured event.</p>
-      <button className={s.button} type="button" onClick={generateTicket} disabled={busy}>Generate unique ticket QR</button>
-      {ticketUrl && <a className={s.link} href={ticketUrl} target="_blank" rel="noreferrer">Open generated ticket QR</a>}
+      <button className={s.button} type="button" onClick={generateTicket} disabled={busy}>Generate participant ticket</button>
+      {ticketUrl && <a className={s.link} href={ticketUrl} target="_blank" rel="noreferrer">Open generated ticket</a>}
     </div>
   </section>;
 }
