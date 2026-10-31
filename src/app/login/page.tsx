@@ -4,7 +4,7 @@ import { getCurrentAccount } from "@/lib/account";
 import AuthShell from "@/components/auth/AuthShell";
 import LoginForm from "@/components/auth/LoginForm";
 
-export const metadata: Metadata = { title: "Log in | GoldenHour Delhi", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Log in | GoldenHour Delhi", description: "Sign in to manage your GoldenHour profile and view your private event tickets.", robots: { index: false, follow: false } };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const account = await getCurrentAccount();

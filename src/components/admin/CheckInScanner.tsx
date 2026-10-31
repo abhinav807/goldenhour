@@ -173,7 +173,7 @@ export default function CheckInScanner() {
       {!loadingEvents && !events.length && !eventError && <p className={s.notice}>Upload at least one ticket from Accounts before checking in members.</p>}
       <form className={s.section} onSubmit={(event) => { event.preventDefault(); void checkIn("", serialNumber); }}>
         <label className={s.label} htmlFor="ticket-serial">Check in by serial number</label>
-        <input id="ticket-serial" className={s.input} value={serialNumber} onChange={(event) => setSerialNumber(event.target.value)} placeholder="GH-…" autoCapitalize="characters" autoComplete="off" required disabled={busy || decoding || Boolean(result)} />
+        <input id="ticket-serial" className={s.input} value={serialNumber} onChange={(event) => setSerialNumber(event.target.value)} placeholder="GH-507F1F77BCF86CD799439011" autoCapitalize="characters" autoComplete="off" required disabled={busy || decoding || Boolean(result)} />
         <button className={s.button} type="submit" disabled={!eventKey || !serialNumber.trim() || busy || decoding || Boolean(result)}>Check in participant</button>
       </form>
       <div className={s.camera}>

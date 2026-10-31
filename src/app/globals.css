@@ -325,3 +325,15 @@ body:has(.cookie-banner) .back-to-top { display: none !important; }
 /* Give dark sponsor cards the same clear neo-brutalist boundaries as light cards. */
 .event-page-root #sponsors .brutal-card.bg-black { background: color-mix(in srgb, var(--gh-ink) 96%, var(--gh-paper)); border-color: rgb(var(--gh-paper-rgb) / .55); box-shadow: 7px 7px 0 #ff5a00; }
 .event-page-root #sponsors .brutal-card.bg-black:hover { box-shadow: 11px 11px 0 #ff5a00; }
+
+/* Keep long user content inside narrow layouts without shrinking tap targets. */
+:where(main, section, article, form, fieldset) { min-width: 0; }
+:where(input, select, textarea, img, video, canvas) { max-width: 100%; }
+:where(address, dd) { overflow-wrap: anywhere; }
+.gh-home-menu { position: relative; font: bold 10px monospace; }
+.gh-home-menu summary { cursor: pointer; padding: 12px 6px; }
+.gh-home-menu > div { position: absolute; top: 100%; right: 0; min-width: 160px; background: var(--gh-paper); border: 2px solid var(--gh-ink); padding: 8px; z-index: 60; }
+.gh-home-menu a { display: block; padding: 12px; }
+@media(max-width: 767px) { .gh-company-page { padding-bottom: calc(80px + env(safe-area-inset-bottom)); } }
+
+@media(max-width: 639px) { .gh-home-menu { grid-row: 2; grid-column: 2; justify-self: center; } }

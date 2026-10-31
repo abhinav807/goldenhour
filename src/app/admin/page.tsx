@@ -5,7 +5,7 @@ import { listAccounts } from "@/lib/admin-accounts";
 import AdminShell from "@/components/admin/AdminShell";
 import AccountsDashboard from "@/components/admin/AccountsDashboard";
 
-export const metadata: Metadata = { title: "Manage accounts | GoldenHour Delhi", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Manage accounts | GoldenHour Delhi", description: "Manage GoldenHour participant accounts and event tickets.", robots: { index: false, follow: false } };
 
 export default async function AdminPage() {
   const account = await getCurrentAccount();

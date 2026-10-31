@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
   const forwardedProto = request.headers.get("x-forwarded-proto");
-  const enforceHttps = process.env.ENABLE_HTTPS_REDIRECT === "true";
+  const enforceHttps = process.env.ENABLE_HTTPS_REDIRECT === "true" || (process.env.NODE_ENV === "production" && process.env.ENABLE_HTTPS_REDIRECT !== "false");
   if (enforceHttps && forwardedProto === "http") {
     const url = request.nextUrl.clone();
     url.protocol = "https:";

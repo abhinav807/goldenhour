@@ -16,7 +16,7 @@ const publicAccount = (user: AccountDocument, profile: ProfileDocument | null, h
   role: user.role === "volunteer" ? "volunteer" : "participant",
   profile: profile ? { ...publicProfile(profile), imageUrl: `/api/admin/accounts/${user._id}/photo` } : null,
 });
-const accountProjection = { email: 1, emailVerified: 1, name: 1, createdAt: 1, updatedAt: 1 };
+const accountProjection = { role: 1, email: 1, emailVerified: 1, name: 1, createdAt: 1, updatedAt: 1 };
 
 export async function getAccount(id: string) {
   const { db } = await getDatabase();

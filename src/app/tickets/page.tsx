@@ -7,7 +7,7 @@ import { getCurrentAccount } from "@/lib/account";
 import { listUserTickets } from "@/lib/tickets";
 import s from "@/components/tickets/Tickets.module.css";
 
-export const metadata: Metadata = { title: "My tickets | GoldenHour Delhi", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "My tickets | GoldenHour Delhi", description: "View and download your personal GoldenHour entry tickets.", robots: { index: false, follow: false } };
 
 export default async function TicketsPage() {
   const account = await getCurrentAccount();

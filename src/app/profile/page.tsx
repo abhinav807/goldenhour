@@ -4,7 +4,7 @@ import { getCurrentAccount } from "@/lib/account";
 import AuthShell from "@/components/auth/AuthShell";
 import ProfileSummary from "@/components/auth/ProfileSummary";
 
-export const metadata: Metadata = { title: "Your profile | GoldenHour Delhi", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Your profile | GoldenHour Delhi", description: "View and manage your private GoldenHour participant profile.", robots: { index: false, follow: false } };
 
 export default async function ProfilePage() {
   const account = await getCurrentAccount();

@@ -4,7 +4,7 @@ import { getCurrentAccount } from "@/lib/account";
 import AuthShell from "@/components/auth/AuthShell";
 import ProfileForm from "@/components/auth/ProfileForm";
 
-export const metadata: Metadata = { title: "Create your profile | GoldenHour Delhi", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Create your profile | GoldenHour Delhi", description: "Complete your participant profile for GoldenHour Delhi.", robots: { index: false, follow: false } };
 
 export default async function OnboardingPage() {
   const account = await getCurrentAccount();

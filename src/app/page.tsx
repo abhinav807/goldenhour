@@ -1,4 +1,7 @@
 import Link from "next/link";
+import MobileCTA from "@/components/MobileCTA";
+import { pageMetadata } from "./metadata";
+export const metadata = pageMetadata("GoldenHour Delhi — Free Student Hackathon", "Build, learn and meet fellow student creators at GoldenHour Delhi. Explore our free hackathon for ages 13–19 in Delhi NCR.", "/");
 import Image from "next/image";
 import HoloCard from "@/components/HoloCard";
 import { RetroStamp, RetroMeter } from "@/components/RetroStamp";
@@ -34,13 +37,14 @@ function SectionTape({ dark = false }: { dark?: boolean }) {
 
 export default function Home() {
   return (
-    <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor />
+    <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor /><MobileCTA />
       <nav className={`gh-company-nav ${navStyles.companyNav}`} aria-label="GoldenHour Delhi navigation">
         <Link href={eventConfig.siteUrl} className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
         <div className="gh-company-links hidden lg:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
           <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="#founders">FOUNDERS</Link><Link href="#contact">CONTACT</Link>
         </div>
         <div className={authStyles.landingActions}>
+          <details className="gh-home-menu lg:hidden"><summary aria-label="Open navigation">MENU</summary><div><Link href="#about">About</Link><Link href="#events">Hackathons</Link><Link href="#founders">Founders</Link><Link href="#contact">Contact</Link></div></details>
           <LoginLink />
           <Link href="#events" className="gh-explore brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
           <ThemeToggle />

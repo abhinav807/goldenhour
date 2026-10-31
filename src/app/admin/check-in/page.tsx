@@ -4,7 +4,7 @@ import { getCurrentAccount } from "@/lib/account";
 import AdminShell from "@/components/admin/AdminShell";
 import CheckInScanner from "@/components/admin/CheckInScanner";
 
-export const metadata: Metadata = { title: "Venue check-in | GoldenHour Delhi", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Venue check-in | GoldenHour Delhi", description: "Check in GoldenHour participants by scanning a QR or entering their ticket serial.", robots: { index: false, follow: false } };
 
 export default async function CheckInPage() {
   const account = await getCurrentAccount();
