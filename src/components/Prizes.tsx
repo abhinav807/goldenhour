@@ -65,7 +65,7 @@ export default function Prizes() {
         </div>
       </div>
 
-      <p className="font-space text-[9px]' text-offwhite/40 uppercase mt-8 text-center">Prize sponsor: <a href={eventConfig.codeCraftersUrl} target="_blank" rel="noreferrer" className="underline hover:text-sunset">CodeCrafters</a> · Gift sponsor: {eventConfig.giftSponsor}</p>
+      <p className="font-space text-[9px]' text-offwhite/40 uppercase mt-8 text-center">Prize sponsor: <a href={eventConfig.codeCraftersUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-sunset">CodeCrafters</a> · Gift sponsor: {eventConfig.giftSponsor}</p>
     </div>
   </section>;
 }

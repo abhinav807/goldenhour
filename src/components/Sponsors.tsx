@@ -54,7 +54,7 @@ export default function Sponsors() {
           const centeredLastCard = sponsors.length % 2 === 1 && index === sponsors.length - 1 ? "sm:col-span-2 sm:max-w-[538px] sm:mx-auto w-full" : "";
           const className = `${cardClass} ${toneClass} ${centeredLastCard}`;
           return sponsor.href
-            ? <a key={sponsor.name} href={sponsor.href} target="_blank" rel="noreferrer" className={className}><SponsorContent sponsor={sponsor} /></a>
+            ? <a key={sponsor.name} href={sponsor.href} target="_blank" rel="noopener noreferrer" className={className}><SponsorContent sponsor={sponsor} /></a>
             : <article key={sponsor.name} className={className}><SponsorContent sponsor={sponsor} /></article>;
         })}
       </div>
@@ -63,7 +63,7 @@ export default function Sponsors() {
         <h3 className="font-archivo text-4xl md:text-6xl leading-[.82]">SPONSOR<br />SLOTS<br /><span className="text-offwhite">OPEN.</span></h3>
         <p className="font-dm text-base md:text-lg mt-8 max-w-md mx-auto leading-relaxed">Want to support student builders or sponsor a future GOLDENHOUR edition? Email the organizing team to start a conversation.</p>
         <a href="mailto:hello@goldenhourdelhi.co.in?subject=GOLDENHOUR%20sponsorship" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-8 hover:text-offwhite">CONTACT US TO SPONSOR <ArrowUpRight size={15} aria-hidden="true" /></a>
-        <a href={eventConfig.volunteerUrl} target="_blank" rel="noreferrer" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-5 text-black/65 hover:text-offwhite">VOLUNTEER WITH US <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a href={eventConfig.volunteerUrl} target="_blank" rel="noopener noreferrer" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-5 text-black/65 hover:text-offwhite">VOLUNTEER WITH US <ArrowUpRight size={15} aria-hidden="true" /></a>
       </div>
       <p className="font-space text-[10px] text-offwhite/55 uppercase tracking-[.16em] mt-10 text-center reveal">GOLDENHOUR / CODECRAFTERS / INTERVIEW BUDDY / OSEN / SEWAN FOODS / N8N</p>
     </div>

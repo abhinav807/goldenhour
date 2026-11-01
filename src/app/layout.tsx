@@ -1,3 +1,4 @@
+import { eventConfig } from "@/lib/event";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./retro.css";
@@ -25,5 +26,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN" className="antialiased" data-theme="light" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem("gh-theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){}})()` }} /></head><body className="min-h-screen crt-page"><SiteStructuredData /><IntroLoader /><SiteChrome />{children}<CookieBanner /><Analytics /></body></html>;
+  return <html lang="en-IN" className="antialiased" data-theme="light" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem("gh-theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){}})()` }} /></head><body className="min-h-screen crt-page"><a href="#site-content" className="skip-link">SKIP TO MAIN CONTENT</a><SiteStructuredData /><IntroLoader /><SiteChrome /><div id="site-content" tabIndex={-1}>{children}</div><footer className="bg-black text-offwhite px-5 py-6 text-center font-space text-xs flex flex-wrap justify-center gap-6"><a href="/parents">Parents &amp; Guardians</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href={eventConfig.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a><a href={eventConfig.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a></footer><CookieBanner /><Analytics /></body></html>;
 }

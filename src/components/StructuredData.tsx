@@ -1,4 +1,4 @@
-import { eventConfig, faqItems } from "@/lib/event";
+import { primaryRegistration, eventConfig, faqItems } from "@/lib/event";
 
 const organization = {
   "@type": "Organization",
@@ -23,7 +23,7 @@ export function EventStructuredData() {
     "@id": `${eventConfig.siteUrl}/goldenhour#event`,
     name: "GoldenHour V1 — Free 12-Hour Student Build Day",
     alternateName: eventConfig.alternateName,
-    description: `${eventConfig.description} Event date is 14 November 2026; venue is to be announced. Registration is open.`,
+    description: `${eventConfig.description} Event date is 14 November 2026; venue is to be announced. ${primaryRegistration.message}`,
     startDate: eventConfig.isoDate,
     endDate: eventConfig.endIsoDate,
     eventStatus: "https://schema.org/EventScheduled",
@@ -37,7 +37,8 @@ export function EventStructuredData() {
       { "@type": "Organization", name: eventConfig.giftSponsor },
     ],
     isAccessibleForFree: true,
-    offers: { "@type": "Offer", url: eventConfig.registrationUrl, price: 0, priceCurrency: "INR", availability: "https://schema.org/InStock", description: "Free registration is open." },
+    offers: { "@type": "Offer", url: eventConfig.registrationUrl, price: 0, priceCurrency: "INR", availability: eventConfig.registrationOpen ? "https://schema.org/InStock" : "https://schema.org/SoldOut", description: primaryRegistration.message },
+    typicalAgeRange: "13-19",
     audience: { "@type": "Audience", audienceType: "Participants aged 13–19 on the event date (under 20)" },
     image: `${eventConfig.siteUrl}/og/goldenhour.png`,
   };

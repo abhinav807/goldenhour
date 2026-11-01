@@ -1,3 +1,4 @@
+import Organizers from "@/components/Organizers";
 import Link from "next/link";
 import MobileCTA from "@/components/MobileCTA";
 import { pageMetadata } from "./metadata";
@@ -8,7 +9,7 @@ import { RetroStamp, RetroMeter } from "@/components/RetroStamp";
 import { ArrowUpRight } from "lucide-react";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
 import Marquee from "@/components/Marquee";
-import { eventConfig } from "@/lib/event";
+import { primaryRegistration, eventConfig } from "@/lib/event";
 import LoginLink from "@/components/auth/LoginLink";
 import TechHeading from "@/components/TechHeading";
 import authStyles from "@/components/auth/Auth.module.css";
@@ -37,7 +38,7 @@ function SectionTape({ dark = false }: { dark?: boolean }) {
 
 export default function Home() {
   return (
-    <main className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor /><MobileCTA />
+    <><a href="#home-content" className="skip-link">SKIP TO MAIN CONTENT</a><main id="home-content" className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor /><MobileCTA />
       <nav className={`gh-company-nav ${navStyles.companyNav}`} aria-label="GoldenHour Delhi navigation">
         <Link href={eventConfig.siteUrl} className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
         <div className="gh-company-links hidden lg:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
@@ -57,7 +58,7 @@ export default function Home() {
           <span className="gh-home-issue mb-6">INDEPENDENT BUILD CULTURE / ISSUE 01</span><p className="font-space text-xs font-bold tracking-[.2em] text-sunset mb-7">GOLDENHOUR DELHI / DELHI NCR / INDIA</p>
           <TechHeading as="h1" inline lines={["GOLDEN", { text: "HOUR", className: "text-sunset" }, { text: ".", className: "text-offwhite" }]} className="font-archivo text-[clamp(4rem,18vw,120px)] sm:text-[clamp(5rem,15vw,140px)] md:text-[clamp(4rem,9vw,130px)] leading-[.76] tracking-[-.08em] max-w-6xl mx-auto" />
           <div className="mt-12 flex flex-col items-center gap-8 max-w-5xl mx-auto">
-            <p className="font-archivo text-2xl md:text-5xl leading-[.9] max-w-2xl mx-auto text-center">BUILD BEFORE SUNRISE.</p>
+            <p className="font-archivo text-2xl md:text-5xl leading-[.9] max-w-2xl mx-auto text-center">BUILD. IMPROVE. REPEAT.</p>
             <Link href="#events" className="brutal-btn-orange px-7 py-4 justify-center">VIEW GOLDENHOUR V1 <ArrowUpRight size={18} /></Link>
           </div>
         </div>
@@ -74,17 +75,18 @@ export default function Home() {
 
       <SectionTape dark />
       <section id="events" className="bg-sunset gh-home-orange px-5 md:px-10 py-20 md:py-28 border-b-4 border-black">
-          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><TechHeading lines={["PICK YOUR", { text: "BUILD.", className: "text-offwhite" }]} className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6" /></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <RetroStamp key={event.name} edge="all" serial={`SYSTEM 2026 / GH.01 / EVENT 0${i + 1}`} status="REGISTRATION OPEN" contentClassName="text-center flex flex-col items-center">
+          <div className="max-w-[1200px] mx-auto"><div className="text-center mb-14"><p className="gh-kicker">02 / UPCOMING HACKATHONS</p><TechHeading lines={["PICK YOUR", { text: "BUILD.", className: "text-offwhite" }]} className="font-archivo text-5xl sm:text-7xl md:text-8xl leading-[.8] mt-6" /></div><div className="grid max-w-2xl mx-auto gap-8">{events.map((event, i) => <RetroStamp key={event.name} edge="all" serial={`SYSTEM 2026 / GH.01 / EVENT 0${i + 1}`} status="{primaryRegistration.message}" contentClassName="text-center flex flex-col items-center">
             <div className="flex w-full justify-center items-center gap-4 my-8"><span className="font-space text-[10px] font-bold px-3 py-2 bg-black text-sunset">0{i + 1}</span><span className="font-space text-[10px] font-bold uppercase text-black/60">{event.date}</span></div>
             <p className="font-space text-[10px] tracking-widest font-bold mb-4 text-black/60">{event.type}</p>
             <h3 className="font-archivo text-4xl md:text-6xl leading-[.82] mb-7">{event.name}</h3>
             <p className="font-dm text-lg leading-relaxed max-w-lg mb-8 text-black/75">{event.description}</p>
             <div className="w-full mb-8"><RetroMeter label="Free entry" value={100} valueLabel="100% FREE" /></div>
-            {event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}
+            {event.internal ? <Link href={event.href} className="brutal-btn-orange">{event.action} <ArrowUpRight size={18} /></Link> : <a href={event.href} target="_blank" rel="noopener noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black gh-falling-btn">{event.action} <ArrowUpRight size={18} /></a>}
           </RetroStamp>)}</div></div>
       </section>
 
       <SectionTape />
+      <Organizers />
       <section id="founders" className="gh-home-editorial px-5 md:px-10 py-20 md:py-28 border-b-4 border-black">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-14">
@@ -147,7 +149,7 @@ export default function Home() {
       <SectionTape />
       <section className="bg-black gh-home-dark text-offwhite px-5 md:px-10 py-20 md:py-28 border-b-4 border-sunset"><div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center"><div><p className="gh-kicker text-sunset">04 / THE STANDARD</p><TechHeading lines={["A MOVEMENT", { text: "IN THE MAKING.", className: "text-sunset" }]} className="font-archivo text-5xl md:text-5xl lg:text-6xl leading-[1.08] mt-6" /></div><div className="grid grid-cols-2 gap-3">{principles.map((principle, i) => <div key={principle} className="border border-offwhite/20 p-5 min-h-32 flex items-center justify-center text-center"><p className="font-space text-xs font-bold leading-relaxed">0{i + 1}<br /><span className="text-sunset">{principle}</span></p></div>)}</div></div></section>
 
-      <footer id="contact" className="bg-sunset gh-home-orange px-5 md:px-10 py-16"><div className="max-w-[1200px] mx-auto grid md:grid-cols-[1.15fr_.85fr_1fr] gap-10 items-start text-center"><div><p className="font-space text-xs font-bold tracking-widest mb-5">GOLDENHOUR DELHI / DELHI NCR / INDIA</p><TechHeading lines={["LET'S BUILD", { text: "TOGETHER.", className: "text-offwhite" }]} className="font-archivo text-5xl md:text-7xl leading-[.8]" /><a href="mailto:hello@goldenhourdelhi.co.in" className="inline-block font-archivo text-xl underline underline-offset-4 mt-8">hello@goldenhourdelhi.co.in</a><div className="flex justify-center gap-4 mt-6"><a href="https://www.linkedin.com/company/goldenhourdelhi/" target="_blank" rel="noreferrer" aria-label="GoldenHour on LinkedIn" className="p-3 border-2 border-black hover:bg-black hover:text-sunset transition-colors"><LinkedinMark /></a><a href="https://www.instagram.com/goldenhour.delhi/" target="_blank" rel="noreferrer" aria-label="GoldenHour on Instagram" className="p-3 border-2 border-black hover:bg-black hover:text-sunset transition-colors"><InstagramMark /></a></div></div><div><p className="font-space text-[10px] font-bold tracking-[.16em] mb-5">MAIN WEBSITE</p><nav aria-label="Main website pages" className="flex flex-col gap-3 font-space text-xs"><a href="#about" className="hover:underline">ABOUT</a><a href="#events" className="hover:underline">HACKATHONS</a><a href="#founders" className="hover:underline">FOUNDERS</a><a href="#contact" className="hover:underline">CONTACT</a></nav></div><div><p className="font-space text-[10px] font-bold tracking-[.16em] mb-5">EVENT &amp; LEGAL</p><nav aria-label="Event and legal pages" className="flex flex-col gap-3 font-space text-xs"><a href="/goldenhour" className="hover:underline">GOLDENHOUR V1</a><a href="/goldenhour#faq" className="hover:underline">FAQ</a><a href="/code-of-conduct" className="hover:underline">CODE OF CONDUCT</a><a href="/privacy" className="hover:underline">PRIVACY</a><a href="/terms" className="hover:underline">TERMS</a></nav></div></div><div className="max-w-[1200px] mx-auto mt-16 pt-5 border-t border-black/30 flex flex-col md:flex-row justify-between gap-3 font-space text-[10px] font-bold text-center"><span>GOLDENHOUR DELHI © 2026</span><span>BUILD. IMPROVE. REPEAT.</span></div></footer>
-    </main>
+      <footer id="contact" className="bg-sunset gh-home-orange px-5 md:px-10 py-16"><div className="max-w-[1200px] mx-auto grid md:grid-cols-[1.15fr_.85fr_1fr] gap-10 items-start text-center"><div><p className="font-space text-xs font-bold tracking-widest mb-5">GOLDENHOUR DELHI / DELHI NCR / INDIA</p><TechHeading lines={["LET'S BUILD", { text: "TOGETHER.", className: "text-offwhite" }]} className="font-archivo text-5xl md:text-7xl leading-[.8]" /><a href="mailto:hello@goldenhourdelhi.co.in" className="inline-block font-archivo text-xl underline underline-offset-4 mt-8">hello@goldenhourdelhi.co.in</a><div className="flex justify-center gap-4 mt-6"><a href="https://www.linkedin.com/company/goldenhourdelhi/" target="_blank" rel="noopener noreferrer" aria-label="GoldenHour on LinkedIn" className="p-3 border-2 border-black hover:bg-black hover:text-sunset transition-colors"><LinkedinMark /></a><a href="https://www.instagram.com/goldenhour.delhi/" target="_blank" rel="noopener noreferrer" aria-label="GoldenHour on Instagram" className="p-3 border-2 border-black hover:bg-black hover:text-sunset transition-colors"><InstagramMark /></a></div></div><div><p className="font-space text-[10px] font-bold tracking-[.16em] mb-5">MAIN WEBSITE</p><nav aria-label="Main website pages" className="flex flex-col gap-3 font-space text-xs"><a href="#about" className="hover:underline">ABOUT</a><a href="#events" className="hover:underline">HACKATHONS</a><a href="#founders" className="hover:underline">FOUNDERS</a><a href="#contact" className="hover:underline">CONTACT</a></nav></div><div><p className="font-space text-[10px] font-bold tracking-[.16em] mb-5">EVENT &amp; LEGAL</p><nav aria-label="Event and legal pages" className="flex flex-col gap-3 font-space text-xs"><a href="/goldenhour" className="hover:underline">GOLDENHOUR V1</a><a href="/goldenhour#faq" className="hover:underline">FAQ</a><a href="/code-of-conduct" className="hover:underline">CODE OF CONDUCT</a><a href="/privacy" className="hover:underline">PRIVACY</a><a href="/terms" className="hover:underline">TERMS</a></nav></div></div><div className="max-w-[1200px] mx-auto mt-16 pt-5 border-t border-black/30 flex flex-col md:flex-row justify-between gap-3 font-space text-[10px] font-bold text-center"><span>GOLDENHOUR DELHI © 2026</span><span>BUILD. IMPROVE. REPEAT.</span></div></footer>
+    </main></>
   );
 }

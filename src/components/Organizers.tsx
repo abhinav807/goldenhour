@@ -1,27 +1,14 @@
 "use client";
 
+import { team } from "@/lib/team";
 import TechHeading from "@/components/TechHeading";
 import { ArrowUpRight } from "lucide-react";
 
 type Person = { num: string; name: string; role: string };
 
 const groups: Array<{ title: string; people: Person[]; tone: "dark" | "sunset" | "light" }> = [
-  {
-    title: "LEAD ORGANISERS",
-    tone: "dark",
-    people: [
-      { num: "01", name: "ABHINAV GOYAL", role: "LEAD ORGANISER / BUILDER" },
-      { num: "02", name: "DIVYA", role: "LEAD ORGANISER / BUILDER" },
-      { num: "03", name: "ANURAG", role: "LEAD ORGANISER" },
-    ],
-  },
-  {
-    title: "CO-ORGANISERS",
-    tone: "sunset",
-    people: [
-      { num: "04", name: "YASHPAL YADAV", role: "CO-ORGANISER" },
-    ],
-  },
+ { title: "LEAD ORGANISERS", tone: "dark", people: team.filter((person) => person.group === "lead") },
+ { title: "CO-ORGANISERS", tone: "sunset", people: team.filter((person) => person.group === "co") },
 ];
 
 const toneClasses = {

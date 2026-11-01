@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 interface MarqueeProps {
   reverse?: boolean;
   speed?: number;
@@ -6,6 +8,7 @@ interface MarqueeProps {
 }
 
 export default function Marquee({ reverse = false, speed = 35, bg = "bg-black", borderColor = "border-sunset" }: MarqueeProps) {
+  const [paused, setPaused] = useState(false);
   const items = [
     "GOLDENHOUR",
     "BUILD SOMETHING",
@@ -22,11 +25,12 @@ export default function Marquee({ reverse = false, speed = 35, bg = "bg-black", 
   ];
 
   return (
-    <section className={`${bg} gh-marquee-print overflow-hidden border-y-2 ${borderColor} py-4 md:py-5 w-full`} aria-hidden="true">
-      <div className="overflow-hidden whitespace-nowrap">
+    <section className={`${bg} gh-marquee-print overflow-hidden border-y-2 ${borderColor} py-4 md:py-5 w-full`}>
+      <button type="button" className="font-space text-xs min-h-11 px-4 text-offwhite bg-black" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? "RESUME MOTION" : "PAUSE MOTION"}</button>
+      <div aria-hidden="true" className="overflow-hidden whitespace-nowrap">
         <div
           className="inline-flex whitespace-nowrap font-archivo text-xl md:text-3xl lg:text-4xl"
-          style={{
+          style={{ animationPlayState: paused ? "paused" : "running",
             animation: `${reverse ? "marquee-reverse" : "marquee"} ${speed}s linear infinite`,
           }}
         >

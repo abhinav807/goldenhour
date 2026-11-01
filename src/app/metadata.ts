@@ -5,7 +5,8 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || eventConfig.siteUrl)
 export const baseDescription: string = eventConfig.description;
 export const defaultOgImage = { url: "/og/home.png", width: 1200, height: 630, alt: "GoldenHour Delhi — free 12-hour student hackathon in Delhi NCR" };
 
-export function pageMetadata(title: string, description = baseDescription, path = "/", image = defaultOgImage): Metadata {
+export function pageMetadata(title: string, description = baseDescription, path = "/", image?: typeof defaultOgImage): Metadata {
+  image ??= { ...defaultOgImage, url: `/social/${path === "/" ? "home" : path.slice(1)}`, alt: title };
   const url = `${siteUrl}${path}`;
   return {
     title: { absolute: title },

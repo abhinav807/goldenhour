@@ -5,7 +5,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { eventConfig } from "@/lib/event";
+import { eventConfig, primaryRegistration } from "@/lib/event";
 import ThemeToggle from "./ThemeToggle";
 import styles from "./Navigation.module.css";
 
@@ -72,7 +72,7 @@ export default function Navbar() {
         </Link>
         <div className="hidden lg:flex min-w-0 flex-1 items-center justify-center gap-3 xl:gap-5">
           {links.map((link) => <a key={link.hash} href={destination(link.hash)} aria-current={active === link.hash ? "location" : undefined} className={`${styles.eventLink} font-space tracking-[.02em] whitespace-nowrap transition-colors ${active === link.hash ? "text-sunset" : "text-offwhite/70 hover:text-sunset"}`}>{link.label}</a>)}
-          <a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className={`${styles.register} font-space tracking-[.02em] whitespace-nowrap text-black bg-sunset hover:bg-offwhite transition-colors`} aria-label="Open the participant registration form in a new tab">REGISTER <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <a href={primaryRegistration.href} target="_blank" rel="noopener noreferrer" className={`${styles.register} font-space tracking-[.02em] whitespace-nowrap text-black bg-sunset hover:bg-offwhite transition-colors`} aria-label="Open the participant registration form in a new tab">{primaryRegistration.label} <ArrowUpRight size={16} aria-hidden="true" /></a>
         </div>
         <div className={`${styles.eventActions} text-offwhite`}><ThemeToggle /><button id="mobile-navigation-trigger" type="button" className={`${styles.menuButton} text-offwhite p-2`} onClick={() => setMenuOpen(true)} aria-label="Open navigation menu" aria-expanded={menuOpen} aria-controls="mobile-navigation"><Menu size={24} aria-hidden="true" /></button></div>
       </div>
@@ -83,9 +83,9 @@ export default function Navbar() {
         <button id="mobile-navigation-close" type="button" className={`${styles.menuButton} text-offwhite hover:text-sunset p-2`} onClick={close} aria-label="Close navigation menu"><X size={28} aria-hidden="true" /></button>
       </div>
       <div className="flex flex-col items-center gap-3 w-full max-w-sm border-y border-offwhite/20 py-6">
-        <p className="font-space text-xs tracking-[.08em] text-sunset text-center">REGISTRATION IS OPEN</p>
-        <a href={eventConfig.registrationUrl} target="_blank" rel="noreferrer" className="brutal-btn-orange w-full px-8 py-4 text-sm justify-center" onClick={close}>REGISTER NOW <ArrowUpRight size={16} aria-hidden="true" /></a>
-        <a href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black w-full px-8 py-4 text-sm justify-center" onClick={close}>JOIN COMMUNITY <ArrowUpRight size={16} aria-hidden="true" /></a>
+        <p className="font-space text-xs tracking-[.08em] text-sunset text-center">{primaryRegistration.message}</p>
+        <a href={primaryRegistration.href} target="_blank" rel="noopener noreferrer" className="brutal-btn-orange w-full px-8 py-4 text-sm justify-center" onClick={close}>{primaryRegistration.label} <ArrowUpRight size={16} aria-hidden="true" /></a>
+        <a href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noopener noreferrer" className="brutal-btn-outline border-sunset text-sunset bg-black w-full px-8 py-4 text-sm justify-center" onClick={close}>JOIN COMMUNITY <ArrowUpRight size={16} aria-hidden="true" /></a>
       </div>
       <div className="flex flex-col items-center gap-5 w-full py-2">
         {links.map((link) => <a key={link.hash} href={destination(link.hash)} className={`font-archivo text-2xl ${active === link.hash ? "text-sunset" : "text-offwhite hover:text-sunset"}`} onClick={close}>{link.label}</a>)}
