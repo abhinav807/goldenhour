@@ -19,6 +19,7 @@ type Sponsor = {
 };
 
 const sponsors: Sponsor[] = [
+  { name: "FUELER", role: "PORTFOLIO PARTNER", logo: "/brand/fueler-logo.jpg", alt: "Fueler logo", width: 872, height: 872 },
   { name: "CODECRAFTERS", role: "PRIZE SPONSOR", href: eventConfig.codeCraftersUrl, logo: "/brand/codecrafters-logo.svg", alt: "CodeCrafters logo", width: 220, height: 155, visit: "VISIT CODECRAFTERS" },
   { name: "INTERVIEW BUDDY", role: "SPONSOR", href: "https://interviewbuddy.net", logo: "/brand/interviewbuddy-logo.png", alt: "Interview Buddy logo", width: 965, height: 340, visit: "VISIT INTERVIEW BUDDY" },
   { name: "OSEN", role: "ACADEMIC SPONSOR", href: eventConfig.osenUrl, logo: "/brand/osen-logo.png", alt: "OSEN logo", width: 356, height: 134, visit: "OSEN / ACADEMIC SPONSOR", dark: true },
@@ -45,12 +46,12 @@ export default function Sponsors() {
       <div className="text-center max-w-3xl mx-auto mb-16 gh-section-head border-b-2 border-offwhite/15 pb-10 reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-yellow text-black px-3 py-1 mb-5 uppercase">SPONSORS / PARTNERS</div>
         <TechHeading className="font-archivo text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-offwhite" lines={["BACK THE", {"text": "BUILD.", "className": "text-sunset"}]} />
-        <p className="font-space text-xs text-offwhite/65 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
+        <p className="font-space text-xs text-offwhite/65 max-w-md leading-relaxed mx-auto mt-7">CodeCrafters powers the prizes. Interview Buddy is a sponsor. Fueler is our portfolio partner. OSEN is the academic sponsor. SEWAN FOODS is the refreshment partner. n8n is providing 80 one-month Cloud Pro licenses, distributed to eligible participants.</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
         {sponsors.map((sponsor, index) => {
           const toneClass = sponsor.dark ? "bg-black text-offwhite border-offwhite/70" : "";
-          const centeredLastCard = index === sponsors.length - 1 ? "sm:col-span-2 sm:max-w-[538px] sm:mx-auto w-full" : "";
+          const centeredLastCard = sponsors.length % 2 === 1 && index === sponsors.length - 1 ? "sm:col-span-2 sm:max-w-[538px] sm:mx-auto w-full" : "";
           const className = `${cardClass} ${toneClass} ${centeredLastCard}`;
           return sponsor.href
             ? <a key={sponsor.name} href={sponsor.href} target="_blank" rel="noreferrer" className={className}><SponsorContent sponsor={sponsor} /></a>
