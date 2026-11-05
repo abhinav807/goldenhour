@@ -1,3 +1,4 @@
+import MobileMenu from "@/components/MobileMenu";
 import RegistrationClosedNotice from "@/components/RegistrationClosedNotice";
 import Link from "next/link";
 import MobileCTA from "@/components/MobileCTA";
@@ -43,7 +44,7 @@ export default function Home() {
           <Link href="#about">ABOUT</Link><Link href="#events">HACKATHONS</Link><Link href="/goldenhour#organizers">EVENT TEAM</Link><Link href="#contact">CONTACT</Link>
         </div>
         <div className={authStyles.landingActions}>
-          <details className="gh-home-menu lg:hidden"><summary aria-label="Open navigation">MENU</summary><div><Link href="#about">About</Link><Link href="#events">Hackathons</Link><Link href="/goldenhour#organizers">Event team</Link><Link href="#contact">Contact</Link></div></details>
+          <MobileMenu links={[{ label: "ABOUT", href: "#about" }, { label: "HACKATHONS", href: "#events" }, { label: "EVENT TEAM", href: "/goldenhour#organizers" }, { label: "CONTACT", href: "#contact" }]} />
           <LoginLink />
           <Link href="#events" className="gh-explore brutal-btn-orange px-4 py-2 text-[10px]">EXPLORE <ArrowUpRight size={14} /></Link>
           <ThemeToggle />

@@ -2,6 +2,7 @@
 
 import TechHeading from "@/components/TechHeading";
 import { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { ChevronDown, ClipboardCheck } from "lucide-react";
 import { eventConfig } from "@/lib/event";
 
@@ -41,6 +42,7 @@ function phaseStatus(phase: Phase) {
 }
 
 export default function Timeline() {
+  const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState<number[]>([0]);
   const allOpen = open.length === phases.length;
   const toggle = (index: number) => setOpen((current) => current.includes(index) ? current.filter((item) => item !== index) : [...current, index]);
@@ -76,13 +78,13 @@ export default function Timeline() {
                 <span className="block font-archivo text-lg md:text-xl text-black mt-3 px-8">{phase.title}</span>
                 <ChevronDown size={20} className={`absolute right-5 md:right-7 bottom-6 text-black transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
-              {isOpen && <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t-2 border-black p-5 md:p-7 text-center">
+              <motion.div id={panelId} role="region" aria-labelledby={buttonId} aria-hidden={!isOpen} inert={!isOpen} initial={false} animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }} transition={{ duration: reduceMotion ? 0 : 0.24, ease: "easeInOut" }} style={{ overflow: "hidden" }}><div className="border-t-2 border-black p-5 md:p-7 text-center">
                 <p className="font-dm text-sm md:text-base text-black/70 leading-relaxed">{phase.description}</p>
                 {phase.objectives && <div className="mt-6 border-2 border-black p-5"><h3 className="font-space text-[10px] font-bold uppercase tracking-[.14em] mb-3">PHASE OBJECTIVES &amp; ACTIONS</h3><ul className="font-dm text-sm text-black/70 space-y-2 list-none">{phase.objectives.map((objective) => <li key={objective}>— {objective}</li>)}</ul></div>}
                 {phase.tip && <p className="font-space text-xs text-black mt-5 border-t-4 border-sunset pt-4"><strong>NOTE:</strong> {phase.tip}</p>}
                 {phase.review && <p className="font-space text-[10px] text-black/50 uppercase mt-5">Detailed arrangements to be confirmed by organizers.</p>}
                 {phase.submission && <div className="mt-6 border-2 border-black bg-sunset p-5 text-center"><p className="font-space text-xs font-bold uppercase tracking-[.14em] flex items-center justify-center gap-2"><ClipboardCheck size={16} aria-hidden="true" /> HARD SUBMISSION DEADLINE / 05:00 PM IST</p><p className="font-space text-[10px] mt-2">Submissions close at 5:00 PM IST sharp. Late work cannot be accepted.</p></div>}
-              </div>}
+              </div></motion.div>
             </article>;
           })}
         </div>

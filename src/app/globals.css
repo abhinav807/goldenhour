@@ -337,3 +337,17 @@ body:has(.cookie-banner) .back-to-top { display: none !important; }
 @media(max-width: 767px) { .gh-company-page { padding-bottom: calc(80px + env(safe-area-inset-bottom)); } }
 
 @media(max-width: 639px) { .gh-home-menu { grid-row: 2; grid-column: 2; justify-self: center; } }
+
+/* Pointer spotlight keeps sponsor content readable and requires no animation loop. */
+.gh-spotlight { position: relative; isolation: isolate; overflow: hidden; }
+.gh-spotlight::after { content: ""; pointer-events: none; position: absolute; inset: 0; z-index: -1; opacity: 0; background: radial-gradient(300px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgb(255 107 0 / .22), transparent 75%); transition: opacity .2s; }
+@media (hover: hover) and (pointer: fine) { .gh-spotlight:hover::after { opacity: 1; } }
+.gh-spotlight:focus-visible { outline: 3px solid #ff6b00; outline-offset: 5px; }
+.gh-menu-overlay { position: fixed; inset: 0; z-index: 100; background: rgb(0 0 0 / .65); animation: gh-overlay-in .2s ease-out; }
+.gh-menu-sheet { position: fixed; inset: 0 0 0 auto; z-index: 101; width: min(90vw, 420px); padding: 32px 24px; overflow-y: auto; background: #050505; color: #f5f2eb; border-left: 3px solid #ff6b00; box-shadow: -12px 0 60px #0005; animation: gh-sheet-in .25s ease-out; }
+.gh-menu-sheet[data-state="closed"] { animation: gh-sheet-out .2s ease-in; }
+.gh-menu-overlay[data-state="closed"] { animation: gh-overlay-in .2s ease-in reverse; }
+@keyframes gh-sheet-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes gh-sheet-out { to { transform: translateX(100%); } }
+@keyframes gh-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .gh-menu-sheet, .gh-menu-overlay { animation: none !important; } .gh-spotlight::after { transition: none; } }

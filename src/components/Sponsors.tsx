@@ -1,6 +1,7 @@
 "use client";
 
 import TechHeading from "@/components/TechHeading";
+import type { PointerEvent } from "react";
 import Image from "next/image";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { eventConfig } from "@/lib/event";
@@ -27,7 +28,14 @@ const sponsors: Sponsor[] = [
   { name: eventConfig.giftSponsor, role: "GIFT SPONSOR", logo: "/brand/n8n-logo.png", alt: "n8n logo", width: 296, height: 80, note: "80 ONE-MONTH CLOUD PRO LICENSES", dark: true },
 ];
 
-const cardClass = "group brutal-card gh-sponsor-tile p-7 md:p-8 text-center flex flex-col items-center justify-center min-h-[290px] reveal";
+function spotlight(event: PointerEvent<HTMLElement>) {
+  if (event.pointerType !== "mouse") return;
+  const box = event.currentTarget.getBoundingClientRect();
+  event.currentTarget.style.setProperty("--spot-x", `${event.clientX - box.left}px`);
+  event.currentTarget.style.setProperty("--spot-y", `${event.clientY - box.top}px`);
+}
+
+const cardClass = "group brutal-card gh-sponsor-tile gh-spotlight p-7 md:p-8 text-center flex flex-col items-center justify-center min-h-[290px] reveal";
 
 function SponsorContent({ sponsor }: { sponsor: Sponsor }) {
   return <>
@@ -54,8 +62,8 @@ export default function Sponsors() {
           const centeredLastCard = sponsors.length % 2 === 1 && index === sponsors.length - 1 ? "sm:col-span-2 sm:max-w-[538px] sm:mx-auto w-full" : "";
           const className = `${cardClass} ${toneClass} ${centeredLastCard}`;
           return sponsor.href
-            ? <a key={sponsor.name} href={sponsor.href} target="_blank" rel="noopener noreferrer" className={className}><SponsorContent sponsor={sponsor} /></a>
-            : <article key={sponsor.name} className={className}><SponsorContent sponsor={sponsor} /></article>;
+            ? <a key={sponsor.name} href={sponsor.href} target="_blank" rel="noopener noreferrer" className={className} onPointerMove={spotlight}><SponsorContent sponsor={sponsor} /></a>
+            : <article key={sponsor.name} className={className} onPointerMove={spotlight}><SponsorContent sponsor={sponsor} /></article>;
         })}
       </div>
       <div className="max-w-[760px] mx-auto mt-10 brutal-card-orange gh-sponsor-pitch p-8 md:p-12 text-center reveal">
