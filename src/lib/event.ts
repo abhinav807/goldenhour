@@ -1,6 +1,6 @@
 import { team } from "./team";
 import { registrationAction, registrationCopy, type RegistrationStatus } from "./registration";
-export const registrationStatus: RegistrationStatus = "open";
+export const registrationStatus: RegistrationStatus = "closed";
 export const eventConfig = {
   siteName: "GoldenHour Delhi",
   entityName: "GoldenHour",
@@ -22,7 +22,7 @@ export const eventConfig = {
   teamSize: "1–3 participants",
   participantLimit: "100+ students",
   registrationStatus,
-  registrationOpen: registrationStatus === "open",
+  registrationOpen: ["open"].includes(registrationStatus),
   tracks: ["Web Development", "Game Development", "Graphic Designing"],
   prizes: ["$100 worth of Fueler Premium per winner", "AI Interview Vouchers worth ₹550 for winners", "90% AI Interview Discount Vouchers for runners-up", "Digital certificates", "Provisional: Fueler Digital Bundle ($800 stated value) for participants", "Provisional: InterviewBuddy 10% expert-driven session discount for participants", "CodeCrafters VIP memberships", "GoldenHour trophies", "80 sponsored one-month n8n Cloud Pro licenses ($60 value each; limited allocation)", "Certificates", "Stickers"],
   registrationUrl: "https://forms.gle/2om1zTVv5FCau56r5",

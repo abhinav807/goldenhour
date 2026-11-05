@@ -1,3 +1,4 @@
+import RegistrationClosedNotice from "@/components/RegistrationClosedNotice";
 import Organizers from "@/components/Organizers";
 import Link from "next/link";
 import MobileCTA from "@/components/MobileCTA";
@@ -9,7 +10,7 @@ import { RetroStamp, RetroMeter } from "@/components/RetroStamp";
 import { ArrowUpRight } from "lucide-react";
 import GoldenHacksCursor from "@/components/GoldenHacksCursor";
 import Marquee from "@/components/Marquee";
-import { primaryRegistration, eventConfig } from "@/lib/event";
+import { eventConfig } from "@/lib/event";
 import LoginLink from "@/components/auth/LoginLink";
 import TechHeading from "@/components/TechHeading";
 import authStyles from "@/components/auth/Auth.module.css";
@@ -38,7 +39,7 @@ function SectionTape({ dark = false }: { dark?: boolean }) {
 
 export default function Home() {
   return (
-    <><a href="#home-content" className="skip-link">SKIP TO MAIN CONTENT</a><main id="home-content" className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor /><MobileCTA />
+    <><a href="#home-content" className="skip-link">SKIP TO MAIN CONTENT</a><main id="home-content" className="gh-company-page bg-offwhite text-black overflow-hidden"><GoldenHacksCursor /><MobileCTA /><RegistrationClosedNotice />
       <nav className={`gh-company-nav ${navStyles.companyNav}`} aria-label="GoldenHour Delhi navigation">
         <Link href={eventConfig.siteUrl} className="gh-wordmark" aria-label="GoldenHour Delhi home">GOLDEN<span>HOUR</span></Link>
         <div className="gh-company-links hidden lg:flex items-center justify-center gap-6 font-space text-[10px] font-bold uppercase tracking-widest">
