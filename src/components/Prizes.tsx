@@ -39,11 +39,7 @@ export default function Prizes() {
       <div className="mt-16 max-w-[1100px] mx-auto border-t-2 border-offwhite/20 pt-14 text-center reveal">
         <div className="inline-block font-space text-[10px] font-bold bg-sunset text-black px-3 py-1 mb-6 uppercase">PARTICIPANT REWARDS</div>
         <h3 className="font-archivo text-4xl sm:text-5xl md:text-6xl">EVERY BUILDER GETS<span className="text-sunset">.</span></h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 max-w-[1100px] mx-auto">
-          <div className="border-2 border-offwhite/25 p-7">
-            <p className="font-archivo text-2xl text-sunset mb-3">GOLDENHOUR STICKERS</p>
-            <p className="font-dm text-sm text-offwhite/65 leading-relaxed">Official GoldenHour stickers for every participant.</p>
-          </div>
+        <div className="grid sm:grid-cols-2 gap-6 mt-10 max-w-[1100px] mx-auto">
           <div className="border-2 border-offwhite/25 p-7">
             <p className="font-archivo text-2xl text-sunset mb-3">DIGITAL CERTIFICATE</p>
             <p className="font-dm text-sm text-offwhite/65 leading-relaxed">Every participant receives an official digital certificate of participation.</p>
