@@ -2,6 +2,7 @@ import "server-only";
 import { createHash } from "node:crypto";
 import { Binary, MongoServerError, ObjectId } from "mongodb";
 import { randomUUID } from "node:crypto";
+import { todayIST } from "./ticket-date";
 import QRCode from "qrcode";
 import { renderTicket } from "./ticket-render";
 import { getDatabase } from "./mongodb";
@@ -11,6 +12,7 @@ import { MAX_QR_LENGTH, normalizeTicketSerial, validateTicketDetails, type Ticke
 import type { ProfileDocument } from "./profiles";
 
 type TicketDocument = {
+  holderName?: string; archived?: boolean;
   _id: ObjectId; userId: string; eventKey: string; eventName: string; eventDate: string | null;
   venue: string; image: Binary; qrHash: string; status: "issued" | "checked-in";
   createdAt: Date; uploadedBy: string; checkedInAt: Date | null; checkedInBy: string | null;
@@ -25,7 +27,7 @@ const publicTicket = (doc: TicketDocument): Ticket => ({
 
 export async function listUserTickets(userId: string) {
   const { db } = await getDatabase();
-  return (await db.collection<TicketDocument>("gh_tickets").find({ userId }, { projection: { image: 0, qrHash: 0 } }).sort({ createdAt: -1 }).toArray()).map(publicTicket);
+  return (await db.collection<TicketDocument>("gh_tickets").find({ userId, archived: { $ne: true } }, { projection: { image: 0, qrHash: 0 } }).sort({ createdAt: -1 }).toArray()).map(publicTicket);
 }
 
 export async function getTicketImage(id: string) {
@@ -85,6 +87,7 @@ export async function listTicketEvents(): Promise<TicketEvent[]> {
   const events = await db.collection<TicketDocument>("gh_tickets").aggregate<{
     _id: string; name: string; date: string | null; venue: string;
   }>([
+    { $match: { archived: { $ne: true } } },
     { $sort: { createdAt: -1 } },
     { $group: { _id: "$eventKey", name: { $first: "$eventName" }, date: { $first: "$eventDate" }, venue: { $first: "$venue" } } },
     { $sort: { date: -1, name: 1 } },
@@ -100,7 +103,9 @@ export async function checkInTicket(eventKey: unknown, qrData: unknown, actorId:
   }
   if (!serial && (typeof qrData !== "string" || !qrData.length || qrData.length > MAX_QR_LENGTH)) throw new ApiError(400, "Scan a valid ticket QR code.");
   const { db } = await getDatabase();
-  const query = serial ? { eventKey, _id: objectId(serial.slice(3)) } : { eventKey, qrHash: hash(qrData as string) };
+  const query = serial ? { eventKey, archived: { $ne: true }, _id: objectId(serial.slice(3)) } : { eventKey, archived: { $ne: true }, qrHash: hash(qrData as string) };
+  const candidate = await db.collection<TicketDocument>("gh_tickets").findOne(query, { projection: { eventDate: 1 } });
+  if (candidate?.eventDate && candidate.eventDate !== todayIST()) throw new ApiError(422, `Not valid today. This ticket is for ${candidate.eventDate}.`);
   // Matching and consuming the ticket is one database operation: concurrent
   // scanners cannot both admit the same ticket.
   const admitted = await db.collection<TicketDocument>("gh_tickets").findOneAndUpdate(
@@ -111,11 +116,11 @@ export async function checkInTicket(eventKey: unknown, qrData: unknown, actorId:
   const ticket = admitted ?? await db.collection<TicketDocument>("gh_tickets").findOne(query, { projection: { image: 0, qrHash: 0 } });
   if (!ticket) throw new ApiError(404, "This ticket was not found for the selected event.");
   const [user, profile] = await Promise.all([
-    db.collection("gh_auth_user").findOne({ _id: objectId(ticket.userId) }, { projection: { name: 1, email: 1 } }),
+    ticket.userId ? db.collection("gh_auth_user").findOne({ _id: objectId(ticket.userId) }, { projection: { name: 1, email: 1 } }) : Promise.resolve(null),
     db.collection<ProfileDocument>("gh_profiles").findOne({ _id: ticket.userId }, { projection: { name: 1 } }),
   ]);
   return {
     admitted: Boolean(admitted), ticket: publicTicket(ticket),
-    holder: { name: String(profile?.name ?? user?.name ?? "Account unavailable"), email: String(user?.email ?? "") },
+    holder: { name: String(profile?.name ?? ticket.holderName ?? user?.name ?? "Account unavailable"), email: String(user?.email ?? "") },
   };
 }

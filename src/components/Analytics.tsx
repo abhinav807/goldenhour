@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { useSyncExternalStore } from "react";
 
@@ -7,8 +8,10 @@ const getConsent = () => (() => { try { return window.localStorage.getItem("gh-c
 const getServerConsent = () => false;
 
 export default function Analytics() {
+  const pathname = usePathname();
   const consented = useSyncExternalStore(subscribe, getConsent, getServerConsent);
   const id = process.env.NEXT_PUBLIC_GA_ID;
+  if (pathname.startsWith("/t/") || pathname.startsWith("/admin") || pathname.startsWith("/tickets")) return null;
   if (!id || !/^G-[A-Z0-9]+$/.test(id) || !consented) return null;
   return <><Script src={`https://www.googletagmanager.com/gtag/js?id=${id}`} strategy="afterInteractive" /><Script id="google-analytics" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){window.dataLayer.push(arguments);} window.gtag = gtag; gtag('js', new Date()); gtag('config', '${id}', { anonymize_ip: true });`}</Script></>;
 }

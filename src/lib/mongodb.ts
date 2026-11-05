@@ -19,6 +19,7 @@ export async function getDatabase() {
     const db = client.db(name);
     const ready = client.connect().then(async () => {
       await Promise.all([
+        db.collection("gh_ticket_link_limits").createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
         // The Mongo adapter handles explicit table indexes, but the core auth
         // schema's field-level uniqueness still needs physical database indexes.
         db.collection("gh_auth_user").createIndex({ email: 1 }, { unique: true }),
@@ -30,6 +31,8 @@ export async function getDatabase() {
         db.collection("gh_auth_verification").createIndex({ identifier: 1 }),
         db.collection("gh_auth_verification").createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
         db.collection("gh_auth_rate_limit").createIndex({ key: 1 }, { unique: true }),
+        db.collection("gh_tickets").createIndex({ creationKey: 1 }, { unique: true, sparse: true }),
+        db.collection("gh_tickets").createIndex({ shareToken: 1 }, { unique: true, sparse: true }),
         db.collection("gh_tickets").createIndex({ userId: 1, createdAt: -1 }),
         db.collection("gh_tickets").createIndex({ eventKey: 1, qrHash: 1 }, { unique: true }),
       ]);

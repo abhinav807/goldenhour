@@ -8,6 +8,8 @@ import s from "./Admin.module.css";
 type ScanResult = { accepted: boolean; ticket: Ticket; holder: { name: string; email: string } };
 
 export default function CheckInScanner() {
+  const [sound, setSound] = useState(false);
+  const [sessionCount, setSessionCount] = useState(0);
   const [serialNumber, setSerialNumber] = useState("");
   const [events, setEvents] = useState<TicketEvent[]>([]);
   const [eventKey, setEventKey] = useState("");
@@ -17,6 +19,7 @@ export default function CheckInScanner() {
   const [starting, setStarting] = useState(false);
   const [busy, setBusy] = useState(false);
   const [decoding, setDecoding] = useState(false);
+  const [wrongDate, setWrongDate] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<ScanResult | null>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -65,15 +68,17 @@ export default function CheckInScanner() {
     if (!eventKey) { setError("Select an event before scanning a ticket."); return; }
     if (!serial && (!qrData || qrData.length > MAX_QR_LENGTH)) { setError("This QR code is not supported. Use the ticket slip for this event."); return; }
     requestBusy.current = true;
-    setBusy(true); setError("");
+    setBusy(true); setError(""); setWrongDate(false);
     try {
       const response = await fetch("/api/admin/check-in", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventKey, qrData, ...(serial ? { serialNumber: serial } : {}) }) });
       const data = await response.json();
       if (!mounted.current) return;
       if ((response.ok || response.status === 409) && data.ticket && data.holder) {
+        if (response.ok) { setSessionCount(count => count + 1); navigator.vibrate?.(100);
+          if (sound) { try { const audio = new AudioContext(); const oscillator = audio.createOscillator(); const gain = audio.createGain(); oscillator.connect(gain); gain.connect(audio.destination); gain.gain.value = 0.08; oscillator.frequency.value = 880; oscillator.start(); oscillator.stop(audio.currentTime + 0.12); oscillator.onended = () => { void audio.close(); }; } catch { /* Visual confirmation remains available. */ } } }
         setResult({ accepted: response.ok, ticket: data.ticket, holder: data.holder });
         window.requestAnimationFrame(() => resultHeading.current?.focus());
-      } else { setError(data.error || "This ticket could not be checked in. Try again."); }
+      } else { setWrongDate(response.status === 422); setError(data.error || "This ticket could not be checked in. Try again."); }
     } catch {
       if (mounted.current) setError("The check-in result could not be confirmed. Check your connection and scan again; a saved entry will be shown as already checked in.");
     } finally {
@@ -161,7 +166,7 @@ export default function CheckInScanner() {
   const selectedEvent = events.find((event) => event.key === eventKey);
   return <div className={s.scannerLayout} data-crt-clean>
     <section className={`${s.panel} perforated-panel`} aria-labelledby="scanner-heading" aria-busy={busy || decoding}>
-      <h2 id="scanner-heading">Scan a ticket</h2>
+      <h2 id="scanner-heading">Scan a ticket</h2><p className={s.hint}>Checked in this session: {sessionCount}</p><label className={s.label}><input type="checkbox" checked={sound} onChange={event => setSound(event.target.checked)} /> Play success sound</label>
       <div className={s.field}>
         <label className={s.label} htmlFor="scan-event">Event</label>
         <select className={s.input} id="scan-event" value={eventKey} disabled={loadingEvents || busy || decoding || running || starting} onChange={(event) => { setEventKey(event.target.value); setResult(null); setError(""); }}>
@@ -189,13 +194,13 @@ export default function CheckInScanner() {
         <p className={s.hint}>Choosing an image checks in the ticket immediately if it is valid for the selected event.</p>
         <input className={`${s.input} ${s.file}`} id="scan-image" type="file" accept="image/jpeg,image/png,image/webp" disabled={!eventKey || busy || decoding || Boolean(result)} onChange={(event) => void readTicketImage(event)} />
       </section>
-      {error && <p role="alert" className={s.error}>{error}</p>}
+      {error && <p role="alert" className={wrongDate ? s.notice : s.error}>{error}</p>}
       {busy && <p className={s.hint} role="status">Checking ticket and saving entry…</p>}
     </section>
     <section className={`${s.panel} ${s.result} perforated-panel`} aria-label="Ticket check-in result">
       {result ? <div role="status" className={result.accepted ? s.success : s.notice}>
         <h2 className={s.resultTitle} ref={resultHeading} tabIndex={-1}>{result.accepted ? "Entry confirmed." : "Already checked in."}</h2>
-        <p>{result.accepted ? "This ticket has been used. Admit this member." : "This ticket has already been used. Do not admit another entry with it."}</p>
+        <p>{result.accepted ? "Entry recorded. Check the signed guardian consent slip before allowing entry." : "This ticket has already been used. Do not admit another entry with it."}</p>
         <dl><div><dt>Member</dt><dd>{result.holder.name}</dd></div><div><dt>Email</dt><dd>{result.holder.email}</dd></div><div><dt>Serial</dt><dd>{result.ticket.serialNumber}</dd></div><div><dt>Event</dt><dd>{result.ticket.eventName}</dd></div>{result.ticket.checkedInAt && <div><dt>Checked in</dt><dd>{new Date(result.ticket.checkedInAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" })} IST</dd></div>}</dl>
       </div> : <><h2>Ready for the next builder.</h2><p className={s.hint}>{selectedEvent ? `Checking tickets for ${selectedEvent.name}.` : "Select the event to begin."} Each ticket can be checked in once. The entry result and member’s details will appear here.</p></>}
     </section>

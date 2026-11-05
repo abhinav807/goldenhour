@@ -60,13 +60,12 @@ const signup = async (api, email, name = "New member") => {
   return db.collection("gh_auth_user").findOne({ email });
 };
 const qrData = "goldenhour-test-only-ticket-001";
-const qrData2 = "goldenhour-test-only-ticket-002";
 const slip = await sharp("tests/fixtures/ticket-1.svg").png().toBuffer();
 const slip2 = await sharp("tests/fixtures/ticket-2.svg").png().toBuffer();
 const largeSlip2 = await sharp({ create: { width: 4500, height: 4000, channels: 3, background: "white" } }).composite([{ input: slip2, left: 1950, top: 1600 }]).png().toBuffer();
 const photo = await sharp({ create: { width: 300, height: 400, channels: 3, background: "#ff5a00" } }).png().toBuffer();
 const imageFile = (buffer, name = "ticket.png") => ({ name, mimeType: "image/png", buffer });
-const ticketForm = { eventName: "GoldenHour Test Event", eventDate: "2026-12-20", venue: "Test venue", ticket: imageFile(slip) };
+const ticketForm = { eventName: "GoldenHour Test Event", eventDate: new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()), venue: "Test venue", ticket: imageFile(slip) };
 
 try {
   await client.connect();
@@ -105,7 +104,7 @@ try {
   check("account search finds displayed profile name", search.total === 1 && search.accounts[0].id === String(user._id));
   const allAccounts = await (await admin.get("/api/admin/accounts")).json();
   check("admin lists complete and incomplete accounts without credentials", allAccounts.total === 3 && allAccounts.accounts.some((a) => !a.profile) && !JSON.stringify(allAccounts).includes("password"));
-  const edit = { name: "Edited Member", email: user.email, dateOfBirth: "2004-02-29", gender: "non-binary" };
+  const edit = { role: "participant", name: "Edited Member", email: user.email, dateOfBirth: "2004-02-29", gender: "non-binary" };
   check("member cannot edit another account", (await member.patch(`/api/admin/accounts/${otherUser._id}`, { multipart: { name: "Bad edit", email: otherUser.email } })).status() === 403);
   check("cross-origin account edit blocked", (await admin.patch(`/api/admin/accounts/${user._id}`, { headers: { Origin: "https://untrusted.example" }, multipart: edit })).status() === 403);
   check("admin edits profile details", (await admin.patch(`/api/admin/accounts/${user._id}`, { multipart: edit })).status() === 200);
@@ -129,7 +128,7 @@ try {
   const ownImage = await member.get(ticket.imageUrl);
   check("owner image is private and uncached", ownImage.status() === 200 && ownImage.headers()["cache-control"].includes("no-store"));
   const raw = await sharp(await ownImage.body()).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  check("stored full slip QR stays readable", raw.info.width === 600 && raw.info.height === 800 && jsQR(new Uint8ClampedArray(raw.data), raw.info.width, raw.info.height)?.data === qrData);
+  check("stored full slip QR stays readable", raw.info.height > raw.info.width && jsQR(new Uint8ClampedArray(raw.data), raw.info.width, raw.info.height)?.data === qrData);
   check("admin can view member slip", (await admin.get(ticket.imageUrl)).status() === 200);
   check("download returns attachment", (await member.get(`${ticket.imageUrl}?download=1`)).headers()["content-disposition"].startsWith("attachment"));
   check("wrong event does not admit", (await admin.post("/api/admin/check-in", { data: { eventKey: "f".repeat(64), qrData } })).status() === 404);

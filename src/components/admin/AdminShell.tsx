@@ -4,7 +4,7 @@ import SessionRefresh from "@/components/auth/SessionRefresh";
 import s from "./Admin.module.css";
 
 export default function AdminShell({ active, title, description, children }: {
-  active: "accounts" | "check-in";
+  active: "accounts" | "check-in" | "tickets";
   title: string;
   description: string;
   children: React.ReactNode;
@@ -17,6 +17,7 @@ export default function AdminShell({ active, title, description, children }: {
         <Link href="/admin" aria-current={active === "accounts" ? "page" : undefined}>Accounts</Link>
         {/* Load a new document so the scanner's camera Permissions-Policy applies. */}
         <a href="/admin/check-in" aria-current={active === "check-in" ? "page" : undefined}>Check in</a>
+        <Link href="/admin/tickets" aria-current={active === "tickets" ? "page" : undefined}>Ticket studio</Link>
         <Link href="/tickets">My tickets</Link><Link href="/profile">My profile</Link>
         <SignOutButton />
       </nav>
