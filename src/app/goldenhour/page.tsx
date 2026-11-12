@@ -36,7 +36,7 @@ export default function GoldenHourPage() {
       <Hero />
       <EventAtAGlance />
       <ParticipationGuide />
-      <section aria-labelledby="what-is-goldenhour" className="bg-offwhite gh-grain-paper px-5 md:px-10 py-16 md:py-24 border-b-4 border-black"><div className="max-w-[900px] mx-auto"><p className="gh-kicker">DEFINITION / GOLDENHOUR DELHI</p><TechHeading id="what-is-goldenhour" className="font-archivo text-4xl md:text-6xl leading-[.85] mt-5 mb-6" lines={["WHAT IS", {"text": "GOLDENHOUR?", "className": "text-sunset"}]} /><p className="font-dm text-lg leading-relaxed">GoldenHour V1 is a free, student-run 12-hour Build Day in Delhi NCR, with Web Development, Game Development and Graphic Designing tracks. Participants must be at least 13 and under 20 on 14 November 2026 (ages 13–19 on event day). The event takes place on 14 November 2026; the venue will be announced.</p></div></section>
+      <section aria-labelledby="what-is-goldenhour" className="bg-offwhite gh-grain-paper px-5 md:px-10 py-16 md:py-24 border-b-4 border-black"><div className="max-w-[900px] mx-auto"><p className="gh-kicker">DEFINITION / GOLDENHOUR DELHI</p><TechHeading id="what-is-goldenhour" className="font-archivo text-4xl md:text-6xl leading-[.85] mt-5 mb-6" lines={["WHAT IS", {"text": "GOLDENHOUR?", "className": "text-sunset"}]} /><p className="font-dm text-lg leading-relaxed">GoldenHour V1 is a free, student-run 12-hour Build Day in Delhi NCR, with Web Development, Game Development and Graphic Designing tracks. Participants must be at least 13 and under 20 on event day (ages 13–19 on event day). Event date: {eventConfig.date}. The venue will be announced.</p></div></section>
       <Marquee />
       <About />
       <Events />

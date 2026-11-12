@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { createElement as h } from "react";
 import { eventConfig } from "@/lib/event";
-const titles: Record<string, string> = { "404": "THIS PAGE IS OFF THE CLOCK.", home: "BUILD. IMPROVE. REPEAT.", about: "THE PEOPLE BEHIND THE BUILD.", privacy: "YOUR DATA. YOUR QUESTIONS.", terms: "THE RULES OF THE BUILD.", "code-of-conduct": "BUILD BOLDLY. TREAT PEOPLE RESPECTFULLY.", "guardian-consent": "GUARDIAN CONSENT.", parents: "PARENTS & GUARDIANS.", "thank-you": "YOUR NEXT BUILD STARTS HERE.", "empty-state": "MORE TO COME." };
+const titles: Record<string, string> = { "404": "THIS PAGE IS OFF THE CLOCK.", goldenhour: "GOLDENHOUR V1. 12-HOUR BUILD DAY.", home: "BUILD. IMPROVE. REPEAT.", about: "THE PEOPLE BEHIND THE BUILD.", privacy: "YOUR DATA. YOUR QUESTIONS.", terms: "THE RULES OF THE BUILD.", "code-of-conduct": "BUILD BOLDLY. TREAT PEOPLE RESPECTFULLY.", "guardian-consent": "GUARDIAN CONSENT.", parents: "PARENTS & GUARDIANS.", "thank-you": "YOUR NEXT BUILD STARTS HERE.", "empty-state": "MORE TO COME." };
 export async function GET(_request: Request, context: { params: Promise<{ slug: string }> }) {
  const { slug } = await context.params;
  if (!Object.hasOwn(titles, slug)) return new Response("Not found", { status: 404 });

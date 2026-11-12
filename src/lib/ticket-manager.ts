@@ -20,9 +20,9 @@ export async function createManagedTicket(input: Record<string, unknown>, actor:
   const id=new ObjectId(); const qr=`goldenhour:${randomBytes(24).toString("base64url")}`;
   const eventName=`${eventConfig.entityName} V1`;
   const hash=(text:string)=>createHash("sha256").update(text).digest("hex");
-  const image=await renderTicket(await QRCode.toBuffer(qr,{width:480,margin:4}),{name:value.name,serial:`GH-${String(id).toUpperCase()}`,eventName,date:value.date,venue:eventConfig.venue});
+  const image=await renderTicket(await QRCode.toBuffer(qr,{width:480,margin:4}),{name:value.name,serial:`GH-${String(id).toUpperCase()}`,eventName,date:value.date || eventConfig.date,venue:eventConfig.venue});
   try {
-    await db.collection("gh_tickets").insertOne({_id:id,userId:user?String(user._id):"",holderName:value.name,phone:value.phone,eventName,eventDate:value.date,venue:eventConfig.venue,eventKey:hash(`${eventName.normalize("NFKC").toLowerCase()}\n${value.date}`),image:new Binary(image),qrHash:hash(qr),status:"issued",createdAt:new Date(),uploadedBy:actor,checkedInAt:null,checkedInBy:null,creationKey:requestId,sendStatus:"pending"});
+    await db.collection("gh_tickets").insertOne({_id:id,userId:user?String(user._id):"",holderName:value.name,phone:value.phone,eventName,eventDate:value.date || null,venue:eventConfig.venue,eventKey:hash(`${eventName.normalize("NFKC").toLowerCase()}\n${value.date}`),image:new Binary(image),qrHash:hash(qr),status:"issued",createdAt:new Date(),uploadedBy:actor,checkedInAt:null,checkedInBy:null,creationKey:requestId,sendStatus:"pending"});
   } catch(e) {
     if(e && typeof e==="object" && "code" in e && e.code===11000) {
       const retry=await db.collection("gh_tickets").findOne({creationKey:requestId},{projection:{_id:1}});

@@ -10,7 +10,7 @@ export function ticketRecipient(input: Record<string, unknown>) {
   if (rawPhone && !phone) throw new Error("Enter a valid phone number, including its country code for non-Indian numbers.");
   if (email && (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) throw new Error("Enter a valid account email.");
   const parsedDate = new Date(`${date}T00:00:00Z`);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(+parsedDate) || parsedDate.toISOString().slice(0,10) !== date || date < "1900-01-01") throw new Error("Enter a valid event date.");
+  if (date && (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(+parsedDate) || parsedDate.toISOString().slice(0,10) !== date || date < "1900-01-01")) throw new Error("Enter a valid event date.");
   return { name, phone, email, date };
 }
 

@@ -1,4 +1,5 @@
 import "server-only";
+import { eventConfig } from "./event";
 import { createHash } from "node:crypto";
 import { Binary, MongoServerError, ObjectId } from "mongodb";
 import { randomUUID } from "node:crypto";
@@ -51,7 +52,7 @@ export async function uploadTicket(userId: string, form: FormData, actorId: stri
   const document: TicketDocument = {
     _id: id, userId, ...value,
     eventKey: hash(`${value.eventName.normalize("NFKC").toLowerCase()}\n${value.eventDate ?? ""}`),
-    image: new Binary(await renderTicket(await QRCode.toBuffer(decoded.qrData, { width: 480, margin: 4 }), { name: String(profile?.name ?? holder?.name ?? "Participant"), serial: `GH-${String(id).toUpperCase()}`, eventName: value.eventName, date: value.eventDate ?? "Date to be announced", venue: value.venue })), qrHash: hash(decoded.qrData), status: "issued", createdAt: new Date(),
+    image: new Binary(await renderTicket(await QRCode.toBuffer(decoded.qrData, { width: 480, margin: 4 }), { name: String(profile?.name ?? holder?.name ?? "Participant"), serial: `GH-${String(id).toUpperCase()}`, eventName: value.eventName, date: value.eventDate ?? eventConfig.date, venue: value.venue })), qrHash: hash(decoded.qrData), status: "issued", createdAt: new Date(),
     uploadedBy: actorId, checkedInAt: null, checkedInBy: null,
   };
   try { await db.collection<TicketDocument>("gh_tickets").insertOne(document); }
@@ -68,14 +69,14 @@ export async function generateAccountTicket(userId: string, actorId: string) {
   if (!user) throw new ApiError(404, "This account no longer exists.");
   const event = (await import("./event")).eventConfig;
   const eventName = `${event.entityName} V1`;
-  const eventDate = event.isoDate.slice(0, 10);
+  const eventDate = event.isoDate.slice(0, 10) || null;
   const qrData = `goldenhour:${randomUUID()}`;
   const id = new ObjectId();
   const profile = await db.collection<ProfileDocument>("gh_profiles").findOne({ _id: userId });
   const document: TicketDocument = {
     _id: id, userId, eventName, eventDate, venue: event.venue,
     eventKey: hash(`${eventName.normalize("NFKC").toLowerCase()}\\n${eventDate}`),
-    image: new Binary(await renderTicket(await QRCode.toBuffer(qrData, { width: 480, margin: 4 }), { name: String(profile?.name ?? user.name ?? "Participant"), serial: `GH-${String(id).toUpperCase()}`, eventName, date: eventDate, venue: event.venue })), qrHash: hash(qrData), status: "issued",
+    image: new Binary(await renderTicket(await QRCode.toBuffer(qrData, { width: 480, margin: 4 }), { name: String(profile?.name ?? user.name ?? "Participant"), serial: `GH-${String(id).toUpperCase()}`, eventName, date: eventDate ?? event.date, venue: event.venue })), qrHash: hash(qrData), status: "issued",
     createdAt: new Date(), uploadedBy: actorId, checkedInAt: null, checkedInBy: null,
   };
   await db.collection<TicketDocument>("gh_tickets").insertOne(document);

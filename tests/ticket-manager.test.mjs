@@ -19,3 +19,10 @@ test('IST day changes at 18:30 UTC',()=>{
  assert.equal(todayIST(new Date('2026-11-13T18:29:59Z')),'2026-11-13');
  assert.equal(todayIST(new Date('2026-11-13T18:30:00Z')),'2026-11-14');
 });
+
+test("tentative ticket dates stay unset in individual and CSV creation", () => {
+ assert.equal(ticketRecipient({ name: "Ada", date: "" }).date, "");
+ const [row] = parseTicketCsv("name,phone,date,email\nAda,,,", "");
+ assert.equal(row.error, "");
+ assert.equal(row.value.date, "");
+});

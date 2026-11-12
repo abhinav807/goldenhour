@@ -10,7 +10,7 @@ const principles = [
   { num: "06", text: "HAVE FUN.", note: "Otherwise, why stay up?" },
 ];
 const policy = [
-  ["ELIGIBILITY", "Participants must be 13–19 on event day (under 20 on 14 November 2026)."],
+  ["ELIGIBILITY", "Participants must be 13–19 on event day (under 20 on event day)."],
   ["TEAM SIZE", "Teams of 1–3 participants. Solo builders are welcome."],
   ["UNDER 18", "Parent/guardian consent is required; bring a signed slip to check-in."],
   ["ORIGINALITY", "Open-source libraries, templates and your own reusable boilerplate are allowed."],

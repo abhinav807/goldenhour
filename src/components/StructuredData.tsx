@@ -23,10 +23,10 @@ export function EventStructuredData() {
     "@id": `${eventConfig.siteUrl}/goldenhour#event`,
     name: "GoldenHour V1 — Free 12-Hour Student Build Day",
     alternateName: eventConfig.alternateName,
-    description: `${eventConfig.description} Event date is 14 November 2026; venue is to be announced. ${primaryRegistration.message}`,
-    startDate: eventConfig.isoDate,
-    endDate: eventConfig.endIsoDate,
-    eventStatus: "https://schema.org/EventScheduled",
+    description: `${eventConfig.description} Event date: ${eventConfig.date}. Venue is to be announced. ${primaryRegistration.message}`,
+    startDate: eventConfig.isoDate || undefined,
+    endDate: eventConfig.endIsoDate || undefined,
+    eventStatus: eventConfig.isoDate ? "https://schema.org/EventScheduled" : "https://schema.org/EventPostponed",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: { "@type": "Place", name: eventConfig.venue, address: { "@type": "PostalAddress", addressLocality: "Delhi", addressRegion: "Delhi NCR", addressCountry: "IN" } },
     organizer: { "@id": `${eventConfig.siteUrl}/#organization` },
@@ -40,7 +40,7 @@ export function EventStructuredData() {
     offers: { "@type": "Offer", url: primaryRegistration.href, price: 0, priceCurrency: "INR", availability: eventConfig.registrationOpen ? "https://schema.org/InStock" : "https://schema.org/SoldOut", description: primaryRegistration.message },
     typicalAgeRange: "13-19",
     audience: { "@type": "Audience", audienceType: "Participants aged 13–19 on the event date (under 20)" },
-    image: `${eventConfig.siteUrl}/og/goldenhour.png`,
+    image: `${eventConfig.siteUrl}/social/goldenhour`,
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...event }) }} />;
 }

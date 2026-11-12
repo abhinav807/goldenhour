@@ -22,6 +22,7 @@ export default function Countdown() {
   const [now, setNow] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
   useEffect(() => {
+    if (!eventConfig.isoDate) return;
     const update = () => { setTimeLeft(remaining()); setNow(Date.now()); };
     const first = setTimeout(update, 0);
     const interval = setInterval(update, 1000);
@@ -36,6 +37,15 @@ export default function Countdown() {
     { value: timeLeft?.seconds, label: "SECONDS" },
   ];
 
+  if (!eventConfig.isoDate) return <section id="countdown" className="bg-black py-20 md:py-28 px-5 md:px-10 border-y-4 border-sunset gh-grain-night text-center">
+    <div className="max-w-3xl mx-auto">
+      <p className="font-space text-xs text-sunset uppercase tracking-[.18em] mb-5 font-bold">EVENT DATE / TENTATIVE</p>
+      <TechHeading className="font-archivo text-4xl md:text-6xl text-offwhite" lines={["DATE TO BE", { text: "ANNOUNCED.", className: "text-sunset" }]} />
+      <p className="font-dm text-lg text-offwhite/75 mt-6">{eventConfig.date}</p>
+      <a href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noopener noreferrer" className="brutal-btn-orange mt-8 px-6 py-4">JOIN WHATSAPP FOR POLLS</a>
+    </div>
+  </section>;
+
   return <section id="countdown" className="bg-black py-20 md:py-28 px-5 md:px-10 relative overflow-hidden border-y-4 border-sunset gh-grain-night">
     <div className="absolute top-8 left-8 w-6 h-6 border-2 border-sunset/30 rotate-45" />
     <div className="absolute bottom-10 right-16 w-12 h-12 border border-sunset/20 rounded-full" />
@@ -43,7 +53,7 @@ export default function Countdown() {
       <div className="mb-14">
         <p className="font-space text-xs text-sunset uppercase tracking-[.18em] mb-5 font-bold">UNTIL THE HOUR</p>
         <TechHeading className="font-archivo text-4xl md:text-6xl text-offwhite" lines={["THE CLOCK", {"text": "IS RUNNING.", "className": "text-sunset"}]} />
-        <p className="font-space text-[10px] text-offwhite/45 uppercase leading-relaxed mt-6"><time dateTime={eventConfig.isoDate}>SATURDAY, {eventConfig.date} / 08:00 AM IST</time> / {eventConfig.location} / <span className="text-offwhite/75">12 HOURS OF MAKING</span></p>
+        <p className="font-space text-[10px] text-offwhite/45 uppercase leading-relaxed mt-6"><time dateTime={eventConfig.isoDate}>{eventConfig.date} / 08:00 AM IST</time> / {eventConfig.location} / <span className="text-offwhite/75">12 HOURS OF MAKING</span></p>
       </div>
       {started ? <p role="status" className="font-archivo text-4xl text-offwhite">{finished ? "THIS EDITION HAS FINISHED." : "THE BUILD DAY IS LIVE."}</p> : <div role="timer" aria-label="Time until GoldenHour starts" aria-live="off" className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-5 border-t border-offwhite/15 pt-10 max-w-[1080px] mx-auto">
         {units.map(item => <div key={item.label} className="text-center">

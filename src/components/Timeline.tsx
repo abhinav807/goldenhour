@@ -32,6 +32,7 @@ const phases: Phase[] = [
 ];
 
 function phaseStatus(phase: Phase) {
+  if (!eventConfig.isoDate) return "TENTATIVE";
   const eventDay = eventConfig.isoDate.slice(0, 10);
   const start = new Date(`${eventDay}T${phase.start}:00+05:30`).getTime();
   const end = new Date(`${eventDay}T${phase.end}:00+05:30`).getTime();
@@ -54,7 +55,7 @@ export default function Timeline() {
         <header className="text-center max-w-3xl mx-auto mb-12 reveal gh-section-head">
           <div className="inline-block font-space text-[10px] font-bold bg-black text-offwhite px-3 py-1 mb-6 uppercase">03 / EVENT TIMELINE</div>
           <TechHeading className="font-archivo text-5xl sm:text-6xl md:text-8xl text-black" lines={["THE BUILD", "DAY."]} />
-          <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. The date is confirmed; venue details will follow.</p>
+          <p className="font-space text-xs md:text-sm text-black/55 max-w-lg mx-auto mt-6 leading-relaxed">A 12-hour Build Day from 8:00 AM to 8:00 PM IST. Project submissions close at 5:00 PM IST sharp. Event date: {eventConfig.date}. Venue details will follow.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 text-center">
             <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">DURATION</p><p className="font-archivo text-xl mt-2">08:00–20:00 / 12H</p></div>
             <div className="border-2 border-black p-4"><p className="font-space text-[9px] uppercase text-black/50">SUBMISSIONS CLOSE</p><p className="font-archivo text-xl mt-2">17:00 / IST</p></div>

@@ -8,7 +8,7 @@ export default function FinalCTA() {
     <div className="max-w-[980px] mx-auto relative z-10 reveal text-center">
       <div className="flex items-center justify-center gap-3 mb-7"><span className="w-3 h-3 bg-black" aria-hidden="true" /><p className="font-space text-xs text-black/65 uppercase tracking-[.18em] font-bold">{primaryRegistration.message}</p></div>
       <TechHeading className="font-archivo text-[16vw] md:text-[9vw] lg:text-[7.5rem] text-black leading-[.79] mb-8" lines={["REGISTER", "NOW."]} />
-      <p className="font-dm text-lg md:text-2xl text-black/70 max-w-2xl mx-auto leading-snug">Register through the official form. Participants must be at least 13 and under 20 on 14 November 2026 (ages 13–19 on event day).</p>
+      <p className="font-dm text-lg md:text-2xl text-black/70 max-w-2xl mx-auto leading-snug">Register through the official form. Participants must be at least 13 and under 20 on event day (ages 13–19 on event day).</p>
       <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-10 justify-center">
         <a href={primaryRegistration.href} target="_blank" rel="noopener noreferrer" className="brutal-btn px-8 py-5 text-sm md:text-base">{primaryRegistration.label} <ArrowUpRight size={18} aria-hidden="true" /></a>
         <a href={eventConfig.volunteerUrl} target="_blank" rel="noopener noreferrer" className="brutal-btn-outline px-8 py-5 text-sm md:text-base">VOLUNTEER WITH US <ArrowUpRight size={18} aria-hidden="true" /></a>

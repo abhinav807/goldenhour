@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { eventConfig } from "@/lib/event";
 import { ArrowUpRight, Check, Download, Ticket as TicketIcon } from "lucide-react";
 import type { Ticket } from "@/lib/ticket-schema";
 import s from "./Tickets.module.css";
 
 function eventDate(value: string | null) {
-  if (!value) return "Date to be confirmed";
+  if (!value) return eventConfig.date;
   return new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
 }
 
