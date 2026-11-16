@@ -7,11 +7,11 @@ export const eventConfig = {
   alternateName: "GoldenHour hackathon",
   siteUrl: "https://www.goldenhourdelhi.co.in",
   description: "GoldenHour V1 is a free, student-run 12-hour build day for participants aged 13–19 (under 20 on event day) in Delhi NCR.",
-  date: "Tentative—to be announced (polls announced on WhatsApp)",
-  dateShort: "Tentative—to be announced (polls announced on WhatsApp)",
+  date: "Postponed for 2027",
+  dateShort: "Postponed for 2027",
   isoDate: "" as string,
   endIsoDate: "" as string,
-  dateStatus: "TENTATIVE",
+  dateStatus: "POSTPONED",
   venue: "Venue to be announced",
   location: "Delhi NCR, India",
   duration: "12 hours",
@@ -39,7 +39,7 @@ export const eventConfig = {
   founders: team.filter((person) => person.founder).map((person) => person.name),
   leadOrganizers: team.filter((person) => person.group === "lead").map((person) => person.name),
   coOrganizers: team.filter((person) => person.group === "co").map((person) => person.name),
-  lastUpdated: "2026-11-12",
+  lastUpdated: "2026-11-16",
 } as const;
 
 export const faqItems = [

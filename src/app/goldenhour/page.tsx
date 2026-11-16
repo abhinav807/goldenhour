@@ -1,61 +1,19 @@
-import ParticipationGuide from "@/components/ParticipationGuide";
-import TechHeading from "@/components/TechHeading";
-import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import About from "@/components/About";
-import Events from "@/components/Events";
-import Countdown from "@/components/Countdown";
-import Rules from "@/components/Rules";
-import Organizers from "@/components/Organizers";
-import Sponsors from "@/components/Sponsors";
-import FAQ from "@/components/FAQ";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
-import MobileCTA from "@/components/MobileCTA";
-import Dispatch from "@/components/Dispatch";
-import Timeline from "@/components/Timeline";
-import Prizes from "@/components/Prizes";
-import BackToTop from "@/components/BackToTop";
-import BackToHome from "@/components/BackToHome";
-import Resources from "@/components/Resources";
-import EventInfo from "@/components/EventInfo";
-import EventAtAGlance from "@/components/EventAtAGlance";
-import { BreadcrumbStructuredData, EventStructuredData, FAQStructuredData } from "@/components/StructuredData";
-import { primaryRegistration, eventConfig } from "@/lib/event";
+import Link from "next/link";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { eventConfig } from "@/lib/event";
 
 export default function GoldenHourPage() {
-  return <>
-    <EventStructuredData />
-    <FAQStructuredData />
-    <BreadcrumbStructuredData items={[{ name: "GoldenHour Delhi", path: "/" }, { name: "GoldenHour V1", path: "/goldenhour" }]} />
-    <a href="#main-content" className="skip-link">SKIP TO MAIN CONTENT</a>
-    <BackToHome />
-    <ScrollReveal />
-    <main id="main-content" className="event-page-root">
-      <Hero />
-      <EventAtAGlance />
-      <ParticipationGuide />
-      <section aria-labelledby="what-is-goldenhour" className="bg-offwhite gh-grain-paper px-5 md:px-10 py-16 md:py-24 border-b-4 border-black"><div className="max-w-[900px] mx-auto"><p className="gh-kicker">DEFINITION / GOLDENHOUR DELHI</p><TechHeading id="what-is-goldenhour" className="font-archivo text-4xl md:text-6xl leading-[.85] mt-5 mb-6" lines={["WHAT IS", {"text": "GOLDENHOUR?", "className": "text-sunset"}]} /><p className="font-dm text-lg leading-relaxed">GoldenHour V1 is a free, student-run 12-hour Build Day in Delhi NCR, with Web Development, Game Development and Graphic Designing tracks. Participants must be at least 13 and under 20 on event day (ages 13–19 on event day). Event date: {eventConfig.date}. The venue will be announced.</p></div></section>
-      <Marquee />
-      <About />
-      <Events />
-      <Timeline />
-      <Countdown />
-      <Dispatch />
-      <Rules />
-      <Organizers />
-      <Prizes />
-      <Marquee reverse speed={45} bg="bg-black" borderColor="border-sunset" />
-      <Sponsors />
-      <Resources />
-      <EventInfo />
-      <FinalCTA />
-      <FAQ />
-      <p className="sr-only">Event date: {eventConfig.date} in {eventConfig.location}. {primaryRegistration.message} Participants must be at least 13 and under 20 on event day.</p>
+  return (
+    <main id="main-content" className="min-h-screen bg-black text-offwhite gh-grain-night px-5 py-20 md:px-10 grid place-items-center">
+      <section className="w-full max-w-3xl border-2 border-sunset p-7 sm:p-12 md:p-16 text-center shadow-[8px_8px_0_#ff5a00]" aria-labelledby="postponement-title">
+        <p className="font-space text-xs font-bold uppercase tracking-[.18em] text-sunset mb-8">GoldenHour V1 / Event update</p>
+        <h1 id="postponement-title" className="font-archivo text-[clamp(2rem,7vw,4.5rem)] leading-tight uppercase">Postponed<br /><span className="text-sunset">for 2027.</span></h1>
+        <p className="font-dm text-lg text-offwhite/75 leading-relaxed mt-8">The event page is currently unavailable. The new date and further updates will be announced on WhatsApp.</p>
+        <div className="flex flex-wrap justify-center gap-4 mt-10">
+          <a href={eventConfig.whatsappCommunityUrl} target="_blank" rel="noopener noreferrer" className="brutal-btn-orange px-6 py-4">GET UPDATES <ArrowUpRight size={18} aria-hidden="true" /></a>
+          <Link href="/" className="brutal-btn-outline border-offwhite text-offwhite bg-black px-6 py-4"><ArrowLeft size={18} aria-hidden="true" /> BACK TO HOME</Link>
+        </div>
+      </section>
     </main>
-    <Footer />
-    <MobileCTA />
-    <BackToTop />
-  </>;
+  );
 }

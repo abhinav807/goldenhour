@@ -15,7 +15,7 @@ export default function RegistrationClosedNotice() {
       className="fixed top-32 md:top-28 right-4 left-4 sm:left-auto sm:w-[360px] z-[60] border-2 border-sunset bg-black text-offwhite p-5 pr-16 shadow-[5px_5px_0_#ff5a00]"
     >
       <p className="font-space text-[10px] font-bold uppercase tracking-[.12em] text-sunset mb-2">Registration update</p>
-      <p className="font-dm text-base leading-relaxed">Registrations closed for GoldenHour V1.</p>
+      <p className="font-dm text-base leading-relaxed">GoldenHour V1: {eventConfig.date}.</p>
       <button
         type="button"
         aria-label="Dismiss registration update"
