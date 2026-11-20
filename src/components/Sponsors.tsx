@@ -67,7 +67,7 @@ export default function Sponsors() {
         })}
       </div>
       <div className="max-w-[760px] mx-auto mt-10 brutal-card-orange gh-sponsor-pitch p-8 md:p-12 text-center reveal">
-        <p className="font-space text-[10px] uppercase tracking-[.16em] mb-5">SPONSOR OPPORTUNITIES / 2026</p>
+        <p className="font-space text-[10px] uppercase tracking-[.16em] mb-5">SPONSOR OPPORTUNITIES / 2027</p>
         <h3 className="font-archivo text-4xl md:text-6xl leading-[.82]">SPONSOR<br />SLOTS<br /><span className="text-offwhite">OPEN.</span></h3>
         <p className="font-dm text-base md:text-lg mt-8 max-w-md mx-auto leading-relaxed">Want to support student builders or sponsor a future GOLDENHOUR edition? Email the organizing team to start a conversation.</p>
         <a href="mailto:hello@goldenhourdelhi.co.in?subject=GOLDENHOUR%20sponsorship" className="font-space text-xs font-bold uppercase flex items-center justify-center gap-2 mt-8 hover:text-offwhite">CONTACT US TO SPONSOR <ArrowUpRight size={15} aria-hidden="true" /></a>
